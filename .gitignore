@@ -1,0 +1,7 @@
+*.*~
+telepresence.log
+devel/*
+
+# OSX
+.DS_Store
+.idea
