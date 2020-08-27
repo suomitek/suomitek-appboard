@@ -1,4 +1,4 @@
-# Kubeapps asset-syncer Developer Guide
+# Suomitek-appboard asset-syncer Developer Guide
 
 The `asset-syncer` component is a tool that scans a Helm chart repository and populates chart metadata in the database. This metadata is then served by the `assetsvc` component.
 
@@ -20,7 +20,7 @@ export PATH=$GOPATH/bin:$PATH
 export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appboard
 ```
 
-## Download the Kubeapps source code
+## Download the Suomitek-appboard source code
 
 ```bash
 git clone https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR
@@ -28,9 +28,9 @@ git clone https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR
 
 The `asset-syncer` sources are located under the `cmd/asset-syncer/` directory.
 
-### Install Kubeapps in your cluster
+### Install Suomitek-appboard in your cluster
 
-Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/suomitek-appboard/README.md) to install Kubeapps in your cluster.
+Suomitek-appboard is a Kubernetes-native application. To develop and test Suomitek-appboard components we need a Kubernetes cluster with Suomitek-appboard already installed. Follow the [Suomitek-appboard installation guide](../../chart/suomitek-appboard/README.md) to install Suomitek-appboard in your cluster.
 
 ### Building the `asset-syncer` image
 
@@ -61,7 +61,7 @@ Note that the asset-syncer should be rebuilt for new changes to take effect.
 
 ### Running tests
 
-You can run the asset-syncer tests along with the tests for the Kubeapps project:
+You can run the asset-syncer tests along with the tests for the Suomitek-appboard project:
 
 ```bash
 go test -v ./...

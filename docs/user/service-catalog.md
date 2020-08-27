@@ -1,4 +1,4 @@
-# Kubernetes Service Catalog Kubeapps Integration
+# Kubernetes Service Catalog Suomitek-appboard Integration
 
 ## Kubernetes Service Catalog
 
@@ -14,22 +14,22 @@ a ServiceBinding object.
 
 ![Service Catalog Diagram](../img/service-catalog-diagram.png)
 
-## Service Catalog and Kubeapps
+## Service Catalog and Suomitek-appboard
 
-Kubeapps has native integration with the Service Catalog and allows Kubeapps users
-to provision external cloud services directly from the Kubeapps interface.
+Suomitek-appboard has native integration with the Service Catalog and allows Suomitek-appboard users
+to provision external cloud services directly from the Suomitek-appboard interface.
 
 In this tutorial we will explain how to deploy the Service Catalog into your cluster,
 we will configure two Service Brokers (GCP and Azure) and we will provision some
 cloud services that we will then use in other applications.
 
 This tutorial assumes that you already have a Kubernetes cluster setup with Helm and
-Kubeapps. If you don't have Helm or Kubeapps you can follow the [installation instructions for Kubeapps](getting-started.md).
+Suomitek-appboard. If you don't have Helm or Suomitek-appboard you can follow the [installation instructions for Suomitek-appboard](getting-started.md).
 
 ## Deploy Service Catalog
 
 The Service Catalog is distributed as a Helm chart and it is ready to be
-deployed with Kubeapps.
+deployed with Suomitek-appboard.
 
 To deploy it in your cluster, navigate to `Service Instances` and click on
 `Install Catalog`.
@@ -37,7 +37,7 @@ To deploy it in your cluster, navigate to `Service Instances` and click on
 ![Service Catalog installation](../img/install-service-catalog.png)
 
 You will deploy the Service Catalog as any other Helm chart
-installed through Kubeapps. We recommend to at least change the following value in
+installed through Suomitek-appboard. We recommend to at least change the following value in
 `values.yaml`:
 
 ```yaml
@@ -83,9 +83,9 @@ NAME         URL                                                                
 osba         https://osba-open-service-broker-azure.osba.svc.cluster.local                           Ready    6m
 ```
 
-## Kubeapps integration
+## Suomitek-appboard integration
 
-When a user clicks on Services Instances menu in Kubeapps they will get the list
+When a user clicks on Services Instances menu in Suomitek-appboard they will get the list
 of Service Instances available in the selected namespace. As we haven't provisioned
 any yet, the list will be empty and we will get a message about provisioning
 an instance.

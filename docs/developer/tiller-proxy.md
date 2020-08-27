@@ -1,4 +1,4 @@
-# Kubeapps Tiller Proxy Developer Guide
+# Suomitek-appboard Tiller Proxy Developer Guide
 
 The `tiller-proxy` component is a micro-service that creates a API endpoint for accessing the Helm Tiller server.
 
@@ -26,9 +26,9 @@ git clone --recurse-submodules https://github.com/suomitek/suomitek-appboard $KU
 
 The `tiller-proxy` sources are located under the `cmd/tiller-proxy/` and it uses packages from the `pkg` directory.
 
-### Install Kubeapps in your cluster
+### Install Suomitek-appboard in your cluster
 
-Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/suomitek-appboard/README.md) to install Kubeapps in your cluster.
+Suomitek-appboard is a Kubernetes-native application. To develop and test Suomitek-appboard components we need a Kubernetes cluster with Suomitek-appboard already installed. Follow the [Suomitek-appboard installation guide](../../chart/suomitek-appboard/README.md) to install Suomitek-appboard in your cluster.
 
 ### Building the `tiller-proxy` binary
 
@@ -48,7 +48,7 @@ minikube start
 eval $(minikube docker-env)
 ```
 
-Note: By default, Kubeapps will try to fetch the latest version of the image so in order to make this workflow work in Minikube you will need to update the imagePullPolicy first:
+Note: By default, Suomitek-appboard will try to fetch the latest version of the image so in order to make this workflow work in Minikube you will need to update the imagePullPolicy first:
 
 ```bash
 kubectl patch deployment suomitek-appboard-internal-tiller-proxy -n suomitek-appboard --type=json -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/imagePullPolicy", "value": "IfNotPresent"}]'

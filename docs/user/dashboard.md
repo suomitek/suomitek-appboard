@@ -1,8 +1,8 @@
 # Using the Dashboard
 
-Once you have [installed Kubeapps in your cluster](../../chart/suomitek-appboard/README.md) you can use the Dashboard to start managing and deploying applications in your cluster. Checkout the [Getting Started](getting-started.md) guide to learn how to access the Dashboard and deploy your first application.
+Once you have [installed Suomitek-appboard in your cluster](../../chart/suomitek-appboard/README.md) you can use the Dashboard to start managing and deploying applications in your cluster. Checkout the [Getting Started](getting-started.md) guide to learn how to access the Dashboard and deploy your first application.
 
-The following sections walk you through some common tasks with the Kubeapps Dashboard.
+The following sections walk you through some common tasks with the Suomitek-appboard Dashboard.
 
 ## Work with Charts
 
@@ -38,7 +38,7 @@ You can remove any of the applications from your cluster by clicking the "Delete
 
 ### Add more chart repositories
 
-By default, Kubeapps comes with the official Kubernetes chart repositories enabled. You can see the list of enabled chart repositories in the "App Repositories" page under the "Configuration" menu:
+By default, Suomitek-appboard comes with the official Kubernetes chart repositories enabled. You can see the list of enabled chart repositories in the "App Repositories" page under the "Configuration" menu:
 
 ![Repositories List](../img/dashboard-repos.png)
 

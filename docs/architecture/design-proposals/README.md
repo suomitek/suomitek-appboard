@@ -1,6 +1,6 @@
 # Design Proposals
 
-This folder contain documents/links used to design new features for Kubeapps.
+This folder contain documents/links used to design new features for Suomitek-appboard.
 
 # Links
 

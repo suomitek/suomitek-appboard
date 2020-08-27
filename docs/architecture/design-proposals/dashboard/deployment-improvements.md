@@ -6,7 +6,7 @@ The goal of this document is to specify the design proposal for improving the cu
 
 When users deploy an application we present the default `values.yaml` that the chart contains. This is the only mechanism they have to modify the default behavior. In many cases, they want to modify this default setup with simple modifications like changing the default hostname or modify the default password. It's not trivial to find these settings in the values.yaml that it's usually very verbose. They should be able to modify some "common" parameters easily. In any case, for advanced users, they should be able to still modify the `values.yaml` to fine-tune the settings of the application.
 
-Once an application is deployed, eventually the user will need to upgrade it. Now, apart from the complexity of having to handle the `values.yaml` file, it's necessary to remember the changes done in the original `values.yaml` in order to port those to the new version. In Kubeapps, once a user selects a new version, the values are substituted with the defaults for the new version, making it very difficult to modify these values with the previous one. It should be possible to follow the same approach than in the deployment: have an easy-to-fill form, having the possibility to switch to the advanced form in which they can modify the values as their liking.
+Once an application is deployed, eventually the user will need to upgrade it. Now, apart from the complexity of having to handle the `values.yaml` file, it's necessary to remember the changes done in the original `values.yaml` in order to port those to the new version. In Suomitek-appboard, once a user selects a new version, the values are substituted with the defaults for the new version, making it very difficult to modify these values with the previous one. It should be possible to follow the same approach than in the deployment: have an easy-to-fill form, having the possibility to switch to the advanced form in which they can modify the values as their liking.
 
 ## Desired User Experience (UX)
 
@@ -32,11 +32,11 @@ If the user decides to select the advanced version of the form, we should repres
 
 The basic parameters that an application supports should be defined per chart. Along with the different files of the application, we should include the information of these parameters as a different file. The proposed approach is to use the file: `values.schema.json`. This file will be a [JSON Schema](https://json-schema.org/). We have chosen this approach since it's also used by Helm v3 to validate the `values.yaml` of a chart ([link](https://github.com/helm/helm/pull/5350/)). Also, it's possible to autogenerate a form from a JSON schema as we do for the service catalog instances. We won't do so for the moment because we cannot be sure that if a `values.schema.json` exists, it represent all the relevants fields of a `values.yaml`. In any case, we won't autogenerate the form to give a better experience.
 
-This JSON Schema allows us to know the structure of the `values.yaml` file but, to know which parameters should be represented in the basic form, we need more information. In particular we need to map well known parameters, like "Disk size", to parameters in the `values.yaml`. For doing so, we can include a new label in the JSON schema. For the disk size, we will mark the parameter with `form=diskSize` so Kubeapps can recognize it. Having those two pieces of information, we are able to deliver the desired experience. See the next section for an example.
+This JSON Schema allows us to know the structure of the `values.yaml` file but, to know which parameters should be represented in the basic form, we need more information. In particular we need to map well known parameters, like "Disk size", to parameters in the `values.yaml`. For doing so, we can include a new label in the JSON schema. For the disk size, we will mark the parameter with `form=diskSize` so Suomitek-appboard can recognize it. Having those two pieces of information, we are able to deliver the desired experience. See the next section for an example.
 
 ### Supported Applications and Parameters for v1
 
-We should decide the first subset of applications and parameters that we want to support in order to deliver the first version of this feature. Based on the popularity of the charts managed by Bitnami that are installed through Kubeapps, we have selected:
+We should decide the first subset of applications and parameters that we want to support in order to deliver the first version of this feature. Based on the popularity of the charts managed by Bitnami that are installed through Suomitek-appboard, we have selected:
 
 1.	bitnami/wordpress
 2.	bitnami/apache
@@ -153,7 +153,7 @@ This section defines how the deployment logic will work based on the JSON Schema
 
 1. The deployment component loads the details of the Chart. If the chart doesn't contain the file `values.schema.json` or any key for `form`, continue as today; Only the advanced deployment is allowed. In other case, go to the next step.
 2. Load the `values.schema.json`. From this point, two different tabs will be shown to the user. If the user changes tab from `basic` to `advanced` the new form will be shown. We will port changes from one one form to the other using the YAML library: https://github.com/eemeli/yaml/.
-3. Kubeapps will support certain types of parameters (like `username` or `resources`). If those parameters are present, we will render the rich view of the parameter, for example a card-choice instead of a text-box. For parameters not supported, we should be able to fallback to the automatic generation. This may not be possible, so in that case, the parameter will be ignored (with an error for the developer console). If a parameter has a `title` or a `description`, those should be used in the form.
+3. Suomitek-appboard will support certain types of parameters (like `username` or `resources`). If those parameters are present, we will render the rich view of the parameter, for example a card-choice instead of a text-box. For parameters not supported, we should be able to fallback to the automatic generation. This may not be possible, so in that case, the parameter will be ignored (with an error for the developer console). If a parameter has a `title` or a `description`, those should be used in the form.
 4. Once the user clicks on "submit", we will also use the JSON schema to validate that the processed object complies with the definition.
 
 ## Upgrade Workflow
@@ -167,7 +167,7 @@ The upgrade workflow will be similar to the deployment with some caveats:
 
 ## Development
 
-The amount of code/time required to implement this feature is considerably high. To avoid large PRs or temporary branches, we suggest to incrementaly implement this feature, merging changes on `master` but protecting the current status using a feature flag. If the feature flag is disabled (default behavior), the current deployment and upgrade form will be shown. For developers (or anyone that wants to test the feature), we will enable this flag to activate the new form. We can store this flag in the Kubeapps ConfigMap. Once the feature is finished, this flag will be removed from the configuration, enabling the feature for everyone.
+The amount of code/time required to implement this feature is considerably high. To avoid large PRs or temporary branches, we suggest to incrementaly implement this feature, merging changes on `master` but protecting the current status using a feature flag. If the feature flag is disabled (default behavior), the current deployment and upgrade form will be shown. For developers (or anyone that wants to test the feature), we will enable this flag to activate the new form. We can store this flag in the Suomitek-appboard ConfigMap. Once the feature is finished, this flag will be removed from the configuration, enabling the feature for everyone.
 
 ## Task definition
 

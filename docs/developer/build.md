@@ -1,6 +1,6 @@
-# The Kubeapps Build Guide
+# The Suomitek-appboard Build Guide
 
-This guide explains how to build Kubeapps.
+This guide explains how to build Suomitek-appboard.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ cd $KUBEAPPS_DIR
 
 ## Build suomitek-appboard
 
-Kubeapps consists of a number of in-cluster components. To build all these components in one go:
+Suomitek-appboard consists of a number of in-cluster components. To build all these components in one go:
 
 ```bash
 make IMAGE_TAG=myver all

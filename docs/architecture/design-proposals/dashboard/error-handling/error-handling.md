@@ -10,7 +10,7 @@ Issue: [suomitek-appboard#657](https://github.com/suomitek/suomitek-appboard/iss
 
 ## Objective
 
-The goal of this document is to propose a consistent error handling mechanism that has an answer to two types of errors, unexpected/unhandled (transient server error, syntax error) and handled (retries, 404s, ...) in the Kubeapps frontend dashboard.
+The goal of this document is to propose a consistent error handling mechanism that has an answer to two types of errors, unexpected/unhandled (transient server error, syntax error) and handled (retries, 404s, ...) in the Suomitek-appboard frontend dashboard.
 
 ### Background
 
@@ -109,10 +109,10 @@ The store will be defined by following [this common](https://redux.js.org/recipe
 
 |Property|Type|Description|
 |---|---|---|
-|byId|`{ [errorID: string]: KubeappsError }`|It will contain a map of the Kubeapps errors indexed by its ID|
+|byId|`{ [errorID: string]: KubeappsError }`|It will contain a map of the Suomitek-appboard errors indexed by its ID|
 |allIds|string[]|Array with the IDs of the errors.|
 
-ById will be used to store the proper errors, those errors are generic Kubeapps errors with its properties. The ID will be generated during creation for example using [shortID](https://github.com/dylang/shortid).
+ById will be used to store the proper errors, those errors are generic Suomitek-appboard errors with its properties. The ID will be generated during creation for example using [shortID](https://github.com/dylang/shortid).
 
 AllIds will contain the list of identifiers and will be used to indicate ordering. 
 

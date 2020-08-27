@@ -1,8 +1,8 @@
 # Tiller Proxy
 
-This proxy is a service for Kubeapps that connects the Dashboard with Tiller. The goal of this Proxy is to provide a secure proxy for authenticated users to deploy, upgrade and delete charts in different namespaces.
+This proxy is a service for Suomitek-appboard that connects the Dashboard with Tiller. The goal of this Proxy is to provide a secure proxy for authenticated users to deploy, upgrade and delete charts in different namespaces.
 
-Part of the logic of this tool has been extracted from [helm-CRD](https://github.com/bitnami-labs/helm-crd). That tool has been deprecated in Kubeapps to avoid having to synchronize the state of a release in two different places (Tiller and the CRD object).
+Part of the logic of this tool has been extracted from [helm-CRD](https://github.com/bitnami-labs/helm-crd). That tool has been deprecated in Suomitek-appboard to avoid having to synchronize the state of a release in two different places (Tiller and the CRD object).
 
 The client should provide the header `Authorization: Bearer TOKEN` being TOKEN the Kubernetes API Token in order to perform any action.
 
@@ -62,6 +62,6 @@ Each request should contain at least:
 
 With that information the proxy will resolve the complete manifest of the application. Then it will gather the different API groups that are included in the manifest to validate that the user identified by the bearer token can perform the requested action.
 
-This is an example diagram of the communication between Kubeapps (the dashboard), the proxy, Tiller and the K8s API for deploying an application "foo" that is composed of a `Deployment` and a `Service`:
+This is an example diagram of the communication between Suomitek-appboard (the dashboard), the proxy, Tiller and the K8s API for deploying an application "foo" that is composed of a `Deployment` and a `Service`:
 
 ![diagram](diagram.png)

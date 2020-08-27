@@ -1,8 +1,8 @@
-# Update Kubeapps to use clarity.design
+# Update Suomitek-appboard to use clarity.design
 
 Issue https://github.com/suomitek/suomitek-appboard/issues/1354
 
-The goal of this proposal is to define how the new UI of Kubeapps will look like. To make collaboration easier, a Google doc is available:
+The goal of this proposal is to define how the new UI of Suomitek-appboard will look like. To make collaboration easier, a Google doc is available:
 
 https://docs.google.com/document/d/1rnrU2T3YB-mk68XpCW9GXnkcg2v2xLz7tijSLMR3GEc/
 

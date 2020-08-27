@@ -8,7 +8,7 @@ Parent issue: https://github.com/suomitek/suomitek-appboard/issues/1524
 
 The goal of this revamp is to improve the Application View, which is one of the core views of the project so it gives a better user experience in different areas:
 
- - Discoverability. It should be possible to obtain information about the application dependencies. For example, Kubeapps should show that MariaDB is a dependency of WordPress. Details at https://github.com/suomitek/suomitek-appboard/issues/529
+ - Discoverability. It should be possible to obtain information about the application dependencies. For example, Suomitek-appboard should show that MariaDB is a dependency of WordPress. Details at https://github.com/suomitek/suomitek-appboard/issues/529
  - Error Detection. Make an easy to understand view that can point the user to the piece(s) of the chart that is failing.
  - Usability. Make it easier, if possible, to modify/upgrade/rollback/test/delete an application.
  - Debugging. When something fails while working with a release, it should be possible to detect the cause of the issue and fix it without the need of a terminal. This means being able to report kubernetes events/errors to the user and being able to read logs.

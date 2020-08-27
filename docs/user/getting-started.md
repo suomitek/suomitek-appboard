@@ -1,16 +1,16 @@
-# Get Started with Kubeapps
+# Get Started with Suomitek-appboard
 
-This guide will walk you through the process of deploying Kubeapps for your cluster and installing an example application.
+This guide will walk you through the process of deploying Suomitek-appboard for your cluster and installing an example application.
 
 ## Prerequisites
 
-Kubeapps assumes a working Kubernetes cluster (v1.8+), [`Helm`](https://helm.sh/) (2.14.0+) installed in your cluster and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and configured to talk to your Kubernetes cluster. Kubeapps has been tested with Azure Kubernetes Service (AKS), Google Kubernetes Engine (GKE), `minikube` and Docker for Desktop Kubernetes. Kubeapps works on RBAC-enabled clusters and this configuration is encouraged for a more secure install.
+Suomitek-appboard assumes a working Kubernetes cluster (v1.8+), [`Helm`](https://helm.sh/) (2.14.0+) installed in your cluster and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and configured to talk to your Kubernetes cluster. Suomitek-appboard has been tested with Azure Kubernetes Service (AKS), Google Kubernetes Engine (GKE), `minikube` and Docker for Desktop Kubernetes. Suomitek-appboard works on RBAC-enabled clusters and this configuration is encouraged for a more secure install.
 
-> On GKE, you must either be an "Owner" or have the "Container Engine Admin" role in order to install Kubeapps.
+> On GKE, you must either be an "Owner" or have the "Container Engine Admin" role in order to install Suomitek-appboard.
 
-## Step 1: Install Kubeapps
+## Step 1: Install Suomitek-appboard
 
-Use the Helm chart to install the latest version of Kubeapps:
+Use the Helm chart to install the latest version of Suomitek-appboard:
 
 For Helm 2:
 
@@ -27,20 +27,20 @@ kubectl create namespace suomitek-appboard
 helm install suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard --set useHelm3=true
 ```
 
-For detailed information on installing, configuring and upgrading Kubeapps, checkout the [chart README](../../chart/suomitek-appboard/README.md).
+For detailed information on installing, configuring and upgrading Suomitek-appboard, checkout the [chart README](../../chart/suomitek-appboard/README.md).
 
-The above commands will deploy Kubeapps into the `suomitek-appboard` namespace in your cluster. It may take a few minutes to execute. Once it has been deployed and the Kubeapps pods are running, continue to step 2.
+The above commands will deploy Suomitek-appboard into the `suomitek-appboard` namespace in your cluster. It may take a few minutes to execute. Once it has been deployed and the Suomitek-appboard pods are running, continue to step 2.
 
 ## Step 2: Create a Kubernetes API token
 
-For trying out Kubeapps, access to the Dashboard requires a Kubernetes API token to authenticate with the Kubernetes API server as shown below, but for any real installation of Kubeapps you should instead [configure an OAuth2/OIDC provider](using-an-OIDC-provider.md).
+For trying out Suomitek-appboard, access to the Dashboard requires a Kubernetes API token to authenticate with the Kubernetes API server as shown below, but for any real installation of Suomitek-appboard you should instead [configure an OAuth2/OIDC provider](using-an-OIDC-provider.md).
 
 ```bash
 kubectl create serviceaccount suomitek-appboard-operator
 kubectl create clusterrolebinding suomitek-appboard-operator --clusterrole=cluster-admin --serviceaccount=default:suomitek-appboard-operator
 ```
 
-> **NOTE** It's not recommended to create `cluster-admin` users for Kubeapps production usage. Please refer to the [Access Control](/docs/user/access-control.md) documentation to configure fine-grained access control for users.
+> **NOTE** It's not recommended to create `cluster-admin` users for Suomitek-appboard production usage. Please refer to the [Access Control](/docs/user/access-control.md) documentation to configure fine-grained access control for users.
 
 To retrieve the token,
 
@@ -71,27 +71,27 @@ certutil -decode b64.txt token.txt
 
 Open a command prompt and run the `GetDashToken.cmd` Your token can be found in the `token.txt` file.
 
-## Step 3: Start the Kubeapps Dashboard
+## Step 3: Start the Suomitek-appboard Dashboard
 
-Once Kubeapps is installed, securely access the Kubeapps Dashboard from your system by running:
+Once Suomitek-appboard is installed, securely access the Suomitek-appboard Dashboard from your system by running:
 
 ```bash
 kubectl port-forward -n suomitek-appboard svc/suomitek-appboard 8080:80
 ```
 
-This will start an HTTP proxy for secure access to the Kubeapps Dashboard. Visit http://127.0.0.1:8080/ in your preferred web browser to open the Dashboard. Here's what you should see:
+This will start an HTTP proxy for secure access to the Suomitek-appboard Dashboard. Visit http://127.0.0.1:8080/ in your preferred web browser to open the Dashboard. Here's what you should see:
 
 ![Dashboard login page](../img/dashboard-login.png)
 
-Paste the token generated in the previous step to authenticate and access the Kubeapps dashboard for Kubernetes.
+Paste the token generated in the previous step to authenticate and access the Suomitek-appboard dashboard for Kubernetes.
 
 ![Dashboard main page](../img/dashboard-home.png)
 
-***Note:*** If you are setting up Kubeapps for other people to access, you will want to use a different service type or setup Ingress rather than using the above `kubectl port-forward`. For detailed information on installing, configuring and upgrading Kubeapps, checkout the [chart README](../../chart/suomitek-appboard/README.md).
+***Note:*** If you are setting up Suomitek-appboard for other people to access, you will want to use a different service type or setup Ingress rather than using the above `kubectl port-forward`. For detailed information on installing, configuring and upgrading Suomitek-appboard, checkout the [chart README](../../chart/suomitek-appboard/README.md).
 
 ## Step 4: Deploy WordPress
 
-Once you have the Kubeapps Dashboard up and running, you can start deploying applications into your cluster.
+Once you have the Suomitek-appboard Dashboard up and running, you can start deploying applications into your cluster.
 
 - Use the "Deploy App" or click on the "Catalog" page in the Dashboard to select an application from the list of charts in any of the configured Helm chart repositories. This example assumes you want to deploy WordPress.
 
@@ -126,10 +126,10 @@ If you want to uninstall/delete your WordPress application, you can do so by cli
 
 ## Next Steps
 
-Learn more about Kubeapps with the links below:
+Learn more about Suomitek-appboard with the links below:
 
 - [Detailed installation instructions](../../chart/suomitek-appboard/README.md)
 - [Deploying Operators](./operators.md)
-- [Kubeapps Dashboard documentation](dashboard.md)
-- [Kubeapps components](../architecture/overview.md)
+- [Suomitek-appboard Dashboard documentation](dashboard.md)
+- [Suomitek-appboard components](../architecture/overview.md)
 - [Roadmap](https://github.com/suomitek/suomitek-appboard/wiki/Roadmap)

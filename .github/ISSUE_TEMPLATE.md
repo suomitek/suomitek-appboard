@@ -37,7 +37,7 @@ You do NOT have to include this information if this is a FEATURE REQUEST
 
 <!-- Any additional information, configuration or data that might be necessary to reproduce the issue. -->
 
-### Version of Helm, Kubeapps and Kubernetes:
+### Version of Helm, Suomitek-appboard and Kubernetes:
 
 - Output of `helm version`:
 

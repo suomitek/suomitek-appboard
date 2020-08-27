@@ -8,7 +8,7 @@ In every CI build, a set of end-to-end tests are run to verify, as much as possi
 These tests are executed by the script [scripts/e2e-test.sh](../../script/e2e-test.sh). This script:
 
  1. Installs Tiller using a certificate (this step is skipped when `HELM_VERSION=v3`)
- 2. Installs Kubeapps using the images built during the CI process
+ 2. Installs Suomitek-appboard using the images built during the CI process
  3. Waits for the different deployments to be ready
  4. Execute the Helm tests (see the section below for more details).
  5. Execute the web browser tests (see the section below for more details).
@@ -33,7 +33,7 @@ The `integration` folder pointed above is self-contained. That means that the di
 
 It's possible to run these tests either locally or in a container environment.
 
-You can setup a configured Kubeapps instance in your cluster with the `script/setup-suomitek-appboard.sh` script.
+You can setup a configured Suomitek-appboard instance in your cluster with the `script/setup-suomitek-appboard.sh` script.
 
 ### Runing browser tests locally
 

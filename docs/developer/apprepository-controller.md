@@ -1,6 +1,6 @@
-# Kubeapps apprepository-controller Developer Guide
+# Suomitek-appboard apprepository-controller Developer Guide
 
-The `apprepository-controller` is a Kubernetes controller for managing Helm chart repositories added to Kubeapps.
+The `apprepository-controller` is a Kubernetes controller for managing Helm chart repositories added to Suomitek-appboard.
 
 ## Prerequisites
 
@@ -34,9 +34,9 @@ The `apprepository-controller` sources are located under the `cmd/apprepository-
 cd $KUBEAPPS_DIR/cmd/apprepository-controller
 ```
 
-### Install Kubeapps in your cluster
+### Install Suomitek-appboard in your cluster
 
-Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/suomitek-appboard/README.md) to install Kubeapps in your cluster.
+Suomitek-appboard is a Kubernetes-native application. To develop and test Suomitek-appboard components we need a Kubernetes cluster with Suomitek-appboard already installed. Follow the [Suomitek-appboard installation guide](../../chart/suomitek-appboard/README.md) to install Suomitek-appboard in your cluster.
 
 ### Building `apprepository-controller` binary
 
@@ -62,7 +62,7 @@ You can now execute the `apprepository-controller` binary on the developer host 
 ./apprepository-controller --repo-sync-image=quay.io/helmpack/chart-repo:myver --kubeconfig ~/.kube/config
 ```
 
-Performing application repository actions in the Kubeapps dashboard will now trigger operations in the `apprepository-controller` binary running locally on your development host.
+Performing application repository actions in the Suomitek-appboard dashboard will now trigger operations in the `apprepository-controller` binary running locally on your development host.
 
 ### Running tests
 

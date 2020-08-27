@@ -1,9 +1,9 @@
-# Using an OAuth2/OIDC Provider with Kubeapps
+# Using an OAuth2/OIDC Provider with Suomitek-appboard
 
 OpenID Connect (OIDC) is a simple identity layer on top of the OAuth 2.0 protocol which allows clients to verify the identity of an user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the user.
 
 It is possible to configure your Kubernetes cluster to use an OIDC provider in order to manage accounts, groups and roles with a single application. Additionally, some managed Kubernetes environments enable authenticating via plain OAuth2 (GKE).
-This guide will explain how you can use an existing OAuth2 provider, including OIDC, to authenticate users within Kubeapps.
+This guide will explain how you can use an existing OAuth2 provider, including OIDC, to authenticate users within Suomitek-appboard.
 
 ## Pre-requisites
 
@@ -16,9 +16,9 @@ There are several Identity Providers (IdP) that can be used in a Kubernetes clus
 - [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis): Identity Provider that can be used for AKS.
 - [Google OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect): OAuth 2.0 for Google accounts.
 
-When configuring the identity provider, you will need to ensure that the redirect URL for your Kubeapps installation is configured, which is your Kubeapps URL with the absolute path '/oauth2/callback'. For example, if I am deploying Kubeapps with TLS on the domain my-suomitek-appboard.example.com, then the redirect URL will be `https://my-suomitek-appboard.example.com/oauth2/callback`.
+When configuring the identity provider, you will need to ensure that the redirect URL for your Suomitek-appboard installation is configured, which is your Suomitek-appboard URL with the absolute path '/oauth2/callback'. For example, if I am deploying Suomitek-appboard with TLS on the domain my-suomitek-appboard.example.com, then the redirect URL will be `https://my-suomitek-appboard.example.com/oauth2/callback`.
 
-For Kubeapps to use an Identity Provider it's necessary to configure at least the following parameters:
+For Suomitek-appboard to use an Identity Provider it's necessary to configure at least the following parameters:
 
 - Client ID: Client ID of the IdP.
 - Client Secret: (If configured) Secret used to validate the Client ID.
@@ -27,7 +27,7 @@ For Kubeapps to use an Identity Provider it's necessary to configure at least th
 
 **Note**: Depending on the configuration of the Identity Provider more parameters may be needed.
 
-Kubeapps uses [OAuth2 Proxy](https://github.com/pusher/oauth2_proxy) to handle the OAuth2/OpenIDConnect authentication. The following sections explain how you can find the parameters above for some of the identity providers tested. If you have configured your cluster to use an Identity Provider you will already know some of these parameters. More detailed information can be found on the [OAuth2 Proxy Auth configuration page](https://pusher.github.io/oauth2_proxy/auth-configuration).
+Suomitek-appboard uses [OAuth2 Proxy](https://github.com/pusher/oauth2_proxy) to handle the OAuth2/OpenIDConnect authentication. The following sections explain how you can find the parameters above for some of the identity providers tested. If you have configured your cluster to use an Identity Provider you will already know some of these parameters. More detailed information can be found on the [OAuth2 Proxy Auth configuration page](https://pusher.github.io/oauth2_proxy/auth-configuration).
 
 ### Keycloak
 
@@ -63,17 +63,17 @@ In the case of Google we can use an OAuth 2.0 client ID. You can find more infor
 - Client-Secret: Secret for the Web application.
 - OIDC Issuer URL: https://accounts.google.com.
 
-## Deploying a proxy to access Kubeapps
+## Deploying a proxy to access Suomitek-appboard
 
-The main difference in the authentication is that instead of accessing the Kubeapps service, we will be accessing an oauth2 proxy service that is in charge of authenticating users with the identity provider and injecting the required credentials in the requests to Kubeapps. There are a number of available solutions for this use-case, like [keycloak-gatekeeper](https://github.com/keycloak/keycloak-gatekeeper) and [oauth2_proxy](https://github.com/pusher/oauth2_proxy). For this guide we will use `oauth2_proxy` since it supports both OIDC and plain OAuth2 for many providers.
+The main difference in the authentication is that instead of accessing the Suomitek-appboard service, we will be accessing an oauth2 proxy service that is in charge of authenticating users with the identity provider and injecting the required credentials in the requests to Suomitek-appboard. There are a number of available solutions for this use-case, like [keycloak-gatekeeper](https://github.com/keycloak/keycloak-gatekeeper) and [oauth2_proxy](https://github.com/pusher/oauth2_proxy). For this guide we will use `oauth2_proxy` since it supports both OIDC and plain OAuth2 for many providers.
 
-Once the proxy is accessible, you will be redirected to the identity provider to authenticate. After successfully authenticating, you will be redirected to Kubeapps and be authenticated with your user's OIDC token.
+Once the proxy is accessible, you will be redirected to the identity provider to authenticate. After successfully authenticating, you will be redirected to Suomitek-appboard and be authenticated with your user's OIDC token.
 
-The next sections explain how you can deploy this proxy either using the Kubeapps chart or manually.
+The next sections explain how you can deploy this proxy either using the Suomitek-appboard chart or manually.
 
 ### Using the chart
 
-Kubeapps chart allows you to automatically deploy the proxy for you as a sidecar container if you specify the necessary flags. In a nutshell you need to enable the feature and set the client ID, secret and the IdP URL. The following examples use Google as the Identity Provider, modify the flags below to adapt them:
+Suomitek-appboard chart allows you to automatically deploy the proxy for you as a sidecar container if you specify the necessary flags. In a nutshell you need to enable the feature and set the client ID, secret and the IdP URL. The following examples use Google as the Identity Provider, modify the flags below to adapt them:
 
 **Example 1: Using the OIDC provider**
 
@@ -107,13 +107,13 @@ helm install chartmuseum/suomitek-appboard \
   --set authProxy.additionalFlags="{-cookie-secure=false}"
 ```
 
-**Example 3: Authentication for Kubeapps on a GKE cluster**
+**Example 3: Authentication for Suomitek-appboard on a GKE cluster**
 
 Google Kubernetes Engine does not allow an OIDC IDToken to be used to authenticate requests to the managed API server, instead requiring the standard OAuth2 access token.
-For this reason, when deploying Kubeapps on GKE we need to ensure that
+For this reason, when deploying Suomitek-appboard on GKE we need to ensure that
 
 * The scopes required by the user to interact with cloud platform are included, and
-* The Kubeapps frontend uses the OAuth2 `access_key` as the bearer token when communicating with the managed Kubernetes API
+* The Suomitek-appboard frontend uses the OAuth2 `access_key` as the bearer token when communicating with the managed Kubernetes API
 
 Note that using the custom `google` provider here enables google to prompt the user for consent for the specific permissions requested in the scopes below, in a user-friendly way. You can also use the `oidc` provider but in this case the user is not prompted for the extra consent:
 
@@ -206,7 +206,7 @@ The above is a sample deployment, depending on the configuration of the Identity
 
 #### Exposing the proxy
 
-Once the proxy is in place and it's able to connect to the IdP we will need to expose it to access it as the main endpoint for Kubeapps (instead of the `suomitek-appboard` service). We can do that with an Ingress object. Note that for doing so an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) is needed. There are also other methods to expose the `suomitek-appboard-auth-proxy` service, for example using `LoadBalancer` as type in a cloud environment. In case an Ingress is used, remember to modify the host `suomitek-appboard.local` for the value that you want to use as a hostname for Kubeapps:
+Once the proxy is in place and it's able to connect to the IdP we will need to expose it to access it as the main endpoint for Suomitek-appboard (instead of the `suomitek-appboard` service). We can do that with an Ingress object. Note that for doing so an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) is needed. There are also other methods to expose the `suomitek-appboard-auth-proxy` service, for example using `LoadBalancer` as type in a cloud environment. In case an Ingress is used, remember to modify the host `suomitek-appboard.local` for the value that you want to use as a hostname for Suomitek-appboard:
 
 ```bash
 kubectl create -n $KUBEAPPS_NAMESPACE -f - -o yaml << EOF

@@ -1,10 +1,10 @@
-# Securing Kubeapps installation for Helm 2
+# Securing Suomitek-appboard installation for Helm 2
 
-In this guide we will explain how to secure the installation of Kubeapps in a multi-tenant cluster if you are still using version 2 of Helm. Following these steps are only necessary if different people with different permissions have access to the same cluster. Generic instructions to secure Helm can be found [here](https://github.com/helm/helm/blob/dev-v2/docs/securing_installation.md).
+In this guide we will explain how to secure the installation of Suomitek-appboard in a multi-tenant cluster if you are still using version 2 of Helm. Following these steps are only necessary if different people with different permissions have access to the same cluster. Generic instructions to secure Helm can be found [here](https://github.com/helm/helm/blob/dev-v2/docs/securing_installation.md).
 
 The main goal is to secure the access to [Tiller](https://github.com/helm/helm/blob/dev-v2/docs/tiller_ssl.md) (Helm server-side component). Tiller has access to create or delete any resource in the cluster so we should be careful on how we expose the functionality it provides.
 
-In order to take advantage of Kubeapps security features you will need to configure two things: a **TLS certificate** to control the access to Tiller and [**RBAC roles**](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) to authorize requests.
+In order to take advantage of Suomitek-appboard security features you will need to configure two things: a **TLS certificate** to control the access to Tiller and [**RBAC roles**](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) to authorize requests.
 
 ## Install Tiller Securely
 
@@ -23,9 +23,9 @@ helm init --tiller-tls --tiller-tls-verify \
   --tls-ca-cert ca.cert.pem
 ```
 
-## Deploy Kubeapps with a TLS certificate
+## Deploy Suomitek-appboard with a TLS certificate
 
-This is the command to install Kubeapps with our certificate:
+This is the command to install Suomitek-appboard with our certificate:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
@@ -49,9 +49,9 @@ $ kubectl api-versions | grep rbac.authorization
 rbac.authorization.k8s.io/v1
 ```
 
-Once your cluster has RBAC enabled read [this document](/docs/user/access-control.md) to know how to login in Kubeapps using a token that identifies a user account and how you can create users with different permissions.
+Once your cluster has RBAC enabled read [this document](/docs/user/access-control.md) to know how to login in Suomitek-appboard using a token that identifies a user account and how you can create users with different permissions.
 
-In a nutshell, Kubeapps authorization validates:
+In a nutshell, Suomitek-appboard authorization validates:
 
 - When getting a release details, it checks that the user have "read" access to all the components of the release.
 - When creating, upgrading or deleting a release it checks that the user is allowed to create, update or delete all the components contained in the release chart.

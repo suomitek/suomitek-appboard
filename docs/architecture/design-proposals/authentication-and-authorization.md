@@ -1,33 +1,33 @@
-# AuthN/AuthZ in Kubeapps
+# AuthN/AuthZ in Suomitek-appboard
 
 ## Objective
 
-Take advantage of RBAC primitives from Kubernetes in Kubeapps to:
+Take advantage of RBAC primitives from Kubernetes in Suomitek-appboard to:
 
 1.  provide authenticated access to the Dashboard
 1.  restrict certain operations within the Dashboard for individual users
 
 ## Motivation
 
-Consider an enterprise, MyCompany Ltd., that wants to provide Kubeapps to its employees as a means to deploy and manage applications running in a Kubernetes cluster. Kubeapps is installed into the cluster by the Cluster Operator and access is given via Kubeconfig credentials. Employees run suomitek-appboard dashboard on their local machines to access Kubeapps.
+Consider an enterprise, MyCompany Ltd., that wants to provide Suomitek-appboard to its employees as a means to deploy and manage applications running in a Kubernetes cluster. Suomitek-appboard is installed into the cluster by the Cluster Operator and access is given via Kubeconfig credentials. Employees run suomitek-appboard dashboard on their local machines to access Suomitek-appboard.
 
-In order to make it easier to access Kubeapps, the Cluster Operator configures Kubeapps to be externally accessible via Ingress. Now everyone is able to visit _kubeapps.mycompany.com_ to access the Kubeapps Dashboard. In order to restrict access to this external domain, the company wants to enable employees to login using their Kubernetes credentials from the user interface.
+In order to make it easier to access Suomitek-appboard, the Cluster Operator configures Suomitek-appboard to be externally accessible via Ingress. Now everyone is able to visit _kubeapps.mycompany.com_ to access the Suomitek-appboard Dashboard. In order to restrict access to this external domain, the company wants to enable employees to login using their Kubernetes credentials from the user interface.
 
-Further, the company wants to restrict the ability to manage certain applications to certain teams. They create a restricted namespace for Team A, and only allow employees in that team to view, create and manage applications within that namespace by creating the appropriate RBAC roles. However, since Kubeapps uses its own Service Account and RBAC roles to access the Kubernetes API, all employees are able to view, create and manage applications in Team A's namespace, even if their Kubeconfig credentials restrict it.
+Further, the company wants to restrict the ability to manage certain applications to certain teams. They create a restricted namespace for Team A, and only allow employees in that team to view, create and manage applications within that namespace by creating the appropriate RBAC roles. However, since Suomitek-appboard uses its own Service Account and RBAC roles to access the Kubernetes API, all employees are able to view, create and manage applications in Team A's namespace, even if their Kubeconfig credentials restrict it.
 
-As described above, this is a solved problem in Kubernetes through the use of Kubeconfig credentials and RBAC roles. The Kubernetes Dashboard allows users to leverage their credentials and RBAC roles by providing a login form that accepts a bearer token. When a user is logged in with a token, all requests to the Kubernetes API are made using it. The Kubeapps Dashboard has very similar access mechanisms to the Kubernetes Dashboard, and I propose that we follow in their footsteps to enable authenticated and authorized access.
+As described above, this is a solved problem in Kubernetes through the use of Kubeconfig credentials and RBAC roles. The Kubernetes Dashboard allows users to leverage their credentials and RBAC roles by providing a login form that accepts a bearer token. When a user is logged in with a token, all requests to the Kubernetes API are made using it. The Suomitek-appboard Dashboard has very similar access mechanisms to the Kubernetes Dashboard, and I propose that we follow in their footsteps to enable authenticated and authorized access.
 
 ## Goals and Non-Goals
 
 * Enable using user provided Kubernetes credentials to access Kubernetes APIs from the UI
 * Leverage existing Kubernetes RBAC roles to restrict unauthorized operations, providing a mechanism to restrict operations by namespaces or type (Helm, Kubeless, Service Catalog, etc.)
-* Support the ability to expose Kubeapps externally in a secure way, enabling easier access to Kubeapps without having to install the CLI
-* Avoid introducing a separate way to manage access and authorization to Kubernetes resources (e.g. Kubeapps internal user database)
+* Support the ability to expose Suomitek-appboard externally in a secure way, enabling easier access to Suomitek-appboard without having to install the CLI
+* Avoid introducing a separate way to manage access and authorization to Kubernetes resources (e.g. Suomitek-appboard internal user database)
 * Don't support every possible Kubernetes authentication provider & method
 
 ## User Stories
 
-* As a cluster operator, I want to expose Kubeapps externally but only let authorized users perform certain operations
+* As a cluster operator, I want to expose Suomitek-appboard externally but only let authorized users perform certain operations
 * As a member of one engineering team in an organization, I want the ability to deploy and manage applications within my team's namespaces, but I don't want to have access to another team's applications
 * As an SRE, I want to provide my team access to view the state of running applications in the cluster, but I don't want to give out write access to create or delete applications
 * As an SRE, I want to restrict access to provision more expensive service plans from the Service Catalog
@@ -38,33 +38,33 @@ Cluster operators have the ability to implement various strategies to authentica
 
 ### Configuring an authentication provider on `suomitek-appboard up`
 
-Configuring an authentication provider is typically done by a cluster operator, and usually requires configuring the API server with flags to enable different strategies. As such, it is out of scope for Kubeapps to configure a cluster with an authentication provider.
+Configuring an authentication provider is typically done by a cluster operator, and usually requires configuring the API server with flags to enable different strategies. As such, it is out of scope for Suomitek-appboard to configure a cluster with an authentication provider.
 
 ### Logging in with Client Certificate/Key Auth
 
-Client certificate and key pairs are a common way to authenticate against a cluster. The Kubeconfig can either point to certificates or keys in the filesystem, or they can be embedded within the file as base64 encoded strings. Unfortunately for Kubeapps, it is not possible to include a client certificate and key pair in an XMLHttpRequest (browser AJAX request), so we would not be able to leverage client certificate/key authentication within Kubeapps (see [#200](https://github.com/suomitek/suomitek-appboard/issues/200#issuecomment-376617420)).
+Client certificate and key pairs are a common way to authenticate against a cluster. The Kubeconfig can either point to certificates or keys in the filesystem, or they can be embedded within the file as base64 encoded strings. Unfortunately for Suomitek-appboard, it is not possible to include a client certificate and key pair in an XMLHttpRequest (browser AJAX request), so we would not be able to leverage client certificate/key authentication within Suomitek-appboard (see [#200](https://github.com/suomitek/suomitek-appboard/issues/200#issuecomment-376617420)).
 
 ### Logging in with Token Auth
 
-Bearer tokens are passed via the _Authorization_ header in an HTTP request, which makes them very easy to pass in requests from Kubeapps. In order to use Token Authentication for users, a cluster operator will need to configure the API server with a [Token Auth file](https://kubernetes.io/docs/admin/authentication/#static-token-file) that defines user-token pairs.
+Bearer tokens are passed via the _Authorization_ header in an HTTP request, which makes them very easy to pass in requests from Suomitek-appboard. In order to use Token Authentication for users, a cluster operator will need to configure the API server with a [Token Auth file](https://kubernetes.io/docs/admin/authentication/#static-token-file) that defines user-token pairs.
 
-However, an alternative way to use token authentication is through the use of [Service Accounts](https://kubernetes.io/docs/admin/authentication/#service-account-tokens). These are typically robot accounts for use within Pods, and Kubernetes generates bearer tokens for them to authenticate with the API. Since Service Accounts are enabled by default in most Kubernetes distributions, they can provide for a good way to create and manage user access to Kubeapps. The Kubernetes Dashboard [describes using Service Accounts to create users for the Dashboard in their documentation](https://github.com/kubernetes/dashboard/wiki/Creating-sample-user).
+However, an alternative way to use token authentication is through the use of [Service Accounts](https://kubernetes.io/docs/admin/authentication/#service-account-tokens). These are typically robot accounts for use within Pods, and Kubernetes generates bearer tokens for them to authenticate with the API. Since Service Accounts are enabled by default in most Kubernetes distributions, they can provide for a good way to create and manage user access to Suomitek-appboard. The Kubernetes Dashboard [describes using Service Accounts to create users for the Dashboard in their documentation](https://github.com/kubernetes/dashboard/wiki/Creating-sample-user).
 
-Cluster operators can also configure clusters to use [OpenID Connect tokens to authenticate users](https://kubernetes.io/docs/admin/authentication/#openid-connect-tokens). These tokens could be retrieved from OpenID Connect providers such as Azure Active Directory, Salesforce and Google. With this method configured, the ID token returned by one of these providers can be used as a bearer token. As you can see, supporting token authentication in itself provides a plethora of different options for configuring access to Kubernetes and Kubeapps.
+Cluster operators can also configure clusters to use [OpenID Connect tokens to authenticate users](https://kubernetes.io/docs/admin/authentication/#openid-connect-tokens). These tokens could be retrieved from OpenID Connect providers such as Azure Active Directory, Salesforce and Google. With this method configured, the ID token returned by one of these providers can be used as a bearer token. As you can see, supporting token authentication in itself provides a plethora of different options for configuring access to Kubernetes and Suomitek-appboard.
 
 ## User Experience
 
 ### Cluster Operator
 
-#### Configuring Kubeapps for authentication
+#### Configuring Suomitek-appboard for authentication
 
-By default, Kubeapps should be configured for a production use-case in mind. The Service Account used for the Kubernetes API proxy will have no RBAC roles attached to it. A Cluster Operator will need to create tokens and give them to users of Kubeapps.
+By default, Suomitek-appboard should be configured for a production use-case in mind. The Service Account used for the Kubernetes API proxy will have no RBAC roles attached to it. A Cluster Operator will need to create tokens and give them to users of Suomitek-appboard.
 
-The Cluster Operator may want to configure the API Server to authenticate users against different providers, such as Azure Active Directory or Google. Developers accessing the cluster could then login using these providers and receive a short-lived access token to access the Kubernetes API and Kubeapps.
+The Cluster Operator may want to configure the API Server to authenticate users against different providers, such as Azure Active Directory or Google. Developers accessing the cluster could then login using these providers and receive a short-lived access token to access the Kubernetes API and Suomitek-appboard.
 
 #### Creating new users
 
-Given that most, if not all, Kubernetes distributions will have Service Accounts, this would be an easy way for a Cluster Operator to manage access to Kubeapps. To create a user, the Cluster Operator would create a Service Account:
+Given that most, if not all, Kubernetes distributions will have Service Accounts, this would be an easy way for a Cluster Operator to manage access to Suomitek-appboard. To create a user, the Cluster Operator would create a Service Account:
 
 ```
 apiVersion: v1
@@ -74,9 +74,9 @@ metadata:
   namespace: suomitek-appboard-users
 ```
 
-The Service Account can be created in any namespace, the above example uses _kubeapps-users_ to isolate Service Accounts for Kubeapps users.
+The Service Account can be created in any namespace, the above example uses _kubeapps-users_ to isolate Service Accounts for Suomitek-appboard users.
 
-Then the Cluster Operator will need to create a set of RBAC roles and binding for the user. The Kubeapps documentation will need to define the set of roles for different features. For the purpose of this example, we will bind the Service Account to the _cluster-admin_ role.
+Then the Cluster Operator will need to create a set of RBAC roles and binding for the user. The Suomitek-appboard documentation will need to define the set of roles for different features. For the purpose of this example, we will bind the Service Account to the _cluster-admin_ role.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -114,19 +114,19 @@ namespace: 11 bytes
 token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
-The token can then be copied and given to the developer, who can then login to Kubeapps.
+The token can then be copied and given to the developer, who can then login to Suomitek-appboard.
 
 ### Developer
 
-#### Accessing Kubeapps for the first time
+#### Accessing Suomitek-appboard for the first time
 
-When a developer accesses Kubeapps for the first time or on a new device, they will be greeted with a login prompt, similar to the one from the Kubernetes Dashboard shown below.
+When a developer accesses Suomitek-appboard for the first time or on a new device, they will be greeted with a login prompt, similar to the one from the Kubernetes Dashboard shown below.
 
 ![Kubernetes Dashboard Login](image_0.png)
 
-The user will need to ask their Cluster Operator for a token to access Kubeapps, and once they receive one they will be able to enter it in the login form and click "Sign In". From then on, all requests to the Kubernetes API from the dashboard will use this token.
+The user will need to ask their Cluster Operator for a token to access Suomitek-appboard, and once they receive one they will be able to enter it in the login form and click "Sign In". From then on, all requests to the Kubernetes API from the dashboard will use this token.
 
-#### Returning to Kubeapps
+#### Returning to Suomitek-appboard
 
 After logging in, the token should be persisted (e.g. in a cookie or local storage), so that we do not need to prompt the user to login when returning to the dashboard.
 
@@ -136,13 +136,13 @@ There will need to be a "Sign Out"/"Log Out" option in the top navigation bar so
 
 #### Namespaces
 
-Everything the developer does inside Kubeapps will be within a Kubernetes namespace. The _default_ namespace will be used by default, and there will be a selector in the top-level navigation to select namespaces.
+Everything the developer does inside Suomitek-appboard will be within a Kubernetes namespace. The _default_ namespace will be used by default, and there will be a selector in the top-level navigation to select namespaces.
 
 ![Namespace selector](image_1.png)
 
 #### Unauthorized access
 
-If a logged in user tries to perform an unauthorized action within Kubeapps (e.g. installing a Helm Release in a namespace they don't have access to), the UI should show a meaningful error of the failed request. In particular it should explain what RBAC roles are required for the particular operation and point to documentation on how a Cluster Operator might extend a role.
+If a logged in user tries to perform an unauthorized action within Suomitek-appboard (e.g. installing a Helm Release in a namespace they don't have access to), the UI should show a meaningful error of the failed request. In particular it should explain what RBAC roles are required for the particular operation and point to documentation on how a Cluster Operator might extend a role.
 
 ## Implementation
 
@@ -152,7 +152,7 @@ If a logged in user tries to perform an unauthorized action within Kubeapps (e.g
 
 Currently, all list views (Apps, Functions, etc.) are not scoped by a namespace. To enable the ability to list and view application resources within specific namespaces without requiring cluster-wide permissions, the Dashboard will scope all operations by a namespace by default. The current namespace will be selectable in the top navigation bar.
 
-Kubeapps will try to fetch the list of namespaces from the API, but if this operation is not permitted (due to not having the relevant RBAC role), it will fallback to listing the namespaces in the _kubernetes_namespaces_ array stored in localStorage. By default, this will contain _default_. When in this fallback mode, there will be an option for the user to add namespaces to the _kuberetes_namespaces_ array.
+Suomitek-appboard will try to fetch the list of namespaces from the API, but if this operation is not permitted (due to not having the relevant RBAC role), it will fallback to listing the namespaces in the _kubernetes_namespaces_ array stored in localStorage. By default, this will contain _default_. When in this fallback mode, there will be an option for the user to add namespaces to the _kuberetes_namespaces_ array.
 
 It will also be possible to list resources cluster-wide by selecting the _all_ option in the namespace selector.
 
@@ -170,21 +170,21 @@ The Dashboard does not currently handle API errors well in all cases. With this 
 
 By default for security reasons, kubectl proxy does not accept requests from hostnames other than localhost. To enable access from a LoadBalancer IP/hostname or Ingress hostname, we will set the `--accept-hosts=.*` option when running the proxy.
 
-This obviously raises security concerns as Kubeapps will now happily expose the whole Kubernetes API to the configured Ingress. To mitigate the attack surface of this:
+This obviously raises security concerns as Suomitek-appboard will now happily expose the whole Kubernetes API to the configured Ingress. To mitigate the attack surface of this:
 
 1.  The Service Account given to the proxy container will have no configured RBAC roles by default
 
-2.  We will configure the _--accept-paths_ option on the proxy to only expose the endpoints Kubeapps uses
+2.  We will configure the _--accept-paths_ option on the proxy to only expose the endpoints Suomitek-appboard uses
 
-3.  The Kubeapps nginx-ingress Service will be configured as _ClusterIP_ by default (as it is today), a Cluster Operator will need to explicitly setup their own Ingress or switch the Service to LoadBalancer to enable access from outside the cluster - this will be documented
+3.  The Suomitek-appboard nginx-ingress Service will be configured as _ClusterIP_ by default (as it is today), a Cluster Operator will need to explicitly setup their own Ingress or switch the Service to LoadBalancer to enable access from outside the cluster - this will be documented
 
-On top of that, documentation should encourage Cluster Operators to ensure that Kubeapps is only accessible over a private, internal network (e.g. VPN).
+On top of that, documentation should encourage Cluster Operators to ensure that Suomitek-appboard is only accessible over a private, internal network (e.g. VPN).
 
 ### Documentation
 
-#### RBAC Roles for Kubeapps
+#### RBAC Roles for Suomitek-appboard
 
-In order for Cluster Operators to clearly and correctly assign RBAC roles to Kubeapps users, we outline the exact roles required to perform specific operations within Kubeapps. Roles that indicate a specific namespace **must** be applied within that namespace. A wildcard in the _Namespace_ column indicates that the role can be applied either to specific namespaces (recommended) or cluster-wide.
+In order for Cluster Operators to clearly and correctly assign RBAC roles to Suomitek-appboard users, we outline the exact roles required to perform specific operations within Suomitek-appboard. Roles that indicate a specific namespace **must** be applied within that namespace. A wildcard in the _Namespace_ column indicates that the role can be applied either to specific namespaces (recommended) or cluster-wide.
 
 ##### Applications
 
@@ -235,7 +235,7 @@ In order for Cluster Operators to clearly and correctly assign RBAC roles to Kub
     <td>*</td>
     <td>deployments</td>
     <td>list, watch</td>
-    <td>Kubeapps watches Deployments to monitor rollout status</td>
+    <td>Suomitek-appboard watches Deployments to monitor rollout status</td>
   </tr>
   <tr>
     <td>View Application URLs</td>
@@ -243,7 +243,7 @@ In order for Cluster Operators to clearly and correctly assign RBAC roles to Kub
     <td>*</td>
     <td>services</td>
     <td>list, watch</td>
-    <td>Kubeapps watches App's Services to display URLs to access the app</td>
+    <td>Suomitek-appboard watches App's Services to display URLs to access the app</td>
   </tr>
   <tr>
     <td>Deploy Helm Chart</td>
@@ -251,7 +251,7 @@ In order for Cluster Operators to clearly and correctly assign RBAC roles to Kub
     <td>*</td>
     <td>helmreleases</td>
     <td>create</td>
-    <td>Kubeapps uses the Helm CRD controller to create and manage Helm Releases</td>
+    <td>Suomitek-appboard uses the Helm CRD controller to create and manage Helm Releases</td>
   </tr>
   <tr>
     <td>Upgrade Helm Release</td>
@@ -304,7 +304,7 @@ In order for Cluster Operators to clearly and correctly assign RBAC roles to Kub
     <td>*</td>
     <td>deployments</td>
     <td>list, watch</td>
-    <td>Kubeapps watches Deployments to monitor rollout status</td>
+    <td>Suomitek-appboard watches Deployments to monitor rollout status</td>
   </tr>
   <tr>
     <td>View Function Logs</td>
@@ -507,7 +507,7 @@ create</td>
     <td>*</td>
     <td>secrets</td>
     <td>get</td>
-    <td>Kubeapps can display credentials retrieved from the binding</td>
+    <td>Suomitek-appboard can display credentials retrieved from the binding</td>
   </tr>
   <tr>
     <td>Create Service Bindings</td>
@@ -527,20 +527,20 @@ create</td>
   </tr>
 </table>
 
-#### Externally exposing Kubeapps
+#### Externally exposing Suomitek-appboard
 
-We will add documentation to describe how Kubeapps can be externally exposed. There are multiple ways to achieve this:
+We will add documentation to describe how Suomitek-appboard can be externally exposed. There are multiple ways to achieve this:
 
-1.  Create and manage a separate Ingress resource that acts as a reverse proxy to the Kubeapps created nginx-ingress Service (**recommended**)
+1.  Create and manage a separate Ingress resource that acts as a reverse proxy to the Suomitek-appboard created nginx-ingress Service (**recommended**)
 
-2.  Change the nginx-ingress Service Kubeapps creates to a LoadBalancer type and get an IP address/hostname provisioned by the underlying cloud provider
+2.  Change the nginx-ingress Service Suomitek-appboard creates to a LoadBalancer type and get an IP address/hostname provisioned by the underlying cloud provider
 
-3.  Modify the Kubeapps created Ingress object to make use of a different Ingress controller (by configuring the _kubernetes.io/ingress.class_ annotation)
+3.  Modify the Suomitek-appboard created Ingress object to make use of a different Ingress controller (by configuring the _kubernetes.io/ingress.class_ annotation)
 
 #### Providing an additional authentication layer using oauth2_proxy
 
-We will add documentation to describe how to put something like [oauth2_proxy](https://github.com/bitly/oauth2_proxy) in front of Kubeapps to enable an additional layer of authentication/authorization. With oauth2_proxy it is possible to configure login through a company's GitHub organization, Google domain, etc.
+We will add documentation to describe how to put something like [oauth2_proxy](https://github.com/bitly/oauth2_proxy) in front of Suomitek-appboard to enable an additional layer of authentication/authorization. With oauth2_proxy it is possible to configure login through a company's GitHub organization, Google domain, etc.
 
-After going through the oauth2 jump with the configured provider, the user will still need to login with an token to access the Kubernetes API. It may be possible to setup the proxy to forward the access token retrieved from the oauth2 jump so that Kubeapps can use it. See [https://github.com/kubernetes/dashboard/pull/1539](https://github.com/kubernetes/dashboard/pull/1539)
+After going through the oauth2 jump with the configured provider, the user will still need to login with an token to access the Kubernetes API. It may be possible to setup the proxy to forward the access token retrieved from the oauth2 jump so that Suomitek-appboard can use it. See [https://github.com/kubernetes/dashboard/pull/1539](https://github.com/kubernetes/dashboard/pull/1539)
 
 ## Open Questions

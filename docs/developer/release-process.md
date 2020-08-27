@@ -1,6 +1,6 @@
-# Kubeapps Releases Developer Guide
+# Suomitek-appboard Releases Developer Guide
 
-The purpose of this document is to guide you through the process of releasing a new version of Kubeapps.
+The purpose of this document is to guide you through the process of releasing a new version of Suomitek-appboard.
 
 ## 0 - Ensure all 3rd-party images are up to date
 

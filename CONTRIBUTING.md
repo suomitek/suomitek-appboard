@@ -1,6 +1,6 @@
 # Contributing
 
-When contributing to Kubeapps, please first discuss the change you wish to make via an issue with this repository before making a change.
+When contributing to Suomitek-appboard, please first discuss the change you wish to make via an issue with this repository before making a change.
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 

@@ -1,12 +1,12 @@
-# The Kubeapps Overview
+# The Suomitek-appboard Overview
 
-This document describes the Kubeapps architecture at a high level.
+This document describes the Suomitek-appboard architecture at a high level.
 
 ## Components
 
-### Kubeapps dashboard
+### Suomitek-appboard dashboard
 
-At the heart of Kubeapps is an in-cluster Kubernetes dashboard that provides you a simple browse and click experience for installing and managing Kubernetes applications packaged as Helm charts.
+At the heart of Suomitek-appboard is an in-cluster Kubernetes dashboard that provides you a simple browse and click experience for installing and managing Kubernetes applications packaged as Helm charts.
 
 Additionally, the dashboard integrates with the [Kubernetes service catalog](https://github.com/kubernetes-incubator/service-catalog) and enables you to browse and provision cloud services via the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker).
 
@@ -25,7 +25,7 @@ Check more details about the implementation in [this document](/docs/developer/k
 
 ### Apprepository CRD and Controller
 
-Chart repositories in Kubeapps are managed with a `CustomResourceDefinition` called `apprepositories.suomitek.com`. Each repository added to Kubeapps is an object of type `AppRepository` and the `apprepository-controller` will watch for changes on those type of objects to update the list of available charts to deploy.
+Chart repositories in Suomitek-appboard are managed with a `CustomResourceDefinition` called `apprepositories.suomitek.com`. Each repository added to Suomitek-appboard is an object of type `AppRepository` and the `apprepository-controller` will watch for changes on those type of objects to update the list of available charts to deploy.
 
 ### `asset-syncer`
 

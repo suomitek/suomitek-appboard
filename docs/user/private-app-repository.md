@@ -1,18 +1,18 @@
-# Using a Private Repository with Kubeapps
+# Using a Private Repository with Suomitek-appboard
 
-It is possible to use a private Helm repository to store your own Helm charts and deploy them using Kubeapps. In this guide we will show how you can do that with some of the solutions available right now:
+It is possible to use a private Helm repository to store your own Helm charts and deploy them using Suomitek-appboard. In this guide we will show how you can do that with some of the solutions available right now:
 
 - [ChartMuseum](#chartmuseum)
 - [Harbor](#harbor)
 - [Artifactory](#artifactory) (Pro)
 
-But first, a note about Kubeapps AppRepository resources:
+But first, a note about Suomitek-appboard AppRepository resources:
 
 ## Per Namespace App Repositories
 
-Previously, once an App Repository was created in Kubeapps, the charts indexed by that repository were then available cluster-wide to all Kubeapps users. This was changed in Kubeapps 1.10 to allow creating App Repositories that are available only in specific namespaces, which is more inline with the Kubernetes RBAC model where an account can have roles in specific namespaces. This change also enables Kubeapps to support deploying charts with images from private docker registries (more below).
+Previously, once an App Repository was created in Suomitek-appboard, the charts indexed by that repository were then available cluster-wide to all Suomitek-appboard users. This was changed in Suomitek-appboard 1.10 to allow creating App Repositories that are available only in specific namespaces, which is more inline with the Kubernetes RBAC model where an account can have roles in specific namespaces. This change also enables Suomitek-appboard to support deploying charts with images from private docker registries (more below).
 
-A Kubeapps AppRepository can be created by anyone with the required RBAC for that namespace. If you have cluster-wide RBAC for creating AppRepositories, you can still create an App Repository whose charts will be available to users in all namespaces by selecting "All Namespaces" when creating the repository.
+A Suomitek-appboard AppRepository can be created by anyone with the required RBAC for that namespace. If you have cluster-wide RBAC for creating AppRepositories, you can still create an App Repository whose charts will be available to users in all namespaces by selecting "All Namespaces" when creating the repository.
 
 To give a specific user `USERNAME` the ability to create App Repositories in a specific namespace named `custom-namespace`, grant them both read and write RBAC for AppRepositories in that namespace:
 
@@ -25,13 +25,13 @@ or to allow other users the ability to deploy charts from App Repositories in a 
 
 ## Associating docker image pull secrets to an AppRepository - Helm 3 only
 
-When creating an AppRepository in Kubeapps, you can now additionally choose (or create) an [imagePullSecret](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod) to be associated with the AppRepository:
+When creating an AppRepository in Suomitek-appboard, you can now additionally choose (or create) an [imagePullSecret](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod) to be associated with the AppRepository:
 
 <img src="../img/app-repo-pull-secret.png" alt="AppRepository with imagePullSecret" width="600px">
 
-When Kubeapps deploys any chart from this AppRepository, if a referenced docker image within the chart is from a docker registry server matching one of the secrets associated with the AppRepository, then Kubeapps with Helm 3 will automatically append the corresponding imagePullSecret so that image can be pulled from the private registry. Note that the user deploying the chart will need to be able to read secrets in that namespace, which is usually the case when deploying to a namespace.
+When Suomitek-appboard deploys any chart from this AppRepository, if a referenced docker image within the chart is from a docker registry server matching one of the secrets associated with the AppRepository, then Suomitek-appboard with Helm 3 will automatically append the corresponding imagePullSecret so that image can be pulled from the private registry. Note that the user deploying the chart will need to be able to read secrets in that namespace, which is usually the case when deploying to a namespace.
 
-> **Note**: The automatic inclusion of associated image pull secrets is a feature specific to Helm 3. We do not intend to add support for this for Kubeapps configured with Helm 2.
+> **Note**: The automatic inclusion of associated image pull secrets is a feature specific to Helm 3. We do not intend to add support for this for Suomitek-appboard configured with Helm 2.
 
 There will be further work to enable private AppRepositories to be available in multiple namespaces. Details about the design can be read on the [design document](https://docs.google.com/document/d/1YEeKC6nPLoq4oaxs9v8_UsmxrRfWxB6KCyqrh2-Q8x0/edit?ts=5e2adf87).
 
@@ -39,7 +39,7 @@ There will be further work to enable private AppRepositories to be available in 
 
 [ChartMuseum](https://chartmuseum.com) is an open-source Helm Chart Repository written in Go (Golang), with support for cloud storage backends, including Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage, Alibaba Cloud OSS Storage and OpenStack Object Storage.
 
-To use ChartMuseum with Kubeapps, first deploy its Helm chart from the `stable` repository:
+To use ChartMuseum with Suomitek-appboard, first deploy its Helm chart from the `stable` repository:
 
 <img src="../img/chartmuseum-chart.png" alt="ChartMuseum Chart" width="300px">
 
@@ -70,13 +70,13 @@ curl --data-binary "@my-chart-1.0.0.tgz" http://localhost:8080/api/charts
 {"saved":true}
 ```
 
-### ChartMuseum: Configure the repository in Kubeapps
+### ChartMuseum: Configure the repository in Suomitek-appboard
 
-To add your private repository to Kubeapps, select the Kubernetes namespace to which you want to add the repository (or "All Namespaces" if you want it available to users in all namespaces), go to `Configuration > App Repositories` and click on "Add App Repository". You will need to add your repository using the Kubernetes DNS name for the ChartMuseum service. This will be `<release_name>-chartmuseum.<namespace>:8080`:
+To add your private repository to Suomitek-appboard, select the Kubernetes namespace to which you want to add the repository (or "All Namespaces" if you want it available to users in all namespaces), go to `Configuration > App Repositories` and click on "Add App Repository". You will need to add your repository using the Kubernetes DNS name for the ChartMuseum service. This will be `<release_name>-chartmuseum.<namespace>:8080`:
 
 <img src="../img/chartmuseum-repository.png" alt="ChartMuseum App Repository" width="300px">
 
-Once you create the repository you can click on the link for the specific repository and you will be able to deploy your own applications using Kubeapps.
+Once you create the repository you can click on the link for the specific repository and you will be able to deploy your own applications using Suomitek-appboard.
 
 ### ChartMuseum: Authentication/Authorization
 
@@ -84,14 +84,14 @@ It is possible to configure ChartMuseum to use authentication with two different
 
 - Using HTTP [basic authentication](https://chartmuseum.com/docs/#basic-auth) (user/password). To use this feature, it's needed to:
   - Specify the parameters `secret.AUTH_USER` and `secret.AUTH_PASS` when deploying the ChartMuseum.
-  - Select `Basic Auth` when adding the repository to Kubeapps specifying that user and password.
+  - Select `Basic Auth` when adding the repository to Suomitek-appboard specifying that user and password.
 - Using a [JWT token](https://github.com/chartmuseum/auth-server-example). Once you obtain a valid token you can select `Bearer Token` in the form and add the token in the dedicated field.
 
 ## Harbor
 
 [Harbor](https://github.com/goharbor/harbor) is an open source trusted cloud native registry project that stores, signs, and scans content, e.g. Docker images. Harbor is hosted by the [Cloud Native Computing Foundation](https://cncf.io/). Since version 1.6.0, Harbor is a composite cloud native registry which supports both container image management and Helm chart management. Harbor integrates [ChartMuseum](https://chartmuseum.com) to provide the Helm chart repository functionality. The access to Helm Charts in a Harbor Chart Repository can be controlled via Role-Based Access Control.
 
-To use Harbor with Kubeapps, first deploy the [Bitnami Harbor Helm Chart](https://github.com/bitnami/charts/tree/master/bitnami/harbor) from the `bitnami` repository (alternatively you can deploy Harbor using [Harbor offline installer](https://github.com/goharbor/harbor/blob/master/docs/installation_guide.md#downloading-the-installer)):
+To use Harbor with Suomitek-appboard, first deploy the [Bitnami Harbor Helm Chart](https://github.com/bitnami/charts/tree/master/bitnami/harbor) from the `bitnami` repository (alternatively you can deploy Harbor using [Harbor offline installer](https://github.com/goharbor/harbor/blob/master/docs/installation_guide.md#downloading-the-installer)):
 
 <img src="../img/harbor-chart.png" alt="Harbor Chart" width="300px">
 
@@ -142,20 +142,20 @@ Click 'UPLOAD' button to upload the Helm chart you previously created. You can a
 
 Please refer to ['Manage Helm Charts in Harbor'](https://github.com/goharbor/harbor/blob/master/docs/user_guide.md#manage-helm-charts) for more details.
 
-### Harbor: Configure the repository in Kubeapps
+### Harbor: Configure the repository in Suomitek-appboard
 
-To add Harbor as the private chart repository in Kubeapps, select the Kubernetes namespace to which you want to add the repository (or "All Namespaces" if you want it available to users in all namespaces), go to `Configuration > App Repositories` and click on "Add App Repository" and use the Harbor helm repository URL `http://harbor.default.svc.cluster.local/chartrepo/my-helm-repo`
+To add Harbor as the private chart repository in Suomitek-appboard, select the Kubernetes namespace to which you want to add the repository (or "All Namespaces" if you want it available to users in all namespaces), go to `Configuration > App Repositories` and click on "Add App Repository" and use the Harbor helm repository URL `http://harbor.default.svc.cluster.local/chartrepo/my-helm-repo`
 
 <img src="../img/harbor-add-repo.png" width="600px">
 
-Once you create the repository you can click on the link for the specific repository and you will be able to deploy your own applications using Kubeapps.
+Once you create the repository you can click on the link for the specific repository and you will be able to deploy your own applications using Suomitek-appboard.
 
 ### Harbor: Authentication/Authorization
 
 It is possible to configure Harbor to use HTTP basic authentication:
 
   - When creating a new project for serving as the helm chart repository in Harbor, set the `Access Level` of the project to non public. This enforces authentication to access the charts in the chart repository via Helm CLI or other clients.
-  - When `Adding App Repository` in Kubeapps, select `Basic Auth` for `Authorization` and specifiy the username and password for Harbor.
+  - When `Adding App Repository` in Suomitek-appboard, select `Basic Auth` for `Authorization` and specifiy the username and password for Harbor.
 
 ## Artifactory
 
@@ -163,7 +163,7 @@ JFrog Artifactory is a Repository Manager supporting all major packaging formats
 
 > **Note**: In order to use the Helm repository feature, it's necessary to use an Artifactory Pro account.
 
-To install Artifactory with Kubeapps first add the JFrog repository to Kubeapps. Go to `Configuration > App Repositories` and add their repository:
+To install Artifactory with Suomitek-appboard first add the JFrog repository to Suomitek-appboard. Go to `Configuration > App Repositories` and add their repository:
 
 <img src="../img/jfrog-repository.png" alt="JFrog repository" width="300px">
 
@@ -185,9 +185,9 @@ Once you have done that, you will be able to upload a chart:
 curl -u{USER}:{PASSWORD} -T /path/to/chart.tgz "http://{REPO_URL}/artifactory/helm/"
 ```
 
-### Artifactory: Configure the repository in Kubeapps
+### Artifactory: Configure the repository in Suomitek-appboard
 
-To be able able to access private charts with Kubeapps first you need to generate a token. You can do that with the Artifactory API:
+To be able able to access private charts with Suomitek-appboard first you need to generate a token. You can do that with the Artifactory API:
 
 ```bash
 curl -u{USER}:{PASSWORD} -XPOST "http://{REPO_URL}/artifactory/api/security/token?expires_in=0" -d "username=suomitek-appboard" -d "scope=member-of-groups:readers"
@@ -206,7 +206,7 @@ After submitting the repository, you will be able to click on the new repository
 
 ## Modifying the synchronization job
 
-Kubeapps runs a periodic job (CronJob) to populate and synchronize the charts existing in each repository. Since Kubeapps v1.4.0, it's possible to modify the spec of this job. This is useful if you need to run the Pod in a certain Kubernetes node, or set some environment variables. To do so you can edit (or create) an AppRepository and specify the `syncJobPodTemplate` field. For example:
+Suomitek-appboard runs a periodic job (CronJob) to populate and synchronize the charts existing in each repository. Since Suomitek-appboard v1.4.0, it's possible to modify the spec of this job. This is useful if you need to run the Pod in a certain Kubernetes node, or set some environment variables. To do so you can edit (or create) an AppRepository and specify the `syncJobPodTemplate` field. For example:
 
 ```yaml
 apiVersion: suomitek.com/v1alpha1

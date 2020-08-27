@@ -1,8 +1,8 @@
-# <img src="./docs/img/logo.png" width="40" align="left"> Kubeapps
+# <img src="./docs/img/logo.png" width="40" align="left"> Suomitek-appboard
 
 [![CircleCI](https://circleci.com/gh/suomitek/suomitek-appboard/tree/master.svg?style=svg)](https://circleci.com/gh/suomitek/suomitek-appboard/tree/master)
 
-Kubeapps is a web-based UI for deploying and managing applications in Kubernetes clusters. Kubeapps allows you to:
+Suomitek-appboard is a web-based UI for deploying and managing applications in Kubernetes clusters. Suomitek-appboard allows you to:
 
 - Browse and deploy [Helm](https://github.com/helm/helm) charts from chart repositories
 - Inspect, upgrade and delete Helm-based applications installed in the cluster
@@ -13,9 +13,9 @@ Kubeapps is a web-based UI for deploying and managing applications in Kubernetes
 
 ## Quick Start
 
-Use the Helm chart to install the latest version of Kubeapps: 
+Use the Helm chart to install the latest version of Suomitek-appboard: 
 
-***Note:*** Kubeapps supports both Helm 2 and Helm 3. For detailed instructions on how to install and use Kubeapps follow the [Getting Started Guide](docs/user/getting-started.md).
+***Note:*** Suomitek-appboard supports both Helm 2 and Helm 3. For detailed instructions on how to install and use Suomitek-appboard follow the [Getting Started Guide](docs/user/getting-started.md).
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
@@ -30,26 +30,26 @@ helm install suomitek-appboard --namespace suomitek-appboard chartmuseum/suomite
 
 Please refer to:
 
-- The [Kubeapps Build Guide](docs/developer/build.md) for instructions on setting up the build environment and building Kubeapps from source.
-- The [Kubeapps Developer Documentation](docs/developer/README.md) for instructions on setting up the developer environment for developing on Kubeapps and its components.
+- The [Suomitek-appboard Build Guide](docs/developer/build.md) for instructions on setting up the build environment and building Suomitek-appboard from source.
+- The [Suomitek-appboard Developer Documentation](docs/developer/README.md) for instructions on setting up the developer environment for developing on Suomitek-appboard and its components.
 
 ## Next Steps
 
-If you have followed the instructions for [installing Kubeapps](docs/user/getting-started.md) check how to [use Kubeapps](docs/user/dashboard.md) to easily manage your applications running in your cluster, or [look under the hood to see what's included in Kubeapps](docs/architecture/overview.md).
+If you have followed the instructions for [installing Suomitek-appboard](docs/user/getting-started.md) check how to [use Suomitek-appboard](docs/user/dashboard.md) to easily manage your applications running in your cluster, or [look under the hood to see what's included in Suomitek-appboard](docs/architecture/overview.md).
 
 ## Useful Resources
 
 - [Walkthrough for first-time users](docs/user/getting-started.md)
 - [Detailed installation instructions](chart/suomitek-appboard/README.md)
-- [Kubeapps Dashboard documentation](docs/user/dashboard.md)
-- [Kubeapps components](docs/architecture/overview.md)
+- [Suomitek-appboard Dashboard documentation](docs/user/dashboard.md)
+- [Suomitek-appboard components](docs/architecture/overview.md)
 - [Roadmap](https://github.com/suomitek/suomitek-appboard/wiki/Roadmap)
 
 ## Differences from Monocular
 
 The [Monocular](https://github.com/helm/monocular) project was designed to run a public search and discovery website for Helm repositories (e.g. https://hub.suomitek.com). Following its 1.0 release, Monocular is focused on delivering the experience for the Helm Hub.
 
-Versions of Monocular 0.7 and older include a basic ability to install, view and delete Helm releases in a Kubernetes cluster. To focus on the Helm Hub experience, these [features have been removed](https://github.com/helm/monocular#looking-for-an-in-cluster-application-management-ui) since the 1.0 release and are no longer supported. We recommend users of Monocular's in-cluster features try Kubeapps as it provides a more featured, robust and secure solution to managing Helm applications in your cluster.
+Versions of Monocular 0.7 and older include a basic ability to install, view and delete Helm releases in a Kubernetes cluster. To focus on the Helm Hub experience, these [features have been removed](https://github.com/helm/monocular#looking-for-an-in-cluster-application-management-ui) since the 1.0 release and are no longer supported. We recommend users of Monocular's in-cluster features try Suomitek-appboard as it provides a more featured, robust and secure solution to managing Helm applications in your cluster.
 
 ## Community
 

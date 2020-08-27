@@ -1,16 +1,16 @@
-# Access Control in Kubeapps
+# Access Control in Suomitek-appboard
 
-Kubeapps requires users to login with a Kubernetes API token in order to make
+Suomitek-appboard requires users to login with a Kubernetes API token in order to make
 requests to the Kubernetes API server as the user. This ensures that a certain
-user of Kubeapps is only permitted to view and manage applications that they
+user of Suomitek-appboard is only permitted to view and manage applications that they
 have access to (for example, within a specific namespace). If a user does not
-have access to a particular resource, Kubeapps will display an error describing
+have access to a particular resource, Suomitek-appboard will display an error describing
 the required roles to access the resource.
 
 If your cluster supports [Token
 Authentication](https://kubernetes.io/docs/admin/authentication/) you may login
 with the same tokens. Alternatively, you can create Service Accounts for
-Kubeapps users. The examples below use a Service Account, as it is the most
+Suomitek-appboard users. The examples below use a Service Account, as it is the most
 common scenario.
 
 ## Service Accounts
@@ -28,13 +28,13 @@ To get the API token for this Service Account, run the following:
 kubectl get -n default secret $(kubectl get -n default serviceaccount example -o jsonpath='{.secrets[].name}') -o go-template='{{.data.token | base64decode}}' && echo
 ```
 
-## Assigning Kubeapps User Roles
+## Assigning Suomitek-appboard User Roles
 
-Kubeapps will install a set of preset Roles and ClusterRoles in your cluster
+Suomitek-appboard will install a set of preset Roles and ClusterRoles in your cluster
 that you can bind to user or Service Accounts. Each Role and ClusterRole
-pertains to a certain operation within Kubeapps. This documentation describes
+pertains to a certain operation within Suomitek-appboard. This documentation describes
 the roles that should be applied to a user in order to perform operations within
-Kubeapps.
+Suomitek-appboard.
 
 ### Applications
 
@@ -110,7 +110,7 @@ kubectl create clusterrolebinding example-suomitek-appboard-service-catalog-admi
 
 #### Read access to App Repositories
 
-In order to list the configured App Repositories in Kubeapps, [bind users/groups Subjects](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#command-line-utilities) to the Kubeapps `apprepositories-read` clusterrole in the namespace Kubeapps was installed into by the helm chart.
+In order to list the configured App Repositories in Suomitek-appboard, [bind users/groups Subjects](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#command-line-utilities) to the Suomitek-appboard `apprepositories-read` clusterrole in the namespace Suomitek-appboard was installed into by the helm chart.
 
 ```bash
 export KUBEAPPS_NAMESPACE=suomitek-appboard
@@ -122,8 +122,8 @@ kubectl create -n $KUBEAPPS_NAMESPACE rolebinding example-suomitek-appboard-repo
 #### Write access to App Repositories
 
 Likewise to the read access bind users/group Subjects to the
-Kubeapps `apprepositories-write` ClusterRole in the namespace Kubeapps is installed in
-for users to create and refresh App Repositories in Kubeapps
+Suomitek-appboard `apprepositories-write` ClusterRole in the namespace Suomitek-appboard is installed in
+for users to create and refresh App Repositories in Suomitek-appboard
 
 ```bash
 export KUBEAPPS_NAMESPACE=suomitek-appboard
@@ -143,7 +143,7 @@ kubectl create -n example rolebinding example-suomitek-appboard-applications-wri
 kubectl create -n example rolebinding example-suomitek-appboard-applications-write --clusterrole=suomitek-appboard-applications-write --serviceaccount default:example
 ```
 
-Note that there's no need to recreate the RoleBinding in the namespace Kubeapps
+Note that there's no need to recreate the RoleBinding in the namespace Suomitek-appboard
 is installed in that is also needed, since that has already been created.
 
 If you want to give access for every namespace, simply create a
@@ -156,7 +156,7 @@ kubectl create clusterrolebinding example-suomitek-appboard-applications-write -
 
 ## Using a cluster-admin user (not recommended)
 
-A simpler way to configure access for Kubeapps would be to give the user
+A simpler way to configure access for Suomitek-appboard would be to give the user
 cluster-admin access (effectively disabling RBAC). This is not recommended, but
 useful for quick demonstrations or evaluations.
 

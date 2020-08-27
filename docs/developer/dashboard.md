@@ -1,6 +1,6 @@
-# Kubeapps Dashboard Developer Guide
+# Suomitek-appboard Dashboard Developer Guide
 
-The dashboard is the main UI component of the Kubeapps project. Written in Javascript, the dashboard uses the React Javascript library for the frontend.
+The dashboard is the main UI component of the Suomitek-appboard project. Written in Javascript, the dashboard uses the React Javascript library for the frontend.
 
 ## Prerequisites
 
@@ -33,9 +33,9 @@ The dashboard application source is located under the `dashboard/` directory of 
 cd $KUBEAPPS_DIR/dashboard
 ```
 
-### Install Kubeapps in your cluster
+### Install Suomitek-appboard in your cluster
 
-Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/suomitek-appboard/README.md) to install Kubeapps in your cluster.
+Suomitek-appboard is a Kubernetes-native application. To develop and test Suomitek-appboard components we need a Kubernetes cluster with Suomitek-appboard already installed. Follow the [Suomitek-appboard installation guide](../../chart/suomitek-appboard/README.md) to install Suomitek-appboard in your cluster.
 
 ### Running the dashboard in development
 
@@ -62,7 +62,7 @@ export TELEPRESENCE_CONTAINER_NAMESPACE=suomitek-appboard
 yarn run start
 ```
 
-> **NOTE**: The commands above assume you install Kubeapps in the `suomitek-appboard` namespace. Please update the environment variable `TELEPRESENCE_CONTAINER_NAMESPACE` if you are using a different namespace.
+> **NOTE**: The commands above assume you install Suomitek-appboard in the `suomitek-appboard` namespace. Please update the environment variable `TELEPRESENCE_CONTAINER_NAMESPACE` if you are using a different namespace.
 
 #### Telepresence alternative
 
@@ -78,7 +78,7 @@ First add the desired host:port to the package.json:
 
 > **NOTE**: Add the [proxy](../../dashboard/package.json#L176) `key:value` to the end of the `package.json`. For convenience, you can change the `host:port` values to meet your needs.
 
-To use this a run Kubeapps per the [getting-started documentation](../../docs/user/getting-started.md#step-3-start-the-suomitek-appboard-dashboard). This will start Kubeapps running on port `8080`.
+To use this a run Suomitek-appboard per the [getting-started documentation](../../docs/user/getting-started.md#step-3-start-the-suomitek-appboard-dashboard). This will start Suomitek-appboard running on port `8080`.
 
 Next you can launch the dashboard.
 

@@ -2,7 +2,7 @@
 
 **NOTE:** This feature is under heavy development. Some of the described below may change in the future.
 
-Since Kubeapps 1.6.0, it's possible to include a JSON schema with a chart that defines the structure of the `values.yaml` file. This JSON schema is used with two goals:
+Since Suomitek-appboard 1.6.0, it's possible to include a JSON schema with a chart that defines the structure of the `values.yaml` file. This JSON schema is used with two goals:
 
 - Validate that the given values satisfy the schema defined. In case the submitted values are not valid, the installation or upgrade will fail. This has been introduced with Helm v3.
 - Present the user with a simpler so the chart is easier to deploy and configure.
@@ -36,7 +36,7 @@ With the definition above, we are marking the value `wordpressUsername` as a val
 
 In addition to the `type`, there are other tags that can be used to customize the way the parameter is represented:
 
-- `title` is used to render the title of the parameter. If it's not specified, Kubeapps will use the path of the value (i.e. `credentials.username`).
+- `title` is used to render the title of the parameter. If it's not specified, Suomitek-appboard will use the path of the value (i.e. `credentials.username`).
 - `description` is used to include additional information of the parameter.
 - `default` is used to set a default value. Note that this field will only be used if the `values.yaml` file doesn't have already a default value for the parameter.
 

@@ -1,7 +1,7 @@
 # AppRepository Controller
 
 The controller for managing app (Helm) repository syncs for
-[Kubeapps](https://suomitek.com).
+[Suomitek-appboard](https://suomitek.com).
 
 An AppRepository resource looks like this:
 
@@ -20,7 +20,7 @@ spec:
 This controller will monitor resources of the above type and create [Kubernetes
 CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
 to schedule the repository to be synced to the database. This is a component of
-Kubeapps and is intended to be used with it.
+Suomitek-appboard and is intended to be used with it.
 
 Based off the [Kubernetes Sample
 Controller](https://github.com/kubernetes/sample-controller).

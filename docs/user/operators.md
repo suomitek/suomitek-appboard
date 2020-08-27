@@ -1,16 +1,16 @@
-# Get Started with Operators in Kubeapps
+# Get Started with Operators in Suomitek-appboard
 
-This guide will walk you through the process of enabling support for Operators in Kubeapps and deploy an Operator instance.
+This guide will walk you through the process of enabling support for Operators in Suomitek-appboard and deploy an Operator instance.
 
 In this tutorial we will be using the the [Operator Lifecycle Manager (OLM)](https://github.com/operator-framework/operator-lifecycle-manager) to expose the Operators from the [OperatorHub](https://operatorhub.io/).
 
 ## Prerequisites
 
-Kubeapps assumes a working Kubernetes cluster (v1.12+) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and configured to talk to your Kubernetes cluster. Users following this tutorial require to have admin privileges in the cluster in order to install and manage Operators.
+Suomitek-appboard assumes a working Kubernetes cluster (v1.12+) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and configured to talk to your Kubernetes cluster. Users following this tutorial require to have admin privileges in the cluster in order to install and manage Operators.
 
-## Step 1: Enabling Operators support in Kubeapps
+## Step 1: Enabling Operators support in Suomitek-appboard
 
-The support for Operators is currently under heavy development. For the moment, it's not enabled by default. If you want to use it, you need to enable the related feature flag. This can be done either at installation time or when upgrading Kubeapps. It's just necessary to enable the flag `featureFlags.operators`: 
+The support for Operators is currently under heavy development. For the moment, it's not enabled by default. If you want to use it, you need to enable the related feature flag. This can be done either at installation time or when upgrading Suomitek-appboard. It's just necessary to enable the flag `featureFlags.operators`: 
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
@@ -24,7 +24,7 @@ kubectl create namespace suomitek-appboard
 helm install --name suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard --set featureFlags.operators=true
 ```
 
-For detailed information on installing, configuring and upgrading Kubeapps, checkout the [chart README](../../chart/suomitek-appboard/README.md).
+For detailed information on installing, configuring and upgrading Suomitek-appboard, checkout the [chart README](../../chart/suomitek-appboard/README.md).
 
 ## Step 2: Install the Operator Lifecycle Manager (OLM)
 

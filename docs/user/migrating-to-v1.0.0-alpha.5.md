@@ -1,17 +1,17 @@
 # Migration to v1.0.0-alpha.5
 
-The release includes several breaking changes that should be handled carefully if you are updating Kubeapps from a version prior to v1.0.0-alpha.5. As a summary this release includes the following breaking changes:
+The release includes several breaking changes that should be handled carefully if you are updating Suomitek-appboard from a version prior to v1.0.0-alpha.5. As a summary this release includes the following breaking changes:
 
-- The recommended way of installing Kubeapps is through its Helm chart.
+- The recommended way of installing Suomitek-appboard is through its Helm chart.
 - The `suomitek-appboard` CLI is now deprecated. **It won't be included in future releases**.
-- Kubeapps no longer installs Tiller, Kubeless and SealedSecrets by default.
+- Suomitek-appboard no longer installs Tiller, Kubeless and SealedSecrets by default.
 - The [experimental Helm CRD controller](https://github.com/bitnami-labs/helm-crd) has been replaced with a secure REST proxy to the Tiller server. More info about this proxy [here](../../cmd/tiller-proxy/README.md).
 
-These are the steps you need to follow to upgrade Kubeapps to this version.
+These are the steps you need to follow to upgrade Suomitek-appboard to this version.
 
 ## Install Tiller
 
-Please follow the steps in [this guide](./securing-suomitek-appboard.md) to install Tiller securely. Don't install the Kubeapps chart yet since it will fail because it will find resources that already exist. Once the new Tiller instance is ready you can migrate the existing releases using the utility command included in `suomitek-appboard` 1.0.0-alpha.5:
+Please follow the steps in [this guide](./securing-suomitek-appboard.md) to install Tiller securely. Don't install the Suomitek-appboard chart yet since it will fail because it will find resources that already exist. Once the new Tiller instance is ready you can migrate the existing releases using the utility command included in `suomitek-appboard` 1.0.0-alpha.5:
 
 ```console
 $ suomitek-appboard migrate-configmaps-to-secrets --target-tiller-namespace kube-system
@@ -35,9 +35,9 @@ foo 	1       	Mon Aug  6 12:10:07 2018	DEPLOYED	aerospike-0.1.7	default
 
 **NOTE**: You can skip the TLS flags if you have not installed Helm with a TLS certificate.
 
-## Delete the previous Kubeapps installation
+## Delete the previous Suomitek-appboard installation
 
-Now that we have backed up the releases we should delete existing Kubeapps resources. To do so execute:
+Now that we have backed up the releases we should delete existing Suomitek-appboard resources. To do so execute:
 
 ```bash
 suomitek-appboard down
@@ -46,7 +46,7 @@ kubectl delete -f https://github.com/bitnami-labs/sealed-secrets/releases/downlo
 kubectl get helmreleases -o=name --all-namespaces | xargs kubectl patch $1 --type merge -p '{ "metadata": { "finalizers": [] } }'
 ```
 
-Wait until everything in the namespace of Kubeapps has been deleted:
+Wait until everything in the namespace of Suomitek-appboard has been deleted:
 
 ```console
 $ kubectl get all --namespace suomitek-appboard
@@ -61,9 +61,9 @@ If you want to delete Kubeless (if you are not using it) you can delete it execu
 kubectl delete -f https://github.com/kubeless/kubeless/releases/download/v0.6.0/kubeless-v0.6.0.yaml
 ```
 
-## Install the Kubeapps chart
+## Install the Suomitek-appboard chart
 
-Now you can install the new version of Kubeapps using the Helm chart included in this repository:
+Now you can install the new version of Suomitek-appboard using the Helm chart included in this repository:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com

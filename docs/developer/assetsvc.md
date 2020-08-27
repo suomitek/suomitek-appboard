@@ -1,4 +1,4 @@
-# Kubeapps assetsvc Developer Guide
+# Suomitek-appboard assetsvc Developer Guide
 
 The `assetsvc` component is a micro-service that creates an API endpoint for accessing the metadata for charts in Helm chart repositories that's populated in a MongoDB server.
 
@@ -20,7 +20,7 @@ export PATH=$GOPATH/bin:$PATH
 export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appboard
 ```
 
-## Download the Kubeapps source code
+## Download the Suomitek-appboard source code
 
 ```bash
 git clone https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR
@@ -28,9 +28,9 @@ git clone https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR
 
 The `assetsvc` sources are located under the `cmd/assetsvc/` directory.
 
-### Install Kubeapps in your cluster
+### Install Suomitek-appboard in your cluster
 
-Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/suomitek-appboard/README.md) to install Kubeapps in your cluster.
+Suomitek-appboard is a Kubernetes-native application. To develop and test Suomitek-appboard components we need a Kubernetes cluster with Suomitek-appboard already installed. Follow the [Suomitek-appboard installation guide](../../chart/suomitek-appboard/README.md) to install Suomitek-appboard in your cluster.
 
 ### Building the `assetsvc` image
 
@@ -61,7 +61,7 @@ Note that the assetsvc should be rebuilt for new changes to take effect.
 
 #### Option 2: Replacing the image in the assetsvc Deployment
 
-Note: By default, Kubeapps will try to fetch the latest version of the image so in order to make this workflow work in Minikube you will need to update the imagePullPolicy first:
+Note: By default, Suomitek-appboard will try to fetch the latest version of the image so in order to make this workflow work in Minikube you will need to update the imagePullPolicy first:
 
 ```bash
 kubectl patch deployment suomitek-appboard-internal-assetsvc -n suomitek-appboard --type=json -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/imagePullPolicy", "value": "IfNotPresent"}]'
@@ -81,7 +81,7 @@ Note: If you using a cloud provider to develop the service you will need to reta
 
 ### Running tests
 
-You can run the assetsvc tests along with the tests for the Kubeapps project:
+You can run the assetsvc tests along with the tests for the Suomitek-appboard project:
 
 ```bash
 go test -v ./...
