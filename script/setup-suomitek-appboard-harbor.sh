@@ -28,4 +28,4 @@ info "---------------------------"
 info "-- Kubeapps installation --"
 info "---------------------------"
 echo
-"$ROOT_DIR"/script/setup-kubeapps.sh --namespace "kubeapps" --initial-repos "harbor-library" "http://harbor.harbor.svc.cluster.local/chartrepo/library"
+"$ROOT_DIR"/script/setup-suomitek-appboard.sh --namespace "kubeapps" --initial-repos "harbor-library" "http://harbor.harbor.svc.cluster.local/chartrepo/library"

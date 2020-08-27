@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "kubeapps.name" -}}
+{{- define "suomitek-appboard.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "kubeapps.fullname" -}}
+{{- define "suomitek-appboard.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -27,7 +27,7 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "kubeapps.chart" -}}
+{{- define "suomitek-appboard.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -36,27 +36,27 @@ Common labels for additional kubeapps applications. Used on resources whose app 
 from kubeapps
 */}}
 {{- define "suomitek-appboard.extraAppLabels" -}}
-chart: {{ include "kubeapps.chart" . }}
+chart: {{ include "suomitek-appboard.chart" . }}
 release: {{ .Release.Name }}
 heritage: {{ .Release.Service }}
 helm.sh/chart: {{ template "suomitek-appboard.chart" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-app.kubernetes.io/name: {{ include "kubeapps.name" . }}
+app.kubernetes.io/name: {{ include "suomitek-appboard.name" . }}
 {{- end -}}
 
 {{/*
 Common labels
 */}}
 {{- define "suomitek-appboard.labels" -}}
-app: {{ include "kubeapps.name" . }}
+app: {{ include "suomitek-appboard.name" . }}
 {{ template "suomitek-appboard.extraAppLabels" . }}
 {{- end -}}
 
 {{/*
 Render image reference
 */}}
-{{- define "kubeapps.image" -}}
+{{- define "suomitek-appboard.image" -}}
 {{- $image := index . 0 -}}
 {{- $global := index . 1 -}}
 {{/*
@@ -79,7 +79,7 @@ Also, we can't use a single if because lazy evaluation is not an option
 Create a default fully qualified app name for MongoDB dependency.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
-{{- define "kubeapps.mongodb.fullname" -}}
+{{- define "suomitek-appboard.mongodb.fullname" -}}
 {{- $name := default "mongodb" .Values.mongodb.nameOverride -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
@@ -89,7 +89,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 Create a default fully qualified app name for PostgreSQL dependency.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
-{{- define "kubeapps.postgresql.fullname" -}}
+{{- define "suomitek-appboard.postgresql.fullname" -}}
 {{- $name := default "postgresql" .Values.postgresql.nameOverride -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
@@ -97,56 +97,56 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{/*
 Create name for the apprepository-controller based on the fullname
 */}}
-{{- define "kubeapps.apprepository.fullname" -}}
+{{- define "suomitek-appboard.apprepository.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-apprepository-controller
 {{- end -}}
 
 {{/*
 Create name for the apprepository pre-upgrade job
 */}}
-{{- define "kubeapps.apprepository-job-postupgrade.fullname" -}}
+{{- define "suomitek-appboard.apprepository-job-postupgrade.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-apprepository-job-postupgrade
 {{- end -}}
 
 {{/*
 Create name for the apprepository cleanup job
 */}}
-{{- define "kubeapps.apprepository-jobs-cleanup.fullname" -}}
+{{- define "suomitek-appboard.apprepository-jobs-cleanup.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-apprepository-jobs-cleanup
 {{- end -}}
 
 {{/*
 Create name for the db-secret secret bootstrap job
 */}}
-{{- define "kubeapps.db-secret-jobs-cleanup.fullname" -}}
+{{- define "suomitek-appboard.db-secret-jobs-cleanup.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-db-secret-jobs-cleanup
 {{- end -}}
 
 {{/*
 Create name for the kubeapps upgrade job
 */}}
-{{- define "kubeapps.kubeapps-jobs-upgrade.fullname" -}}
+{{- define "suomitek-appboard.kubeapps-jobs-upgrade.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-kubeapps-jobs-upgrade
 {{- end -}}
 
 {{/*
 Create name for the assetsvc based on the fullname
 */}}
-{{- define "kubeapps.assetsvc.fullname" -}}
+{{- define "suomitek-appboard.assetsvc.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-assetsvc
 {{- end -}}
 
 {{/*
 Create name for the dashboard based on the fullname
 */}}
-{{- define "kubeapps.dashboard.fullname" -}}
+{{- define "suomitek-appboard.dashboard.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-dashboard
 {{- end -}}
 
 {{/*
 Create name for the dashboard config based on the fullname
 */}}
-{{- define "kubeapps.dashboard-config.fullname" -}}
+{{- define "suomitek-appboard.dashboard-config.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-dashboard-config
 {{- end -}}
 
@@ -171,35 +171,35 @@ http://{{ template "suomitek-appboard.tiller-proxy.fullname" . }}:{{ .Values.til
 {{/*
 Create name for the tiller-proxy based on the fullname
 */}}
-{{- define "kubeapps.tiller-proxy.fullname" -}}
+{{- define "suomitek-appboard.tiller-proxy.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-tiller-proxy
 {{- end -}}
 
 {{/*
 Create name for kubeops based on the fullname
 */}}
-{{- define "kubeapps.kubeops.fullname" -}}
+{{- define "suomitek-appboard.kubeops.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-kubeops
 {{- end -}}
 
 {{/*
 Create name for the kubeops config based on the fullname
 */}}
-{{- define "kubeapps.kubeops-config.fullname" -}}
+{{- define "suomitek-appboard.kubeops-config.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-kubeops-config
 {{- end -}}
 
 {{/*
 Create name for the secrets related to an app repository
 */}}
-{{- define "kubeapps.apprepository-secret.name" -}}
+{{- define "suomitek-appboard.apprepository-secret.name" -}}
 apprepo-{{ .name }}-secrets
 {{- end -}}
 
 {{/*
 Repositories that include a caCert or an authorizationHeader
 */}}
-{{- define "kubeapps.repos-with-orphan-secrets" -}}
+{{- define "suomitek-appboard.repos-with-orphan-secrets" -}}
 {{- range .Values.apprepository.initialRepos }}
 {{- if or .caCert .authorizationHeader }}
 .name

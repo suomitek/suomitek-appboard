@@ -224,7 +224,7 @@ func checkSecrets(t *testing.T, requestNamespace string, appRepoRequest appRepos
 				t.Errorf("mismatch (-want +got):\n%s", cmp.Diff(want, got))
 			}
 		} else {
-			// The copy of the secret should not be created when the request namespace is kubeapps.
+			// The copy of the secret should not be created when the request namespace is suomitek-appboard.
 			secret, err := handler.clientset.CoreV1().Secrets(kubeappsNamespace).Get(context.TODO(), kubeappsSecretName, metav1.GetOptions{})
 			if err == nil {
 				t.Fatalf("secret should not be created, found %+v", secret)

@@ -51,7 +51,7 @@ helm repo add chartmuseum http://helm.yongchehang.com
 helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
 ```
 
-> **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-kubeapps.md).
+> **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-suomitek-appboard.md).
 
 For Helm 3:
 
@@ -113,7 +113,7 @@ If your instance of Tiller is running in a different namespace or you want to ha
 
 In production, we strongly recommend setting up a [secure installation of Tiller](https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller), the Helm server side component.
 
-Learn more about how to secure your Kubeapps installation [here](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-kubeapps.md).
+Learn more about how to secure your Kubeapps installation [here](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-suomitek-appboard.md).
 
 ### Exposing Externally
 

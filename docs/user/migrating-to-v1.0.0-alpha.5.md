@@ -11,7 +11,7 @@ These are the steps you need to follow to upgrade Kubeapps to this version.
 
 ## Install Tiller
 
-Please follow the steps in [this guide](./securing-kubeapps.md) to install Tiller securely. Don't install the Kubeapps chart yet since it will fail because it will find resources that already exist. Once the new Tiller instance is ready you can migrate the existing releases using the utility command included in `kubeapps` 1.0.0-alpha.5:
+Please follow the steps in [this guide](./securing-suomitek-appboard.md) to install Tiller securely. Don't install the Kubeapps chart yet since it will fail because it will find resources that already exist. Once the new Tiller instance is ready you can migrate the existing releases using the utility command included in `kubeapps` 1.0.0-alpha.5:
 
 ```console
 $ kubeapps migrate-configmaps-to-secrets --target-tiller-namespace kube-system

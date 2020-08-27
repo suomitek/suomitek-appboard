@@ -33,7 +33,7 @@ The `integration` folder pointed above is self-contained. That means that the di
 
 It's possible to run these tests either locally or in a container environment.
 
-You can setup a configured Kubeapps instance in your cluster with the `script/setup-kubeapps.sh` script.
+You can setup a configured Kubeapps instance in your cluster with the `script/setup-suomitek-appboard.sh` script.
 
 ### Runing browser tests locally
 
@@ -42,7 +42,7 @@ To run the tests locally you just need to install the required dependencies and 
 ```bash
 cd integration
 yarn install
-INTEGRATION_ENTRYPOINT=http://kubeapps.local LOGIN_TOKEN=foo yarn start
+INTEGRATION_ENTRYPOINT=http://suomitek-appboard.local LOGIN_TOKEN=foo yarn start
 ```
 
 If anything goes wrong, apart from the logs of the test, you can find the screenshot of the failed test in the folder `reports/screenshots`.
@@ -59,7 +59,7 @@ pod=$(kubectl get po -l run=integration -o jsonpath="{.items[0].metadata.name}")
 # Copy latest tests
 kubectl cp ./use-cases ${pod}:/app/
 # Run tests
-kubectl exec -it ${pod} -- /bin/sh -c 'INTEGRATION_ENTRYPOINT=http://kubeapps.kubeapps LOGIN_TOKEN=foo yarn start'
+kubectl exec -it ${pod} -- /bin/sh -c 'INTEGRATION_ENTRYPOINT=http://suomitek-appboard.kubeapps LOGIN_TOKEN=foo yarn start'
 # If the tests fail, get report screenshot
 kubectl cp ${pod}:/app/reports ./reports
 ```

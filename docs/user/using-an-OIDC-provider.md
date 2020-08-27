@@ -16,7 +16,7 @@ There are several Identity Providers (IdP) that can be used in a Kubernetes clus
 - [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis): Identity Provider that can be used for AKS.
 - [Google OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect): OAuth 2.0 for Google accounts.
 
-When configuring the identity provider, you will need to ensure that the redirect URL for your Kubeapps installation is configured, which is your Kubeapps URL with the absolute path '/oauth2/callback'. For example, if I am deploying Kubeapps with TLS on the domain my-kubeapps.example.com, then the redirect URL will be `https://my-kubeapps.example.com/oauth2/callback`.
+When configuring the identity provider, you will need to ensure that the redirect URL for your Kubeapps installation is configured, which is your Kubeapps URL with the absolute path '/oauth2/callback'. For example, if I am deploying Kubeapps with TLS on the domain my-suomitek-appboard.example.com, then the redirect URL will be `https://my-suomitek-appboard.example.com/oauth2/callback`.
 
 For Kubeapps to use an Identity Provider it's necessary to configure at least the following parameters:
 
@@ -206,7 +206,7 @@ The above is a sample deployment, depending on the configuration of the Identity
 
 #### Exposing the proxy
 
-Once the proxy is in place and it's able to connect to the IdP we will need to expose it to access it as the main endpoint for Kubeapps (instead of the `kubeapps` service). We can do that with an Ingress object. Note that for doing so an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) is needed. There are also other methods to expose the `kubeapps-auth-proxy` service, for example using `LoadBalancer` as type in a cloud environment. In case an Ingress is used, remember to modify the host `kubeapps.local` for the value that you want to use as a hostname for Kubeapps:
+Once the proxy is in place and it's able to connect to the IdP we will need to expose it to access it as the main endpoint for Kubeapps (instead of the `kubeapps` service). We can do that with an Ingress object. Note that for doing so an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) is needed. There are also other methods to expose the `kubeapps-auth-proxy` service, for example using `LoadBalancer` as type in a cloud environment. In case an Ingress is used, remember to modify the host `suomitek-appboard.local` for the value that you want to use as a hostname for Kubeapps:
 
 ```bash
 kubectl create -n $KUBEAPPS_NAMESPACE -f - -o yaml << EOF
@@ -219,7 +219,7 @@ metadata:
   name: kubeapps
 spec:
   rules:
-  - host: kubeapps.local
+  - host: suomitek-appboard.local
     http:
       paths:
       - backend:
