@@ -12,7 +12,7 @@ const defaultProps = {
   validating: false,
   imagePullSecrets: [],
   namespace: "default",
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
   fetchImagePullSecrets: jest.fn(),
   createDockerRegistrySecret: jest.fn(),
 };

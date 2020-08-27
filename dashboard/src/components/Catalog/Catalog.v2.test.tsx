@@ -26,7 +26,7 @@ const defaultProps = {
   pushSearchFilter: jest.fn(),
   cluster: "default",
   namespace: "suomitek-appboard",
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
   csvs: [],
   getCSVs: jest.fn(),
   featureFlags: { operators: false, ui: "hex" },

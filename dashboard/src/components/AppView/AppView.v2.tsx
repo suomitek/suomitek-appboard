@@ -169,7 +169,7 @@ export default function AppView({
             <Column span={7}>
               <Row>
                 <img src={icon} alt="app-icon" />
-                <div className="kubeapps-title-block">
+                <div className="suomitek-appboard-title-block">
                   <h3>{releaseName}</h3>
                   <div className="suomitek-appboard-header-subtitle">
                     <img src={helmIcon} alt="helm-icon" />

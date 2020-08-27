@@ -36,7 +36,7 @@ export default function ChartHeader({
                 src={chartAttrs.icon ? `api/assetsvc/${chartAttrs.icon}` : placeholder}
                 alt="app-icon"
               />
-              <div className="kubeapps-title-block">
+              <div className="suomitek-appboard-title-block">
                 <h3>
                   {releaseName
                     ? `${releaseName} (${chartAttrs.repo.name}/${chartAttrs.name})`

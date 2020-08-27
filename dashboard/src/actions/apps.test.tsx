@@ -23,7 +23,7 @@ beforeEach(() => {
       state,
     },
     config: {
-      namespace: "kubeapps-ns",
+      namespace: "suomitek-appboard-ns",
     },
   });
 });
@@ -302,7 +302,7 @@ describe("deploy chart", () => {
 describe("upgradeApp", () => {
   const provisionCMD = actions.apps.upgradeApp(
     "default-c",
-    "kubeapps-ns",
+    "suomitek-appboard-ns",
     "my-version" as any,
     definedNamespaces.all,
     "my-release",
@@ -320,7 +320,7 @@ describe("upgradeApp", () => {
     expect(store.getActions()).toEqual(expectedActions);
     expect(App.upgrade).toHaveBeenCalledWith(
       "default-c",
-      "kubeapps-ns",
+      "suomitek-appboard-ns",
       "my-release",
       definedNamespaces.all,
       "my-version" as any,
@@ -349,7 +349,7 @@ describe("upgradeApp", () => {
     const res = await store.dispatch(
       actions.apps.upgradeApp(
         "default-c",
-        "kubeapps-ns",
+        "suomitek-appboard-ns",
         "my-version" as any,
         "default",
         "my-release",

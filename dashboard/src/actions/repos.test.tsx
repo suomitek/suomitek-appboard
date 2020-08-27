@@ -505,7 +505,7 @@ describe("installRepo", () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it("uses kubeapps own namespace if namespace is _all", async () => {
+  it("uses suomitek-appboard own namespace if namespace is _all", async () => {
     await store.dispatch(
       repoActions.installRepo("my-repo", "_all", "http://foo.bar", "", "", "", []),
     );

@@ -29,7 +29,7 @@ afterEach(() => {
 
 const defaultProps = {
   namespace: "default",
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
   repo: {
     metadata: {
       name: "bitnami",

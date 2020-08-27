@@ -18,7 +18,7 @@ const defaultNamespace = "default-namespace";
 const defaultProps = {
   namespace: defaultNamespace,
   cluster: "default",
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
 };
 
 let spyOnUseDispatch: jest.SpyInstance;

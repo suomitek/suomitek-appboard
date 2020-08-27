@@ -25,7 +25,7 @@ it("renders a header for the chart", () => {
   const repoLink = wrapper.find(Link);
   expect(repoLink.exists()).toBe(true);
   expect(repoLink.props()).toMatchObject({
-    to: url.app.repo("default", "kubeapps", "testrepo"),
+    to: url.app.repo("default", "suomitek-appboard", "testrepo"),
     children: "testrepo",
   });
   expect(wrapper.find(ChartIcon).exists()).toBe(true);

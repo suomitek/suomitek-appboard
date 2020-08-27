@@ -30,7 +30,7 @@ const defaultProps = {
   getChartVersion: jest.fn(),
   deployed: {} as IChartState["deployed"],
   getDeployedChartVersion: jest.fn(),
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
   namespace: "default",
   cluster: "default",
   push: jest.fn(),
@@ -133,7 +133,7 @@ context("when an error exists", () => {
     expect(wrapper.find(UpgradeForm)).not.toExist();
 
     expect(wrapper.find(ErrorPageHeader).text()).toContain(
-      "You don't have sufficient permissions to view App Repositories in the kubeapps namespace",
+      "You don't have sufficient permissions to view App Repositories in the suomitek-appboard namespace",
     );
     expect(wrapper.find(PermissionsErrorAlert).prop("roles")[0]).toMatchObject(role);
   });

@@ -60,26 +60,26 @@ function ContextSelector({
   return (
     <>
       <div
-        className={`dropdown kubeapps-align-center kubeapps-dropdown ${open ? "open" : ""}`}
+        className={`dropdown suomitek-appboard-align-center suomitek-appboard-dropdown ${open ? "open" : ""}`}
         ref={ref}
       >
         <button
-          className="kubeapps-nav-link"
+          className="suomitek-appboard-nav-link"
           onClick={toggleOpen}
           aria-expanded={open}
           aria-haspopup="menu"
         >
           <Row>
             <Column span={10}>
-              <div className="kubeapps-dropdown-section">
-                <span className="kubeapps-dropdown-header">Current Context</span>
+              <div className="suomitek-appboard-dropdown-section">
+                <span className="suomitek-appboard-dropdown-header">Current Context</span>
                 <div>
                   <CdsIcon size="sm" shape="cluster" inverse={true} />
-                  <label htmlFor="clusters" className="kubeapps-dropdown-text">
+                  <label htmlFor="clusters" className="suomitek-appboard-dropdown-text">
                     {clusters.currentCluster}
                   </label>
                   <CdsIcon size="sm" shape="file-group" inverse={true} />
-                  <label htmlFor="namespaces" className="kubeapps-dropdown-text">
+                  <label htmlFor="namespaces" className="suomitek-appboard-dropdown-text">
                     {namespaceSelected}
                   </label>
                 </div>
@@ -87,7 +87,7 @@ function ContextSelector({
             </Column>
             <Column span={2}>
               <div
-                className={`kubeapps-align-center angle ${open ? "angle-opened" : "angle-closed"}`}
+                className={`suomitek-appboard-align-center angle ${open ? "angle-opened" : "angle-closed"}`}
               >
                 <CdsIcon shape="angle" inverse={true} direction={open ? "up" : "down"} />
               </div>
@@ -100,12 +100,12 @@ function ContextSelector({
           </span>
           <div className="dropdown-menu-padding" role="menuitem">
             <CdsIcon size="sm" shape="cluster" inverse={true} />
-            <span className="kubeapps-dropdown-text">Cluster</span>
+            <span className="suomitek-appboard-dropdown-text">Cluster</span>
             <div className="clr-select-wrapper">
               <select name="clusters" className="clr-page-size-select" onChange={selectCluster}>
                 {Object.keys(clusters.clusters).map(c => {
                   return (
-                    <option key={`kubeapps-dropdown-cluster-${c}`} value={c}>
+                    <option key={`suomitek-appboard-dropdown-cluster-${c}`} value={c}>
                       {c}
                     </option>
                   );
@@ -115,12 +115,12 @@ function ContextSelector({
           </div>
           <div className="dropdown-menu-padding" role="menuitem">
             <CdsIcon size="sm" shape="file-group" inverse={true} />
-            <span className="kubeapps-dropdown-text">Namespace</span>
+            <span className="suomitek-appboard-dropdown-text">Namespace</span>
             <div className="clr-select-wrapper">
               <select name="namespaces" className="clr-page-size-select" onChange={selectNamespace}>
                 {clusters.clusters[cluster].namespaces.map(n => {
                   return (
-                    <option key={`kubeapps-dropdown-namespace-${n}`} value={n}>
+                    <option key={`suomitek-appboard-dropdown-namespace-${n}`} value={n}>
                       {n}
                     </option>
                   );

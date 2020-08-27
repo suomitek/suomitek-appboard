@@ -16,7 +16,7 @@ import DeploymentForm, { IDeploymentFormProps } from "./DeploymentForm";
 const releaseName = "my-release";
 const defaultProps = {
   chartsIsFetching: false,
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
   chartNamespace: "other-namespace",
   chartID: "foo",
   chartVersion: "1.0.0",
@@ -107,7 +107,7 @@ describe("renders an error", () => {
         }
         error={
           new ForbiddenError(
-            '[{"apiGroup":"","resource":"secrets","namespace":"kubeapps","clusterWide":false,"verbs":["create","list"]}]',
+            '[{"apiGroup":"","resource":"secrets","namespace":"suomitek-appboard","clusterWide":false,"verbs":["create","list"]}]',
           )
         }
       />,
@@ -118,7 +118,7 @@ describe("renders an error", () => {
       "You don't have sufficient permissions",
     );
     expect(wrapper.find(PermissionsErrorAlert).text()).toContain(
-      "create, list secrets  in the kubeapps namespace",
+      "create, list secrets  in the suomitek-appboard namespace",
     );
   });
 });

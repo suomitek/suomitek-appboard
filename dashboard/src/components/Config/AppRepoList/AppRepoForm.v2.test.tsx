@@ -12,7 +12,7 @@ import { AppRepoForm } from "./AppRepoForm.v2";
 const defaultProps = {
   onSubmit: jest.fn(),
   namespace: "default",
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
 };
 
 let spyOnUseDispatch: jest.SpyInstance;

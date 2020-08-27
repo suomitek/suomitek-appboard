@@ -43,7 +43,7 @@ const defaultProps = {
   getChartVersion: jest.fn(),
   deployed: {} as IChartState["deployed"],
   getDeployedChartVersion: jest.fn(),
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
   namespace: "default",
   cluster: "default",
   push: jest.fn(),

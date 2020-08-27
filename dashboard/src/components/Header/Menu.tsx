@@ -33,9 +33,9 @@ function Menu({ clusters, defaultNamespace, appVersion, logout }: IContextSelect
   return (
     <>
       <div className={open ? "drawer-backdrop" : ""} />
-      <div className={`dropdown kubeapps-menu ${open ? "open" : ""}`} ref={ref}>
+      <div className={`dropdown suomitek-appboard-menu ${open ? "open" : ""}`} ref={ref}>
         <button
-          className="kubeapps-nav-link"
+          className="suomitek-appboard-nav-link"
           onClick={toggleOpen}
           aria-expanded={open}
           aria-haspopup="menu"

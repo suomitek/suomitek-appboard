@@ -31,7 +31,7 @@ const sampleOperator = {
   },
   status: {
     provider: {
-      name: "kubeapps",
+      name: "suomitek-appboard",
     },
     defaultChannel: "alpha",
     channels: [
@@ -55,7 +55,7 @@ const sampleCSV = {
   spec: {
     icon: [{}],
     provider: {
-      name: "kubeapps",
+      name: "suomitek-appboard",
     },
     customresourcedefinitions: {
       owned: [

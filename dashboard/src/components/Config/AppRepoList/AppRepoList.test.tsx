@@ -18,7 +18,7 @@ const defaultProps = {
   validate: jest.fn(),
   namespace: defaultNamespace,
   cluster: "default",
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
   displayReposPerNamespaceMsg: false,
   validating: false,
   isFetching: false,

@@ -11,7 +11,7 @@ const defaultProps = {
   onSubmit: jest.fn(),
   validate: jest.fn().mockReturnValue(true),
   namespace: "suomitek-appboard",
-  kubeappsNamespace: "kubeapps",
+  kubeappsNamespace: "suomitek-appboard",
   validating: false,
   errors: {},
   imagePullSecrets: [],
@@ -46,7 +46,7 @@ it("should install a repository with a custom auth header", async () => {
 
   // Wait for the Modal to be closed
   await wait(1);
-  expect(install).toBeCalledWith("my-repo", "kubeapps", "http://foo.bar", "foo", "bar", "", []);
+  expect(install).toBeCalledWith("my-repo", "suomitek-appboard", "http://foo.bar", "foo", "bar", "", []);
   expect(wrapper.state("modalIsOpen")).toBe(false);
 });
 
@@ -72,7 +72,7 @@ it("should install a repository with basic auth", async () => {
   await wait(1);
   expect(install).toBeCalledWith(
     "my-repo",
-    "kubeapps",
+    "suomitek-appboard",
     "http://foo.bar",
     "Basic Zm9vOmJhcg==",
     "",
@@ -103,7 +103,7 @@ it("should install a repository with a bearer token", async () => {
   await wait(1);
   expect(install).toBeCalledWith(
     "my-repo",
-    "kubeapps",
+    "suomitek-appboard",
     "http://foo.bar",
     "Bearer foobar",
     "",
@@ -134,7 +134,7 @@ it("should install a repository with a podSpecTemplate", async () => {
   await wait(1);
   expect(install).toBeCalledWith(
     "my-repo",
-    "kubeapps",
+    "suomitek-appboard",
     "http://foo.bar",
     "Bearer ",
     "",

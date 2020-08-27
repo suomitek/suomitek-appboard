@@ -15,7 +15,7 @@ class Layout extends React.Component<ILayoutProps> {
       <section className="layout">
         <HeaderComponent />
         <main>
-          <div className="container kubeapps-main-container">
+          <div className="container suomitek-appboard-main-container">
             <div className="content-area">
               <ErrorBoundaryContainer>{this.props.children}</ErrorBoundaryContainer>
             </div>
