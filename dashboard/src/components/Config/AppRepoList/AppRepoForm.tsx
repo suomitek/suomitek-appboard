@@ -142,10 +142,10 @@ export class AppRepoForm extends React.Component<IAppRepoFormProps, IAppRepoForm
               <h2>Add an App Repository</h2>
             </div>
             <div>
-              <label htmlFor="kubeapps-repo-name">Name:</label>
+              <label htmlFor="suomitek-appboard-repo-name">Name:</label>
               <input
                 type="text"
-                id="kubeapps-repo-name"
+                id="suomitek-appboard-repo-name"
                 placeholder="example"
                 value={this.state.name}
                 onChange={this.handleNameChange}

@@ -159,9 +159,9 @@ describe("when the repository info is already populated", () => {
   it("should parse the existing name", () => {
     const repo = { metadata: { name: "foo" } } as any;
     const wrapper = mountWrapper(defaultStore, <AppRepoForm {...defaultProps} repo={repo} />);
-    expect(wrapper.find("#kubeapps-repo-name").prop("value")).toBe("foo");
+    expect(wrapper.find("#suomitek-appboard-repo-name").prop("value")).toBe("foo");
     // It should also disable the name input if it's already been set
-    expect(wrapper.find("#kubeapps-repo-name").prop("disabled")).toBe(true);
+    expect(wrapper.find("#suomitek-appboard-repo-name").prop("disabled")).toBe(true);
   });
 
   it("should parse the existing url", () => {

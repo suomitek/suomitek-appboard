@@ -213,14 +213,14 @@ export function AppRepoForm({
     <form onSubmit={handleInstallClick} className="app-repo-form">
       <h2>Add an App Repository</h2>
       <div className="clr-form-control">
-        <label htmlFor="kubeapps-repo-name" className="clr-control-label">
+        <label htmlFor="suomitek-appboard-repo-name" className="clr-control-label">
           Name
         </label>
         <div className="clr-control-container">
           <div className="clr-input-wrapper">
             <input
               type="text"
-              id="kubeapps-repo-name"
+              id="suomitek-appboard-repo-name"
               className="clr-input"
               placeholder="example"
               value={name}

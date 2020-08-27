@@ -125,7 +125,7 @@ describe("when the repository info is already populated", () => {
     expect(
       wrapper
         .find("input")
-        .findWhere(i => i.prop("id") === "kubeapps-repo-name")
+        .findWhere(i => i.prop("id") === "suomitek-appboard-repo-name")
         .prop("disabled"),
     ).toBe(true);
   });

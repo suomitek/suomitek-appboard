@@ -65,12 +65,12 @@ exports[`should open a modal with the repository form 1`] = `
                     </div>
                     <div>
                       <label
-                        for="kubeapps-repo-name"
+                        for="suomitek-appboard-repo-name"
                       >
                         Name:
                       </label>
                       <input
-                        id="kubeapps-repo-name"
+                        id="suomitek-appboard-repo-name"
                         pattern="[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*"
                         placeholder="example"
                         required=""

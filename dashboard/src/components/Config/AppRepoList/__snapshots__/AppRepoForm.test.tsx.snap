@@ -18,13 +18,13 @@ exports[`should render the repo form 1`] = `
       </div>
       <div>
         <label
-          htmlFor="kubeapps-repo-name"
+          htmlFor="suomitek-appboard-repo-name"
         >
           Name:
         </label>
         <input
           disabled={false}
-          id="kubeapps-repo-name"
+          id="suomitek-appboard-repo-name"
           onChange={[Function]}
           pattern="[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*"
           placeholder="example"
