@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "kubeapps.assetsvc.fullname" . }}
+  name: {{ template "suomitek-appborad.assetsvc.fullname" . }}
   labels:
-    app: {{ template "kubeapps.assetsvc.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.assetsvc.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.assetsvc.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "kubeapps.assetsvc.fullname" . }}
+      app: {{ template "suomitek-appborad.assetsvc.fullname" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "kubeapps.assetsvc.fullname" . }}
+        app: {{ template "suomitek-appborad.assetsvc.fullname" . }}
         release: {{ .Release.Name }}
     spec:
 {{- include "kubeapps.imagePullSecrets" . | indent 6 }}
@@ -36,7 +36,7 @@ spec:
       {{- end }}
       containers:
         - name: assetsvc
-          image: {{ template "kubeapps.image" (list .Values.assetsvc.image .Values.global) }}
+          image: {{ template "suomitek-appborad.image" (list .Values.assetsvc.image .Values.global) }}
           command:
             - /assetsvc
           {{- if .Values.mongodb.enabled }}
@@ -44,7 +44,7 @@ spec:
             - --database-type=mongodb
             - --database-user=root
             - --database-name=charts
-            - --database-url={{ template "kubeapps.mongodb.fullname" . }}
+            - --database-url={{ template "suomitek-appborad.mongodb.fullname" . }}
           env:
             - name: DB_PASSWORD
               valueFrom:
@@ -61,7 +61,7 @@ spec:
             - --database-type=postgresql
             - --database-user=postgres
             - --database-name=assets
-            - --database-url={{ template "kubeapps.postgresql.fullname" . }}-headless:5432
+            - --database-url={{ template "suomitek-appborad.postgresql.fullname" . }}-headless:5432
           env:
             - name: DB_PASSWORD
               valueFrom:

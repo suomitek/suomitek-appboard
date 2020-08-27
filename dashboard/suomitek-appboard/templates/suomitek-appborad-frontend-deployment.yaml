@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "kubeapps.fullname" . }}
+  name: {{ template "suomitek-appborad.fullname" . }}
   labels:
-    app: {{ template "kubeapps.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.frontend.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "kubeapps.fullname" . }}
+      app: {{ template "suomitek-appborad.fullname" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/kubeapps-frontend-config.yaml") . | sha256sum }}
       labels:
-        app: {{ template "kubeapps.fullname" . }}
+        app: {{ template "suomitek-appborad.fullname" . }}
         release: {{ .Release.Name }}
     spec:
 {{- include "kubeapps.imagePullSecrets" . | indent 6 }}
@@ -38,7 +38,7 @@ spec:
       {{- end }}
       containers:
         - name: nginx
-          image: {{ template "kubeapps.image" (list .Values.frontend.image .Values.global) }}
+          image: {{ template "suomitek-appborad.image" (list .Values.frontend.image .Values.global) }}
           {{- if .Values.frontend.livenessProbe }}
           livenessProbe: {{- toYaml .Values.frontend.livenessProbe | nindent 12 }}
           {{- end }}
@@ -74,7 +74,7 @@ spec:
             {{- range .Values.authProxy.additionalFlags }}
             - {{ . }}
             {{- end }}
-          image: {{ template "kubeapps.image" (list .Values.authProxy.image .Values.global) }}
+          image: {{ template "suomitek-appborad.image" (list .Values.authProxy.image .Values.global) }}
           ports:
             - name: proxy
               containerPort: 3000
@@ -85,4 +85,4 @@ spec:
       volumes:
         - name: vhost
           configMap:
-            name: {{ template "kubeapps.frontend-config.fullname" . }}
+            name: {{ template "suomitek-appborad.frontend-config.fullname" . }}

@@ -2,10 +2,10 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: {{ template "kubeapps.apprepository.fullname" . }}
+  name: {{ template "suomitek-appborad.apprepository.fullname" . }}
   labels:
-    app: {{ template "kubeapps.apprepository.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 rules:
@@ -46,19 +46,19 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ template "kubeapps.apprepository.fullname" . }}
+  name: {{ template "suomitek-appborad.apprepository.fullname" . }}
   labels:
-    app: {{ template "kubeapps.apprepository.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ template "kubeapps.apprepository.fullname" . }}
+  name: {{ template "suomitek-appborad.apprepository.fullname" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ template "kubeapps.apprepository.fullname" . }}
+    name: {{ template "suomitek-appborad.apprepository.fullname" . }}
     namespace: {{ .Release.Namespace }}
 ---
 # Define role, but no binding, so users can be bound to this role
@@ -102,8 +102,8 @@ kind: ClusterRole
 metadata:
   name: "kubeapps:{{ .Release.Namespace }}:apprepositories-read"
   labels:
-    app: {{ template "kubeapps.apprepository.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 rules:
@@ -122,8 +122,8 @@ kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:{{ .Release.Namespace }}:apprepositories-read"
   labels:
-    app: {{ template "kubeapps.apprepository.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 roleRef:
@@ -132,7 +132,7 @@ roleRef:
   name: "kubeapps:{{ .Release.Namespace }}:apprepositories-read"
 subjects:
   - kind: ServiceAccount
-    name: {{ template "kubeapps.apprepository.fullname" . }}
+    name: {{ template "suomitek-appborad.apprepository.fullname" . }}
     namespace: {{ .Release.Namespace }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -140,8 +140,8 @@ kind: ClusterRole
 metadata:
   name: "kubeapps:{{ .Release.Namespace }}:apprepositories-write"
   labels:
-    app: {{ template "kubeapps.apprepository.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 rules:

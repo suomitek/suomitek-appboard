@@ -2,13 +2,13 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
+  name: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
   annotations:
     helm.sh/hook: post-delete
     helm.sh/hook-delete-policy: hook-succeeded
     helm.sh/hook-weight: "-10"
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
+    app: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
 rules:
   - apiGroups:
       - suomitek.com
@@ -28,19 +28,19 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
+  name: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
   annotations:
     helm.sh/hook: post-delete
     helm.sh/hook-delete-policy: hook-succeeded
     helm.sh/hook-weight: "-10"
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
+    app: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
+  name: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
+    name: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- end -}}

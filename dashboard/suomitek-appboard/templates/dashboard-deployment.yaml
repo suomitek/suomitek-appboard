@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "kubeapps.dashboard.fullname" . }}
+  name: {{ template "suomitek-appborad.dashboard.fullname" . }}
   labels:
-    app: {{ template "kubeapps.dashboard.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.dashboard.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.dashboard.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "kubeapps.dashboard.fullname" . }}
+      app: {{ template "suomitek-appborad.dashboard.fullname" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/dashboard-config.yaml") . | sha256sum }}
       labels:
-        app: {{ template "kubeapps.dashboard.fullname" . }}
+        app: {{ template "suomitek-appborad.dashboard.fullname" . }}
         release: {{ .Release.Name }}
     spec:
 {{- include "kubeapps.imagePullSecrets" . | indent 6 }}
@@ -38,7 +38,7 @@ spec:
       {{- end }}
       containers:
         - name: dashboard
-          image: {{ template "kubeapps.image" (list .Values.dashboard.image .Values.global) }}
+          image: {{ template "suomitek-appborad.image" (list .Values.dashboard.image .Values.global) }}
           {{- if .Values.dashboard.livenessProbe }}
           livenessProbe: {{- toYaml .Values.dashboard.livenessProbe | nindent 12 }}
           {{- end }}
@@ -60,13 +60,13 @@ spec:
       volumes:
         - name: vhost
           configMap:
-            name: {{ template "kubeapps.dashboard-config.fullname" . }}
+            name: {{ template "suomitek-appborad.dashboard-config.fullname" . }}
             items:
               - key: vhost.conf
                 path: vhost.conf
         - name: config
           configMap:
-            name: {{ template "kubeapps.dashboard-config.fullname" . }}
+            name: {{ template "suomitek-appborad.dashboard-config.fullname" . }}
             items:
               - key: config.json
                 path: config.json

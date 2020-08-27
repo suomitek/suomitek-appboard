@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "kubeapps.apprepository.fullname" . }}
+  name: {{ template "suomitek-appborad.apprepository.fullname" . }}
   labels:
-    app: {{ template "kubeapps.apprepository.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.apprepository.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "kubeapps.apprepository.fullname" . }}
+      app: {{ template "suomitek-appborad.apprepository.fullname" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "kubeapps.apprepository.fullname" . }}
+        app: {{ template "suomitek-appborad.apprepository.fullname" . }}
         release: {{ .Release.Name }}
     spec:
-      serviceAccountName: {{ template "kubeapps.apprepository.fullname" . }}
+      serviceAccountName: {{ template "suomitek-appborad.apprepository.fullname" . }}
 {{- include "kubeapps.imagePullSecrets" . | indent 6 }}
       {{- if .Values.apprepository.affinity }}
       affinity: {{- include "kubeapps.tplValue" (dict "value" .Values.apprepository.affinity "context" $) | nindent 8 }}
@@ -37,19 +37,19 @@ spec:
       {{- end }}
       containers:
         - name: controller
-          image: {{ template "kubeapps.image" (list .Values.apprepository.image .Values.global) }}
+          image: {{ template "suomitek-appborad.image" (list .Values.apprepository.image .Values.global) }}
           command:
             - /apprepository-controller
           args:
             - --user-agent-comment=kubeapps/{{ .Chart.AppVersion }}
-            - --repo-sync-image={{ template "kubeapps.image" (list .Values.apprepository.syncImage .Values.global) }}
+            - --repo-sync-image={{ template "suomitek-appborad.image" (list .Values.apprepository.syncImage .Values.global) }}
             - --repo-sync-cmd=/asset-syncer
             - --namespace={{ .Release.Namespace }}
             {{- if .Values.mongodb.enabled }}
             - --database-secret-name={{ .Values.mongodb.existingSecret }}
             - --database-secret-key=mongodb-root-password
             - --database-type=mongodb
-            - --database-url={{ template "kubeapps.mongodb.fullname" . }}
+            - --database-url={{ template "suomitek-appborad.mongodb.fullname" . }}
             - --database-user=root
             - --database-name=charts
             {{- end }}
@@ -57,7 +57,7 @@ spec:
             - --database-secret-name={{ .Values.postgresql.existingSecret }}
             - --database-secret-key=postgresql-password
             - --database-type=postgresql
-            - --database-url={{ template "kubeapps.postgresql.fullname" . }}:5432
+            - --database-url={{ template "suomitek-appborad.postgresql.fullname" . }}:5432
             - --database-user=postgres
             - --database-name=assets
             {{- end }}

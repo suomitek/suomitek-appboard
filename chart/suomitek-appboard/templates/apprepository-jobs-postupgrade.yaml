@@ -3,19 +3,19 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ template "kubeapps.apprepository-job-postupgrade.fullname" . }}
+  name: {{ template "suomitek-appborad.apprepository-job-postupgrade.fullname" . }}
   annotations:
     helm.sh/hook: post-upgrade
     helm.sh/hook-weight: "0"
     helm.sh/hook-delete-policy: hook-succeeded
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.apprepository-job-postupgrade.fullname" . }}
+    app: {{ template "suomitek-appborad.apprepository-job-postupgrade.fullname" . }}
 spec:
   template:
     metadata:
       labels:
-        app: {{ template "kubeapps.apprepository-job-postupgrade.fullname" . }}
-        app.kubernetes.io/name: {{ template "kubeapps.name" . }}
+        app: {{ template "suomitek-appborad.apprepository-job-postupgrade.fullname" . }}
+        app.kubernetes.io/name: {{ template "suomitek-appborad.name" . }}
         release: {{ .Release.Name }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
@@ -35,10 +35,10 @@ spec:
         runAsUser: {{ .Values.securityContext.runAsUser }}
       {{- end }}
       restartPolicy: OnFailure
-      serviceAccountName: {{ template "kubeapps.apprepository-job-postupgrade.fullname" . }}
+      serviceAccountName: {{ template "suomitek-appborad.apprepository-job-postupgrade.fullname" . }}
       containers:
         - name: invalidate-cache
-          image: {{ template "kubeapps.image" (list .Values.apprepository.syncImage .Values.global) }}
+          image: {{ template "suomitek-appborad.image" (list .Values.apprepository.syncImage .Values.global) }}
           imagePullPolicy: {{ .Values.apprepository.syncImage.pullPolicy | quote }}
           command:
             - /asset-syncer
@@ -46,13 +46,13 @@ spec:
             - invalidate-cache
             {{- if .Values.mongodb.enabled }}
             - --database-type=mongodb
-            - --database-url={{ template "kubeapps.mongodb.fullname" . }}
+            - --database-url={{ template "suomitek-appborad.mongodb.fullname" . }}
             - --database-user=root
             - --database-name=charts
             {{- end }}
             {{- if .Values.postgresql.enabled }}
             - --database-type=postgresql
-            - --database-url={{ template "kubeapps.postgresql.fullname" . }}:5432
+            - --database-url={{ template "suomitek-appborad.postgresql.fullname" . }}:5432
             - --database-user=postgres
             - --database-name=assets
             {{- end }}
@@ -73,7 +73,7 @@ spec:
         # Helm 3.1 supports a lookup template tag to create a secret if it does not exist
         # but we can't yet restrict to helm 3.1, hence manually doing this with an initContainer.
         - name: ensure-postgres-password
-          image: {{ template "kubeapps.image" (list .Values.hooks.image .Values.global) }}
+          image: {{ template "suomitek-appborad.image" (list .Values.hooks.image .Values.global) }}
           imagePullPolicy: {{ .Values.hooks.image.pullPolicy | quote }}
           command:
             - /bin/bash

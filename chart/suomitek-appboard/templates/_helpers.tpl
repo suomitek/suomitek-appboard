@@ -39,7 +39,7 @@ from kubeapps
 chart: {{ include "kubeapps.chart" . }}
 release: {{ .Release.Name }}
 heritage: {{ .Release.Service }}
-helm.sh/chart: {{ template "kubeapps.chart" . }}
+helm.sh/chart: {{ template "suomitek-appborad.chart" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 app.kubernetes.io/name: {{ include "kubeapps.name" . }}
@@ -50,7 +50,7 @@ Common labels
 */}}
 {{- define "kubeapps.labels" -}}
 app: {{ include "kubeapps.name" . }}
-{{ template "kubeapps.extraAppLabels" . }}
+{{ template "suomitek-appborad.extraAppLabels" . }}
 {{- end -}}
 
 {{/*
@@ -98,63 +98,63 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 Create name for the apprepository-controller based on the fullname
 */}}
 {{- define "kubeapps.apprepository.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-apprepository-controller
+{{ template "suomitek-appborad.fullname" . }}-internal-apprepository-controller
 {{- end -}}
 
 {{/*
 Create name for the apprepository pre-upgrade job
 */}}
 {{- define "kubeapps.apprepository-job-postupgrade.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-apprepository-job-postupgrade
+{{ template "suomitek-appborad.fullname" . }}-internal-apprepository-job-postupgrade
 {{- end -}}
 
 {{/*
 Create name for the apprepository cleanup job
 */}}
 {{- define "kubeapps.apprepository-jobs-cleanup.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-apprepository-jobs-cleanup
+{{ template "suomitek-appborad.fullname" . }}-internal-apprepository-jobs-cleanup
 {{- end -}}
 
 {{/*
 Create name for the db-secret secret bootstrap job
 */}}
 {{- define "kubeapps.db-secret-jobs-cleanup.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-db-secret-jobs-cleanup
+{{ template "suomitek-appborad.fullname" . }}-internal-db-secret-jobs-cleanup
 {{- end -}}
 
 {{/*
 Create name for the kubeapps upgrade job
 */}}
 {{- define "kubeapps.kubeapps-jobs-upgrade.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-kubeapps-jobs-upgrade
+{{ template "suomitek-appborad.fullname" . }}-internal-kubeapps-jobs-upgrade
 {{- end -}}
 
 {{/*
 Create name for the assetsvc based on the fullname
 */}}
 {{- define "kubeapps.assetsvc.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-assetsvc
+{{ template "suomitek-appborad.fullname" . }}-internal-assetsvc
 {{- end -}}
 
 {{/*
 Create name for the dashboard based on the fullname
 */}}
 {{- define "kubeapps.dashboard.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-dashboard
+{{ template "suomitek-appborad.fullname" . }}-internal-dashboard
 {{- end -}}
 
 {{/*
 Create name for the dashboard config based on the fullname
 */}}
 {{- define "kubeapps.dashboard-config.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-dashboard-config
+{{ template "suomitek-appborad.fullname" . }}-internal-dashboard-config
 {{- end -}}
 
 {{/*
 Create name for the frontend config based on the fullname
 */}}
 {{- define "kubeapps.frontend-config.fullname" -}}
-{{ template "kubeapps.fullname" . }}-frontend-config
+{{ template "suomitek-appborad.fullname" . }}-frontend-config
 {{- end -}}
 
 {{/*
@@ -162,9 +162,9 @@ Create proxy_pass for the frontend config based on the useHelm3 flag
 */}}
 {{- define "kubeapps.frontend-config.proxy_pass" -}}
 {{- if .Values.useHelm3 -}}
-http://{{ template "kubeapps.kubeops.fullname" . }}:{{ .Values.kubeops.service.port }}
+http://{{ template "suomitek-appborad.kubeops.fullname" . }}:{{ .Values.kubeops.service.port }}
 {{- else -}}
-http://{{ template "kubeapps.tiller-proxy.fullname" . }}:{{ .Values.tillerProxy.service.port }}
+http://{{ template "suomitek-appborad.tiller-proxy.fullname" . }}:{{ .Values.tillerProxy.service.port }}
 {{- end -}}
 {{- end -}}
 
@@ -172,21 +172,21 @@ http://{{ template "kubeapps.tiller-proxy.fullname" . }}:{{ .Values.tillerProxy.
 Create name for the tiller-proxy based on the fullname
 */}}
 {{- define "kubeapps.tiller-proxy.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-tiller-proxy
+{{ template "suomitek-appborad.fullname" . }}-internal-tiller-proxy
 {{- end -}}
 
 {{/*
 Create name for kubeops based on the fullname
 */}}
 {{- define "kubeapps.kubeops.fullname" -}}
-{{ template "kubeapps.fullname" . }}-internal-kubeops
+{{ template "suomitek-appborad.fullname" . }}-internal-kubeops
 {{- end -}}
 
 {{/*
 Create name for the kubeops config based on the fullname
 */}}
 {{- define "kubeapps.kubeops-config.fullname" -}}
-{{ template "kubeapps.fullname" . }}-kubeops-config
+{{ template "suomitek-appborad.fullname" . }}-kubeops-config
 {{- end -}}
 
 {{/*

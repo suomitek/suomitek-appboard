@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "kubeapps.dashboard-config.fullname" . }}
+  name: {{ template "suomitek-appborad.dashboard-config.fullname" . }}
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.dashboard-config.fullname" . }}
+    app: {{ template "suomitek-appborad.dashboard-config.fullname" . }}
 data:
   vhost.conf: |-
     server {

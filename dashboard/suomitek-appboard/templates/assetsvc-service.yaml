@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "kubeapps.assetsvc.fullname" . }}
+  name: {{ template "suomitek-appborad.assetsvc.fullname" . }}
   labels:
-    app: {{ template "kubeapps.name" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.name" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "kubeapps.assetsvc.fullname" . }}
+    app: {{ template "suomitek-appborad.assetsvc.fullname" . }}
     release: {{ .Release.Name }}

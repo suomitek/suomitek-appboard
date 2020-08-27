@@ -7,10 +7,10 @@ metadata:
 spec:
   containers:
     - name: {{ .Release.Name }}-assetsvc-test
-      image: {{ template "kubeapps.image" (list .Values.testImage .Values.global) }}
+      image: {{ template "suomitek-appborad.image" (list .Values.testImage .Values.global) }}
       env:
         - name: ASSETSVC_HOST
-          value: {{ template "kubeapps.assetsvc.fullname" . }}.{{ .Release.Namespace }}
+          value: {{ template "suomitek-appborad.assetsvc.fullname" . }}.{{ .Release.Namespace }}
         - name: ASSETSVC_PORT
           value: "{{ .Values.assetsvc.service.port }}"
       command:

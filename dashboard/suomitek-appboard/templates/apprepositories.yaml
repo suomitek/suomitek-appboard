@@ -7,8 +7,8 @@ metadata:
     "helm.sh/hook": post-install
     "helm.sh/hook-weight": "10"
   labels:
-    app: {{ template "kubeapps.apprepository.fullname" $ }}
-    chart: {{ template "kubeapps.chart" $ }}
+    app: {{ template "suomitek-appborad.apprepository.fullname" $ }}
+    chart: {{ template "suomitek-appborad.chart" $ }}
     release: {{ $.Release.Name }}
     heritage: {{ $.Release.Service }}
 spec:
@@ -41,13 +41,13 @@ spec:
     customCA:
       secretKeyRef:
         key: ca.crt
-        name: {{ template "kubeapps.apprepository-secret.name" . }}
+        name: {{ template "suomitek-appborad.apprepository-secret.name" . }}
     {{- end }}
     {{- if .authorizationHeader }}
     header:
       secretKeyRef:
         key: authorizationHeader
-        name: {{ template "kubeapps.apprepository-secret.name" . }}
+        name: {{ template "suomitek-appborad.apprepository-secret.name" . }}
     {{- end }}
   {{- end }}
 ---

@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "kubeapps.fullname" . }}
+  name: {{ template "suomitek-appborad.fullname" . }}
   labels: {{ include "kubeapps.labels" . | nindent 4 }}
   annotations:
     {{- if .Values.ingress.certManager }}
@@ -19,7 +19,7 @@ spec:
         paths:
         - path: /
           backend:
-            serviceName: {{ template "kubeapps.fullname" . }}
+            serviceName: {{ template "suomitek-appborad.fullname" . }}
             servicePort: http
     {{- end }}
     {{- range .Values.ingress.extraHosts }}
@@ -28,7 +28,7 @@ spec:
         paths:
         - path: {{ default "/" .path }}
           backend:
-            serviceName: {{ template "kubeapps.fullname" $ }}
+            serviceName: {{ template "suomitek-appborad.fullname" $ }}
             servicePort: http
     {{- end }}
     ## The block below is deprecated and must removed on 3.0.0
@@ -38,7 +38,7 @@ spec:
         paths:
         - path: {{ default "/" .path }}
           backend:
-            serviceName: {{ template "kubeapps.fullname" $ }}
+            serviceName: {{ template "suomitek-appborad.fullname" $ }}
             servicePort: http
     {{- end }}
     ## end of block

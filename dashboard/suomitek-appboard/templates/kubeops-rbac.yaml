@@ -3,10 +3,10 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: {{ template "kubeapps.kubeops.fullname" . }}
+  name: {{ template "suomitek-appborad.kubeops.fullname" . }}
   labels:
-    app: {{ template "kubeapps.kubeops.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.kubeops.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 rules:
@@ -28,19 +28,19 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ template "kubeapps.kubeops.fullname" . }}
+  name: {{ template "suomitek-appborad.kubeops.fullname" . }}
   labels:
-    app: {{ template "kubeapps.kubeops.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.kubeops.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ template "kubeapps.kubeops.fullname" . }}
+  name: {{ template "suomitek-appborad.kubeops.fullname" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ template "kubeapps.kubeops.fullname" . }}
+    name: {{ template "suomitek-appborad.kubeops.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- if .Values.allowNamespaceDiscovery }}
 ---
@@ -49,8 +49,8 @@ kind: ClusterRole
 metadata:
   name: "kubeapps:controller:kubeops-ns-discovery-{{ .Release.Namespace }}"
   labels:
-    app: {{ template "kubeapps.kubeops.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.kubeops.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 rules:
@@ -66,8 +66,8 @@ kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:kubeops-ns-discovery-{{ .Release.Namespace }}"
   labels:
-    app: {{ template "kubeapps.kubeops.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.kubeops.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 roleRef:
@@ -76,7 +76,7 @@ roleRef:
   name: "kubeapps:controller:kubeops-ns-discovery-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
-    name: {{ template "kubeapps.kubeops.fullname" . }}
+    name: {{ template "suomitek-appborad.kubeops.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- end -}}
 {{- if .Values.featureFlags.operators }}
@@ -86,8 +86,8 @@ kind: ClusterRole
 metadata:
   name: "kubeapps:controller:kubeops-operators-{{ .Release.Namespace }}"
   labels:
-    app: {{ template "kubeapps.kubeops.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.kubeops.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 rules:
@@ -103,8 +103,8 @@ kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:kubeops-operators-{{ .Release.Namespace }}"
   labels:
-    app: {{ template "kubeapps.kubeops.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.kubeops.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 roleRef:
@@ -113,7 +113,7 @@ roleRef:
   name: "kubeapps:controller:kubeops-operators-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
-    name: {{ template "kubeapps.kubeops.fullname" . }}
+    name: {{ template "suomitek-appborad.kubeops.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- end -}}
 {{- end -}}

@@ -2,20 +2,20 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
+  name: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
   annotations:
     helm.sh/hook: post-delete
     helm.sh/hook-delete-policy: hook-succeeded
   labels:
-    app: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
-    chart: {{ template "kubeapps.chart" . }}
+    app: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
+    chart: {{ template "suomitek-appborad.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   template:
     metadata:
       labels:
-        app: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
+        app: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
         release: {{ .Release.Name }}
     spec:
 {{- include "kubeapps.imagePullSecrets" . | indent 6 }}
@@ -34,14 +34,14 @@ spec:
         runAsUser: {{ .Values.securityContext.runAsUser }}
       {{- end }}
       restartPolicy: OnFailure
-      serviceAccountName: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
+      serviceAccountName: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
       containers:
         - name: kubectl
-          image: {{ template "kubeapps.image" (list .Values.hooks.image .Values.global) }}
+          image: {{ template "suomitek-appborad.image" (list .Values.hooks.image .Values.global) }}
           command:
             - /bin/sh
           args:
             - -ec
             - |
               kubectl delete apprepositories.suomitek.com -n {{ .Release.Namespace }} --all
-              kubectl delete secrets -n {{ .Release.Namespace }} -l app={{ template "kubeapps.name" $ }},release={{ $.Release.Name }}
+              kubectl delete secrets -n {{ .Release.Namespace }} -l app={{ template "suomitek-appborad.name" $ }},release={{ $.Release.Name }}

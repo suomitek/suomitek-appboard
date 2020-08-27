@@ -3,9 +3,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: {{ template "kubeapps.tiller-proxy.fullname" . }}
+  name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.tiller-proxy.fullname" . }}
+    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 rules:
   - apiGroups:
       - ""
@@ -25,16 +25,16 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ template "kubeapps.tiller-proxy.fullname" . }}
+  name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.tiller-proxy.fullname" . }}
+    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ template "kubeapps.tiller-proxy.fullname" . }}
+  name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ template "kubeapps.tiller-proxy.fullname" . }}
+    name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- if .Values.allowNamespaceDiscovery }}
 ---
@@ -43,7 +43,7 @@ kind: ClusterRole
 metadata:
   name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.tiller-proxy.fullname" . }}
+    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 rules:
 - apiGroups:
     - ""
@@ -57,14 +57,14 @@ kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.tiller-proxy.fullname" . }}
+    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
-    name: {{ template "kubeapps.tiller-proxy.fullname" . }}
+    name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- end -}}
 {{- if .Values.allowNamespaceDiscovery }}
@@ -74,7 +74,7 @@ kind: ClusterRole
 metadata:
   name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.tiller-proxy.fullname" . }}
+    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 rules:
 - apiGroups:
     - ""
@@ -88,14 +88,14 @@ kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
   labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
-    app: {{ template "kubeapps.tiller-proxy.fullname" . }}
+    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
-    name: {{ template "kubeapps.tiller-proxy.fullname" . }}
+    name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- end -}}
 {{- end -}}
