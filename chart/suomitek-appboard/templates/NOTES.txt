@@ -8,7 +8,7 @@ Kubeapps can be accessed via port {{ .Values.frontend.service.port }} on the fol
 
    {{ template "suomitek-appboard.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
 
-{{- $reposWithOrphanSecrets := include "kubeapps.repos-with-orphan-secrets" . }}
+{{- $reposWithOrphanSecrets := include "suomitek-appboard.repos-with-orphan-secrets" . }}
 {{- if ne $reposWithOrphanSecrets "" }}
 
 CAVEAT:

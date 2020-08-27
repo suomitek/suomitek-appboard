@@ -13,11 +13,11 @@ import (
 )
 
 func Test_newCronJob(t *testing.T) {
-	dbURL = "mongodb.kubeapps"
+	dbURL = "mongodb.suomitek-appboard"
 	dbName = "assets"
 	dbUser = "admin"
 	dbSecretName = "mongodb"
-	const kubeappsNamespace = "kubeapps"
+	const kubeappsNamespace = "suomitek-appboard"
 	tests := []struct {
 		name             string
 		apprepo          *apprepov1alpha1.AppRepository
@@ -34,10 +34,10 @@ func Test_newCronJob(t *testing.T) {
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
-					Namespace: "kubeapps",
+					Namespace: "suomitek-appboard",
 					Labels: map[string]string{
 						"name":       "my-charts",
-						"created-by": "kubeapps",
+						"created-by": "suomitek-appboard",
 					},
 				},
 				Spec: apprepov1alpha1.AppRepositorySpec{
@@ -47,7 +47,7 @@ func Test_newCronJob(t *testing.T) {
 			},
 			batchv1beta1.CronJob{
 				ObjectMeta: metav1.ObjectMeta{
-					Name: "apprepo-kubeapps-sync-my-charts",
+					Name: "apprepo-suomitek-appboard-sync-my-charts",
 					OwnerReferences: []metav1.OwnerReference{
 						*metav1.NewControllerRef(
 							&apprepov1alpha1.AppRepository{ObjectMeta: metav1.ObjectMeta{Name: "my-charts"}},
@@ -59,7 +59,7 @@ func Test_newCronJob(t *testing.T) {
 					},
 					Labels: map[string]string{
 						LabelRepoName:      "my-charts",
-						LabelRepoNamespace: "kubeapps",
+						LabelRepoNamespace: "suomitek-appboard",
 					},
 				},
 				Spec: batchv1beta1.CronJobSpec{
@@ -71,7 +71,7 @@ func Test_newCronJob(t *testing.T) {
 								ObjectMeta: metav1.ObjectMeta{
 									Labels: map[string]string{
 										LabelRepoName:      "my-charts",
-										LabelRepoNamespace: "kubeapps",
+										LabelRepoNamespace: "suomitek-appboard",
 									},
 								},
 								Spec: corev1.PodSpec{
@@ -85,10 +85,10 @@ func Test_newCronJob(t *testing.T) {
 											Args: []string{
 												"sync",
 												"--database-type=mongodb",
-												"--database-url=mongodb.kubeapps",
+												"--database-url=mongodb.suomitek-appboard",
 												"--database-user=admin",
 												"--database-name=assets",
-												"--namespace=kubeapps",
+												"--namespace=suomitek-appboard",
 												"my-charts",
 												"https://charts.acme.com/my-charts",
 											},

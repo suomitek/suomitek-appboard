@@ -28,7 +28,7 @@ export default function ChartHeader({
 }: IChartHeaderProps) {
   return (
     <PageHeader>
-      <div className="kubeapps-header-content">
+      <div className="suomitek-appboard-header-content">
         <Row>
           <Column span={7}>
             <Row>
@@ -42,7 +42,7 @@ export default function ChartHeader({
                     ? `${releaseName} (${chartAttrs.repo.name}/${chartAttrs.name})`
                     : `${chartAttrs.repo.name}/${chartAttrs.name}`}
                 </h3>
-                <div className="kubeapps-header-subtitle">
+                <div className="suomitek-appboard-header-subtitle">
                   <img src={helmIcon} alt="helm-icon" />
                   <span>Helm Chart</span>
                 </div>

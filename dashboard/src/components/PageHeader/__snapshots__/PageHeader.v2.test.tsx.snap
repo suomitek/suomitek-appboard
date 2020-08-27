@@ -2,7 +2,7 @@
 
 exports[`should render a PageHeader 1`] = `
 <header
-  className="kubeapps-header"
+  className="suomitek-appboard-header"
 >
   <h1>
     Title!

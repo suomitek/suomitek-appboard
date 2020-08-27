@@ -41,7 +41,7 @@ var (
 
 func init() {
 	settings.AddFlags(pflag.CommandLine)
-	pflag.StringVar(&assetsvcURL, "assetsvc-url", "https://kubeapps-internal-assetsvc:8080", "URL to the internal assetsvc")
+	pflag.StringVar(&assetsvcURL, "assetsvc-url", "https://suomitek-appboard-internal-assetsvc:8080", "URL to the internal assetsvc")
 	pflag.StringVar(&helmDriverArg, "helm-driver", "", "which Helm driver type to use")
 	pflag.IntVar(&listLimit, "list-max", 256, "maximum number of releases to fetch")
 	pflag.StringVar(&userAgentComment, "user-agent-comment", "", "UserAgent comment used during outbound requests")

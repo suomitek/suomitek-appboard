@@ -94,7 +94,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: "kubeapps:{{ .Release.Namespace }}:apprepositories-read"
+  name: "suomitek-appboard:{{ .Release.Namespace }}:apprepositories-read"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.apprepository.fullname" . }}
 rules:

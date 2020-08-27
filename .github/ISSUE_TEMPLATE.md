@@ -45,7 +45,7 @@ You do NOT have to include this information if this is a FEATURE REQUEST
 (paste your output here)
 ```
 
-- Output of `helm list <kubeapps-release-name>`:
+- Output of `helm list <suomitek-appboard-release-name>`:
 
 ```
 (paste your output here)

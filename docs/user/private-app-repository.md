@@ -17,8 +17,8 @@ A Kubeapps AppRepository can be created by anyone with the required RBAC for tha
 To give a specific user `USERNAME` the ability to create App Repositories in a specific namespace named `custom-namespace`, grant them both read and write RBAC for AppRepositories in that namespace:
 
 ```bash
-kubectl -n custom-namespace create rolebinding username-apprepositories-read --user $USERNAME --clusterrole kubeapps:$KUBEAPPS_NAMESPACE:apprepositories-read
-kubectl -n custom-namespace create rolebinding username-apprepositories-write --user $USERNAME --clusterrole kubeapps:$KUBEAPPS_NAMESPACE:apprepositories-write
+kubectl -n custom-namespace create rolebinding username-apprepositories-read --user $USERNAME --clusterrole suomitek-appboard:$KUBEAPPS_NAMESPACE:apprepositories-read
+kubectl -n custom-namespace create rolebinding username-apprepositories-write --user $USERNAME --clusterrole suomitek-appboard:$KUBEAPPS_NAMESPACE:apprepositories-write
 ```
 
 or to allow other users the ability to deploy charts from App Repositories in a specific namespace, grant the read access only.
@@ -190,7 +190,7 @@ curl -u{USER}:{PASSWORD} -T /path/to/chart.tgz "http://{REPO_URL}/artifactory/he
 To be able able to access private charts with Kubeapps first you need to generate a token. You can do that with the Artifactory API:
 
 ```bash
-curl -u{USER}:{PASSWORD} -XPOST "http://{REPO_URL}/artifactory/api/security/token?expires_in=0" -d "username=kubeapps" -d "scope=member-of-groups:readers"
+curl -u{USER}:{PASSWORD} -XPOST "http://{REPO_URL}/artifactory/api/security/token?expires_in=0" -d "username=suomitek-appboard" -d "scope=member-of-groups:readers"
 {
   "scope" : "member-of-groups:readers api:*",
   "access_token" : "TOKEN CONTENT",
@@ -213,7 +213,7 @@ apiVersion: suomitek.com/v1alpha1
 kind: AppRepository
 metadata:
   name: my-repo
-  namespace: kubeapps
+  namespace: suomitek-appboard
 spec:
   syncJobPodTemplate:
     metadata:

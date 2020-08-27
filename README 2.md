@@ -40,7 +40,7 @@ If you have followed the instructions for [installing Kubeapps](docs/user/gettin
 ## Useful Resources
 
 - [Walkthrough for first-time users](docs/user/getting-started.md)
-- [Detailed installation instructions](chart/kubeapps/README.md)
+- [Detailed installation instructions](chart/suomitek-appboard/README.md)
 - [Kubeapps Dashboard documentation](docs/user/dashboard.md)
 - [Kubeapps components](docs/architecture/overview.md)
 - [Roadmap](https://github.com/suomitek/suomitek-appboard/wiki/Roadmap)

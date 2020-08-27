@@ -164,14 +164,14 @@ export default function AppView({
   return (
     <section>
       <PageHeader>
-        <div className="kubeapps-header-content">
+        <div className="suomitek-appboard-header-content">
           <Row>
             <Column span={7}>
               <Row>
                 <img src={icon} alt="app-icon" />
                 <div className="kubeapps-title-block">
                   <h3>{releaseName}</h3>
-                  <div className="kubeapps-header-subtitle">
+                  <div className="suomitek-appboard-header-subtitle">
                     <img src={helmIcon} alt="helm-icon" />
                     <span>Helm Chart</span>
                   </div>
