@@ -16,7 +16,7 @@ rules:
       - create
       - delete
   - apiGroups:
-      - "kubeapps.com"
+      - "suomitek.com"
     resources:
       - apprepositories
     verbs:

@@ -36,9 +36,9 @@ type FakeAppRepositories struct {
 	ns   string
 }
 
-var apprepositoriesResource = schema.GroupVersionResource{Group: "kubeapps.com", Version: "v1alpha1", Resource: "apprepositories"}
+var apprepositoriesResource = schema.GroupVersionResource{Group: "suomitek.com", Version: "v1alpha1", Resource: "apprepositories"}
 
-var apprepositoriesKind = schema.GroupVersionKind{Group: "kubeapps.com", Version: "v1alpha1", Kind: "AppRepository"}
+var apprepositoriesKind = schema.GroupVersionKind{Group: "suomitek.com", Version: "v1alpha1", Kind: "AppRepository"}
 
 // Get takes name of the appRepository, and returns the corresponding appRepository object, and an error if there is any.
 func (c *FakeAppRepositories) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.AppRepository, err error) {

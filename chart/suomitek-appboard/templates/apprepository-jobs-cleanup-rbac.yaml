@@ -11,7 +11,7 @@ metadata:
     app: {{ template "kubeapps.apprepository-jobs-cleanup.fullname" . }}
 rules:
   - apiGroups:
-      - kubeapps.com
+      - suomitek.com
     resources:
       - apprepositories
     verbs:

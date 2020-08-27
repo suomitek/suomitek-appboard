@@ -29,7 +29,7 @@ type KubeappsV1alpha1Interface interface {
 	AppRepositoriesGetter
 }
 
-// KubeappsV1alpha1Client is used to interact with features provided by the kubeapps.com group.
+// KubeappsV1alpha1Client is used to interact with features provided by the suomitek.com group.
 type KubeappsV1alpha1Client struct {
 	restClient rest.Interface
 }

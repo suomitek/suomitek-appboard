@@ -25,7 +25,7 @@ Check more details about the implementation in [this document](/docs/developer/k
 
 ### Apprepository CRD and Controller
 
-Chart repositories in Kubeapps are managed with a `CustomResourceDefinition` called `apprepositories.kubeapps.com`. Each repository added to Kubeapps is an object of type `AppRepository` and the `apprepository-controller` will watch for changes on those type of objects to update the list of available charts to deploy.
+Chart repositories in Kubeapps are managed with a `CustomResourceDefinition` called `apprepositories.suomitek.com`. Each repository added to Kubeapps is an object of type `AppRepository` and the `apprepository-controller` will watch for changes on those type of objects to update the list of available charts to deploy.
 
 ### `asset-syncer`
 

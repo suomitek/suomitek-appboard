@@ -11,7 +11,7 @@ exports[`renders list item for the role 1`] = `
   <span>
     (
     <code>
-      test.kubeapps.com
+      test.suomitek.com
     </code>
     )
   </span>
@@ -39,7 +39,7 @@ exports[`renders the special case for cluster-wide roles 1`] = `
   <span>
     (
     <code>
-      test.kubeapps.com
+      test.suomitek.com
     </code>
     )
   </span>
@@ -61,7 +61,7 @@ exports[`uses the roles' namespace over the current namespace if defined 1`] = `
   <span>
     (
     <code>
-      test.kubeapps.com
+      test.suomitek.com
     </code>
     )
   </span>

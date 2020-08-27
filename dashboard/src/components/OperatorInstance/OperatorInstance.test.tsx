@@ -19,7 +19,7 @@ const defaultProps: IOperatorInstanceProps = {
   cluster: "default",
   namespace: "default",
   csvName: "foo",
-  crdName: "foo.kubeapps.com",
+  crdName: "foo.suomitek.com",
   instanceName: "foo-cluster",
   getResource: jest.fn(),
   deleteResource: jest.fn(),
@@ -72,7 +72,7 @@ describe("renders a resource", () => {
       customresourcedefinitions: {
         owned: [
           {
-            name: "foo.kubeapps.com",
+            name: "foo.suomitek.com",
             version: "v1alpha1",
             kind: "Foo",
             resources: [{ kind: "Deployment" }],
@@ -150,7 +150,7 @@ describe("renders a resource", () => {
         customresourcedefinitions: {
           owned: [
             {
-              name: "foo.kubeapps.com",
+              name: "foo.suomitek.com",
               version: "v1alpha1",
               kind: "Foo",
             },

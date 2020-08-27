@@ -76,7 +76,7 @@ export class AppRepository {
   }
 
   private static APIBase: string = APIBase;
-  private static APIEndpoint: string = `${AppRepository.APIBase}/apis/kubeapps.com/v1alpha1`;
+  private static APIEndpoint: string = `${AppRepository.APIBase}/apis/suomitek.com/v1alpha1`;
   private static getSelfLink(namespace: string, name?: string): string {
     return `${AppRepository.APIEndpoint}/namespaces/${namespace}/apprepositories${
       name ? `/${name}` : ""

@@ -569,7 +569,7 @@ func secretForRequest(appRepoRequest *appRepositoryRequest, appRepo *v1alpha1.Ap
 			Name: secretNameForRepo(appRepo.Name),
 			OwnerReferences: []metav1.OwnerReference{
 				{
-					APIVersion:         "kubeapps.com/v1alpha1",
+					APIVersion:         "suomitek.com/v1alpha1",
 					Kind:               "AppRepository",
 					Name:               appRepo.ObjectMeta.Name,
 					UID:                appRepo.ObjectMeta.UID,

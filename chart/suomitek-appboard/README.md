@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master.svg?style=svg)](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master)
 
-[Kubeapps](https://kubeapps.com) is a web-based UI for deploying and managing applications in Kubernetes clusters. Kubeapps allows you to:
+[Kubeapps](https://suomitek.com) is a web-based UI for deploying and managing applications in Kubernetes clusters. Kubeapps allows you to:
 
 - Browse and deploy [Helm](https://github.com/helm/helm) charts from chart repositories
 - Inspect, upgrade and delete Helm-based applications installed in the cluster
@@ -31,7 +31,7 @@ helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad -
 
 ## Introduction
 
-This chart bootstraps a [Kubeapps](https://kubeapps.com) deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart bootstraps a [Kubeapps](https://suomitek.com) deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 It also packages the [Bitnami MongoDB chart](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) or the [Bitnami PostgreSQL chart](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) which is required for bootstrapping a deployment for the database requirements of the Kubeapps application.
 
@@ -132,7 +132,7 @@ kubectl get services --namespace kubeapps --watch
 
 #### Ingress
 
-This chart provides support for ingress resources. If you have an ingress controller installed on your cluster, such as [nginx-ingress](https://hub.kubeapps.com/charts/stable/nginx-ingress) or [traefik](https://hub.kubeapps.com/charts/stable/traefik) you can utilize the ingress controller to expose Kubeapps.
+This chart provides support for ingress resources. If you have an ingress controller installed on your cluster, such as [nginx-ingress](https://hub.suomitek.com/charts/stable/nginx-ingress) or [traefik](https://hub.suomitek.com/charts/stable/traefik) you can utilize the ingress controller to expose Kubeapps.
 
 To enable ingress integration, please set `ingress.enabled` to `true`
 
@@ -183,12 +183,12 @@ helm delete --purge kubeapps
 helm uninstall kubeapps
 
 # Optional: Only if there are no more instances of Kubeapps
-kubectl delete crd apprepositories.kubeapps.com
+kubectl delete crd apprepositories.suomitek.com
 ```
 
-The first command removes most of the Kubernetes components associated with the chart and deletes the release. After that, if there are no more instances of Kubeapps in the cluster you can manually delete the `apprepositories.kubeapps.com` CRD used by Kubeapps that is shared for the entire cluster.
+The first command removes most of the Kubernetes components associated with the chart and deletes the release. After that, if there are no more instances of Kubeapps in the cluster you can manually delete the `apprepositories.suomitek.com` CRD used by Kubeapps that is shared for the entire cluster.
 
-> **NOTE**: If you delete the CRD for `apprepositories.kubeapps.com` it will delete the repositories for **all** the installed instances of `kubeapps`. This will break existing installations of `kubeapps` if they exist.
+> **NOTE**: If you delete the CRD for `apprepositories.suomitek.com` it will delete the repositories for **all** the installed instances of `kubeapps`. This will break existing installations of `kubeapps` if they exist.
 
 If you have dedicated a namespace only for Kubeapps you can completely clean remaining completed/failed jobs or any stale resources by deleting the namespace
 
@@ -267,7 +267,7 @@ helm del --purge kubeapps
 > **Warning**: Don't execute this step if you have more than one Kubeapps installation in your cluster.
 
 ```bash
-kubectl delete crd apprepositories.kubeapps.com
+kubectl delete crd apprepositories.suomitek.com
 ```
 
 4.  (Optional) Clean the Kubeapps namespace:

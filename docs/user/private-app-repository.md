@@ -209,7 +209,7 @@ After submitting the repository, you will be able to click on the new repository
 Kubeapps runs a periodic job (CronJob) to populate and synchronize the charts existing in each repository. Since Kubeapps v1.4.0, it's possible to modify the spec of this job. This is useful if you need to run the Pod in a certain Kubernetes node, or set some environment variables. To do so you can edit (or create) an AppRepository and specify the `syncJobPodTemplate` field. For example:
 
 ```yaml
-apiVersion: kubeapps.com/v1alpha1
+apiVersion: suomitek.com/v1alpha1
 kind: AppRepository
 metadata:
   name: my-repo

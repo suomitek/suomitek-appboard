@@ -370,7 +370,7 @@ create</td>
   </tr>
   <tr>
     <td>List App Repositories</td>
-    <td>kubeapps.com</td>
+    <td>suomitek.com</td>
     <td>kubeapps</td>
     <td>apprepositories</td>
     <td>list</td>
@@ -378,7 +378,7 @@ create</td>
   </tr>
   <tr>
     <td>View App Repository</td>
-    <td>kubeapps.com</td>
+    <td>suomitek.com</td>
     <td>kubeapps</td>
     <td>apprepositories</td>
     <td>get</td>
@@ -386,7 +386,7 @@ create</td>
   </tr>
   <tr>
     <td>Resync App Repository</td>
-    <td>kubeapps.com</td>
+    <td>suomitek.com</td>
     <td>kubeapps</td>
     <td>apprepositories</td>
     <td>update</td>
@@ -394,7 +394,7 @@ create</td>
   </tr>
   <tr>
     <td>Update App Repository</td>
-    <td>kubeapps.com</td>
+    <td>suomitek.com</td>
     <td>kubeapps</td>
     <td>apprepositories</td>
     <td>update</td>
@@ -402,7 +402,7 @@ create</td>
   </tr>
   <tr>
     <td>Delete App Repository</td>
-    <td>kubeapps.com</td>
+    <td>suomitek.com</td>
     <td>kubeapps</td>
     <td>apprepositories</td>
     <td>delete</td>

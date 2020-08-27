@@ -60,7 +60,7 @@ const sampleCSV = {
     customresourcedefinitions: {
       owned: [
         {
-          name: "foo.kubeapps.com",
+          name: "foo.suomitek.com",
           version: "v1alpha1",
           kind: "Foo",
           resources: [{ kind: "Deployment" }],

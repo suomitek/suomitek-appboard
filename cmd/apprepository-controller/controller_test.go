@@ -30,7 +30,7 @@ func Test_newCronJob(t *testing.T) {
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
-					APIVersion: "kubeapps.com/v1alpha1",
+					APIVersion: "suomitek.com/v1alpha1",
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
@@ -117,7 +117,7 @@ func Test_newCronJob(t *testing.T) {
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
-					APIVersion: "kubeapps.com/v1alpha1",
+					APIVersion: "suomitek.com/v1alpha1",
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
@@ -214,7 +214,7 @@ func Test_newCronJob(t *testing.T) {
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
-					APIVersion: "kubeapps.com/v1alpha1",
+					APIVersion: "suomitek.com/v1alpha1",
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts-in-otherns",
@@ -334,7 +334,7 @@ func Test_newSyncJob(t *testing.T) {
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
-					APIVersion: "kubeapps.com/v1alpha1",
+					APIVersion: "suomitek.com/v1alpha1",
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
@@ -411,7 +411,7 @@ func Test_newSyncJob(t *testing.T) {
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
-					APIVersion: "kubeapps.com/v1alpha1",
+					APIVersion: "suomitek.com/v1alpha1",
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
@@ -478,7 +478,7 @@ func Test_newSyncJob(t *testing.T) {
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
-					APIVersion: "kubeapps.com/v1alpha1",
+					APIVersion: "suomitek.com/v1alpha1",
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
@@ -565,7 +565,7 @@ func Test_newSyncJob(t *testing.T) {
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
-					APIVersion: "kubeapps.com/v1alpha1",
+					APIVersion: "suomitek.com/v1alpha1",
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
@@ -661,7 +661,7 @@ func Test_newSyncJob(t *testing.T) {
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
-					APIVersion: "kubeapps.com/v1alpha1",
+					APIVersion: "suomitek.com/v1alpha1",
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
@@ -765,7 +765,7 @@ func Test_newSyncJob(t *testing.T) {
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
-					APIVersion: "kubeapps.com/v1alpha1",
+					APIVersion: "suomitek.com/v1alpha1",
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",

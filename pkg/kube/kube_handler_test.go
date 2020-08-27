@@ -278,7 +278,7 @@ func TestAppRepositoryCreate(t *testing.T) {
 			existingRepos: map[string][]repoStub{
 				"kubeapps": {repoStub{name: "bitnami"}},
 			},
-			expectedError: fmt.Errorf(`apprepositories.kubeapps.com "bitnami" already exists`),
+			expectedError: fmt.Errorf(`apprepositories.suomitek.com "bitnami" already exists`),
 		},
 		{
 			name:             "it creates the repo even if the same repo exists in other namespaces",
@@ -407,7 +407,7 @@ func TestAppRepositoryUpdate(t *testing.T) {
 			name:             "it errors if the repo doesn't exist",
 			requestNamespace: kubeappsNamespace,
 			requestData:      `{"appRepository": {"name": "test-repo"}}`,
-			expectedError:    errors.New("apprepositories.kubeapps.com \"test-repo\" not found"),
+			expectedError:    errors.New("apprepositories.suomitek.com \"test-repo\" not found"),
 		},
 		{
 			name:             "it updates an app repository in the correct namespace",
@@ -717,7 +717,7 @@ func TestSecretForRequest(t *testing.T) {
 	blockOwnerDeletion := true
 	ownerRefs := []metav1.OwnerReference{
 		{
-			APIVersion:         "kubeapps.com/v1alpha1",
+			APIVersion:         "suomitek.com/v1alpha1",
 			Kind:               "AppRepository",
 			Name:               "test-repo",
 			UID:                "abcd1234",

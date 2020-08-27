@@ -64,21 +64,21 @@ export interface IAppRepoListProps {
 const RequiredRBACRoles: { [s: string]: IRBACRole[] } = {
   delete: [
     {
-      apiGroup: "kubeapps.com",
+      apiGroup: "suomitek.com",
       resource: "apprepositories",
       verbs: ["delete"],
     },
   ],
   update: [
     {
-      apiGroup: "kubeapps.com",
+      apiGroup: "suomitek.com",
       resource: "apprepositories",
       verbs: ["get, update"],
     },
   ],
   fetch: [
     {
-      apiGroup: "kubeapps.com",
+      apiGroup: "suomitek.com",
       resource: "apprepositories",
       verbs: ["list"],
     },

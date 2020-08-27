@@ -63,7 +63,7 @@ openshift-kubeapps-reset:
 	oc delete project ${TILLER_NAMESPACE} || true
 	oc delete -f devel/openshift-tiller-with-crd-rbac.yaml || true
 	oc delete -f devel/openshift-tiller-with-apprepository-rbac.yaml || true
-	oc delete customresourcedefinition apprepositories.kubeapps.com || true
+	oc delete customresourcedefinition apprepositories.suomitek.com || true
 	rm devel/openshift-* || true
 
 .PHONY: openshift-install-tiller openshift-kubeapps openshift-kubeapps-reset

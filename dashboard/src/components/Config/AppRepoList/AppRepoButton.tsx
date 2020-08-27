@@ -9,7 +9,7 @@ import { AppRepoForm } from "./AppRepoForm";
 
 const RequiredRBACRoles: IRBACRole[] = [
   {
-    apiGroup: "kubeapps.com",
+    apiGroup: "suomitek.com",
     resource: "apprepositories",
     verbs: ["create"],
   },

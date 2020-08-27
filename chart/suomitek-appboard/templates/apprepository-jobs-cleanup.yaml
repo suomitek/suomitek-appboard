@@ -43,5 +43,5 @@ spec:
           args:
             - -ec
             - |
-              kubectl delete apprepositories.kubeapps.com -n {{ .Release.Namespace }} --all
+              kubectl delete apprepositories.suomitek.com -n {{ .Release.Namespace }} --all
               kubectl delete secrets -n {{ .Release.Namespace }} -l app={{ template "kubeapps.name" $ }},release={{ $.Release.Name }}

@@ -1,14 +1,14 @@
 # AppRepository Controller
 
 The controller for managing app (Helm) repository syncs for
-[Kubeapps](https://kubeapps.com).
+[Kubeapps](https://suomitek.com).
 
 An AppRepository resource looks like this:
 
 ```
 apiVersion: v1
 items:
-apiVersion: kubeapps.com/v1alpha1
+apiVersion: suomitek.com/v1alpha1
 kind: AppRepository
 metadata:
   name: bitnami

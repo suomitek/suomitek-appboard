@@ -268,7 +268,7 @@ describe("getResources", () => {
     const csv = {
       metadata: { name: "foo" },
       spec: {
-        customresourcedefinitions: { owned: [{ name: "foo.kubeapps.com", version: "v1alpha1" }] },
+        customresourcedefinitions: { owned: [{ name: "foo.suomitek.com", version: "v1alpha1" }] },
       },
     };
     const resource = { metadata: { name: "resource" } };
@@ -294,14 +294,14 @@ describe("getResources", () => {
     ];
     await store.dispatch(operatorActions.getResources("default"));
     expect(store.getActions()).toEqual(expectedActions);
-    expect(Operators.listResources).toHaveBeenCalledWith("default", "kubeapps.com/v1alpha1", "foo");
+    expect(Operators.listResources).toHaveBeenCalledWith("default", "suomitek.com/v1alpha1", "foo");
   });
 
   it("dispatches an error if listing resources fail", async () => {
     const csv = {
       metadata: { name: "foo" },
       spec: {
-        customresourcedefinitions: { owned: [{ name: "foo.kubeapps.com", version: "v1alpha1" }] },
+        customresourcedefinitions: { owned: [{ name: "foo.suomitek.com", version: "v1alpha1" }] },
       },
     };
     Operators.getCSVs = jest.fn().mockReturnValue([csv]);
@@ -338,7 +338,7 @@ describe("getResources", () => {
     const csv = {
       metadata: { name: "foo" },
       spec: {
-        customresourcedefinitions: { owned: [{ name: "foo.kubeapps.com", version: "v1alpha1" }] },
+        customresourcedefinitions: { owned: [{ name: "foo.suomitek.com", version: "v1alpha1" }] },
       },
     };
     const resource = { metadata: { name: "resource" } };
@@ -360,11 +360,11 @@ describe("getResources", () => {
         payload: resource,
       },
     ];
-    await store.dispatch(operatorActions.getResource("default", "foo", "foo.kubeapps.com", "bar"));
+    await store.dispatch(operatorActions.getResource("default", "foo", "foo.suomitek.com", "bar"));
     expect(store.getActions()).toEqual(expectedActions);
     expect(Operators.getResource).toHaveBeenCalledWith(
       "default",
-      "kubeapps.com/v1alpha1",
+      "suomitek.com/v1alpha1",
       "foo",
       "bar",
     );
@@ -374,7 +374,7 @@ describe("getResources", () => {
     const csv = {
       metadata: { name: "foo" },
       spec: {
-        customresourcedefinitions: { owned: [{ name: "foo.kubeapps.com", version: "v1alpha1" }] },
+        customresourcedefinitions: { owned: [{ name: "foo.suomitek.com", version: "v1alpha1" }] },
       },
     };
     Operators.getCSV = jest.fn().mockReturnValue(csv);
@@ -397,7 +397,7 @@ describe("getResources", () => {
         payload: new Error("Boom!"),
       },
     ];
-    await store.dispatch(operatorActions.getResource("default", "foo", "foo.kubeapps.com", "bar"));
+    await store.dispatch(operatorActions.getResource("default", "foo", "foo.suomitek.com", "bar"));
     expect(store.getActions()).toEqual(expectedActions);
   });
 
@@ -418,7 +418,7 @@ describe("getResources", () => {
         payload: new Error("CSV foo not found in default"),
       },
     ];
-    await store.dispatch(operatorActions.getResource("default", "foo", "foo.kubeapps.com", "bar"));
+    await store.dispatch(operatorActions.getResource("default", "foo", "foo.suomitek.com", "bar"));
     expect(store.getActions()).toEqual(expectedActions);
   });
 
@@ -426,7 +426,7 @@ describe("getResources", () => {
     const csv = {
       metadata: { name: "foo" },
       spec: {
-        customresourcedefinitions: { owned: [{ name: "foo.kubeapps.com", version: "v1alpha1" }] },
+        customresourcedefinitions: { owned: [{ name: "foo.suomitek.com", version: "v1alpha1" }] },
       },
     };
     Operators.getCSV = jest.fn().mockReturnValue(csv);
@@ -443,11 +443,11 @@ describe("getResources", () => {
       },
       {
         type: getType(operatorActions.errorCustomResource),
-        payload: new Error("Not found a valid CRD definition for foo/not-foo.kubeapps.com"),
+        payload: new Error("Not found a valid CRD definition for foo/not-foo.suomitek.com"),
       },
     ];
     await store.dispatch(
-      operatorActions.getResource("default", "foo", "not-foo.kubeapps.com", "bar"),
+      operatorActions.getResource("default", "foo", "not-foo.suomitek.com", "bar"),
     );
     expect(store.getActions()).toEqual(expectedActions);
   });

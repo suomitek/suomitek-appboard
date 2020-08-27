@@ -18,5 +18,5 @@ package apprepository
 
 const (
 	// GroupName is the group name for an AppRepository resource
-	GroupName = "kubeapps.com"
+	GroupName = "suomitek.com"
 )

@@ -58,9 +58,9 @@ const (
 	ErrResourceExists = "ErrResourceExists"
 
 	// LabelRepoName is the label used to identify the repository name.
-	LabelRepoName = "apprepositories.kubeapps.com/repo-name"
+	LabelRepoName = "apprepositories.suomitek.com/repo-name"
 	// LabelRepoNamespace is the label used to identify the repository namespace.
-	LabelRepoNamespace = "apprepositories.kubeapps.com/repo-namespace"
+	LabelRepoNamespace = "apprepositories.suomitek.com/repo-namespace"
 
 	// MessageResourceExists is the message used for Events when a resource
 	// fails to sync due to a CronJob already existing

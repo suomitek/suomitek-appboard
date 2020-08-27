@@ -132,7 +132,7 @@ class SelectRepoForm extends React.Component<ISelectRepoFormProps, ISelectRepoFo
   private requiredRBACRoles(): IRBACRole[] {
     return [
       {
-        apiGroup: "kubeapps.com",
+        apiGroup: "suomitek.com",
         namespace: this.props.kubeappsNamespace,
         resource: "apprepositories",
         verbs: ["get"],

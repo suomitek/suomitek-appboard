@@ -30,7 +30,7 @@ rules:
     verbs:
       - create
   - apiGroups:
-      - kubeapps.com
+      - suomitek.com
     resources:
       - apprepositories
       - apprepositories/finalizers
@@ -62,7 +62,7 @@ metadata:
   name: {{ .Release.Name }}-repositories-read
 rules:
   - apiGroups:
-      - kubeapps.com
+      - suomitek.com
     resources:
       - apprepositories
     verbs:
@@ -76,7 +76,7 @@ metadata:
   name: {{ .Release.Name }}-repositories-write
 rules:
   - apiGroups:
-      - kubeapps.com
+      - suomitek.com
     resources:
       - apprepositories
     verbs:
@@ -99,7 +99,7 @@ metadata:
     app: {{ template "kubeapps.apprepository.fullname" . }}
 rules:
   - apiGroups:
-      - kubeapps.com
+      - suomitek.com
     resources:
       - apprepositories
       - apprepositories/finalizers
@@ -131,7 +131,7 @@ metadata:
     app: {{ template "kubeapps.apprepository.fullname" . }}
 rules:
   - apiGroups:
-      - kubeapps.com
+      - suomitek.com
     resources:
       - apprepositories
     verbs:

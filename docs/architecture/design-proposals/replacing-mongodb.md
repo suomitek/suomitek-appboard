@@ -58,7 +58,7 @@ Pros:
 Cons:
  - etcd limit. No entry can be larger than 1.5MB. We cannot ensure that a chartVersion (or a logo) will eventually grow bigger than that.
  - Completely different approach. Backward compatibility cannot be ensured.
- - We would still need a database for hub.kubeapps.com
+ - We would still need a database for hub.suomitek.com
 
 ### 2. Redis
 
@@ -74,7 +74,7 @@ Pros:
 Cons:
  - As described above, advanced queries cannot be done.
  - We still need to handle persistence and upgardes.
- - As in the previous option, we would still need a database for hub.kubeapps.com
+ - As in the previous option, we would still need a database for hub.suomitek.com
  - While there is [a plugin for JSON handling](https://redislabs.com/blog/redis-as-a-json-store/), it requires a different version of the official image so we won't be able to use it.
 
 ### 3. PostgreSQL
@@ -87,7 +87,7 @@ Pros:
  - Official support for JSON objects, easier to migrate.
  - Minimal changes in the architecture of the data.
  - It can be backwards compatible.
- - If needed, can be used in hub.kubeapps.com as well
+ - If needed, can be used in hub.suomitek.com as well
 
 Cons:
  - We still need to handle persistence and upgardes.

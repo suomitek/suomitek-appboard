@@ -27,7 +27,7 @@ it("renders an error message for the action", () => {
 it("renders PermissionsListItem for each RBAC role", () => {
   const roles: IRBACRole[] = [
     {
-      apiGroup: "test.kubeapps.com",
+      apiGroup: "test.suomitek.com",
       resource: "tests",
       verbs: ["get", "create"],
     },

@@ -8,7 +8,7 @@ objects:
     name: apprepositories-manager
   rules:
   - apiGroups:
-    - "kubeapps.com"
+    - "suomitek.com"
     resources:
     - apprepositories
     - apprepositories/finalizers
