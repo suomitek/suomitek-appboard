@@ -107,7 +107,7 @@ exports[`renders a full OperatorNew 1`] = `
                   type="radio"
                 />
                 The current namespace: 
-                kubeapps
+                suomitek-appboard
                 <br />
               </label>
             </div>

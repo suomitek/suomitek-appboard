@@ -128,15 +128,15 @@ echo
 # Create serviceAccount
 info "Creating 'example' serviceAccount and adding RBAC permissions for 'default' namespace..."
 silence kubectl create serviceaccount example --namespace default
-silence kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-applications-read.yaml
-silence kubectl create -n default rolebinding example-view --clusterrole=kubeapps-applications-read --serviceaccount default:example
+silence kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/suomitek-appboard-applications-read.yaml
+silence kubectl create -n default rolebinding example-view --clusterrole=suomitek-appboard-applications-read --serviceaccount default:example
 silence kubectl create -n default rolebinding example-edit --clusterrole=edit --serviceaccount default:example
-silence kubectl create -n "$namespace" rolebinding example-suomitek-appboard-repositories-read --role=kubeapps-repositories-read --serviceaccount default:example
-silence kubectl create -n "$namespace" rolebinding example-suomitek-appboard-repositories-write --role=kubeapps-repositories-write --serviceaccount default:example
+silence kubectl create -n "$namespace" rolebinding example-suomitek-appboard-repositories-read --role=suomitek-appboard-repositories-read --serviceaccount default:example
+silence kubectl create -n "$namespace" rolebinding example-suomitek-appboard-repositories-write --role=suomitek-appboard-repositories-write --serviceaccount default:example
 echo
     
 info "Use this command for port forwading to Suomitek-appboard Dashboard:"
-info "kubectl port-forward --namespace $namespace svc/kubeapps 8080:80 >/dev/null 2>&1 &"
+info "kubectl port-forward --namespace $namespace svc/suomitek-appboard 8080:80 >/dev/null 2>&1 &"
 info "Suomitek-appboard URL: http://127.0.0.1:8080"
 info "Kubeppas API Token:"
 kubectl get -n default secret "$(kubectl get serviceaccount example --namespace default -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo

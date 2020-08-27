@@ -30,7 +30,7 @@ done
 
 # Uninstall Suomitek-appboard
 info "Uninstalling Suomitek-appboard in namespace '$namespace'..."
-silence helm uninstall kubeapps -n "$namespace"
+silence helm uninstall suomitek-appboard -n "$namespace"
 silence kubectl delete rolebinding example-suomitek-appboard-repositories-read -n "$namespace"
 silence kubectl delete rolebinding example-suomitek-appboard-repositories-write -n "$namespace"
 info "Deleting '$namespace' namespace..."
@@ -39,6 +39,6 @@ silence kubectl delete ns "$namespace"
 # Delete serviceAccount
 info "Deleting 'example' serviceAccount and related RBAC objects..."
 silence kubectl delete serviceaccount example --namespace default
-silence kubectl delete clusterrole kubeapps-applications-read
+silence kubectl delete clusterrole suomitek-appboard-applications-read
 silence kubectl delete rolebinding example-view
 silence kubectl delete rolebinding example-edit

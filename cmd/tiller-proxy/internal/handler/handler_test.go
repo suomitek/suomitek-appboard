@@ -397,7 +397,7 @@ func TestActions(t *testing.T) {
 			// Expected result
 			StatusCode:        404,
 			RemainingReleases: []release.Release{release.Release{Name: "suomitek-appboard", Namespace: "suomitek-appboard-ns"}},
-			ResponseBody:      `{"code":404,"message":"Unable to locate release: Release kubeapps not found"}`,
+			ResponseBody:      `{"code":404,"message":"Unable to locate release: Release suomitek-appboard not found"}`,
 		},
 	}
 	for _, test := range tests {

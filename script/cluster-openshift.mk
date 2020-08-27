@@ -4,7 +4,7 @@
 # 2) minishift installed and a cluster started (which automatically updates your KUBECONFIG).
 # 3) the `oc` cli setup (ie. you've run `eval $(minishift oc-env)`) and are authed as `system:admin`
 TILLER_NAMESPACE ?= tiller
-KUBEAPPS_NAMESPACE ?= kubeapps
+KUBEAPPS_NAMESPACE ?= suomitek-appboard
 
 MONGODB_CHART_VERSION = $(strip $(shell cat chart/suomitek-appboard/requirements.lock | grep version | cut --delimiter=":" -f2))
 
@@ -50,7 +50,7 @@ devel/openshift-suomitek-appboard-installed: openshift-install-tiller chart/suom
 
 # Due to openshift having multiple secrets for the service account, the code is slightly different from
 # that at https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/getting-started.md#on-linuxmacos
-# TODO: update this target to use a kubeapps user, rather than tiller service account.
+# TODO: update this target to use a suomitek-appboard user, rather than tiller service account.
 openshift-tiller-token:
 	@kubectl get secret -n "${TILLER_NAMESPACE}" \
 		$(shell kubectl get serviceaccount -n "${TILLER_NAMESPACE}" tiller -o jsonpath='{range .secrets[*]}{.name}{"\n"}{end}' | grep tiller-token) \
@@ -66,4 +66,4 @@ openshift-suomitek-appboard-reset:
 	oc delete customresourcedefinition apprepositories.suomitek.com || true
 	rm devel/openshift-* || true
 
-.PHONY: openshift-install-tiller openshift-kubeapps openshift-suomitek-appboard-reset
+.PHONY: openshift-install-tiller openshift-suomitek-appboard openshift-suomitek-appboard-reset

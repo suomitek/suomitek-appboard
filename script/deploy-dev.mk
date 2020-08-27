@@ -42,9 +42,9 @@ deploy-dev: deploy-dependencies
 	@echo "to authenticate with the corresponding permissions."
 
 reset-dev:
-	helm -n suomitek-appboard delete kubeapps || true
+	helm -n suomitek-appboard delete suomitek-appboard || true
 	helm -n dex delete dex || true
 	helm -n ldap delete ldap || true
-	kubectl delete namespace --wait dex ldap kubeapps || true
+	kubectl delete namespace --wait dex ldap suomitek-appboard || true
 
 .PHONY: deploy-dex deploy-dependencies deploy-dev deploy-openldap reset-dev update-apiserver-etc-hosts

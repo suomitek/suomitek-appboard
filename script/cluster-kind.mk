@@ -1,8 +1,8 @@
 # This file provides targets which create a local k8s cluster setup
 # with OIDC integration for development and testing.
 KUBE ?= ${HOME}/.kube
-CLUSTER_NAME ?= kubeapps
-ADDITIONAL_CLUSTER_NAME ?= kubeapps-additional
+CLUSTER_NAME ?= suomitek-appboard
+ADDITIONAL_CLUSTER_NAME ?= suomitek-appboard-additional
 
 CLUSTER_CONFIG = ${KUBE}/kind-config-${CLUSTER_NAME}
 ADDITIONAL_CLUSTER_CONFIG = ${KUBE}/kind-config-${ADDITIONAL_CLUSTER_NAME}
