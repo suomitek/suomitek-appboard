@@ -156,7 +156,7 @@ pushChart() {
     local user=$3
     local password=$4
     info "Adding ${chart}-${version} to ChartMuseum ..."
-    curl -LO "https://charts.bitnami.com/bitnami/${chart}-${version}.tgz"
+    curl -LO "http://helm.yongchehang.com/${chart}-${version}.tgz"
 
     local POD_NAME=$(kubectl get pods --namespace kubeapps -l "app=chartmuseum" -l "release=chartmuseum" -o jsonpath="{.items[0].metadata.name}")
     /bin/sh -c "kubectl port-forward $POD_NAME 8080:8080 --namespace kubeapps &"
@@ -245,7 +245,7 @@ if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
   # Init Tiller
   tiller-init-rbac
 fi
-helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add chartmuseum http://helm.yongchehang.com
 helm dep up "${ROOT_DIR}/chart/kubeapps"
 kubectl create ns kubeapps
 

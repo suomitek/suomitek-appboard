@@ -1,0 +1,19 @@
+apiVersion: v1
+appVersion: v1.10.0
+description: suomitek-appboard is a dashboard for your Kubernetes cluster that makes it easy
+  to deploy and manage applications in your cluster using Helm
+home: https://suomitek.com
+icon: https://raw.githubusercontent.com/suomitek/suomitek-appborad/master/docs/img/logo.png
+keywords:
+- helm
+- dashboard
+- service catalog
+- deployment
+maintainers:
+- email: containers@suomitek.com
+  name: Suomitek
+name: suomitek-appborad
+sources:
+- https://github.com/suomitek/suomitek-appborad
+tillerVersion: '>=2.14.0'
+version: 3.6.0

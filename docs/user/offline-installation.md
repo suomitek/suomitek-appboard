@@ -11,7 +11,7 @@ Since the version 1.10.1 of Kubeapps (Chart version 3.7.0), it's possible to suc
 First, download the tarball containing the Kubeapps chart from the publicly available repository maintained by Bitnami. Note that Internet connection is necessary at this point:
 
 ```bash
-helm pull --untar https://charts.bitnami.com/bitnami/kubeapps-3.7.0.tgz
+helm pull --untar http://helm.yongchehang.com/kubeapps-3.7.0.tgz
 helm dep update ./kubeapps
 ```
 

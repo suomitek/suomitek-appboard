@@ -13,15 +13,15 @@ Kubeapps assumes a working Kubernetes cluster (v1.12+) and [`kubectl`](https://k
 The support for Operators is currently under heavy development. For the moment, it's not enabled by default. If you want to use it, you need to enable the related feature flag. This can be done either at installation time or when upgrading Kubeapps. It's just necessary to enable the flag `featureFlags.operators`: 
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install --name kubeapps --namespace kubeapps bitnami/kubeapps --set featureFlags.operators=true
+helm repo add chartmuseum http://helm.yongchehang.com
+helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad --set featureFlags.operators=true
 ```
 
 If you are using Helm 3:
 
 ```bash
 kubectl create namespace kubeapps
-helm install --name kubeapps --namespace kubeapps bitnami/kubeapps --set featureFlags.operators=true
+helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad --set featureFlags.operators=true
 ```
 
 For detailed information on installing, configuring and upgrading Kubeapps, checkout the [chart README](../../chart/kubeapps/README.md).

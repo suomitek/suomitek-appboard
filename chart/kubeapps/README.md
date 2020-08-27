@@ -17,16 +17,16 @@
 For Helm 2:
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install --name kubeapps --namespace kubeapps bitnami/kubeapps
+helm repo add chartmuseum http://helm.yongchehang.com
+helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad
 ```
 
 For Helm 3:
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add chartmuseum http://helm.yongchehang.com
 kubectl create namespace kubeapps
-helm install kubeapps --namespace kubeapps bitnami/kubeapps --set useHelm3=true
+helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
 ```
 
 ## Introduction
@@ -48,8 +48,8 @@ To install the chart with the release name `kubeapps`:
 For Helm 2:
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install --name kubeapps --namespace kubeapps bitnami/kubeapps
+helm repo add chartmuseum http://helm.yongchehang.com
+helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad
 ```
 
 > **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/securing-kubeapps.md).
@@ -57,9 +57,9 @@ helm install --name kubeapps --namespace kubeapps bitnami/kubeapps
 For Helm 3:
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add chartmuseum http://helm.yongchehang.com
 kubectl create namespace kubeapps
-helm install kubeapps --namespace kubeapps bitnami/kubeapps --set useHelm3=true
+helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
 ```
 
 The command deploys Kubeapps on the Kubernetes cluster in the `kubeapps` namespace. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
@@ -241,7 +241,7 @@ kubectl api-versions
 If the above command does not include entries for `rbac.authorization.k8s.io` you should perform the chart installation by setting `rbac.create=false`:
 
 ```bash
-helm install --name kubeapps --namespace kubeapps bitnami/kubeapps --set rbac.create=false
+helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad --set rbac.create=false
 ```
 
 ### Error while upgrading the Chart
@@ -282,7 +282,7 @@ kubectl delete namespace kubeapps
 
 ```bash
 helm repo update
-helm install --name kubeapps --namespace kubeapps bitnami/kubeapps
+helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad
 ```
 
 6.  (Optional) Restore any repositories you backed up in the first step:

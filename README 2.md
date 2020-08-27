@@ -18,12 +18,12 @@ Use the Helm chart to install the latest version of Kubeapps:
 ***Note:*** Kubeapps supports both Helm 2 and Helm 3. For detailed instructions on how to install and use Kubeapps follow the [Getting Started Guide](docs/user/getting-started.md).
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add chartmuseum http://helm.yongchehang.com
 # Helm 2 command
-helm install --name kubeapps --namespace kubeapps bitnami/kubeapps
+helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad
 # Helm 3 command
 kubectl create namespace kubeapps
-helm install kubeapps --namespace kubeapps bitnami/kubeapps --set useHelm3=true
+helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
 ``` 
 
 ## Developer Documentation

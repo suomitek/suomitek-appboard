@@ -28,7 +28,7 @@ helm init --tiller-tls --tiller-tls-verify \
 This is the command to install Kubeapps with our certificate:
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add chartmuseum http://helm.yongchehang.com
 helm install \
   --tls --tls-ca-cert ca.cert.pem --tls-cert helm.cert.pem --tls-key helm.key.pem \
   --set tillerProxy.tls.ca="$(cat ca.cert.pem)" \

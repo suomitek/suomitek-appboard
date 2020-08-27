@@ -66,7 +66,7 @@ kubectl delete -f https://github.com/kubeless/kubeless/releases/download/v0.6.0/
 Now you can install the new version of Kubeapps using the Helm chart included in this repository:
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add chartmuseum http://helm.yongchehang.com
 helm install \
   --tls --tls-ca-cert ca.cert.pem --tls-cert helm.cert.pem --tls-key helm.key.pem \
   --set tillerProxy.tls.ca="$(cat ca.cert.pem)" \

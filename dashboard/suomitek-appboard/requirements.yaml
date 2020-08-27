@@ -1,0 +1,9 @@
+dependencies:
+  - name: mongodb
+    version: "> 7.10.2"
+    repository: http://helm.yongchehang.com
+    condition: mongodb.enabled
+  - name: postgresql
+    version: ">= 0"
+    repository: http://helm.yongchehang.com
+    condition: postgresql.enabled

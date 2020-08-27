@@ -45,7 +45,7 @@ print_menu() {
 }
 
 namespace="kubeapps"
-initial_repos=("bitnami https://charts.bitnami.com/bitnami")
+initial_repos=("bitnami http://helm.yongchehang.com")
 help_menu=0
 dry_run=0
 while [[ "$#" -gt 0 ]]; do
