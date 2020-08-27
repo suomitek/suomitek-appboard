@@ -33,7 +33,7 @@ Create chart name and version as used by the chart label.
 
 {{/*
 Common labels for additional suomitek-appboard applications. Used on resources whose app name is different
-from kubeapps
+from suomitek-appboard
 */}}
 {{- define "suomitek-appboard.extraAppLabels" -}}
 chart: {{ include "suomitek-appboard.chart" . }}
@@ -123,7 +123,7 @@ Create name for the db-secret secret bootstrap job
 {{- end -}}
 
 {{/*
-Create name for the kubeapps upgrade job
+Create name for the suomitek-appboard upgrade job
 */}}
 {{- define "suomitek-appboard.suomitek-appboard-jobs-upgrade.fullname" -}}
 {{ template "suomitek-appboard.fullname" . }}-internal-suomitek-appboard-jobs-upgrade

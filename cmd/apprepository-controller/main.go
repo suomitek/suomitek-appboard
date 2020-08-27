@@ -68,7 +68,7 @@ func main() {
 		log.Fatalf("Error building apprepo clientset: %s", err.Error())
 	}
 
-	// We're interested in being informed about cronjobs in kubeapps namespace only, currently.
+	// We're interested in being informed about cronjobs in suomitek-appboard namespace only, currently.
 	kubeInformerFactory := kubeinformers.NewSharedInformerFactoryWithOptions(kubeClient, 0, kubeinformers.WithNamespace(namespace))
 	apprepoInformerFactory := informers.NewSharedInformerFactory(apprepoClient, 0)
 

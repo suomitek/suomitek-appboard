@@ -592,9 +592,9 @@ func apprepoSyncJobEnvVars(apprepo *apprepov1alpha1.AppRepository, kubeappsNames
 }
 
 // secretKeyRefForRepo returns a secret key ref with a name depending on whether
-// this repo is in the kubeapps namespace or not. If the repo is not in the
-// kubeapps namespace, then the secret will have been copied from another namespace
-// into the kubeapps namespace and have a slightly different name.
+// this repo is in the suomitek-appboard namespace or not. If the repo is not in the
+// suomitek-appboard namespace, then the secret will have been copied from another namespace
+// into the suomitek-appboard namespace and have a slightly different name.
 func secretKeyRefForRepo(keyRef corev1.SecretKeySelector, apprepo *apprepov1alpha1.AppRepository, kubeappsNamespace string) *corev1.SecretKeySelector {
 	if apprepo.ObjectMeta.Namespace == kubeappsNamespace {
 		return &keyRef
