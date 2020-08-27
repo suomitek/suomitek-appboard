@@ -353,7 +353,7 @@ func TestGetOperatorLogo(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			getOpLogo := GetOperatorLogo(&kube.FakeHandler{Err: tc.err})
-			req := httptest.NewRequest("Get", "https://foo.bar/backend/v1/namespaces/kubeapps/operator/foo", bytes.NewReader(tc.logo))
+			req := httptest.NewRequest("Get", "https://foo.bar/backend/v1/namespaces/suomitek-appboard/operator/foo", bytes.NewReader(tc.logo))
 			req = mux.SetURLVars(req, map[string]string{"namespace": "kubeapps", "name": "foo"})
 
 			response := httptest.NewRecorder()
