@@ -95,7 +95,7 @@ func TestCreateListAppRepositories(t *testing.T) {
 				{ObjectMeta: metav1.ObjectMeta{Name: "foo"}},
 			}, Err: tc.err})
 			req := httptest.NewRequest("GET", "https://foo.bar/backend/v1/suomitek-appboard/kubeapps/apprepositories", strings.NewReader("data"))
-			req = mux.SetURLVars(req, map[string]string{"namespace": "kubeapps"})
+			req = mux.SetURLVars(req, map[string]string{"namespace": "suomitek-appboard"})
 
 			response := httptest.NewRecorder()
 			listFunc(response, req)
@@ -143,7 +143,7 @@ func TestCreateAppRepository(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			createAppFunc := CreateAppRepository(&kube.FakeHandler{CreatedRepo: tc.appRepo, Err: tc.err})
 			req := httptest.NewRequest("POST", "https://foo.bar/backend/v1/suomitek-appboard/kubeapps/apprepositories", strings.NewReader("data"))
-			req = mux.SetURLVars(req, map[string]string{"namespace": "kubeapps"})
+			req = mux.SetURLVars(req, map[string]string{"namespace": "suomitek-appboard"})
 
 			response := httptest.NewRecorder()
 			createAppFunc(response, req)
@@ -188,7 +188,7 @@ func TestUpdateAppRepository(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			createAppFunc := UpdateAppRepository(&kube.FakeHandler{UpdatedRepo: tc.appRepo, Err: tc.err})
 			req := httptest.NewRequest("POST", "https://foo.bar/backend/v1/suomitek-appboard/kubeapps/apprepositories/foo", strings.NewReader("data"))
-			req = mux.SetURLVars(req, map[string]string{"namespace": "kubeapps"})
+			req = mux.SetURLVars(req, map[string]string{"namespace": "suomitek-appboard"})
 
 			response := httptest.NewRecorder()
 			createAppFunc(response, req)
@@ -231,7 +231,7 @@ func TestDeleteAppRepository(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			deleteAppFunc := DeleteAppRepository(&kube.FakeHandler{Err: tc.err})
 			req := httptest.NewRequest("POST", "https://foo.bar/backend/v1/suomitek-appboard/kubeapps/apprepositories", strings.NewReader("data"))
-			req = mux.SetURLVars(req, map[string]string{"namespace": "kubeapps"})
+			req = mux.SetURLVars(req, map[string]string{"namespace": "suomitek-appboard"})
 
 			response := httptest.NewRecorder()
 			deleteAppFunc(response, req)
@@ -354,7 +354,7 @@ func TestGetOperatorLogo(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			getOpLogo := GetOperatorLogo(&kube.FakeHandler{Err: tc.err})
 			req := httptest.NewRequest("Get", "https://foo.bar/backend/v1/namespaces/suomitek-appboard/operator/foo", bytes.NewReader(tc.logo))
-			req = mux.SetURLVars(req, map[string]string{"namespace": "kubeapps", "name": "foo"})
+			req = mux.SetURLVars(req, map[string]string{"namespace": "suomitek-appboard", "name": "foo"})
 
 			response := httptest.NewRecorder()
 			getOpLogo(response, req)

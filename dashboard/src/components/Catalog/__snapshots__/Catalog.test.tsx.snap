@@ -35,7 +35,7 @@ exports[`renderization when charts available should render the list of charts 1`
                 "icon": undefined,
                 "id": "bar",
                 "name": "bar",
-                "namespace": "kubeapps",
+                "namespace": "suomitek-appboard",
                 "repo": Object {
                   "name": "bar",
                   "namespace": "chart-namespace",
@@ -54,7 +54,7 @@ exports[`renderization when charts available should render the list of charts 1`
                 "icon": undefined,
                 "id": "foo",
                 "name": "foo",
-                "namespace": "kubeapps",
+                "namespace": "suomitek-appboard",
                 "repo": Object {
                   "name": "foo",
                   "namespace": "chart-namespace",
