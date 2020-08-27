@@ -51,7 +51,7 @@ data:
         return 200 "healthy\n";
       }
 
-      # The default cluster running on the same cluster as Kubeapps.
+      # The default cluster running on the same cluster as Suomitek-appboard.
       location ~* /api/clusters/default {
         rewrite /api/clusters/default/(.*) /$1 break;
         rewrite /api/clusters/default / break;
@@ -111,7 +111,7 @@ data:
         {{- end }}
       }
 
-      # The route for the Kubeapps backend API is not prefixed.
+      # The route for the Suomitek-appboard backend API is not prefixed.
       location ~* /api/ {
         rewrite /api/(.*) /backend/$1 break;
         rewrite /api/ /backend break;

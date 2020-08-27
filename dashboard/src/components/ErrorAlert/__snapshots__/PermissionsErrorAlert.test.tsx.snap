@@ -41,7 +41,7 @@ exports[`renders an error message for the action 1`] = `
         rel="noopener noreferrer"
         target="_blank"
       >
-        access control in Kubeapps
+        access control in Suomitek-appboard
       </a>
       .
     </p>

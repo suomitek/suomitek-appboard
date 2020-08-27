@@ -23,9 +23,9 @@ info "-- Harbor installation --"
 info "-------------------------"
 echo
 "$ROOT_DIR"/script/setup-harbor.sh --namespace "harbor" --disable-clair --disable-notary
-# Install Kubeapps
+# Install Suomitek-appboard
 info "---------------------------"
-info "-- Kubeapps installation --"
+info "-- Suomitek-appboard installation --"
 info "---------------------------"
 echo
 "$ROOT_DIR"/script/setup-suomitek-appboard.sh --namespace "kubeapps" --initial-repos "harbor-library" "http://harbor.harbor.svc.cluster.local/chartrepo/library"

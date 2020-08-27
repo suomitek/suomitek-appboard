@@ -106,7 +106,7 @@ func NewController(
 	// obtain references to shared index informers for the CronJob and
 	// AppRepository types.
 	cronjobInformer := kubeInformerFactory.Batch().V1beta1().CronJobs()
-	apprepoInformer := apprepoInformerFactory.Kubeapps().V1alpha1().AppRepositories()
+	apprepoInformer := apprepoInformerFactory.Suomitek-appboard().V1alpha1().AppRepositories()
 
 	// Create event broadcaster
 	// Add apprepository-controller types to the default Kubernetes Scheme so

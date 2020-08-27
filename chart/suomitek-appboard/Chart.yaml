@@ -2,7 +2,7 @@ apiVersion: v1
 name: kubeapps
 version: 3.9.0
 appVersion: DEVEL
-description: Kubeapps is a dashboard for your Kubernetes cluster that makes it easy to deploy and manage applications in your cluster using Helm
+description: Suomitek-appboard is a dashboard for your Kubernetes cluster that makes it easy to deploy and manage applications in your cluster using Helm
 icon: https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/img/logo.png
 keywords:
   - helm

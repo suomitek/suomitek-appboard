@@ -54,7 +54,7 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 	switch resource {
 	// Group=suomitek.com, Version=v1alpha1
 	case v1alpha1.SchemeGroupVersion.WithResource("apprepositories"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Kubeapps().V1alpha1().AppRepositories().Informer()}, nil
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Suomitek-appboard().V1alpha1().AppRepositories().Informer()}, nil
 
 	}
 

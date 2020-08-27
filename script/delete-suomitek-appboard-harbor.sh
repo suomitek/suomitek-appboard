@@ -19,9 +19,9 @@ info "-- Harbor deletion --"
 info "---------------------"
 echo
 "$ROOT_DIR"/script/delete-harbor.sh --namespace "harbor"
-# Delete Kubeapps
+# Delete Suomitek-appboard
 info "-----------------------"
-info "-- Kubeapps deletion --"
+info "-- Suomitek-appboard deletion --"
 info "-----------------------"
 echo
 "$ROOT_DIR"/script/delete-suomitek-appboard.sh --namespace "kubeapps"

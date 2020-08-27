@@ -113,7 +113,7 @@ exports[`renderization when no charts should render an error 1`] = `
     <h5>
       Charts not found.
     </h5>
-    Manage your Helm chart repositories in Kubeapps by visiting the
+    Manage your Helm chart repositories in Suomitek-appboard by visiting the
      
     <Link
       to="/c/default/ns/suomitek-appboard/config/repos"

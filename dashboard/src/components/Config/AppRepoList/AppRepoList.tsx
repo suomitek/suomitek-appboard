@@ -139,7 +139,7 @@ class AppRepoList extends React.Component<IAppRepoListProps> {
         <MessageAlert header="AppRepositories can be created on the default cluster only">
           <div>
             <p className="margin-v-normal">
-              Kubeapps' multi-cluster support currently enables creation of custom app repositories
+              Suomitek-appboard' multi-cluster support currently enables creation of custom app repositories
               on the default cluster only.
             </p>
             <p className="margin-v-normal">
@@ -225,7 +225,7 @@ class AppRepoList extends React.Component<IAppRepoListProps> {
                 selector at the top and clicking on "All Namespaces".
               </p>
               <p className="margin-v-normal">
-                Kubeapps now enables you to create App Repositories in your own namespace that will
+                Suomitek-appboard now enables you to create App Repositories in your own namespace that will
                 be available in your own namespace and, in the future, optionally available in other
                 namespaces to which you have access. You can read more information in the{" "}
                 <a href="https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/private-app-repository.md">

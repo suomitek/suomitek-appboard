@@ -31,7 +31,7 @@ exports[`when fetching apps loading spinner matches the snapshot 1`] = `
         The current catalog is empty.
       </p>
       <p>
-        Manage your Helm chart repositories in Kubeapps by visiting the App repositories configuration page.
+        Manage your Helm chart repositories in Suomitek-appboard by visiting the App repositories configuration page.
       </p>
       <Link
         to="/c/default/ns/suomitek-appboard/config/repos"

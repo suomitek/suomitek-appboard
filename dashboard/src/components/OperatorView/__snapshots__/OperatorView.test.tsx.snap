@@ -12,7 +12,7 @@ exports[`renders a full OperatorView 1`] = `
     id="foo"
     namespace="kubeapps"
     namespaced={true}
-    provider="Kubeapps"
+    provider="Suomitek-appboard"
     push={[MockFunction]}
     version="1.0.0"
   />
@@ -84,7 +84,7 @@ exports[`renders a full OperatorView 1`] = `
                 className="margin-l-big"
               >
                 <span>
-                  Kubeapps
+                  Suomitek-appboard
                 </span>
               </div>
             </div>

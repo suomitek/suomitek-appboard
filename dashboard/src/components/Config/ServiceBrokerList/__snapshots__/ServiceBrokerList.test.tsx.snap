@@ -308,7 +308,7 @@ exports[`when all the brokers are loaded shows a forbiden (resync) error if it e
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        access control in Kubeapps
+                        access control in Suomitek-appboard
                       </a>
                       .
                     </p>
@@ -453,7 +453,7 @@ exports[`when all the brokers are loaded shows a warning to install no service b
                     Service Broker
                   </a>
                    
-                  to browse, provision and manage external services within Kubeapps.
+                  to browse, provision and manage external services within Suomitek-appboard.
                 </p>
               </div>
             </div>

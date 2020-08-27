@@ -166,15 +166,15 @@ pushChart() {
 }
 
 ########################
-# Install Kubeapps or upgrades it if it's already installed
+# Install Suomitek-appboard or upgrades it if it's already installed
 # Arguments:
 #   $1: chart source
 # Returns: None
 #########################
 installOrUpgradeKubeapps() {
     local chartSource=$1
-    # Install Kubeapps
-    info "Installing Kubeapps..."
+    # Install Suomitek-appboard
+    info "Installing Suomitek-appboard..."
     if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
       helm upgrade --install suomitek-appboard-ci --namespace suomitek-appboard "${chartSource}" \
         "${HELM_CLIENT_TLS_FLAGS[@]}" \
@@ -251,7 +251,7 @@ kubectl create ns suomitek-appboard
 
 if [[ -n "${TEST_UPGRADE}" ]]; then
   # To test the upgrade, first install the latest version published
-  info "Installing latest Kubeapps chart available"
+  info "Installing latest Suomitek-appboard chart available"
   installOrUpgradeKubeapps suomitek-appboard
 fi
 
@@ -270,8 +270,8 @@ else
   k8s_ensure_image suomitek-appboard suomitek-appboard-ci-internal-kubeops "$DEV_TAG"
 fi
 
-# Wait for Kubeapps Pods
-info "Waiting for Kubeapps components to be ready..."
+# Wait for Suomitek-appboard Pods
+info "Waiting for Suomitek-appboard components to be ready..."
 deployments=(
   "suomitek-appboard-ci"
   "suomitek-appboard-ci-internal-apprepository-controller"
@@ -288,7 +288,7 @@ else
   k8s_wait_for_deployment suomitek-appboard suomitek-appboard-ci-internal-kubeops
 fi
 
-# Wait for Kubeapps Jobs
+# Wait for Suomitek-appboard Jobs
 # Clean up existing jobs
 kubectl delete jobs -n suomitek-appboard --all
 # Trigger update of the bitnami repository

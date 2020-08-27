@@ -34,7 +34,7 @@ exports[`oauth login form renders a login button link 1`] = `
             Click here
           </a>
            
-          for more info about using authentication providers with Kubeapps.
+          for more info about using authentication providers with Suomitek-appboard.
         </p>
         <a
           className="button button-accent"

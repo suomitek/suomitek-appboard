@@ -11,7 +11,7 @@ export interface IFeatureFlags {
   ui: string;
 }
 
-// IConfig is the configuration for Kubeapps
+// IConfig is the configuration for Suomitek-appboard
 export interface IConfig {
   namespace: string;
   appVersion: string;

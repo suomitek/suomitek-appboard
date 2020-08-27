@@ -107,7 +107,7 @@ class ServiceBrokerList extends React.Component<IServiceBrokerListProps> {
         <MessageAlert header="Service brokers can be created on the default cluster only">
           <div>
             <p className="margin-v-normal">
-              Kubeapps' Service Broker support enables the addition of{" "}
+              Suomitek-appboard' Service Broker support enables the addition of{" "}
               <Link to={url.app.config.brokers("default")}>
                 service brokers on the default cluster only
               </Link>

@@ -39,7 +39,7 @@ exports[`renders the header 1`] = `
           <Link
             to="/c/default/ns/suomitek-appboard/operators"
           >
-            Kubeapps
+            Suomitek-appboard
           </Link>
         </h5>
         <h5

@@ -1,4 +1,4 @@
-# Deploy a dev environment of Kubeapps using OIDC for authentication with a
+# Deploy a dev environment of Suomitek-appboard using OIDC for authentication with a
 # local dex as the provider.
 #
 # Targets in this helper assume that kubectl is configured with a cluster
@@ -32,7 +32,7 @@ deploy-dev: deploy-dependencies
 		--values ./docs/user/manifests/suomitek-appboard-local-dev-auth-proxy-values.yaml \
 		--values ./docs/user/manifests/suomitek-appboard-local-dev-additional-kind-cluster.yaml \
 		--set useHelm3=true
-	@echo "\nYou can now simply open your browser at https://localhost/ to access Kubeapps!"
+	@echo "\nYou can now simply open your browser at https://localhost/ to access Suomitek-appboard!"
 	@echo "When logging in, you will be redirected to dex (with a self-signed cert) and can login with email as either of"
 	@echo "  suomitek-appboard-operator@example.com:password"
 	@echo "  suomitek-appboard-user@example.com:password"

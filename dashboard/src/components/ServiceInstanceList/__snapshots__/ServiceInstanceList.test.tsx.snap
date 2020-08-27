@@ -365,7 +365,7 @@ exports[`when all the components are loaded shows information of how to deploy a
           <p
             className="margin-v-normal"
           >
-            Kubeapps lets you browse, provision and manage external services provided by the Service Brokers configured in your cluster.
+            Suomitek-appboard lets you browse, provision and manage external services provided by the Service Brokers configured in your cluster.
           </p>
           <div
             className="padding-t-normal padding-b-normal"

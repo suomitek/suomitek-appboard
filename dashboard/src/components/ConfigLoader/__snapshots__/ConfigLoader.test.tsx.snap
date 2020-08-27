@@ -29,7 +29,7 @@ exports[`when there is an error renders the error details 1`] = `
 <UnexpectedErrorPage
   raw={true}
   showGenericMessage={true}
-  text="Unable to load Kubeapps configuration: Wrong config!"
+  text="Unable to load Suomitek-appboard configuration: Wrong config!"
   title="Sorry! Something went wrong."
 />
 `;

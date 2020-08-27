@@ -86,7 +86,7 @@ func (m *postgresAssetManager) getPaginatedChartList(namespace, repo string, pag
 				uniqueCharts = append(uniqueCharts, c)
 			}
 		}
-		// TODO(andresmgot): Implement pagination but currently Kubeapps don't support it
+		// TODO(andresmgot): Implement pagination but currently Suomitek-appboard don't support it
 		return uniqueCharts, 1, nil
 	}
 	return charts, 1, nil

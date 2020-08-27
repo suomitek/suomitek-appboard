@@ -384,7 +384,7 @@ func TestGetPaginatedChartList(t *testing.T) {
 				}
 			}
 
-			// The actual pagination isn't currently implemented as its not yet used by Kubeapps.
+			// The actual pagination isn't currently implemented as its not yet used by Suomitek-appboard.
 			charts, _, err := pam.getPaginatedChartList(tc.namespace, tc.repo, 1, 10, tc.showDups)
 
 			if got, want := err, tc.expectedErr; got != want {

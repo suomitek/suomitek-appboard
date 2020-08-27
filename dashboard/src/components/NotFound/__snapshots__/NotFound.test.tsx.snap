@@ -8,7 +8,7 @@ exports[`should render the 404 page 1`] = `
     The page you are looking for can't be found.
   </h3>
   <img
-    alt="Kubeapps logo"
+    alt="Suomitek-appboard logo"
     src="404.svg"
   />
 </div>

@@ -28,8 +28,8 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-# Uninstall Kubeapps
-info "Uninstalling Kubeapps in namespace '$namespace'..."
+# Uninstall Suomitek-appboard
+info "Uninstalling Suomitek-appboard in namespace '$namespace'..."
 silence helm uninstall kubeapps -n "$namespace"
 silence kubectl delete rolebinding example-suomitek-appboard-repositories-read -n "$namespace"
 silence kubectl delete rolebinding example-suomitek-appboard-repositories-write -n "$namespace"

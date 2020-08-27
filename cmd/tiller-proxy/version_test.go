@@ -44,8 +44,8 @@ func Test_userAgent(t *testing.T) {
 		{
 			name:             "Shows custom version plus comment if provided",
 			version:          "v4.4.4",
-			userAgentComment: "Kubeapps/v2.3.4",
-			expectedResult:   "tiller-proxy/v4.4.4 (Kubeapps/v2.3.4)",
+			userAgentComment: "Suomitek-appboard/v2.3.4",
+			expectedResult:   "tiller-proxy/v4.4.4 (Suomitek-appboard/v2.3.4)",
 		},
 	}
 

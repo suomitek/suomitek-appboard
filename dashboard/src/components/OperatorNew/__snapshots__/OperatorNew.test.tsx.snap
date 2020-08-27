@@ -12,7 +12,7 @@ exports[`renders a full OperatorNew 1`] = `
     id="foo"
     namespace="kubeapps"
     namespaced={true}
-    provider="Kubeapps"
+    provider="Suomitek-appboard"
     push={[MockFunction]}
     version="1.0.0"
   />

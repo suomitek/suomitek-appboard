@@ -8,16 +8,16 @@
 #     - myRegistryKeySecretName
 #   storageClass: myStorageClass
 
-## Enable this feature flag to use Kubeapps with Helm 3 support.
-## If you set it to true, Kubeapps will not work with releases installed with Helm 2.
+## Enable this feature flag to use Suomitek-appboard with Helm 3 support.
+## If you set it to true, Suomitek-appboard will not work with releases installed with Helm 2.
 useHelm3: false
 
 ## Disable this feature flag to disallow users to discover available namespaces (only the ones they have access).
-## When set to true, Kubeapps creates a ClusterRole to be able to list namespaces.
+## When set to true, Suomitek-appboard creates a ClusterRole to be able to list namespaces.
 allowNamespaceDiscovery: true
 
-## The frontend service is the main reverse proxy used to access the Kubeapps UI
-## To expose Kubeapps externally either configure the ingress object below or
+## The frontend service is the main reverse proxy used to access the Suomitek-appboard UI
+## To expose Suomitek-appboard externally either configure the ingress object below or
 ## set frontend.service.type=LoadBalancer in the frontend configuration.
 ## ref: http://kubernetes.io/docs/user-guide/ingress/
 ##
@@ -146,7 +146,7 @@ frontend:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -174,7 +174,7 @@ frontend:
 
 ## AppRepository Controller is the controller used to manage the repositories to
 ## sync. Set apprepository.initialRepos to configure the initial set of
-## repositories to use when first installing Kubeapps.
+## repositories to use when first installing Suomitek-appboard.
 ##
 apprepository:
   ## Running a single controller replica to avoid sync job duplication
@@ -182,14 +182,14 @@ apprepository:
   replicaCount: 1
   ## Schedule for syncing apprepositories. Every ten minutes by default
   # crontab: "*/10 * * * *"
-  ## Bitnami Kubeapps AppRepository Controller image
+  ## Bitnami Suomitek-appboard AppRepository Controller image
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-apprepository-controller/tags/
   ##
   image:
     registry: docker.io
     repository: suomitek/suomitek-appboard-apprepository-controller
     tag: 1.10.0-scratch-r0
-  ## Kubeapps assets synchronization tool
+  ## Suomitek-appboard assets synchronization tool
   ## Image used to perform chart repository syncs
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-asset-syncer/tags/
   ##
@@ -231,7 +231,7 @@ apprepository:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -277,7 +277,7 @@ hooks:
   ##
   tolerations: {}
 
-# Kubeops is an interface between the Kubeapps Dashboard and Helm 3/Kubernetes.
+# Kubeops is an interface between the Suomitek-appboard Dashboard and Helm 3/Kubernetes.
 # Set useHelm3 to true to use Kubeops instead of Tiller Proxy.
 kubeops:
   replicaCount: 2
@@ -314,13 +314,13 @@ kubeops:
   affinity: {}
 
 ## Tiller Proxy is a secure REST API on top of Helm's Tiller component used to
-## manage Helm chart releases in the cluster from Kubeapps. Set tillerProxy.host
+## manage Helm chart releases in the cluster from Suomitek-appboard. Set tillerProxy.host
 ## to configure a different Tiller host to use.
 ##
 tillerProxy:
   replicaCount: 2
 
-  ## Bitnami Kubeapps Tiller Proxy image
+  ## Bitnami Suomitek-appboard Tiller Proxy image
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-tiller-proxy/tags/
   ##
   image:
@@ -352,7 +352,7 @@ tillerProxy:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -394,7 +394,7 @@ tillerProxy:
 ##
 assetsvc:
   replicaCount: 2
-  ## Bitnami Kubeapps Assetsvc image
+  ## Bitnami Suomitek-appboard Assetsvc image
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-assetsvc/tags/
   ##
   image:
@@ -411,7 +411,7 @@ assetsvc:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -454,7 +454,7 @@ assetsvc:
 ##
 dashboard:
   replicaCount: 2
-  ## Bitnami Kubeapps Dashboard image
+  ## Bitnami Suomitek-appboard Dashboard image
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-dashboard/tags/
   ##
   image:
@@ -486,7 +486,7 @@ dashboard:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -514,7 +514,7 @@ dashboard:
 mongodb:
   ## Whether to deploy a mongodb server to satisfy the applications database requirements.
   enabled: true
-  ## Kubeapps uses MongoDB as a cache and persistence is not required
+  ## Suomitek-appboard uses MongoDB as a cache and persistence is not required
   ##
   persistence:
     enabled: false
@@ -531,7 +531,7 @@ mongodb:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -550,9 +550,9 @@ postgresql:
   ## Enable replication for high availability
   replication:
     enabled: true
-  ## Create a database for Kubeapps on the first run
+  ## Create a database for Suomitek-appboard on the first run
   postgresqlDatabase: assets
-  ## Kubeapps uses PostgreSQL as a cache and persistence is not required
+  ## Suomitek-appboard uses PostgreSQL as a cache and persistence is not required
   ##
   persistence:
     enabled: false
@@ -630,13 +630,13 @@ authProxy:
   ## OAuth2 Proxy containers' resource requests and limits
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
-  ## Overridable flags for OAuth URIs that Kubeapps uses, useful when serving
-  ## Kubeapps under a sub path
+  ## Overridable flags for OAuth URIs that Suomitek-appboard uses, useful when serving
+  ## Suomitek-appboard under a sub path
   oauthLoginURI: /oauth2/start
   oauthLogoutURI: /oauth2/sign_out
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:

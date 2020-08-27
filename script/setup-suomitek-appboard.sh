@@ -28,12 +28,12 @@ print_menu() {
     log "    $script [${YELLOW}-dh${RESET}] [${YELLOW}-n ${GREEN}\"namespace\"${RESET}] [${YELLOW}--initial-repos ${GREEN}\"name\" \"url\"${RESET}]"
     log ""
     log "${RED}DESCRIPTION${RESET}"
-    log "    Script to setup Kubeapps on your K8s cluster."
+    log "    Script to setup Suomitek-appboard on your K8s cluster."
     log ""
     log "    The options are as follow:"
     log ""
-    log "      ${YELLOW}-n, --namespace ${GREEN}[namespace]${RESET}           Namespace to use for Kubeapps."
-    log "      ${YELLOW}--initial-repos ${GREEN}[repo_name repo_url]${RESET}   Initial repositories to configure on Kubeapps. This flag can be used several times."
+    log "      ${YELLOW}-n, --namespace ${GREEN}[namespace]${RESET}           Namespace to use for Suomitek-appboard."
+    log "      ${YELLOW}--initial-repos ${GREEN}[repo_name repo_url]${RESET}   Initial repositories to configure on Suomitek-appboard. This flag can be used several times."
     log "      ${YELLOW}-h, --help${RESET}                            Print this help menu."
     log "      ${YELLOW}-u, --dry-run${RESET}                         Enable \"dry run\" mode."
     log ""
@@ -77,7 +77,7 @@ if [[ "$help_menu" -eq 1 ]]; then
     exit 0
 fi
 
-# Kubeapps values
+# Suomitek-appboard values
 values="$(cat << EOF
 useHelm3: true
 apprepository:
@@ -101,17 +101,17 @@ if [[ "$dry_run" -eq 1 ]]; then
     exit 0
 fi
 
-# Install Kubeapps
+# Install Suomitek-appboard
 info "Using the values.yaml below:"
 printf '#####\n\n%s\n\n#####\n' "$values"
-info "Installing Kubeapps in namespace '$namespace'..."
+info "Installing Suomitek-appboard in namespace '$namespace'..."
 silence kubectl create ns "$namespace"
 silence helm install suomitek-appboard \
     --namespace "$namespace" \
     -f <(echo "$values") \
     chartmuseum/suomitek-appboard
-# Wait for Kubeapps components
-info "Waiting for Kubeapps components to be ready..."
+# Wait for Suomitek-appboard components
+info "Waiting for Suomitek-appboard components to be ready..."
 deployments=(
     "suomitek-appboard"
     "suomitek-appboard-internal-apprepository-controller"
@@ -135,9 +135,9 @@ silence kubectl create -n "$namespace" rolebinding example-suomitek-appboard-rep
 silence kubectl create -n "$namespace" rolebinding example-suomitek-appboard-repositories-write --role=kubeapps-repositories-write --serviceaccount default:example
 echo
     
-info "Use this command for port forwading to Kubeapps Dashboard:"
+info "Use this command for port forwading to Suomitek-appboard Dashboard:"
 info "kubectl port-forward --namespace $namespace svc/kubeapps 8080:80 >/dev/null 2>&1 &"
-info "Kubeapps URL: http://127.0.0.1:8080"
+info "Suomitek-appboard URL: http://127.0.0.1:8080"
 info "Kubeppas API Token:"
 kubectl get -n default secret "$(kubectl get serviceaccount example --namespace default -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo
 echo

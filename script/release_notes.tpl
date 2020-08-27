@@ -9,7 +9,7 @@ helm repo add chartmuseum http://helm.yongchehang.com
 helm repo update
 ```
 
-Install the Kubeapps Helm chart:
+Install the Suomitek-appboard Helm chart:
 
 For Helm 2:
 
@@ -24,7 +24,7 @@ kubectl create namespace suomitek-appboard
 helm install suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard --set useHelm3=true
 ```
 
-To get started with Kubeapps, checkout this [walkthrough](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/getting-started.md).
+To get started with Suomitek-appboard, checkout this [walkthrough](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/getting-started.md).
 
 ## Changelog
 

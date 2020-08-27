@@ -172,9 +172,9 @@ type SharedInformerFactory interface {
 	ForResource(resource schema.GroupVersionResource) (GenericInformer, error)
 	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
 
-	Kubeapps() apprepository.Interface
+	Suomitek-appboard() apprepository.Interface
 }
 
-func (f *sharedInformerFactory) Kubeapps() apprepository.Interface {
+func (f *sharedInformerFactory) Suomitek-appboard() apprepository.Interface {
 	return apprepository.New(f, f.namespace, f.tweakListOptions)
 }

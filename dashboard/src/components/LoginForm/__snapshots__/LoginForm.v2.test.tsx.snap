@@ -71,7 +71,7 @@ exports[`token login form displays an error if the authentication error is passe
           >
             Welcome to 
             <span>
-              Kubeapps
+              Suomitek-appboard
             </span>
           </h3>
           <p

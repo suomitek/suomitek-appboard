@@ -59,7 +59,7 @@
           "type": "boolean",
           "form": true,
           "title": "Use a custom hostname",
-          "description": "Enable the ingress resource that allows you to access the Kubeapps dashboard."
+          "description": "Enable the ingress resource that allows you to access the Suomitek-appboard dashboard."
         },
         "hostname": {
           "type": "string",

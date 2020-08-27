@@ -4,7 +4,7 @@ Tip:
 
   Watch the deployment status using the command: kubectl get pods -w --namespace {{ .Release.Namespace }}
 
-Kubeapps can be accessed via port {{ .Values.frontend.service.port }} on the following DNS name from within your cluster:
+Suomitek-appboard can be accessed via port {{ .Values.frontend.service.port }} on the following DNS name from within your cluster:
 
    {{ template "suomitek-appboard.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
 
@@ -18,25 +18,25 @@ CAVEAT:
 
 {{- end }}
 
-To access Kubeapps from outside your K8s cluster, follow the steps below:
+To access Suomitek-appboard from outside your K8s cluster, follow the steps below:
 
 {{- if .Values.ingress.enabled }}
 
-1. Get the Kubeapps URL and associate Kubeapps hostname to your cluster external IP:
+1. Get the Suomitek-appboard URL and associate Suomitek-appboard hostname to your cluster external IP:
 
    export CLUSTER_IP=$(minikube ip) # On Minikube. Use: `kubectl cluster-info` on others K8s clusters
-   echo "Kubeapps URL: http{{ if .Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }}/"
+   echo "Suomitek-appboard URL: http{{ if .Values.ingress.tls }}s{{ end }}://{{ .Values.ingress.hostname }}/"
    echo "$CLUSTER_IP  {{ .Values.ingress.hostname }}" | sudo tee -a /etc/hosts
 
 {{- else }}
 
-1. Get the Kubeapps URL by running these commands:
+1. Get the Suomitek-appboard URL by running these commands:
 
 {{- if contains "NodePort" .Values.frontend.service.type }}
 
    export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
    export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ template "suomitek-appboard.fullname" . }})
-   echo "Kubeapps URL: http://$NODE_IP:$NODE_PORT"
+   echo "Suomitek-appboard URL: http://$NODE_IP:$NODE_PORT"
 
 {{- else if contains "LoadBalancer" .Values.frontend.service.type }}
 
@@ -44,15 +44,15 @@ To access Kubeapps from outside your K8s cluster, follow the steps below:
        Watch the status by running 'kubectl get svc --namespace {{ .Release.Namespace }} -w {{ template "suomitek-appboard.fullname" . }}'
 
    export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ template "suomitek-appboard.fullname" . }} --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
-   echo "Kubeapps URL: http://$SERVICE_IP:{{ .Values.frontend.service.port }}"
+   echo "Suomitek-appboard URL: http://$SERVICE_IP:{{ .Values.frontend.service.port }}"
 
 {{- else if contains "ClusterIP" .Values.frontend.service.type }}
 
 {{- $portNumber := include "suomitek-appboard.frontend-port-number" . }}
-   echo "Kubeapps URL: http://127.0.0.1:{{ $portNumber }}"
+   echo "Suomitek-appboard URL: http://127.0.0.1:{{ $portNumber }}"
    kubectl port-forward --namespace {{ .Release.Namespace }} service/{{ template "suomitek-appboard.fullname" . }} {{ $portNumber }}:{{ .Values.frontend.service.port }}
 
 {{- end }}
 {{- end }}
 
-2. Open a browser and access Kubeapps using the obtained URL.
+2. Open a browser and access Suomitek-appboard using the obtained URL.

@@ -1,4 +1,4 @@
-# Clean up the AppRepository resources used by this Kubeapps instance
+# Clean up the AppRepository resources used by this Suomitek-appboard instance
 apiVersion: batch/v1
 kind: Job
 metadata:

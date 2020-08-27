@@ -58,7 +58,7 @@ type AdditionalClusterConfig struct {
 	// and returning that for ToRESTConfig() isn't enough, so we each configured cert out and
 	// include a CAFile field in the config.
 	CAFile string
-	// ServiceToken can be configured so that the Kubeapps application itself
+	// ServiceToken can be configured so that the Suomitek-appboard application itself
 	// has access to get all namespaces on additional clusters, for example. It
 	// should *not* be for reading secrets or similar, but limited to the
 	// required functionality.
@@ -116,7 +116,7 @@ func (c *combinedClientset) RestClient() rest.Interface {
 }
 
 // kubeHandler handles http requests for operating on app repositories and k8s resources
-// in Kubeapps, without exposing implementation details to 3rd party integrations.
+// in Suomitek-appboard, without exposing implementation details to 3rd party integrations.
 type kubeHandler struct {
 	// The config set internally here cannot be used on its own as a valid
 	// token is required. Call-sites use NewClusterConfig to obtain a valid

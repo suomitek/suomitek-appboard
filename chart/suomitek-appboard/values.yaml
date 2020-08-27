@@ -8,24 +8,24 @@
 #     - myRegistryKeySecretName
 #   storageClass: myStorageClass
 
-## Enable this feature flag to use Kubeapps with Helm 3 support.
-## If you set it to true, Kubeapps will not work with releases installed with Helm 2.
+## Enable this feature flag to use Suomitek-appboard with Helm 3 support.
+## If you set it to true, Suomitek-appboard will not work with releases installed with Helm 2.
 useHelm3: false
 
 ## Disable this feature flag to disallow users to discover available namespaces (only the ones they have access).
-## When set to true, Kubeapps creates a ClusterRole to be able to list namespaces.
+## When set to true, Suomitek-appboard creates a ClusterRole to be able to list namespaces.
 allowNamespaceDiscovery: true
 
 ## Enable IPv6 Configuration for Nginx
 enableIPv6: false
 
-## clusters can be configured with a list of clusters that Kubeapps can target for deployments.
+## clusters can be configured with a list of clusters that Suomitek-appboard can target for deployments.
 ## This is an alpha feature and the semantics are expected to change slightly in future releases.
-## If empty, Kubeapps will target the cluster on which it is installed only.
-## When populated, Kubeapps will currently present the listed clusters in addition to the default
-## cluster on which Kubeapps is installed. In the future a populated list here will be definitive, so that
-## it is possible to configure Kubeapps to target other clusters only (ie. not target the cluster on which
-## Kubeapps is installed), as per https://github.com/suomitek/suomitek-appboard/issues/1942 .
+## If empty, Suomitek-appboard will target the cluster on which it is installed only.
+## When populated, Suomitek-appboard will currently present the listed clusters in addition to the default
+## cluster on which Suomitek-appboard is installed. In the future a populated list here will be definitive, so that
+## it is possible to configure Suomitek-appboard to target other clusters only (ie. not target the cluster on which
+## Suomitek-appboard is installed), as per https://github.com/suomitek/suomitek-appboard/issues/1942 .
 ## The base64-encoded certificateAuthorityData can be obtained from the additional cluster's kube config
 ## file, for example:
 ## kubectl --kubeconfig ~/.kube/kind-config-suomitek-appboard-additional config view --raw -o jsonpath='{.clusters[0].cluster.certificate-authority-data}'
@@ -40,8 +40,8 @@ enableIPv6: false
 #   serviceToken: ...
 clusters: []
 
-## The frontend service is the main reverse proxy used to access the Kubeapps UI
-## To expose Kubeapps externally either configure the ingress object below or
+## The frontend service is the main reverse proxy used to access the Suomitek-appboard UI
+## To expose Suomitek-appboard externally either configure the ingress object below or
 ## set frontend.service.type=LoadBalancer in the frontend configuration.
 ## ref: http://kubernetes.io/docs/user-guide/ingress/
 ##
@@ -175,7 +175,7 @@ frontend:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -203,7 +203,7 @@ frontend:
 
 ## AppRepository Controller is the controller used to manage the repositories to
 ## sync. Set apprepository.initialRepos to configure the initial set of
-## repositories to use when first installing Kubeapps.
+## repositories to use when first installing Suomitek-appboard.
 ##
 apprepository:
   ## Running a single controller replica to avoid sync job duplication
@@ -211,7 +211,7 @@ apprepository:
   replicaCount: 1
   ## Schedule for syncing apprepositories. Every ten minutes by default
   # crontab: "*/10 * * * *"
-  ## Bitnami Kubeapps AppRepository Controller image
+  ## Bitnami Suomitek-appboard AppRepository Controller image
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-apprepository-controller/tags/
   ##
   image:
@@ -222,7 +222,7 @@ apprepository:
     ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
     ##
     pullPolicy: IfNotPresent
-  ## Kubeapps assets synchronization tool
+  ## Suomitek-appboard assets synchronization tool
   ## Image used to perform chart repository syncs
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-asset-syncer/tags/
   ##
@@ -265,7 +265,7 @@ apprepository:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -316,7 +316,7 @@ hooks:
   ##
   tolerations: {}
 
-# Kubeops is an interface between the Kubeapps Dashboard and Helm 3/Kubernetes.
+# Kubeops is an interface between the Suomitek-appboard Dashboard and Helm 3/Kubernetes.
 # Set useHelm3 to true to use Kubeops instead of Tiller Proxy.
 kubeops:
   replicaCount: 2
@@ -358,13 +358,13 @@ kubeops:
   affinity: {}
 
 ## Tiller Proxy is a secure REST API on top of Helm's Tiller component used to
-## manage Helm chart releases in the cluster from Kubeapps. Set tillerProxy.host
+## manage Helm chart releases in the cluster from Suomitek-appboard. Set tillerProxy.host
 ## to configure a different Tiller host to use.
 ##
 tillerProxy:
   replicaCount: 2
 
-  ## Bitnami Kubeapps Tiller Proxy image
+  ## Bitnami Suomitek-appboard Tiller Proxy image
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-tiller-proxy/tags/
   ##
   image:
@@ -400,7 +400,7 @@ tillerProxy:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -442,7 +442,7 @@ tillerProxy:
 ##
 assetsvc:
   replicaCount: 2
-  ## Bitnami Kubeapps Assetsvc image
+  ## Bitnami Suomitek-appboard Assetsvc image
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-assetsvc/tags/
   ##
   image:
@@ -464,7 +464,7 @@ assetsvc:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -507,7 +507,7 @@ assetsvc:
 ##
 dashboard:
   replicaCount: 2
-  ## Bitnami Kubeapps Dashboard image
+  ## Bitnami Suomitek-appboard Dashboard image
   ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-dashboard/tags/
   ##
   image:
@@ -544,7 +544,7 @@ dashboard:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -572,7 +572,7 @@ dashboard:
 mongodb:
   ## Whether to deploy a mongodb server to satisfy the applications database requirements.
   enabled: false
-  ## Kubeapps uses MongoDB as a cache and persistence is not required
+  ## Suomitek-appboard uses MongoDB as a cache and persistence is not required
   ##
   persistence:
     enabled: false
@@ -590,7 +590,7 @@ mongodb:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
@@ -609,9 +609,9 @@ postgresql:
   ## Enable replication for high availability
   replication:
     enabled: true
-  ## Create a database for Kubeapps on the first run
+  ## Create a database for Suomitek-appboard on the first run
   postgresqlDatabase: assets
-  ## Kubeapps uses PostgreSQL as a cache and persistence is not required
+  ## Suomitek-appboard uses PostgreSQL as a cache and persistence is not required
   ##
   persistence:
     enabled: false
@@ -657,22 +657,22 @@ testImage:
 # Auth Proxy configuration for OIDC support
 # ref: https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/using-an-OIDC-provider.md
 authProxy:
-  ## Set to true if Kubeapps should configure the OAuth login/logout URIs defined below.
+  ## Set to true if Suomitek-appboard should configure the OAuth login/logout URIs defined below.
   #
   enabled: false
-  ## When authProxy.enabled is true, by default Kubeapps will deploy its own
-  ## auth-proxy service as part of the Kubeapps frontend. Set external to true
-  ## if you are configuring your own auth proxy service external to Kubeapps
-  ## and therefore don't want Kubeapps to deploy its own auth-proxy.
+  ## When authProxy.enabled is true, by default Suomitek-appboard will deploy its own
+  ## auth-proxy service as part of the Suomitek-appboard frontend. Set external to true
+  ## if you are configuring your own auth proxy service external to Suomitek-appboard
+  ## and therefore don't want Suomitek-appboard to deploy its own auth-proxy.
   #
   external: false
-  ## Overridable flags for OAuth URIs to which the Kubeapps frontend redirects for authn.
-  ## Useful when serving Kubeapps under a sub path or using an external auth proxy.
+  ## Overridable flags for OAuth URIs to which the Suomitek-appboard frontend redirects for authn.
+  ## Useful when serving Suomitek-appboard under a sub path or using an external auth proxy.
   ##
   oauthLoginURI: /oauth2/start
   oauthLogoutURI: /oauth2/sign_out
   ## The remaining auth proxy values are relevant only if an internal auth-proxy is
-  ## being configured by Kubeapps.
+  ## being configured by Suomitek-appboard.
   ## Bitnami OAuth2 Proxy image
   ## ref: https://hub.docker.com/r/bitnami/oauth2-proxy/tags/
   ##
@@ -709,7 +709,7 @@ authProxy:
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
-    ## Default values set based on usage data from running Kubeapps instances
+    ## Default values set based on usage data from running Suomitek-appboard instances
     ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
