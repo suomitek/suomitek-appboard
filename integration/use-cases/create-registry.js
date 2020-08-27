@@ -1,7 +1,7 @@
 const utils = require("./lib/utils");
 
 test("Creates a registry", async () => {
-  await page.goto(getUrl("/#/c/default/ns/kubeapps/config/repos"));
+  await page.goto(getUrl("/#/c/default/ns/suomitek-appboard/config/repos"));
 
   await expect(page).toFillForm("form", {
     token: process.env.ADMIN_TOKEN,
