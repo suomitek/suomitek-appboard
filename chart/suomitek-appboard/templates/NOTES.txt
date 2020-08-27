@@ -48,7 +48,7 @@ To access Kubeapps from outside your K8s cluster, follow the steps below:
 
 {{- else if contains "ClusterIP" .Values.frontend.service.type }}
 
-{{- $portNumber := include "kubeapps.frontend-port-number" . }}
+{{- $portNumber := include "suomitek-appborad.frontend-port-number" . }}
    echo "Kubeapps URL: http://127.0.0.1:{{ $portNumber }}"
    kubectl port-forward --namespace {{ .Release.Namespace }} service/{{ template "suomitek-appborad.fullname" . }} {{ $portNumber }}:{{ .Values.frontend.service.port }}
 

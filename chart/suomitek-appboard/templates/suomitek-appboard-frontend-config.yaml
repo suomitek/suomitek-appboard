@@ -77,7 +77,7 @@ data:
       # TODO: The following location is left for backwards compat but will no longer
       # be needed once clients are sending the cluster name.
       # Using regexp match instead of prefix one because the application can be
-      # deployed under a specific path i.e /kubeapps
+      # deployed under a specific path i.e /suomitek-appborad
       location ~* /api/kube {
         rewrite /api/kube/(.*) /$1 break;
         rewrite /api/kube / break;
@@ -94,7 +94,7 @@ data:
         proxy_set_header Authorization "Bearer $http_x_forwarded_access_token";
         {{- end }}
 
-        proxy_pass {{ include "kubeapps.frontend-config.proxy_pass" . -}};
+        proxy_pass {{ include "suomitek-appborad.frontend-config.proxy_pass" . -}};
       }
 
       location ~* /api/tiller-deploy {
@@ -103,7 +103,7 @@ data:
         proxy_read_timeout 10m;
         rewrite /api/tiller-deploy/(.*) /$1 break;
         rewrite /api/tiller-deploy / break;
-        proxy_pass {{ include "kubeapps.frontend-config.proxy_pass" . -}};
+        proxy_pass {{ include "suomitek-appborad.frontend-config.proxy_pass" . -}};
 
         {{- if .Values.frontend.proxypassAccessTokenAsBearer }}
         # Google Kubernetes Engine requires the access_token as the Bearer when talking to the k8s api server.
@@ -121,7 +121,7 @@ data:
         proxy_set_header Authorization "Bearer $http_x_forwarded_access_token";
         {{- end }}
 
-        proxy_pass {{ include "kubeapps.frontend-config.proxy_pass" . -}};
+        proxy_pass {{ include "suomitek-appborad.frontend-config.proxy_pass" . -}};
       }
 
       location / {

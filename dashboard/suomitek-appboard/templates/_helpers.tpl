@@ -149,14 +149,14 @@ Create name for the dashboard config based on the fullname
 {{/*
 Create name for the frontend config based on the fullname
 */}}
-{{- define "kubeapps.frontend-config.fullname" -}}
+{{- define "suomitek-appborad.frontend-config.fullname" -}}
 {{ template "suomitek-appborad.fullname" . }}-frontend-config
 {{- end -}}
 
 {{/*
 Create proxy_pass for the frontend config based on the useHelm3 flag
 */}}
-{{- define "kubeapps.frontend-config.proxy_pass" -}}
+{{- define "suomitek-appborad.frontend-config.proxy_pass" -}}
 {{- if .Values.useHelm3 -}}
 http://{{ template "suomitek-appborad.kubeops.fullname" . }}:{{ .Values.kubeops.service.port }}
 {{- else -}}
@@ -199,7 +199,7 @@ Repositories that include a caCert or an authorizationHeader
 {{/*
 Frontend service port number
 */}}
-{{- define "kubeapps.frontend-port-number" -}}
+{{- define "suomitek-appborad.frontend-port-number" -}}
 {{- if .Values.authProxy.enabled -}}
 3000
 {{- else -}}
