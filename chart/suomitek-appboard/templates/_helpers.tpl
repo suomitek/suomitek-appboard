@@ -48,7 +48,7 @@ app.kubernetes.io/name: {{ include "kubeapps.name" . }}
 {{/*
 Common labels
 */}}
-{{- define "kubeapps.labels" -}}
+{{- define "suomitek-appboard.labels" -}}
 app: {{ include "kubeapps.name" . }}
 {{ template "suomitek-appboard.extraAppLabels" . }}
 {{- end -}}

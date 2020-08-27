@@ -34,7 +34,7 @@ Create chart name and version as used by the chart label.
 {{/*
 Common labels
 */}}
-{{- define "kubeapps.labels" -}}
+{{- define "suomitek-appboard.labels" -}}
 app: {{ include "kubeapps.name" . }}
 chart: {{ include "kubeapps.chart" . }}
 release: {{ .Release.Name }}
