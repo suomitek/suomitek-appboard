@@ -7,7 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/suomitek/kubeapps-common/response"
-	"github.com/suomitek/suomitek-appborad/pkg/dbutils"
+	"github.com/suomitek/suomitek-appboard/pkg/dbutils"
 	"github.com/urfave/negroni"
 )
 

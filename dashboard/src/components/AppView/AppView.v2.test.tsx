@@ -167,7 +167,7 @@ describe("AppViewComponent", () => {
       expect(tabs.prop("secrets")).toEqual([]);
     });
 
-    // See https://github.com/suomitek/suomitek-appborad/issues/632
+    // See https://github.com/suomitek/suomitek-appboard/issues/632
     it("supports manifests with duplicated keys", () => {
       const manifest = `
       apiVersion: v1

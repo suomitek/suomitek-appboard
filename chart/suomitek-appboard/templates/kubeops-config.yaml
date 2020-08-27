@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "suomitek-appborad.kubeops-config.fullname" . }}
+  name: {{ template "suomitek-appboard.kubeops-config.fullname" . }}
   labels:
-    app: {{ template "suomitek-appborad.kubeops-config.fullname" . }}
-    chart: {{ template "suomitek-appborad.chart" . }}
+    app: {{ template "suomitek-appboard.kubeops-config.fullname" . }}
+    chart: {{ template "suomitek-appboard.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 data:

@@ -37,8 +37,8 @@ const defaultOperator = {
           description: "this is a testing operator",
           annotations: {
             capabilities: "Basic Install",
-            repository: "github.com/suomitek/suomitek-appborad",
-            containerImage: "suomitek/suomitek-appborad",
+            repository: "github.com/suomitek/suomitek-appboard",
+            containerImage: "suomitek/suomitek-appboard",
             createdAt: "one day",
           },
           installModes: [],

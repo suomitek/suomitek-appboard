@@ -1,6 +1,6 @@
 # <img src="./docs/img/logo.png" width="40" align="left"> Kubeapps
 
-[![CircleCI](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master.svg?style=svg)](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master)
+[![CircleCI](https://circleci.com/gh/suomitek/suomitek-appboard/tree/master.svg?style=svg)](https://circleci.com/gh/suomitek/suomitek-appboard/tree/master)
 
 Kubeapps is a web-based UI for deploying and managing applications in Kubernetes clusters. Kubeapps allows you to:
 
@@ -20,10 +20,10 @@ Use the Helm chart to install the latest version of Kubeapps:
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
 # Helm 2 command
-helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad
+helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
 # Helm 3 command
-kubectl create namespace suomitek-appborad
-helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
+kubectl create namespace suomitek-appboard
+helm install suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set useHelm3=true
 ``` 
 
 ## Developer Documentation
@@ -43,7 +43,7 @@ If you have followed the instructions for [installing Kubeapps](docs/user/gettin
 - [Detailed installation instructions](chart/kubeapps/README.md)
 - [Kubeapps Dashboard documentation](docs/user/dashboard.md)
 - [Kubeapps components](docs/architecture/overview.md)
-- [Roadmap](https://github.com/suomitek/suomitek-appborad/wiki/Roadmap)
+- [Roadmap](https://github.com/suomitek/suomitek-appboard/wiki/Roadmap)
 
 ## Differences from Monocular
 

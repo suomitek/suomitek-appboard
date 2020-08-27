@@ -294,7 +294,7 @@ exports[`should open a modal with the repository form 1`] = `
                           It's possible to modify the default sync job. More info
                            
                           <a
-                            href="https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/private-app-repository.md#modifying-the-synchronization-job"
+                            href="https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/private-app-repository.md#modifying-the-synchronization-job"
                             rel="noopener noreferrer"
                             target="_blank"
                           >

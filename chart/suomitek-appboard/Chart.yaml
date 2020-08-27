@@ -3,7 +3,7 @@ name: kubeapps
 version: 3.9.0
 appVersion: DEVEL
 description: Kubeapps is a dashboard for your Kubernetes cluster that makes it easy to deploy and manage applications in your cluster using Helm
-icon: https://raw.githubusercontent.com/suomitek/suomitek-appborad/master/docs/img/logo.png
+icon: https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/img/logo.png
 keywords:
   - helm
   - dashboard
@@ -11,11 +11,11 @@ keywords:
   - deployment
 home: https://suomitek.com
 sources:
-  - https://github.com/suomitek/suomitek-appborad
+  - https://github.com/suomitek/suomitek-appboard
 maintainers:
   - name: Bitnami
     email: containers@bitnami.com
-# 2.14+ required https://github.com/suomitek/suomitek-appborad/issues/1185
+# 2.14+ required https://github.com/suomitek/suomitek-appboard/issues/1185
 tillerVersion: ">=2.14.0"
 annotations:
   category: Infrastructure

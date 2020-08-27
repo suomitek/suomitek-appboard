@@ -49,7 +49,7 @@ devel/openshift-kubeapps-installed: openshift-install-tiller chart/kubeapps/char
 		--values ./docs/user/manifests/kubeapps-local-dev-values.yaml
 
 # Due to openshift having multiple secrets for the service account, the code is slightly different from
-# that at https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/getting-started.md#on-linuxmacos
+# that at https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/getting-started.md#on-linuxmacos
 # TODO: update this target to use a kubeapps user, rather than tiller service account.
 openshift-tiller-token:
 	@kubectl get secret -n "${TILLER_NAMESPACE}" \

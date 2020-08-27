@@ -32,7 +32,7 @@ var (
 // asset-syncer/devel
 // asset-syncer/1.0
 // asset-syncer/1.0 (monocular v1.0-beta4)
-// More info here https://github.com/suomitek/suomitek-appborad/issues/767#issuecomment-436835938
+// More info here https://github.com/suomitek/suomitek-appboard/issues/767#issuecomment-436835938
 func userAgent() string {
 	ua := "asset-syncer/" + version
 	if userAgentComment != "" {

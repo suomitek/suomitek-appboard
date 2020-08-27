@@ -25,9 +25,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
-	apprepoclientset "github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/client/clientset/versioned"
-	v1alpha1typed "github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/client/clientset/versioned/typed/apprepository/v1alpha1"
+	"github.com/suomitek/suomitek-appboard/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
+	apprepoclientset "github.com/suomitek/suomitek-appboard/cmd/apprepository-controller/pkg/client/clientset/versioned"
+	v1alpha1typed "github.com/suomitek/suomitek-appboard/cmd/apprepository-controller/pkg/client/clientset/versioned/typed/apprepository/v1alpha1"
 	log "github.com/sirupsen/logrus"
 	authorizationapi "k8s.io/api/authorization/v1"
 	corev1 "k8s.io/api/core/v1"

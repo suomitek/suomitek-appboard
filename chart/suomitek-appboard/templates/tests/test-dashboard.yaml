@@ -7,10 +7,10 @@ metadata:
 spec:
   containers:
     - name: {{ .Release.Name }}-dashboard-test
-      image: {{ template "suomitek-appborad.image" (list .Values.testImage .Values.global) }}
+      image: {{ template "suomitek-appboard.image" (list .Values.testImage .Values.global) }}
       env:
         - name: DASHBOARD_HOST
-          value: {{ template "suomitek-appborad.fullname" . }}.{{ .Release.Namespace }}
+          value: {{ template "suomitek-appboard.fullname" . }}.{{ .Release.Namespace }}
       command:
         - sh
         - -c

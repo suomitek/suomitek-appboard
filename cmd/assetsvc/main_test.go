@@ -23,7 +23,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
+	"github.com/suomitek/suomitek-appboard/pkg/chart/models"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

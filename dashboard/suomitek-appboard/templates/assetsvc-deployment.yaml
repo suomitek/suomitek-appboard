@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "suomitek-appborad.assetsvc.fullname" . }}
+  name: {{ template "suomitek-appboard.assetsvc.fullname" . }}
   labels:
-    app: {{ template "suomitek-appborad.assetsvc.fullname" . }}
-    chart: {{ template "suomitek-appborad.chart" . }}
+    app: {{ template "suomitek-appboard.assetsvc.fullname" . }}
+    chart: {{ template "suomitek-appboard.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.assetsvc.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "suomitek-appborad.assetsvc.fullname" . }}
+      app: {{ template "suomitek-appboard.assetsvc.fullname" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "suomitek-appborad.assetsvc.fullname" . }}
+        app: {{ template "suomitek-appboard.assetsvc.fullname" . }}
         release: {{ .Release.Name }}
     spec:
 {{- include "kubeapps.imagePullSecrets" . | indent 6 }}
@@ -36,7 +36,7 @@ spec:
       {{- end }}
       containers:
         - name: assetsvc
-          image: {{ template "suomitek-appborad.image" (list .Values.assetsvc.image .Values.global) }}
+          image: {{ template "suomitek-appboard.image" (list .Values.assetsvc.image .Values.global) }}
           command:
             - /assetsvc
           {{- if .Values.mongodb.enabled }}
@@ -44,7 +44,7 @@ spec:
             - --database-type=mongodb
             - --database-user=root
             - --database-name=charts
-            - --database-url={{ template "suomitek-appborad.mongodb.fullname" . }}
+            - --database-url={{ template "suomitek-appboard.mongodb.fullname" . }}
           env:
             - name: DB_PASSWORD
               valueFrom:
@@ -61,7 +61,7 @@ spec:
             - --database-type=postgresql
             - --database-user=postgres
             - --database-name=assets
-            - --database-url={{ template "suomitek-appborad.postgresql.fullname" . }}-headless:5432
+            - --database-url={{ template "suomitek-appboard.postgresql.fullname" . }}-headless:5432
           env:
             - name: DB_PASSWORD
               valueFrom:

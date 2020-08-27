@@ -3,9 +3,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+  name: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 rules:
   - apiGroups:
       - ""
@@ -25,16 +25,16 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+  name: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+  name: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+    name: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- if .Values.allowNamespaceDiscovery }}
 ---
@@ -42,8 +42,8 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 rules:
 - apiGroups:
     - ""
@@ -56,15 +56,15 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
-    name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+    name: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- end -}}
 {{- if .Values.allowNamespaceDiscovery }}
@@ -73,8 +73,8 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 rules:
 - apiGroups:
     - ""
@@ -87,15 +87,15 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
-    name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
+    name: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
     namespace: {{ .Release.Namespace }}
 {{- end -}}
 {{- end -}}

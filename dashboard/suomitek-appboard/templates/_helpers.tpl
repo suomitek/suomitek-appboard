@@ -94,73 +94,73 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 Create name for the apprepository-controller based on the fullname
 */}}
 {{- define "kubeapps.apprepository.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-apprepository-controller
+{{ template "suomitek-appboard.fullname" . }}-internal-apprepository-controller
 {{- end -}}
 
 {{/*
 Create name for the apprepository pre-upgrade job
 */}}
 {{- define "kubeapps.apprepository-jobs-preupgrade.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-apprepository-jobs-preupgrade
+{{ template "suomitek-appboard.fullname" . }}-internal-apprepository-jobs-preupgrade
 {{- end -}}
 
 {{/*
 Create name for the apprepository cleanup job
 */}}
 {{- define "kubeapps.apprepository-jobs-cleanup.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-apprepository-jobs-cleanup
+{{ template "suomitek-appboard.fullname" . }}-internal-apprepository-jobs-cleanup
 {{- end -}}
 
 {{/*
 Create name for the db-secret secret bootstrap job
 */}}
 {{- define "kubeapps.db-secret-jobs-cleanup.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-db-secret-jobs-cleanup
+{{ template "suomitek-appboard.fullname" . }}-internal-db-secret-jobs-cleanup
 {{- end -}}
 
 {{/*
 Create name for the kubeapps upgrade job
 */}}
 {{- define "kubeapps.kubeapps-jobs-upgrade.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-kubeapps-jobs-upgrade
+{{ template "suomitek-appboard.fullname" . }}-internal-kubeapps-jobs-upgrade
 {{- end -}}
 
 {{/*
 Create name for the assetsvc based on the fullname
 */}}
 {{- define "kubeapps.assetsvc.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-assetsvc
+{{ template "suomitek-appboard.fullname" . }}-internal-assetsvc
 {{- end -}}
 
 {{/*
 Create name for the dashboard based on the fullname
 */}}
 {{- define "kubeapps.dashboard.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-dashboard
+{{ template "suomitek-appboard.fullname" . }}-internal-dashboard
 {{- end -}}
 
 {{/*
 Create name for the dashboard config based on the fullname
 */}}
 {{- define "kubeapps.dashboard-config.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-dashboard-config
+{{ template "suomitek-appboard.fullname" . }}-internal-dashboard-config
 {{- end -}}
 
 {{/*
 Create name for the frontend config based on the fullname
 */}}
-{{- define "suomitek-appborad.frontend-config.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-frontend-config
+{{- define "suomitek-appboard.frontend-config.fullname" -}}
+{{ template "suomitek-appboard.fullname" . }}-frontend-config
 {{- end -}}
 
 {{/*
 Create proxy_pass for the frontend config based on the useHelm3 flag
 */}}
-{{- define "suomitek-appborad.frontend-config.proxy_pass" -}}
+{{- define "suomitek-appboard.frontend-config.proxy_pass" -}}
 {{- if .Values.useHelm3 -}}
-http://{{ template "suomitek-appborad.kubeops.fullname" . }}:{{ .Values.kubeops.service.port }}
+http://{{ template "suomitek-appboard.kubeops.fullname" . }}:{{ .Values.kubeops.service.port }}
 {{- else -}}
-http://{{ template "suomitek-appborad.tiller-proxy.fullname" . }}:{{ .Values.tillerProxy.service.port }}
+http://{{ template "suomitek-appboard.tiller-proxy.fullname" . }}:{{ .Values.tillerProxy.service.port }}
 {{- end -}}
 {{- end -}}
 
@@ -168,14 +168,14 @@ http://{{ template "suomitek-appborad.tiller-proxy.fullname" . }}:{{ .Values.til
 Create name for the tiller-proxy based on the fullname
 */}}
 {{- define "kubeapps.tiller-proxy.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-tiller-proxy
+{{ template "suomitek-appboard.fullname" . }}-internal-tiller-proxy
 {{- end -}}
 
 {{/*
 Create name for kubeops based on the fullname
 */}}
 {{- define "kubeapps.kubeops.fullname" -}}
-{{ template "suomitek-appborad.fullname" . }}-internal-kubeops
+{{ template "suomitek-appboard.fullname" . }}-internal-kubeops
 {{- end -}}
 
 {{/*
@@ -199,7 +199,7 @@ Repositories that include a caCert or an authorizationHeader
 {{/*
 Frontend service port number
 */}}
-{{- define "suomitek-appborad.frontend-port-number" -}}
+{{- define "suomitek-appboard.frontend-port-number" -}}
 {{- if .Values.authProxy.enabled -}}
 3000
 {{- else -}}

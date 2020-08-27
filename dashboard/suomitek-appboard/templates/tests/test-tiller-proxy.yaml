@@ -8,10 +8,10 @@ metadata:
 spec:
   containers:
     - name: {{ .Release.Name }}-tiller-proxy-test
-      image: {{ template "suomitek-appborad.image" (list .Values.testImage .Values.global) }}
+      image: {{ template "suomitek-appboard.image" (list .Values.testImage .Values.global) }}
       env:
         - name: TILLER_PROXY_HOST
-          value: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}.{{ .Release.Namespace }}
+          value: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}.{{ .Release.Namespace }}
         - name: TILLER_PROXY_PORT
           value: "{{ .Values.tillerProxy.service.port }}"
         - name: KUBEAPPS_RELEASE

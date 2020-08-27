@@ -388,7 +388,7 @@ export function AppRepoForm({
             Select existing secret(s) to access a private Docker registry and pull images from it.
             Note that this functionality is supported for Kubeapps with Helm3 only, more info{" "}
             <a
-              href="https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/private-app-repository.md"
+              href="https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/private-app-repository.md"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -432,7 +432,7 @@ export function AppRepoForm({
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/private-app-repository.md#modifying-the-synchronization-job"
+            href="https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/private-app-repository.md#modifying-the-synchronization-job"
           >
             here
           </a>

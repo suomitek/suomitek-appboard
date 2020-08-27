@@ -1,4 +1,4 @@
-IMPORT_PATH:= github.com/suomitek/suomitek-appborad
+IMPORT_PATH:= github.com/suomitek/suomitek-appboard
 GO = /usr/bin/env go
 GOFMT = /usr/bin/env gofmt
 IMAGE_TAG ?= dev-$(shell date +%FT%H-%M-%S-%Z)

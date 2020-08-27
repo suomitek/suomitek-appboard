@@ -19,8 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
-	v1alpha1 "github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
-	"github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/client/clientset/versioned/scheme"
+	v1alpha1 "github.com/suomitek/suomitek-appboard/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
+	"github.com/suomitek/suomitek-appboard/cmd/apprepository-controller/pkg/client/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 

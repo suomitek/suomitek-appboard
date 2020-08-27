@@ -16,15 +16,15 @@ For Helm 2:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad
+helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
 ```
 
 If you are using Helm 3, you need to set an extra flag to enable it:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-kubectl create namespace suomitek-appborad
-helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
+kubectl create namespace suomitek-appboard
+helm install suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set useHelm3=true
 ```
 
 For detailed information on installing, configuring and upgrading Kubeapps, checkout the [chart README](../../chart/kubeapps/README.md).
@@ -132,4 +132,4 @@ Learn more about Kubeapps with the links below:
 - [Deploying Operators](./operators.md)
 - [Kubeapps Dashboard documentation](dashboard.md)
 - [Kubeapps components](../architecture/overview.md)
-- [Roadmap](https://github.com/suomitek/suomitek-appborad/wiki/Roadmap)
+- [Roadmap](https://github.com/suomitek/suomitek-appboard/wiki/Roadmap)

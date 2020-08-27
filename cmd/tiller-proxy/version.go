@@ -30,7 +30,7 @@ var (
 // tiller-proxy/devel
 // chart-repo/1.0
 // tiller-proxy/1.0 (monocular v1.0-beta4)
-// More info here https://github.com/suomitek/suomitek-appborad/issues/767#issuecomment-436835938
+// More info here https://github.com/suomitek/suomitek-appboard/issues/767#issuecomment-436835938
 func userAgent() string {
 	ua := "tiller-proxy/" + version
 	if userAgentComment != "" {

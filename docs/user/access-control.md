@@ -44,7 +44,7 @@ In order to list and view Applications in a namespace, first we will create a `C
 to limit this access, create a custom cluster role or use one of the [default ones](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles). Then we will bind that cluster role to our service account.
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appborad/master/docs/user/manifests/kubeapps-applications-read.yaml
+kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-applications-read.yaml
 kubectl create -n default rolebinding example-view \
   --clusterrole=kubeapps-applications-read \
   --serviceaccount default:example
@@ -79,10 +79,10 @@ In order to list and view Service Instances in a namespace, we'll create the
 `kubeapps-service-catalog-read` in the desired namespace.
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appborad/master/docs/user/manifests/kubeapps-service-catalog-browse.yaml
+kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-service-catalog-browse.yaml
 kubectl create clusterrolebinding example-kubeapps-service-catalog-browse --clusterrole=kubeapps-service-catalog-browse --serviceaccount default:example
 
-kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appborad/master/docs/user/manifests/kubeapps-service-catalog-read.yaml
+kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-service-catalog-read.yaml
 kubectl create -n default rolebinding example-kubeapps-service-catalog-read --clusterrole=kubeapps-service-catalog-read --serviceaccount default:example
 ```
 
@@ -92,7 +92,7 @@ In order to create and delete Service Instances and Bindings in a namespace,
 create and bind the `kubeapps-service-catalog-write` ClusterRole in the desired namespace.
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appborad/master/docs/user/manifests/kubeapps-service-catalog-write.yaml
+kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-service-catalog-write.yaml
 kubectl create -n default rolebinding example-kubeapps-service-catalog-write --clusterrole=kubeapps-service-catalog-write --serviceaccount default:example
 ```
 
@@ -102,7 +102,7 @@ In order to resync Service Brokers from the Service Brokers Configuration page,
 create and apply the `kubeapps-service-catalog-admin` ClusterRole in all namespaces.
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appborad/master/docs/user/manifests/kubeapps-service-catalog-admin.yaml
+kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-service-catalog-admin.yaml
 kubectl create clusterrolebinding example-kubeapps-service-catalog-admin --clusterrole=kubeapps-service-catalog-admin --serviceaccount default:example
 ```
 

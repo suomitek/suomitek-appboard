@@ -147,7 +147,7 @@ frontend:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -226,13 +226,13 @@ apprepository:
   #   # It should start with -----BEGIN CERTIFICATE----- or
   #   # -----BEGIN RSA PRIVATE KEY-----
   #   caCert:
-  # https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
+  # https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
   ## AppRepository Controller containers' resource requests and limits
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -353,7 +353,7 @@ tillerProxy:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -412,7 +412,7 @@ assetsvc:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -487,7 +487,7 @@ dashboard:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -532,7 +532,7 @@ mongodb:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 500m
@@ -596,7 +596,7 @@ testImage:
   tag: 1.17.10-debian-10-r10
 
 # Auth Proxy for OIDC support
-# ref: https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/using-an-OIDC-provider.md
+# ref: https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/using-an-OIDC-provider.md
 authProxy:
   # Set to true to enable the OIDC proxy
   enabled: false
@@ -637,7 +637,7 @@ authProxy:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appboard/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m

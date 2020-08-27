@@ -29,8 +29,8 @@ import (
 	"strings"
 
 	"github.com/ghodss/yaml"
-	appRepov1 "github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
-	"github.com/suomitek/suomitek-appborad/pkg/kube"
+	appRepov1 "github.com/suomitek/suomitek-appboard/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
+	"github.com/suomitek/suomitek-appboard/pkg/kube"
 	helm3chart "helm.sh/helm/v3/pkg/chart"
 	helm3loader "helm.sh/helm/v3/pkg/chart/loader"
 	corev1 "k8s.io/api/core/v1"
@@ -149,7 +149,7 @@ func checksum(data []byte) string {
 }
 
 // Cache the result of parsing the repo index since parsing this YAML
-// is an expensive operation. See https://github.com/suomitek/suomitek-appborad/issues/1052
+// is an expensive operation. See https://github.com/suomitek/suomitek-appboard/issues/1052
 func getIndexFromCache(repoURL string, data []byte) (*repo.IndexFile, string) {
 	sha := checksum(data)
 	if repoIndexes[repoURL] == nil || repoIndexes[repoURL].checksum != sha {

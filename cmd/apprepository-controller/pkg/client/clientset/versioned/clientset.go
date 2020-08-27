@@ -21,7 +21,7 @@ package versioned
 import (
 	"fmt"
 
-	kubeappsv1alpha1 "github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/client/clientset/versioned/typed/apprepository/v1alpha1"
+	kubeappsv1alpha1 "github.com/suomitek/suomitek-appboard/cmd/apprepository-controller/pkg/client/clientset/versioned/typed/apprepository/v1alpha1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

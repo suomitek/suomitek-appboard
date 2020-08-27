@@ -23,7 +23,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/suomitek/kubeapps-common/response"
-	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
+	"github.com/suomitek/suomitek-appboard/pkg/chart/models"
 	log "github.com/sirupsen/logrus"
 )
 

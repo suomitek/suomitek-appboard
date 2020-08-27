@@ -31,8 +31,8 @@ import (
 	"github.com/google/go-cmp/cmp"
 
 	"github.com/arschles/assert"
-	appRepov1 "github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
-	"github.com/suomitek/suomitek-appborad/pkg/kube"
+	appRepov1 "github.com/suomitek/suomitek-appboard/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
+	"github.com/suomitek/suomitek-appboard/pkg/kube"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	chartv2 "k8s.io/helm/pkg/proto/hapi/chart"

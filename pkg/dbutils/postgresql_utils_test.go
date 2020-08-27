@@ -22,7 +22,7 @@ import (
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/google/go-cmp/cmp"
 	"github.com/suomitek/kubeapps-common/datastore"
-	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
+	"github.com/suomitek/suomitek-appboard/pkg/chart/models"
 )
 
 func Test_NewPGManager(t *testing.T) {

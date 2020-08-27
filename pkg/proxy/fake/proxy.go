@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/suomitek/suomitek-appborad/pkg/proxy"
+	"github.com/suomitek/suomitek-appboard/pkg/proxy"
 	"k8s.io/helm/pkg/proto/hapi/chart"
 	"k8s.io/helm/pkg/proto/hapi/release"
 )

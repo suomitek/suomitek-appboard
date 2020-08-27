@@ -128,7 +128,7 @@ echo
 # Create serviceAccount
 info "Creating 'example' serviceAccount and adding RBAC permissions for 'default' namespace..."
 silence kubectl create serviceaccount example --namespace default
-silence kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appborad/master/docs/user/manifests/kubeapps-applications-read.yaml
+silence kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-applications-read.yaml
 silence kubectl create -n default rolebinding example-view --clusterrole=kubeapps-applications-read --serviceaccount default:example
 silence kubectl create -n default rolebinding example-edit --clusterrole=edit --serviceaccount default:example
 silence kubectl create -n "$namespace" rolebinding example-kubeapps-repositories-read --role=kubeapps-repositories-read --serviceaccount default:example

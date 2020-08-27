@@ -54,7 +54,7 @@ it("renders a link to access control documentation", () => {
     /See the documentation for more info on.*access control in Kubeapps./,
   );
   expect(wrapper.html()).toContain(
-    '<a href="https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/access-control.md" target="_blank" rel="noopener noreferrer">',
+    '<a href="https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/access-control.md" target="_blank" rel="noopener noreferrer">',
   );
   expect(wrapper.html()).not.toContain(shallow(genericMessage).html());
 });

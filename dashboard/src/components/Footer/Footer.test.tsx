@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 it("renders version and link to release", () => {
   const version = "v1.5.5-T500";
-  const linkURI = `https://github.com/suomitek/suomitek-appborad/releases/tag/${version}`;
+  const linkURI = `https://github.com/suomitek/suomitek-appboard/releases/tag/${version}`;
 
   const wrapper = shallow(<Footer appVersion={version} />);
 

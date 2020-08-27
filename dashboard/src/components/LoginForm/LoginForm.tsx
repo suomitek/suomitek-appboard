@@ -79,7 +79,7 @@ class LoginForm extends React.Component<ILoginFormProps, ILoginFormState> {
         <p>
           Your cluster operator has enabled login via an authentication provider.{" "}
           <a
-            href="https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/using-an-OIDC-provider.md"
+            href="https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/using-an-OIDC-provider.md"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -100,7 +100,7 @@ class LoginForm extends React.Component<ILoginFormProps, ILoginFormState> {
         <p>
           Your cluster operator should provide you with a Kubernetes API token.{" "}
           <a
-            href="https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/access-control.md"
+            href="https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/access-control.md"
             target="_blank"
             rel="noopener noreferrer"
           >

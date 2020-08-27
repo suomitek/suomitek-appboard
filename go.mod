@@ -1,4 +1,4 @@
-module github.com/suomitek/suomitek-appborad
+module github.com/suomitek/suomitek-appboard
 
 go 1.13
 

@@ -39,7 +39,7 @@ function AppListGrid(props: IAppListProps) {
           Start browsing your <Link to={url.app.catalog(cluster, namespace)}>favourite apps</Link>{" "}
           or check the{" "}
           <a
-            href={`https://github.com/suomitek/suomitek-appborad/blob/${appVersion}/docs/user/getting-started.md`}
+            href={`https://github.com/suomitek/suomitek-appboard/blob/${appVersion}/docs/user/getting-started.md`}
             target="_blank"
             rel="noopener noreferrer"
           >

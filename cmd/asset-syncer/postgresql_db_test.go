@@ -27,9 +27,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
-	"github.com/suomitek/suomitek-appborad/pkg/dbutils"
-	"github.com/suomitek/suomitek-appborad/pkg/dbutils/dbutilstest/pgtest"
+	"github.com/suomitek/suomitek-appboard/pkg/chart/models"
+	"github.com/suomitek/suomitek-appboard/pkg/dbutils"
+	"github.com/suomitek/suomitek-appboard/pkg/dbutils/dbutilstest/pgtest"
 	_ "github.com/lib/pq"
 )
 

@@ -1,2 +1,2 @@
-# suomitek-appborad
-suomitek-appborad
+# suomitek-appboard
+suomitek-appboard

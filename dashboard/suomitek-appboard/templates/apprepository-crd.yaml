@@ -8,8 +8,8 @@ metadata:
   annotations:
     "helm.sh/hook": crd-install
   labels:
-    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
-    chart: {{ template "suomitek-appborad.chart" . }}
+    app: {{ template "suomitek-appboard.apprepository.fullname" . }}
+    chart: {{ template "suomitek-appboard.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:

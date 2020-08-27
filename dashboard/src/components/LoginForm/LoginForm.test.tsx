@@ -65,7 +65,7 @@ describe("token login form", () => {
   it("renders a link to the access control documentation", () => {
     const wrapper = shallow(<LoginForm {...defaultProps} />);
     expect(wrapper.find("a").props()).toMatchObject({
-      href: "https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/access-control.md",
+      href: "https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/access-control.md",
       target: "_blank",
     });
   });

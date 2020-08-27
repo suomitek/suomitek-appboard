@@ -17,13 +17,13 @@ The `asset-syncer` component is a tool that scans a Helm chart repository and po
 ```bash
 export GOPATH=~/gopath
 export PATH=$GOPATH/bin:$PATH
-export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appborad
+export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appboard
 ```
 
 ## Download the Kubeapps source code
 
 ```bash
-git clone https://github.com/suomitek/suomitek-appborad $KUBEAPPS_DIR
+git clone https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR
 ```
 
 The `asset-syncer` sources are located under the `cmd/asset-syncer/` directory.

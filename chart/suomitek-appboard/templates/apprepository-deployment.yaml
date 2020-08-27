@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "suomitek-appborad.apprepository.fullname" . }}
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+  name: {{ template "suomitek-appboard.apprepository.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.apprepository.fullname" . }}
 spec:
   replicas: {{ .Values.apprepository.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+      app: {{ template "suomitek-appboard.apprepository.fullname" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+        app: {{ template "suomitek-appboard.apprepository.fullname" . }}
         release: {{ .Release.Name }}
         app.kubernetes.io/instance: {{ .Release.Name }}
-        app.kubernetes.io/name: {{ template "suomitek-appborad.name" . }}
+        app.kubernetes.io/name: {{ template "suomitek-appboard.name" . }}
     spec:
-      serviceAccountName: {{ template "suomitek-appborad.apprepository.fullname" . }}
+      serviceAccountName: {{ template "suomitek-appboard.apprepository.fullname" . }}
 {{- include "kubeapps.imagePullSecrets" . | indent 6 }}
       {{- if .Values.apprepository.affinity }}
       affinity: {{- include "kubeapps.tplValue" (dict "value" .Values.apprepository.affinity "context" $) | nindent 8 }}
@@ -36,20 +36,20 @@ spec:
       {{- end }}
       containers:
         - name: controller
-          image: {{ template "suomitek-appborad.image" (list .Values.apprepository.image .Values.global) }}
+          image: {{ template "suomitek-appboard.image" (list .Values.apprepository.image .Values.global) }}
           imagePullPolicy: {{ .Values.apprepository.image.pullPolicy | quote }}
           command:
             - /apprepository-controller
           args:
             - --user-agent-comment=kubeapps/{{ .Chart.AppVersion }}
-            - --repo-sync-image={{ template "suomitek-appborad.image" (list .Values.apprepository.syncImage .Values.global) }}
+            - --repo-sync-image={{ template "suomitek-appboard.image" (list .Values.apprepository.syncImage .Values.global) }}
             - --repo-sync-cmd=/asset-syncer
             - --namespace={{ .Release.Namespace }}
             {{- if .Values.mongodb.enabled }}
             - --database-secret-name={{ .Values.mongodb.auth.existingSecret }}
             - --database-secret-key=mongodb-root-password
             - --database-type=mongodb
-            - --database-url={{ template "suomitek-appborad.mongodb.fullname" . }}
+            - --database-url={{ template "suomitek-appboard.mongodb.fullname" . }}
             - --database-user=root
             - --database-name=charts
             {{- end }}
@@ -57,7 +57,7 @@ spec:
             - --database-secret-name={{ .Values.postgresql.existingSecret }}
             - --database-secret-key=postgresql-password
             - --database-type=postgresql
-            - --database-url={{ template "suomitek-appborad.postgresql.fullname" . }}:5432
+            - --database-url={{ template "suomitek-appboard.postgresql.fullname" . }}:5432
             - --database-user=postgres
             - --database-name=assets
             {{- end }}

@@ -2,9 +2,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: {{ template "suomitek-appborad.apprepository.fullname" . }}
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+  name: {{ template "suomitek-appboard.apprepository.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.apprepository.fullname" . }}
 rules:
   - apiGroups:
       - ""
@@ -43,16 +43,16 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ template "suomitek-appborad.apprepository.fullname" . }}
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+  name: {{ template "suomitek-appboard.apprepository.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.apprepository.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ template "suomitek-appborad.apprepository.fullname" . }}
+  name: {{ template "suomitek-appboard.apprepository.fullname" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ template "suomitek-appborad.apprepository.fullname" . }}
+    name: {{ template "suomitek-appboard.apprepository.fullname" . }}
     namespace: {{ .Release.Namespace }}
 ---
 # Define role, but no binding, so users can be bound to this role
@@ -95,8 +95,8 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: "kubeapps:{{ .Release.Namespace }}:apprepositories-read"
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.apprepository.fullname" . }}
 rules:
   - apiGroups:
       - suomitek.com
@@ -112,23 +112,23 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:{{ .Release.Namespace }}:apprepositories-read"
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.apprepository.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: "kubeapps:{{ .Release.Namespace }}:apprepositories-read"
 subjects:
   - kind: ServiceAccount
-    name: {{ template "suomitek-appborad.apprepository.fullname" . }}
+    name: {{ template "suomitek-appboard.apprepository.fullname" . }}
     namespace: {{ .Release.Namespace }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: "kubeapps:{{ .Release.Namespace }}:apprepositories-write"
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.apprepository.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.apprepository.fullname" . }}
 rules:
   - apiGroups:
       - suomitek.com

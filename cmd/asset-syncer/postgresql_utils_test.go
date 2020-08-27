@@ -7,9 +7,9 @@ import (
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/suomitek/kubeapps-common/datastore"
-	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
-	"github.com/suomitek/suomitek-appborad/pkg/dbutils"
-	"github.com/suomitek/suomitek-appborad/pkg/dbutils/dbutilstest"
+	"github.com/suomitek/suomitek-appboard/pkg/chart/models"
+	"github.com/suomitek/suomitek-appboard/pkg/dbutils"
+	"github.com/suomitek/suomitek-appboard/pkg/dbutils/dbutilstest"
 	"github.com/stretchr/testify/mock"
 )
 

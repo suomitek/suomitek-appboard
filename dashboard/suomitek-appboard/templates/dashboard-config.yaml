@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "suomitek-appborad.dashboard-config.fullname" . }}
+  name: {{ template "suomitek-appboard.dashboard-config.fullname" . }}
   labels:
-    app: {{ template "suomitek-appborad.dashboard-config.fullname" . }}
-    chart: {{ template "suomitek-appborad.chart" . }}
+    app: {{ template "suomitek-appboard.dashboard-config.fullname" . }}
+    chart: {{ template "suomitek-appboard.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 data:

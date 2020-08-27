@@ -16,12 +16,12 @@ The `tiller-proxy` component is a micro-service that creates a API endpoint for 
 ```bash
 export GOPATH=~/gopath
 export PATH=$GOPATH/bin:$PATH
-export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appborad
+export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appboard
 ```
 ## Download the kubeapps source code
 
 ```bash
-git clone --recurse-submodules https://github.com/suomitek/suomitek-appborad $KUBEAPPS_DIR
+git clone --recurse-submodules https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR
 ```
 
 The `tiller-proxy` sources are located under the `cmd/tiller-proxy/` and it uses packages from the `pkg` directory.

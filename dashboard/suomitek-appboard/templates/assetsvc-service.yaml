@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "suomitek-appborad.assetsvc.fullname" . }}
+  name: {{ template "suomitek-appboard.assetsvc.fullname" . }}
   labels:
-    app: {{ template "suomitek-appborad.name" . }}
-    chart: {{ template "suomitek-appborad.chart" . }}
+    app: {{ template "suomitek-appboard.name" . }}
+    chart: {{ template "suomitek-appboard.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "suomitek-appborad.assetsvc.fullname" . }}
+    app: {{ template "suomitek-appboard.assetsvc.fullname" . }}
     release: {{ .Release.Name }}

@@ -50,7 +50,7 @@ class PermissionsErrorPage extends React.Component<IPermissionsErrorPage> {
           <p>
             See the documentation for more info on{" "}
             <a
-              href="https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/access-control.md"
+              href="https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/access-control.md"
               target="_blank"
               rel="noopener noreferrer"
             >

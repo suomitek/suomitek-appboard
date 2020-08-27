@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "suomitek-appborad.frontend-config.fullname" . }}
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.frontend-config.fullname" . }}
+  name: {{ template "suomitek-appboard.frontend-config.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.frontend-config.fullname" . }}
 data:
   k8s-api-proxy.conf: |-
     # Disable buffering for log streaming
@@ -15,7 +15,7 @@ data:
     # Keep the connection open with the API server even if idle (the default is 60 seconds)
     # Setting it to 1 hour which should be enough for our current use case of deploying/upgrading apps
     # If we enable other use-cases in the future we might need to bump this value
-    # More info here https://github.com/suomitek/suomitek-appborad/issues/766
+    # More info here https://github.com/suomitek/suomitek-appboard/issues/766
     proxy_read_timeout 1h;
 
     {{- if .Values.frontend.proxypassAccessTokenAsBearer }}
@@ -77,7 +77,7 @@ data:
       # TODO: The following location is left for backwards compat but will no longer
       # be needed once clients are sending the cluster name.
       # Using regexp match instead of prefix one because the application can be
-      # deployed under a specific path i.e /suomitek-appborad
+      # deployed under a specific path i.e /suomitek-appboard
       location ~* /api/kube {
         rewrite /api/kube/(.*) /$1 break;
         rewrite /api/kube / break;
@@ -94,7 +94,7 @@ data:
         proxy_set_header Authorization "Bearer $http_x_forwarded_access_token";
         {{- end }}
 
-        proxy_pass {{ include "suomitek-appborad.frontend-config.proxy_pass" . -}};
+        proxy_pass {{ include "suomitek-appboard.frontend-config.proxy_pass" . -}};
       }
 
       location ~* /api/tiller-deploy {
@@ -103,7 +103,7 @@ data:
         proxy_read_timeout 10m;
         rewrite /api/tiller-deploy/(.*) /$1 break;
         rewrite /api/tiller-deploy / break;
-        proxy_pass {{ include "suomitek-appborad.frontend-config.proxy_pass" . -}};
+        proxy_pass {{ include "suomitek-appboard.frontend-config.proxy_pass" . -}};
 
         {{- if .Values.frontend.proxypassAccessTokenAsBearer }}
         # Google Kubernetes Engine requires the access_token as the Bearer when talking to the k8s api server.
@@ -121,13 +121,13 @@ data:
         proxy_set_header Authorization "Bearer $http_x_forwarded_access_token";
         {{- end }}
 
-        proxy_pass {{ include "suomitek-appborad.frontend-config.proxy_pass" . -}};
+        proxy_pass {{ include "suomitek-appboard.frontend-config.proxy_pass" . -}};
       }
 
       location / {
         # Add the Authorization header if exists
         add_header Authorization $http_authorization;
 
-        proxy_pass http://{{ template "suomitek-appborad.dashboard.fullname" . }}:{{ .Values.dashboard.service.port }};
+        proxy_pass http://{{ template "suomitek-appboard.dashboard.fullname" . }}:{{ .Values.dashboard.service.port }};
       }
     }

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "suomitek-appborad.assetsvc.fullname" . }}
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.name" . }}
+  name: {{ template "suomitek-appboard.assetsvc.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.name" . }}
 spec:
   type: ClusterIP
   ports:
@@ -12,5 +12,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "suomitek-appborad.assetsvc.fullname" . }}
+    app: {{ template "suomitek-appboard.assetsvc.fullname" . }}
     release: {{ .Release.Name }}

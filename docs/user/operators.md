@@ -14,14 +14,14 @@ The support for Operators is currently under heavy development. For the moment, 
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad --set featureFlags.operators=true
+helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set featureFlags.operators=true
 ```
 
 If you are using Helm 3:
 
 ```bash
-kubectl create namespace suomitek-appborad
-helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad --set featureFlags.operators=true
+kubectl create namespace suomitek-appboard
+helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set featureFlags.operators=true
 ```
 
 For detailed information on installing, configuring and upgrading Kubeapps, checkout the [chart README](../../chart/kubeapps/README.md).
@@ -84,4 +84,4 @@ You can also click in the Update button to modify the instance or in the Delete 
 
 ## Step 5: Provide Feedback
 
-We need your feedback to improve this integration! If you find any issue or have a suggestion please [open an issue in GitHub](https://github.com/suomitek/suomitek-appborad/issues/new) or contact us in the [#kubeapps](https://kubernetes.slack.com/messages/kubeapps) channel in Slack.
+We need your feedback to improve this integration! If you find any issue or have a suggestion please [open an issue in GitHub](https://github.com/suomitek/suomitek-appboard/issues/new) or contact us in the [#kubeapps](https://kubernetes.slack.com/messages/kubeapps) channel in Slack.

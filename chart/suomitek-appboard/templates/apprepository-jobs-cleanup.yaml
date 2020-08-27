@@ -2,18 +2,18 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
+  name: {{ template "suomitek-appboard.apprepository-jobs-cleanup.fullname" . }}
   annotations:
     helm.sh/hook: post-delete
     helm.sh/hook-delete-policy: hook-succeeded
-  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
-    app: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
+    app: {{ template "suomitek-appboard.apprepository-jobs-cleanup.fullname" . }}
 spec:
   template:
     metadata:
       labels:
-        app: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
-        app.kubernetes.io/name: {{ template "suomitek-appborad.name" . }}
+        app: {{ template "suomitek-appboard.apprepository-jobs-cleanup.fullname" . }}
+        app.kubernetes.io/name: {{ template "suomitek-appboard.name" . }}
         release: {{ .Release.Name }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
@@ -33,10 +33,10 @@ spec:
         runAsUser: {{ .Values.securityContext.runAsUser }}
       {{- end }}
       restartPolicy: OnFailure
-      serviceAccountName: {{ template "suomitek-appborad.apprepository-jobs-cleanup.fullname" . }}
+      serviceAccountName: {{ template "suomitek-appboard.apprepository-jobs-cleanup.fullname" . }}
       containers:
         - name: kubectl
-          image: {{ template "suomitek-appborad.image" (list .Values.hooks.image .Values.global) }}
+          image: {{ template "suomitek-appboard.image" (list .Values.hooks.image .Values.global) }}
           imagePullPolicy: {{ .Values.hooks.image.pullPolicy | quote }}
           command:
             - /bin/sh
@@ -44,4 +44,4 @@ spec:
             - -ec
             - |
               kubectl delete apprepositories.suomitek.com -n {{ .Release.Namespace }} --all
-              kubectl delete secrets -n {{ .Release.Namespace }} -l app={{ template "suomitek-appborad.name" $ }},release={{ $.Release.Name }}
+              kubectl delete secrets -n {{ .Release.Namespace }} -l app={{ template "suomitek-appboard.name" $ }},release={{ $.Release.Name }}

@@ -1,6 +1,6 @@
 # Kubeapps
 
-[![CircleCI](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master.svg?style=svg)](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master)
+[![CircleCI](https://circleci.com/gh/suomitek/suomitek-appboard/tree/master.svg?style=svg)](https://circleci.com/gh/suomitek/suomitek-appboard/tree/master)
 
 [Kubeapps](https://suomitek.com) is a web-based UI for deploying and managing applications in Kubernetes clusters. Kubeapps allows you to:
 
@@ -9,7 +9,7 @@
 - Add custom and private chart repositories (supports [ChartMuseum](https://github.com/helm/chartmuseum) and [JFrog Artifactory](https://www.jfrog.com/confluence/display/RTF/Helm+Chart+Repositories))
 - Browse and provision external services from the [Service Catalog](https://github.com/kubernetes-incubator/service-catalog) and available Service Brokers
 - Connect Helm-based applications to external services with Service Catalog Bindings
-- Secure authentication and authorization based on Kubernetes [Role-Based Access Control](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/access-control.md)
+- Secure authentication and authorization based on Kubernetes [Role-Based Access Control](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/access-control.md)
 
 ## TL;DR;
 
@@ -17,7 +17,7 @@ For Helm 2:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad
+helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
 ```
 
 For Helm 3:
@@ -25,7 +25,7 @@ For Helm 3:
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
 kubectl create namespace suomitek-appboard
-helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
+helm install suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set useHelm3=true
 ```
 
 ## Introduction
@@ -48,24 +48,24 @@ For Helm 2:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad
+helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
 ```
 
-> **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/securing-kubeapps.md).
+> **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-kubeapps.md).
 
 For Helm 3:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-kubectl create namespace suomitek-appborad
-helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
+kubectl create namespace suomitek-appboard
+helm install suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set useHelm3=true
 ```
 
 The command deploys Kubeapps on the Kubernetes cluster in the `kubeapps` namespace. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
 
 > **Caveat**: Only one Kubeapps installation is supported per namespace
 
-Once you have installed Kubeapps follow the [Getting Started Guide](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/getting-started.md) for additional information on how to access and use Kubeapps.
+Once you have installed Kubeapps follow the [Getting Started Guide](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/getting-started.md) for additional information on how to access and use Kubeapps.
 
 ## Parameters
 
@@ -101,7 +101,7 @@ Kubeapps supports two database types: MongoDB or PostgreSQL. By default MongoDB 
 
 ### Enabling Operators
 
-Since v1.9.0, Kubeapps supports to deploy and manage Operators within its dashboard. To enable this feature, set the flag `featureFlags.operators=true`. More information about how to enable and use this feature can be found in [this guide](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/operators.md).
+Since v1.9.0, Kubeapps supports to deploy and manage Operators within its dashboard. To enable this feature, set the flag `featureFlags.operators=true`. More information about how to enable and use this feature can be found in [this guide](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/operators.md).
 
 ### [Only for Helm 2] Configuring connection to a custom namespace Tiller instance
 
@@ -113,11 +113,11 @@ If your instance of Tiller is running in a different namespace or you want to ha
 
 In production, we strongly recommend setting up a [secure installation of Tiller](https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller), the Helm server side component.
 
-Learn more about how to secure your Kubeapps installation [here](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/securing-kubeapps.md).
+Learn more about how to secure your Kubeapps installation [here](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-kubeapps.md).
 
 ### Exposing Externally
 
-> **Note**: The Kubeapps frontend sets up a proxy to the Kubernetes API service, so when when exposing the Kubeapps service to a network external to the Kubernetes cluster (perhaps on an internal or public network), the Kubernetes API will also be exposed on that network. See [#1111](https://github.com/suomitek/suomitek-appborad/issues/1111) for more details.
+> **Note**: The Kubeapps frontend sets up a proxy to the Kubernetes API service, so when when exposing the Kubeapps service to a network external to the Kubernetes cluster (perhaps on an internal or public network), the Kubernetes API will also be exposed on that network. See [#1111](https://github.com/suomitek/suomitek-appboard/issues/1111) for more details.
 
 #### LoadBalancer Service
 
@@ -219,7 +219,7 @@ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceac
 helm init --service-account tiller
 ```
 
-but for a production environment you can assign the specific permissions so that tiller can [manage CRDs on the cluster](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/manifests/openshift-tiller-with-crd-rbac.yaml) as well as [create app repositories in your Kubeapps namespace](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/manifests/openshift-tiller-with-apprepository-rbac.yaml) (examples are from our in development support for OpenShift).
+but for a production environment you can assign the specific permissions so that tiller can [manage CRDs on the cluster](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/manifests/openshift-tiller-with-crd-rbac.yaml) as well as [create app repositories in your Kubeapps namespace](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/manifests/openshift-tiller-with-apprepository-rbac.yaml) (examples are from our in development support for OpenShift).
 
 It is also possible, though less common, that your cluster does not have Role Based Access Control (RBAC) enabled. To check if your cluster has RBAC you can execute:
 
@@ -230,7 +230,7 @@ kubectl api-versions
 If the above command does not include entries for `rbac.authorization.k8s.io` you should perform the chart installation by setting `rbac.create=false`:
 
 ```bash
-helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad --set rbac.create=false
+helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set rbac.create=false
 ```
 
 ### Error while upgrading the Chart
@@ -271,7 +271,7 @@ kubectl delete namespace kubeapps
 
 ```bash
 helm repo update
-helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad
+helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
 ```
 
 6.  (Optional) Restore any repositories you backed up in the first step:
@@ -280,4 +280,4 @@ helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-app
 kubectl apply -f <repo name>.yaml
 ```
 
-After that you should be able to access the new version of Kubeapps. If the above doesn't work for you or you run into any other issues please open an [issue](https://github.com/suomitek/suomitek-appborad/issues/new).
+After that you should be able to access the new version of Kubeapps. If the above doesn't work for you or you run into any other issues please open an [issue](https://github.com/suomitek/suomitek-appboard/issues/new).

@@ -22,10 +22,10 @@ import (
 	"strconv"
 
 	"github.com/suomitek/kubeapps-common/response"
-	"github.com/suomitek/suomitek-appborad/pkg/auth"
-	chartUtils "github.com/suomitek/suomitek-appborad/pkg/chart"
-	"github.com/suomitek/suomitek-appborad/pkg/handlerutil"
-	proxy "github.com/suomitek/suomitek-appborad/pkg/proxy"
+	"github.com/suomitek/suomitek-appboard/pkg/auth"
+	chartUtils "github.com/suomitek/suomitek-appboard/pkg/chart"
+	"github.com/suomitek/suomitek-appboard/pkg/handlerutil"
+	proxy "github.com/suomitek/suomitek-appboard/pkg/proxy"
 	log "github.com/sirupsen/logrus"
 )
 

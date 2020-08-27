@@ -8,8 +8,8 @@ metadata:
 {{- end }}
   annotations:
     "helm.sh/hook": post-install
-  labels:{{ include "suomitek-appborad.extraAppLabels" $ | nindent 4 }}
-    app: {{ template "suomitek-appborad.apprepository.fullname" $ }}
+  labels:{{ include "suomitek-appboard.extraAppLabels" $ | nindent 4 }}
+    app: {{ template "suomitek-appboard.apprepository.fullname" $ }}
 spec:
   type: helm
   url: {{ .url }}
@@ -40,13 +40,13 @@ spec:
     customCA:
       secretKeyRef:
         key: ca.crt
-        name: {{ template "suomitek-appborad.apprepository-secret.name" . }}
+        name: {{ template "suomitek-appboard.apprepository-secret.name" . }}
     {{- end }}
     {{- if .authorizationHeader }}
     header:
       secretKeyRef:
         key: authorizationHeader
-        name: {{ template "suomitek-appborad.apprepository-secret.name" . }}
+        name: {{ template "suomitek-appboard.apprepository-secret.name" . }}
     {{- end }}
   {{- end }}
 ---

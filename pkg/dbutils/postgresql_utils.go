@@ -23,7 +23,7 @@ import (
 	"strings"
 
 	"github.com/suomitek/kubeapps-common/datastore"
-	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
+	"github.com/suomitek/suomitek-appboard/pkg/chart/models"
 )
 
 const (

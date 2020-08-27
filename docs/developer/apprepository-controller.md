@@ -19,13 +19,13 @@ The `apprepository-controller` is a Kubernetes controller for managing Helm char
 ```bash
 export GOPATH=~/gopath
 export PATH=$GOPATH/bin:$PATH
-export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appborad
+export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appboard
 ```
 
 ## Download the kubeapps source code
 
 ```bash
-git clone --recurse-submodules https://github.com/suomitek/suomitek-appborad $KUBEAPPS_DIR
+git clone --recurse-submodules https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR
 ```
 
 The `apprepository-controller` sources are located under the `cmd/apprepository-controller/` directory of the repository.

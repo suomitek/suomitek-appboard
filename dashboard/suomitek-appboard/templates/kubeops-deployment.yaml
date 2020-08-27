@@ -2,26 +2,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "suomitek-appborad.kubeops.fullname" . }}
+  name: {{ template "suomitek-appboard.kubeops.fullname" . }}
   labels:
-    app: {{ template "suomitek-appborad.kubeops.fullname" . }}
-    chart: {{ template "suomitek-appborad.chart" . }}
+    app: {{ template "suomitek-appboard.kubeops.fullname" . }}
+    chart: {{ template "suomitek-appboard.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.kubeops.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "suomitek-appborad.kubeops.fullname" . }}
+      app: {{ template "suomitek-appboard.kubeops.fullname" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "suomitek-appborad.kubeops.fullname" . }}
+        app: {{ template "suomitek-appboard.kubeops.fullname" . }}
         release: {{ .Release.Name }}
     spec:
 {{- include "kubeapps.imagePullSecrets" . | indent 6 }}
-      serviceAccountName: {{ template "suomitek-appborad.kubeops.fullname" . }}
+      serviceAccountName: {{ template "suomitek-appboard.kubeops.fullname" . }}
       # Increase termination timeout to let remaining operations to finish before killing the pods
       # This is because new releases/upgrades/deletions are synchronous operations
       terminationGracePeriodSeconds: 300
@@ -41,12 +41,12 @@ spec:
       {{- end }}
       containers:
         - name: kubeops
-          image: {{ template "suomitek-appborad.image" (list .Values.kubeops.image .Values.global) }}
+          image: {{ template "suomitek-appboard.image" (list .Values.kubeops.image .Values.global) }}
           command:
             - /kubeops
           args:
             - --user-agent-comment=kubeapps/{{ .Chart.AppVersion }}
-            - --assetsvc-url=http://{{ template "suomitek-appborad.assetsvc.fullname" . }}:{{ .Values.assetsvc.service.port }}
+            - --assetsvc-url=http://{{ template "suomitek-appboard.assetsvc.fullname" . }}:{{ .Values.assetsvc.service.port }}
           env:
             - name: POD_NAMESPACE
               valueFrom:

@@ -51,7 +51,7 @@ export function AppRepoControl({
       dispatch(actions.repos.resyncRepo(repoName, repoNamespace));
       // Fake timeout to show progress
       // TODO(andresmgot): Ideally, we should show the progress of the sync but we don't
-      // have that info yet: https://github.com/suomitek/suomitek-appborad/issues/153
+      // have that info yet: https://github.com/suomitek/suomitek-appboard/issues/153
       setTimeout(() => setRefreshing(false), 500);
     };
   };
