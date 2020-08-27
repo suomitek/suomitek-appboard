@@ -577,10 +577,10 @@ mongodb:
   persistence:
     enabled: false
     size: 8Gi
-  ## MongoDB credentials are handled by kubeapps to facilitate upgrades
+  ## MongoDB credentials are handled by suomitek-appboard to facilitate upgrades
   ##
   auth:
-    existingSecret: kubeapps-mongodb
+    existingSecret: suomitek-appboard-mongodb
   ## Pod Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
   ##
@@ -616,9 +616,9 @@ postgresql:
   persistence:
     enabled: false
     size: 8Gi
-  ## PostgreSQL credentials are handled by kubeapps to facilitate upgrades
+  ## PostgreSQL credentials are handled by suomitek-appboard to facilitate upgrades
   ##
-  existingSecret: kubeapps-db
+  existingSecret: suomitek-appboard-db
   ## Pod Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
   ##

@@ -1,4 +1,4 @@
-# Tiller needs to be able to create apprepositories in the kubeapps namespace.
+# Tiller needs to be able to create apprepositories in the suomitek-appboard namespace.
 kind: Template
 apiVersion: v1
 objects:
