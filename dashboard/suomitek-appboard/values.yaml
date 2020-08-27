@@ -187,7 +187,7 @@ apprepository:
   ##
   image:
     registry: docker.io
-    repository: bitnami/kubeapps-apprepository-controller
+    repository: suomitek/suomitek-appboard-apprepository-controller
     tag: 1.10.0-scratch-r0
   ## Kubeapps assets synchronization tool
   ## Image used to perform chart repository syncs
@@ -195,7 +195,7 @@ apprepository:
   ##
   syncImage:
     registry: docker.io
-    repository: bitnami/kubeapps-asset-syncer
+    repository: suomitek/suomitek-appboard-asset-syncer
     tag: 1.10.0-scratch-r0
   ## Initial charts repo proxies to configure
   ##
@@ -283,7 +283,7 @@ kubeops:
   replicaCount: 2
   image:
     registry: docker.io
-    repository: bitnami/kubeapps-kubeops
+    repository: suomitek/suomitek-appboard-kubeops
     tag: 1.10.0-scratch-r0
   service:
     port: 8080
@@ -325,7 +325,7 @@ tillerProxy:
   ##
   image:
     registry: docker.io
-    repository: bitnami/kubeapps-tiller-proxy
+    repository: suomitek/suomitek-appboard-tiller-proxy
     tag: 1.10.0-scratch-r0
 
   ## Tiller Proxy service parameters
@@ -399,7 +399,7 @@ assetsvc:
   ##
   image:
     registry: docker.io
-    repository: bitnami/kubeapps-assetsvc
+    repository: suomitek/suomitek-appboard-assetsvc
     tag: 1.10.0-scratch-r0
   ## Assetsvc service parameters
   ##
@@ -459,7 +459,7 @@ dashboard:
   ##
   image:
     registry: docker.io
-    repository: bitnami/kubeapps-dashboard
+    repository: suomitek/suomitek-appboard-dashboard
     tag: 1.10.0-debian-10-r0
   ## Dashboard service parameters
   ##

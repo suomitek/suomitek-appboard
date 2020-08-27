@@ -107,7 +107,7 @@ then to modify the clusters configured for Kubeapps at some later point you will
 
 * edit the `./path/to/my/values.yaml`
 * find the exact chart version that you have installed with `helm list --namespace suomitek-appboard`
-* "upgrade" to the new values with `helm upgrade kubeapps bitnami/kubeapps --version X.Y.Z --values ./path/to/my/values`, where the version `X.Y.Z` is the chart version found in the previous step.
+* "upgrade" to the new values with `helm upgrade suomitek-appboard chartmuseum/suomitek-appboard --version X.Y.Z --values ./path/to/my/values`, where the version `X.Y.Z` is the chart version found in the previous step.
 
 Once the pods have cycled, Kubeapps will be ready with your new configured clusters.
 

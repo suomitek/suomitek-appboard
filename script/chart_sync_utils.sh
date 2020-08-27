@@ -15,8 +15,8 @@
 
 set -e
 
-CHARTS_REPO="bitnami/charts"
-CHART_REPO_PATH="bitnami/kubeapps"
+CHARTS_REPO="suomitek/suomitek-charts"
+CHART_REPO_PATH="suomitek/suomitek-appboard"
 PROJECT_DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null && pwd`
 KUBEAPPS_CHART_DIR="${PROJECT_DIR}/chart/suomitek-appboard"
 
@@ -45,9 +45,9 @@ configUser() {
 replaceImage() {
     local service=${1:?}
     local file=${2:?}
-    local repoName="bitnami-docker-kubeapps-${service}"
-    local currentImageEscaped="kubeapps\/${service}"
-    local targetImageEscaped="bitnami\/kubeapps-${service}"
+    local repoName="suomitek-docker-suomitek-appboard-${service}"
+    local currentImageEscaped="suomitek-appboard\/${service}"
+    local targetImageEscaped="suomitek\/suomitek-appboard-${service}"
 
     local header=""
     if [[ $ACCESS_TOKEN != "" ]]; then
@@ -55,7 +55,7 @@ replaceImage() {
     fi
 
     # Get the latest tag from the bitnami repository
-    local tag=`curl ${header} https://api.github.com/repos/bitnami/${repoName}/tags | jq -r '.[0].name'`
+    local tag=`curl ${header} https://api.github.com/repos/suomitek/${repoName}/tags | jq -r '.[0].name'`
     if [[ $tag == "" ]]; then
         echo "ERROR: Unable to obtain latest tag for ${repoName}. Aborting"
         exit 1
@@ -108,7 +108,7 @@ commitAndPushChanges() {
     fi
     local chartVersion=$(grep -w version: ${chartYaml} | awk '{print $2}')
     git add --all .
-    git commit -m "kubeapps: bump chart version to $chartVersion"
+    git commit -m "suomitek-appboard: bump chart version to $chartVersion"
     # NOTE: This expects to have a loaded SSH key
     git push origin $targetBranch
     cd -

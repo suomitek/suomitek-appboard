@@ -165,7 +165,7 @@ Now upgrade Kubeapps:
 
 ```bash
 export RELEASE_NAME=suomitek-appboard
-helm upgrade $RELEASE_NAME bitnami/kubeapps
+helm upgrade $RELEASE_NAME chartmuseum/suomitek-appboard
 ```
 
 If you find issues upgrading Kubeapps, check the [troubleshooting](#error-while-upgrading-the-chart) section.
