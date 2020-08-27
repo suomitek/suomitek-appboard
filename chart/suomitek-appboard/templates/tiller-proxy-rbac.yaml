@@ -41,7 +41,7 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 rules:
@@ -55,13 +55,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
     name: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
@@ -72,7 +72,7 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 rules:
@@ -86,13 +86,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
     name: {{ template "suomitek-appboard.tiller-proxy.fullname" . }}

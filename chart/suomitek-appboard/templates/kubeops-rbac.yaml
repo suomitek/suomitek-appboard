@@ -41,7 +41,7 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: "kubeapps:controller:kubeops-ns-discovery-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:kubeops-ns-discovery-{{ .Release.Namespace }}"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.kubeops.fullname" . }}
 rules:
@@ -55,13 +55,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: "kubeapps:controller:kubeops-ns-discovery-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:kubeops-ns-discovery-{{ .Release.Namespace }}"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.kubeops.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: "kubeapps:controller:kubeops-ns-discovery-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:kubeops-ns-discovery-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
     name: {{ template "suomitek-appboard.kubeops.fullname" . }}
@@ -72,7 +72,7 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: "kubeapps:controller:kubeops-operators-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:kubeops-operators-{{ .Release.Namespace }}"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.kubeops.fullname" . }}
 rules:
@@ -86,13 +86,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: "kubeapps:controller:kubeops-operators-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:kubeops-operators-{{ .Release.Namespace }}"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.kubeops.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: "kubeapps:controller:kubeops-operators-{{ .Release.Namespace }}"
+  name: "suomitek-appboard:controller:kubeops-operators-{{ .Release.Namespace }}"
 subjects:
   - kind: ServiceAccount
     name: {{ template "suomitek-appboard.kubeops.fullname" . }}

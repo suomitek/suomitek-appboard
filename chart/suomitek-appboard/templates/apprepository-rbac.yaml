@@ -111,7 +111,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: "kubeapps:controller:{{ .Release.Namespace }}:apprepositories-read"
+  name: "suomitek-appboard:controller:{{ .Release.Namespace }}:apprepositories-read"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.apprepository.fullname" . }}
 roleRef:
