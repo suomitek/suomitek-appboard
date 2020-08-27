@@ -126,7 +126,7 @@ Create name for the db-secret secret bootstrap job
 Create name for the kubeapps upgrade job
 */}}
 {{- define "suomitek-appboard.suomitek-appboard-jobs-upgrade.fullname" -}}
-{{ template "suomitek-appboard.fullname" . }}-internal-kubeapps-jobs-upgrade
+{{ template "suomitek-appboard.fullname" . }}-internal-suomitek-appboard-jobs-upgrade
 {{- end -}}
 
 {{/*

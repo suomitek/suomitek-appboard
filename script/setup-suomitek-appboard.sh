@@ -131,8 +131,8 @@ silence kubectl create serviceaccount example --namespace default
 silence kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-applications-read.yaml
 silence kubectl create -n default rolebinding example-view --clusterrole=kubeapps-applications-read --serviceaccount default:example
 silence kubectl create -n default rolebinding example-edit --clusterrole=edit --serviceaccount default:example
-silence kubectl create -n "$namespace" rolebinding example-kubeapps-repositories-read --role=kubeapps-repositories-read --serviceaccount default:example
-silence kubectl create -n "$namespace" rolebinding example-kubeapps-repositories-write --role=kubeapps-repositories-write --serviceaccount default:example
+silence kubectl create -n "$namespace" rolebinding example-suomitek-appboard-repositories-read --role=kubeapps-repositories-read --serviceaccount default:example
+silence kubectl create -n "$namespace" rolebinding example-suomitek-appboard-repositories-write --role=kubeapps-repositories-write --serviceaccount default:example
 echo
     
 info "Use this command for port forwading to Kubeapps Dashboard:"

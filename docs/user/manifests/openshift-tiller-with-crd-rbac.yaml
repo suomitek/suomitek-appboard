@@ -50,7 +50,7 @@ objects:
 - kind: ClusterRoleBinding
   apiVersion: v1
   metadata:
-    name: tiller-kubeapps-crds
+    name: tiller-suomitek-appboard-crds
   roleRef:
     kind: ClusterRole
     name: crd-manager

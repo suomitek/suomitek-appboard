@@ -39,7 +39,7 @@ These scripts will create the necessary namespaces, install the charts, wait for
 ./setup-harbor.sh --help
 ```
 
-You can also use the [setup-kubeapps-harbor](../../script/setup-kubeapps-harbor.sh) script which is a wrapper that uses both the scripts mentioned above with some default values:
+You can also use the [setup-suomitek-appboard-harbor](../../script/setup-suomitek-appboard-harbor.sh) script which is a wrapper that uses both the scripts mentioned above with some default values:
 
 - Install Harbor under the `harbor` namespace.
 - Install Kubeapps under the `kubeapps` namespace.
@@ -49,4 +49,4 @@ You can also use the [setup-kubeapps-harbor](../../script/setup-kubeapps-harbor.
 
 You can use the scripts [delete-kubeapps](../../script/delete-suomitek-appboard.sh) and [delete-harbor](../../script/delete-harbor.sh) to uninstall Kubeapps and Harbor releases from the cluster, respectively. These scripts will also remove the associated namespaces and resources.
 
-> Note: you can use the [delete-kubeapps-harbor](../../script/delete-kubeapps-harbor.sh) script to clean up the environment if you used the [setup-kubeapps-harbor](../../script/setup-kubeapps-harbor.sh) script to setup the environment.
+> Note: you can use the [delete-suomitek-appboard-harbor](../../script/delete-suomitek-appboard-harbor.sh) script to clean up the environment if you used the [setup-suomitek-appboard-harbor](../../script/setup-suomitek-appboard-harbor.sh) script to setup the environment.

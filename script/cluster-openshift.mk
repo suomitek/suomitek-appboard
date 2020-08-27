@@ -29,12 +29,12 @@ devel/openshift-tiller-with-apprepository-rbac.yaml: devel/openshift-tiller-with
 		-o yaml \
 	> $@
 
-openshift-install-tiller: devel/openshift-tiller-with-crd-rbac.yaml devel/openshift-tiller-with-apprepository-rbac.yaml devel/openshift-kubeapps-project-created
+openshift-install-tiller: devel/openshift-tiller-with-crd-rbac.yaml devel/openshift-tiller-with-apprepository-rbac.yaml devel/openshift-suomitek-appboard-project-created
 	kubectl --namespace ${TILLER_NAMESPACE} apply -f devel/openshift-tiller-with-crd-rbac.yaml --wait=true
 	kubectl --namespace ${KUBEAPPS_NAMESPACE} apply -f devel/openshift-tiller-with-apprepository-rbac.yaml
 	helm init --tiller-namespace ${TILLER_NAMESPACE} --service-account tiller --wait
 
-devel/openshift-kubeapps-project-created: devel/openshift-tiller-project-created
+devel/openshift-suomitek-appboard-project-created: devel/openshift-tiller-project-created
 	oc new-project ${KUBEAPPS_NAMESPACE}
 	oc policy add-role-to-user edit "system:serviceaccount:${TILLER_NAMESPACE}:tiller"
 	touch $@
@@ -42,7 +42,7 @@ devel/openshift-kubeapps-project-created: devel/openshift-tiller-project-created
 chart/suomitek-appboard/charts/mongodb-${MONGODB_CHART_VERSION}.tgz:
 	helm dep build ./chart/suomitek-appboard
 
-devel/openshift-kubeapps-installed: openshift-install-tiller chart/suomitek-appboard/charts/mongodb-${MONGODB_CHART_VERSION}.tgz
+devel/openshift-suomitek-appboard-installed: openshift-install-tiller chart/suomitek-appboard/charts/mongodb-${MONGODB_CHART_VERSION}.tgz
 	@oc project ${KUBEAPPS_NAMESPACE}
 	helm --tiller-namespace=${TILLER_NAMESPACE} install ./chart/suomitek-appboard -n ${KUBEAPPS_NAMESPACE} \
 		--set tillerProxy.host=tiller-deploy.${TILLER_NAMESPACE}:44134 \
@@ -56,9 +56,9 @@ openshift-tiller-token:
 		$(shell kubectl get serviceaccount -n "${TILLER_NAMESPACE}" tiller -o jsonpath='{range .secrets[*]}{.name}{"\n"}{end}' | grep tiller-token) \
 		-o go-template='{{.data.token | base64decode}}' && echo
 
-openshift-kubeapps: devel/openshift-kubeapps-installed
+openshift-kubeapps: devel/openshift-suomitek-appboard-installed
 
-openshift-kubeapps-reset:
+openshift-suomitek-appboard-reset:
 	oc delete project ${KUBEAPPS_NAMESPACE} || true
 	oc delete project ${TILLER_NAMESPACE} || true
 	oc delete -f devel/openshift-tiller-with-crd-rbac.yaml || true
@@ -66,4 +66,4 @@ openshift-kubeapps-reset:
 	oc delete customresourcedefinition apprepositories.suomitek.com || true
 	rm devel/openshift-* || true
 
-.PHONY: openshift-install-tiller openshift-kubeapps openshift-kubeapps-reset
+.PHONY: openshift-install-tiller openshift-kubeapps openshift-suomitek-appboard-reset

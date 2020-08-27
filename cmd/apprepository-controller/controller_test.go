@@ -138,7 +138,7 @@ func Test_newCronJob(t *testing.T) {
 			},
 			batchv1beta1.CronJob{
 				ObjectMeta: metav1.ObjectMeta{
-					Name: "apprepo-kubeapps-sync-my-charts",
+					Name: "apprepo-suomitek-appboard-sync-my-charts",
 					OwnerReferences: []metav1.OwnerReference{
 						*metav1.NewControllerRef(
 							&apprepov1alpha1.AppRepository{ObjectMeta: metav1.ObjectMeta{Name: "my-charts"}},
@@ -351,7 +351,7 @@ func Test_newSyncJob(t *testing.T) {
 			},
 			batchv1.Job{
 				ObjectMeta: metav1.ObjectMeta{
-					GenerateName: "apprepo-kubeapps-sync-my-charts-",
+					GenerateName: "apprepo-suomitek-appboard-sync-my-charts-",
 					OwnerReferences: []metav1.OwnerReference{
 						*metav1.NewControllerRef(
 							&apprepov1alpha1.AppRepository{ObjectMeta: metav1.ObjectMeta{Name: "my-charts"}},
@@ -499,7 +499,7 @@ func Test_newSyncJob(t *testing.T) {
 			},
 			batchv1.Job{
 				ObjectMeta: metav1.ObjectMeta{
-					GenerateName: "apprepo-kubeapps-sync-my-charts-",
+					GenerateName: "apprepo-suomitek-appboard-sync-my-charts-",
 					OwnerReferences: []metav1.OwnerReference{
 						*metav1.NewControllerRef(
 							&apprepov1alpha1.AppRepository{ObjectMeta: metav1.ObjectMeta{Name: "my-charts"}},
@@ -587,7 +587,7 @@ func Test_newSyncJob(t *testing.T) {
 			},
 			batchv1.Job{
 				ObjectMeta: metav1.ObjectMeta{
-					GenerateName: "apprepo-kubeapps-sync-my-charts-",
+					GenerateName: "apprepo-suomitek-appboard-sync-my-charts-",
 					OwnerReferences: []metav1.OwnerReference{
 						*metav1.NewControllerRef(
 							&apprepov1alpha1.AppRepository{ObjectMeta: metav1.ObjectMeta{Name: "my-charts"}},
@@ -686,7 +686,7 @@ func Test_newSyncJob(t *testing.T) {
 			},
 			batchv1.Job{
 				ObjectMeta: metav1.ObjectMeta{
-					GenerateName: "apprepo-kubeapps-sync-my-charts-",
+					GenerateName: "apprepo-suomitek-appboard-sync-my-charts-",
 					OwnerReferences: []metav1.OwnerReference{
 						*metav1.NewControllerRef(
 							&apprepov1alpha1.AppRepository{ObjectMeta: metav1.ObjectMeta{Name: "my-charts"}},
@@ -801,7 +801,7 @@ func Test_newSyncJob(t *testing.T) {
 			},
 			batchv1.Job{
 				ObjectMeta: metav1.ObjectMeta{
-					GenerateName: "apprepo-kubeapps-sync-my-charts-",
+					GenerateName: "apprepo-suomitek-appboard-sync-my-charts-",
 					OwnerReferences: []metav1.OwnerReference{
 						*metav1.NewControllerRef(
 							&apprepov1alpha1.AppRepository{ObjectMeta: metav1.ObjectMeta{Name: "my-charts"}},
@@ -895,7 +895,7 @@ func Test_newCleanupJob(t *testing.T) {
 			"kubeapps",
 			batchv1.Job{
 				ObjectMeta: metav1.ObjectMeta{
-					GenerateName: "apprepo-kubeapps-cleanup-my-charts-",
+					GenerateName: "apprepo-suomitek-appboard-cleanup-my-charts-",
 					Namespace:    "kubeapps",
 				},
 				Spec: batchv1.JobSpec{
@@ -954,7 +954,7 @@ func TestObjectBelongsTo(t *testing.T) {
 			name: "it recognises a cronjob belonging to an app repository in another namespace",
 			object: &batchv1beta1.CronJob{
 				ObjectMeta: metav1.ObjectMeta{
-					Name:      "apprepo-kubeapps-sync-my-charts",
+					Name:      "apprepo-suomitek-appboard-sync-my-charts",
 					Namespace: "kubeapps",
 					Labels: map[string]string{
 						LabelRepoName:      "my-charts",
@@ -974,7 +974,7 @@ func TestObjectBelongsTo(t *testing.T) {
 			name: "it returns false if the namespace does not match",
 			object: &batchv1beta1.CronJob{
 				ObjectMeta: metav1.ObjectMeta{
-					Name:      "apprepo-kubeapps-sync-my-charts",
+					Name:      "apprepo-suomitek-appboard-sync-my-charts",
 					Namespace: "kubeapps",
 					Labels: map[string]string{
 						LabelRepoName:      "my-charts",

@@ -1,6 +1,6 @@
 adminPassword: password
 customLdifFiles:
-  01-kubeapps-dev.ldif: |-
+  01-suomitek-appboard-dev.ldif: |-
     dn: ou=People,dc=example,dc=org
     objectClass: organizationalUnit
     ou: People

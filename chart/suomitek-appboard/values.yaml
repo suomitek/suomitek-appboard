@@ -28,7 +28,7 @@ enableIPv6: false
 ## Kubeapps is installed), as per https://github.com/suomitek/suomitek-appboard/issues/1942 .
 ## The base64-encoded certificateAuthorityData can be obtained from the additional cluster's kube config
 ## file, for example:
-## kubectl --kubeconfig ~/.kube/kind-config-kubeapps-additional config view --raw -o jsonpath='{.clusters[0].cluster.certificate-authority-data}'
+## kubectl --kubeconfig ~/.kube/kind-config-suomitek-appboard-additional config view --raw -o jsonpath='{.clusters[0].cluster.certificate-authority-data}'
 #
 # clusters:
 # - name: second-cluster

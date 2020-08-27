@@ -80,10 +80,10 @@ In order to list and view Service Instances in a namespace, we'll create the
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-service-catalog-browse.yaml
-kubectl create clusterrolebinding example-kubeapps-service-catalog-browse --clusterrole=kubeapps-service-catalog-browse --serviceaccount default:example
+kubectl create clusterrolebinding example-suomitek-appboard-service-catalog-browse --clusterrole=kubeapps-service-catalog-browse --serviceaccount default:example
 
 kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-service-catalog-read.yaml
-kubectl create -n default rolebinding example-kubeapps-service-catalog-read --clusterrole=kubeapps-service-catalog-read --serviceaccount default:example
+kubectl create -n default rolebinding example-suomitek-appboard-service-catalog-read --clusterrole=kubeapps-service-catalog-read --serviceaccount default:example
 ```
 
 #### Write access to Service Instances and Bindings within a namespace
@@ -93,7 +93,7 @@ create and bind the `kubeapps-service-catalog-write` ClusterRole in the desired 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-service-catalog-write.yaml
-kubectl create -n default rolebinding example-kubeapps-service-catalog-write --clusterrole=kubeapps-service-catalog-write --serviceaccount default:example
+kubectl create -n default rolebinding example-suomitek-appboard-service-catalog-write --clusterrole=kubeapps-service-catalog-write --serviceaccount default:example
 ```
 
 #### Admin access to configure Service Brokers
@@ -103,7 +103,7 @@ create and apply the `kubeapps-service-catalog-admin` ClusterRole in all namespa
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/suomitek/suomitek-appboard/master/docs/user/manifests/kubeapps-service-catalog-admin.yaml
-kubectl create clusterrolebinding example-kubeapps-service-catalog-admin --clusterrole=kubeapps-service-catalog-admin --serviceaccount default:example
+kubectl create clusterrolebinding example-suomitek-appboard-service-catalog-admin --clusterrole=kubeapps-service-catalog-admin --serviceaccount default:example
 ```
 
 ### App Repositories
@@ -114,7 +114,7 @@ In order to list the configured App Repositories in Kubeapps, [bind users/groups
 
 ```bash
 export KUBEAPPS_NAMESPACE=kubeapps
-kubectl create -n $KUBEAPPS_NAMESPACE rolebinding example-kubeapps-repositories-read \
+kubectl create -n $KUBEAPPS_NAMESPACE rolebinding example-suomitek-appboard-repositories-read \
   --clusterrole=kubeapps:$KUBEAPPS_NAMESPACE:apprepositories-read \
   --serviceaccount default:example
 ```
@@ -127,7 +127,7 @@ for users to create and refresh App Repositories in Kubeapps
 
 ```bash
 export KUBEAPPS_NAMESPACE=kubeapps
-kubectl create -n $KUBEAPPS_NAMESPACE rolebinding example-kubeapps-repositories-write \
+kubectl create -n $KUBEAPPS_NAMESPACE rolebinding example-suomitek-appboard-repositories-write \
   --clusterrole=kubeapps:$KUBEAPPS_NAMESPACE:apprepositories-write \
   --serviceaccount default:example
 ```
@@ -139,8 +139,8 @@ in each namespace you want to configure access for. For example, to give the
 "example" user permissions to manage Applications in the "example" namespace:
 
 ```bash
-kubectl create -n example rolebinding example-kubeapps-applications-write --clusterrole=kubeapps-applications-read --serviceaccount default:example
-kubectl create -n example rolebinding example-kubeapps-applications-write --clusterrole=kubeapps-applications-write --serviceaccount default:example
+kubectl create -n example rolebinding example-suomitek-appboard-applications-write --clusterrole=kubeapps-applications-read --serviceaccount default:example
+kubectl create -n example rolebinding example-suomitek-appboard-applications-write --clusterrole=kubeapps-applications-write --serviceaccount default:example
 ```
 
 Note that there's no need to recreate the RoleBinding in the namespace Kubeapps
@@ -150,8 +150,8 @@ If you want to give access for every namespace, simply create a
 ClusterRoleBinding instead of a RoleBinding. For example, to give the "example" user permissions to manage Applications in _any_ namespace:
 
 ```bash
-kubectl create clusterrolebinding example-kubeapps-applications-write --clusterrole=kubeapps-applications-read --serviceaccount default:example
-kubectl create clusterrolebinding example-kubeapps-applications-write --clusterrole=kubeapps-applications-write --serviceaccount default:example
+kubectl create clusterrolebinding example-suomitek-appboard-applications-write --clusterrole=kubeapps-applications-read --serviceaccount default:example
+kubectl create clusterrolebinding example-suomitek-appboard-applications-write --clusterrole=kubeapps-applications-write --serviceaccount default:example
 ```
 
 ## Using a cluster-admin user (not recommended)
