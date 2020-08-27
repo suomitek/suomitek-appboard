@@ -44,9 +44,9 @@ HELM_CLIENT_TLS_FLAGS=("--tls" "--tls-cert" "${CERTS_DIR}/helm.cert.pem" "--tls-
 testHelm() {
   info "Running Helm tests..."
   if [[ "$HELM_VERSION" =~ "v2" ]]; then
-    helm test "${HELM_CLIENT_TLS_FLAGS[@]}" kubeapps-ci --cleanup
+    helm test "${HELM_CLIENT_TLS_FLAGS[@]}" suomitek-appboard-ci --cleanup
   else
-    helm test -n kubeapps kubeapps-ci
+    helm test -n suomitek-appboard suomitek-appboard-ci
   fi
 }
 
@@ -124,20 +124,20 @@ installChartmuseum() {
     helm repo add stable https://kubernetes-charts.storage.googleapis.com
     helm repo up
     if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
-      helm install --name chartmuseum --namespace kubeapps stable/chartmuseum \
+      helm install --name chartmuseum --namespace suomitek-appboard stable/chartmuseum \
         "${HELM_CLIENT_TLS_FLAGS[@]}" \
         --set env.open.DISABLE_API=false \
         --set persistence.enabled=true \
         --set secret.AUTH_USER=$user \
         --set secret.AUTH_PASS=$password
     else
-      helm install chartmuseum --namespace kubeapps stable/chartmuseum \
+      helm install chartmuseum --namespace suomitek-appboard stable/chartmuseum \
         --set env.open.DISABLE_API=false \
         --set persistence.enabled=true \
         --set secret.AUTH_USER=$user \
         --set secret.AUTH_PASS=$password
     fi
-    kubectl rollout status -w deployment/chartmuseum-chartmuseum --namespace=kubeapps
+    kubectl rollout status -w deployment/chartmuseum-chartmuseum --namespace=suomitek-appboard
 }
 
 ########################
@@ -158,11 +158,11 @@ pushChart() {
     info "Adding ${chart}-${version} to ChartMuseum ..."
     curl -LO "http://helm.yongchehang.com/${chart}-${version}.tgz"
 
-    local POD_NAME=$(kubectl get pods --namespace kubeapps -l "app=chartmuseum" -l "release=chartmuseum" -o jsonpath="{.items[0].metadata.name}")
-    /bin/sh -c "kubectl port-forward $POD_NAME 8080:8080 --namespace kubeapps &"
+    local POD_NAME=$(kubectl get pods --namespace suomitek-appboard -l "app=chartmuseum" -l "release=chartmuseum" -o jsonpath="{.items[0].metadata.name}")
+    /bin/sh -c "kubectl port-forward $POD_NAME 8080:8080 --namespace suomitek-appboard &"
     sleep 2
     curl -u "${user}:${password}" --data-binary "@${chart}-${version}.tgz" http://localhost:8080/api/charts
-    pkill -f "kubectl port-forward $POD_NAME 8080:8080 --namespace kubeapps"
+    pkill -f "kubectl port-forward $POD_NAME 8080:8080 --namespace suomitek-appboard"
 }
 
 ########################
@@ -176,7 +176,7 @@ installOrUpgradeKubeapps() {
     # Install Kubeapps
     info "Installing Kubeapps..."
     if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
-      helm upgrade --install kubeapps-ci --namespace kubeapps "${chartSource}" \
+      helm upgrade --install suomitek-appboard-ci --namespace suomitek-appboard "${chartSource}" \
         "${HELM_CLIENT_TLS_FLAGS[@]}" \
         --set tillerProxy.tls.key="$(cat "${CERTS_DIR}/helm.key.pem")" \
         --set tillerProxy.tls.cert="$(cat "${CERTS_DIR}/helm.cert.pem")" \
@@ -185,7 +185,7 @@ installOrUpgradeKubeapps() {
         "${img_flags[@]}" \
         "${db_flags[@]}"
     else
-      helm upgrade --install kubeapps-ci --namespace kubeapps "${chartSource}" \
+      helm upgrade --install suomitek-appboard-ci --namespace suomitek-appboard "${chartSource}" \
         ${invalidateCacheFlag} \
         "${img_flags[@]}" \
         "${db_flags[@]}" \
@@ -208,8 +208,8 @@ db_flags=("--set" "mongodb.enabled=true" "--set" "postgresql.enabled=false")
 [[ "${KUBEAPPS_DB:-}" == "postgresql" ]] && db_flags=("--set" "mongodb.enabled=false" "--set" "postgresql.enabled=true")
 
 # Use dev images or Bitnami if testing the latest release
-image_prefix="kubeapps/"
-[[ -n "${TEST_LATEST_RELEASE:-}" ]] && image_prefix="bitnami/kubeapps-"
+image_prefix="suomitek-appboard/"
+[[ -n "${TEST_LATEST_RELEASE:-}" ]] && image_prefix="bitnami/suomitek-appboard-"
 images=(
   "apprepository-controller"
   "asset-syncer"
@@ -246,7 +246,7 @@ if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
   tiller-init-rbac
 fi
 helm repo add chartmuseum http://helm.yongchehang.com
-helm dep up "${ROOT_DIR}/chart/kubeapps"
+helm dep up "${ROOT_DIR}/chart/suomitek-appboard"
 kubectl create ns kubeapps
 
 if [[ -n "${TEST_UPGRADE}" ]]; then
@@ -255,37 +255,37 @@ if [[ -n "${TEST_UPGRADE}" ]]; then
   installOrUpgradeKubeapps bitnami/kubeapps
 fi
 
-installOrUpgradeKubeapps "${ROOT_DIR}/chart/kubeapps"
+installOrUpgradeKubeapps "${ROOT_DIR}/chart/suomitek-appboard"
 installChartmuseum admin password
 pushChart apache 7.3.15 admin password
 pushChart apache 7.3.16 admin password
 
 # Ensure that we are testing the correct image
 info ""
-k8s_ensure_image kubeapps kubeapps-ci-internal-apprepository-controller "$DEV_TAG"
-k8s_ensure_image kubeapps kubeapps-ci-internal-dashboard "$DEV_TAG"
+k8s_ensure_image kubeapps suomitek-appboard-ci-internal-apprepository-controller "$DEV_TAG"
+k8s_ensure_image kubeapps suomitek-appboard-ci-internal-dashboard "$DEV_TAG"
 if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
-  k8s_ensure_image kubeapps kubeapps-ci-internal-tiller-proxy "$DEV_TAG"
+  k8s_ensure_image kubeapps suomitek-appboard-ci-internal-tiller-proxy "$DEV_TAG"
 else
-  k8s_ensure_image kubeapps kubeapps-ci-internal-kubeops "$DEV_TAG"
+  k8s_ensure_image kubeapps suomitek-appboard-ci-internal-kubeops "$DEV_TAG"
 fi
 
 # Wait for Kubeapps Pods
 info "Waiting for Kubeapps components to be ready..."
 deployments=(
-  "kubeapps-ci"
-  "kubeapps-ci-internal-apprepository-controller"
-  "kubeapps-ci-internal-assetsvc"
-  "kubeapps-ci-internal-dashboard"
+  "suomitek-appboard-ci"
+  "suomitek-appboard-ci-internal-apprepository-controller"
+  "suomitek-appboard-ci-internal-assetsvc"
+  "suomitek-appboard-ci-internal-dashboard"
 )
 for dep in "${deployments[@]}"; do
   k8s_wait_for_deployment kubeapps "$dep"
   info "Deployment ${dep} ready"
 done
 if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
-  k8s_wait_for_deployment kubeapps kubeapps-ci-internal-tiller-proxy
+  k8s_wait_for_deployment kubeapps suomitek-appboard-ci-internal-tiller-proxy
 else
-  k8s_wait_for_deployment kubeapps kubeapps-ci-internal-kubeops
+  k8s_wait_for_deployment kubeapps suomitek-appboard-ci-internal-kubeops
 fi
 
 # Wait for Kubeapps Jobs
@@ -300,11 +300,11 @@ info "All deployments ready. PODs:"
 kubectl get pods -n kubeapps -o wide
 
 # Wait for all the endpoints to be ready
-kubectl get ep --namespace=kubeapps
+kubectl get ep --namespace=suomitek-appboard
 svcs=(
-  "kubeapps-ci"
-  "kubeapps-ci-internal-assetsvc"
-  "kubeapps-ci-internal-dashboard"
+  "suomitek-appboard-ci"
+  "suomitek-appboard-ci-internal-assetsvc"
+  "suomitek-appboard-ci-internal-dashboard"
 )
 for svc in "${svcs[@]}"; do
   k8s_wait_for_endpoints kubeapps "$svc" 2
@@ -320,17 +320,17 @@ if [[ -z "${TEST_LATEST_RELEASE:-}" ]]; then
   if ! retry_while testHelm "2" "1"; then
     warn "PODS status on failure"
     kubectl get pods -n kubeapps
-    for pod in $(kubectl get po -l release=kubeapps-ci -oname -n kubeapps); do
+    for pod in $(kubectl get po -l release=suomitek-appboard-ci -oname -n kubeapps); do
       warn "LOGS for pod $pod ------------"
       kubectl logs -n kubeapps "$pod"
     done;
     echo
     warn "LOGS for assetsvc tests --------"
-    kubectl logs kubeapps-ci-assetsvc-test --namespace kubeapps
+    kubectl logs suomitek-appboard-ci-assetsvc-test --namespace suomitek-appboard
     warn "LOGS for tiller-proxy tests --------"
-    kubectl logs kubeapps-ci-tiller-proxy-test --namespace kubeapps
+    kubectl logs suomitek-appboard-ci-tiller-proxy-test --namespace suomitek-appboard
     warn "LOGS for dashboard tests --------"
-    kubectl logs kubeapps-ci-dashboard-test --namespace kubeapps
+    kubectl logs suomitek-appboard-ci-dashboard-test --namespace suomitek-appboard
     exit 1
   fi
   info "Helm tests succeded!!"
@@ -390,7 +390,7 @@ view_token="$(kubectl get -n kubeapps secret "$(kubectl get -n kubeapps servicea
 edit_token="$(kubectl get -n kubeapps secret "$(kubectl get -n kubeapps serviceaccount kubeapps-edit -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
 ## Run tests
 info "Running Integration tests..."
-if ! kubectl exec -it "$pod" -- /bin/sh -c "INTEGRATION_ENTRYPOINT=http://kubeapps-ci.kubeapps ADMIN_TOKEN=${admin_token} VIEW_TOKEN=${view_token} EDIT_TOKEN=${edit_token} yarn start ${ignoreFlag}"; then
+if ! kubectl exec -it "$pod" -- /bin/sh -c "INTEGRATION_ENTRYPOINT=http://suomitek-appboard-ci.kubeapps ADMIN_TOKEN=${admin_token} VIEW_TOKEN=${view_token} EDIT_TOKEN=${edit_token} yarn start ${ignoreFlag}"; then
   ## Integration tests failed, get report screenshot
   warn "PODS status on failure"
   kubectl cp "${pod}:/app/reports" ./reports

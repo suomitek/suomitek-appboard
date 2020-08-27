@@ -27,7 +27,7 @@ deploy-dependencies: deploy-dex deploy-openldap devel/localhost-cert.pem
 		--cert ./devel/localhost-cert.pem
 
 deploy-dev: deploy-dependencies
-	helm install kubeapps ./chart/kubeapps --namespace kubeapps \
+	helm install kubeapps ./chart/suomitek-appboard --namespace suomitek-appboard \
 		--values ./docs/user/manifests/suomitek-appboard-local-dev-values.yaml \
 		--values ./docs/user/manifests/suomitek-appboard-local-dev-auth-proxy-values.yaml \
 		--values ./docs/user/manifests/suomitek-appboard-local-dev-additional-kind-cluster.yaml \

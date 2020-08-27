@@ -6,7 +6,7 @@
 TILLER_NAMESPACE ?= tiller
 KUBEAPPS_NAMESPACE ?= kubeapps
 
-MONGODB_CHART_VERSION = $(strip $(shell cat chart/kubeapps/requirements.lock | grep version | cut --delimiter=":" -f2))
+MONGODB_CHART_VERSION = $(strip $(shell cat chart/suomitek-appboard/requirements.lock | grep version | cut --delimiter=":" -f2))
 
 devel/openshift-tiller-project-created:
 	oc new-project ${TILLER_NAMESPACE}
@@ -39,12 +39,12 @@ devel/openshift-kubeapps-project-created: devel/openshift-tiller-project-created
 	oc policy add-role-to-user edit "system:serviceaccount:${TILLER_NAMESPACE}:tiller"
 	touch $@
 
-chart/kubeapps/charts/mongodb-${MONGODB_CHART_VERSION}.tgz:
-	helm dep build ./chart/kubeapps
+chart/suomitek-appboard/charts/mongodb-${MONGODB_CHART_VERSION}.tgz:
+	helm dep build ./chart/suomitek-appboard
 
-devel/openshift-kubeapps-installed: openshift-install-tiller chart/kubeapps/charts/mongodb-${MONGODB_CHART_VERSION}.tgz
+devel/openshift-kubeapps-installed: openshift-install-tiller chart/suomitek-appboard/charts/mongodb-${MONGODB_CHART_VERSION}.tgz
 	@oc project ${KUBEAPPS_NAMESPACE}
-	helm --tiller-namespace=${TILLER_NAMESPACE} install ./chart/kubeapps -n ${KUBEAPPS_NAMESPACE} \
+	helm --tiller-namespace=${TILLER_NAMESPACE} install ./chart/suomitek-appboard -n ${KUBEAPPS_NAMESPACE} \
 		--set tillerProxy.host=tiller-deploy.${TILLER_NAMESPACE}:44134 \
 		--values ./docs/user/manifests/suomitek-appboard-local-dev-values.yaml
 

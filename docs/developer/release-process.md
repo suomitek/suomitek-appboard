@@ -4,7 +4,7 @@ The purpose of this document is to guide you through the process of releasing a 
 
 ## 0 - Ensure all 3rd-party images are up to date
 
-The [values.yaml](../../chart/kubeapps/values.yaml) uses the following Bitnami images for various services:
+The [values.yaml](../../chart/suomitek-appboard/values.yaml) uses the following Bitnami images for various services:
 
 * [bitnami/nginx](https://hub.docker.com/r/bitnami/nginx/tags)
 * [bitnami/kubectl](https://hub.docker.com/r/bitnami/kubectl/tags)
@@ -14,16 +14,16 @@ while the [dashboard/Dockerfile](../../dashboard/Dockerfile) uses bitnami/nginx 
 
 All tags for these images should be updated to their latest compatible versions and security patches.
 
-The chart [requirements.yaml](../../chart/kubeapps/requirements.yaml) should also be checked to ensure the version includes the latest dependent charts. You can then run
+The chart [requirements.yaml](../../chart/suomitek-appboard/requirements.yaml) should also be checked to ensure the version includes the latest dependent charts. You can then run
 
 ```bash
-helm dependency list ./chart/kubeapps
+helm dependency list ./chart/suomitek-appboard
 ```
 
 to see if the latest versions are included, and
 
 ```bash
-helm dependency update ./chart/kubeapps
+helm dependency update ./chart/suomitek-appboard
 ```
 
 to update the requirements.lock file.
@@ -57,7 +57,7 @@ Once the release job is finished, you will have a GitHub release draft pre-popul
 
 At this point, you will have a new set of published docker images as well as some release notes waiting to be published.
 
-But before, we need to create and merge a PR with a chart version bump in `chart/kubeapps/Chart.yaml` ([example](https://github.com/suomitek/suomitek-appboard/pull/663/files)). This will trigger another CI job that will publish a new version of the chart pointing to the new Docker images built in the step 1.
+But before, we need to create and merge a PR with a chart version bump in `chart/suomitek-appboard/Chart.yaml` ([example](https://github.com/suomitek/suomitek-appboard/pull/663/files)). This will trigger another CI job that will publish a new version of the chart pointing to the new Docker images built in the step 1.
 
 ## 4 - Publish the GitHub release
 

@@ -17,7 +17,7 @@
 set -e
 
 ROOT_DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null && pwd`
-CHART_DIR=$ROOT_DIR/chart/kubeapps/
+CHART_DIR=$ROOT_DIR/chart/suomitek-appboard/
 helm dep up $CHART_DIR
 
 # tests

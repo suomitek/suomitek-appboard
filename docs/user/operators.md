@@ -24,7 +24,7 @@ kubectl create namespace suomitek-appboard
 helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set featureFlags.operators=true
 ```
 
-For detailed information on installing, configuring and upgrading Kubeapps, checkout the [chart README](../../chart/kubeapps/README.md).
+For detailed information on installing, configuring and upgrading Kubeapps, checkout the [chart README](../../chart/suomitek-appboard/README.md).
 
 ## Step 2: Install the Operator Lifecycle Manager (OLM)
 

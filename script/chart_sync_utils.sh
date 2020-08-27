@@ -18,7 +18,7 @@ set -e
 CHARTS_REPO="bitnami/charts"
 CHART_REPO_PATH="bitnami/kubeapps"
 PROJECT_DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null && pwd`
-KUBEAPPS_CHART_DIR="${PROJECT_DIR}/chart/kubeapps"
+KUBEAPPS_CHART_DIR="${PROJECT_DIR}/chart/suomitek-appboard"
 
 # Returns the tag for the latest release
 latestReleaseTag() {

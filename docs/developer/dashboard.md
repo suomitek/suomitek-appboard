@@ -35,7 +35,7 @@ cd $KUBEAPPS_DIR/dashboard
 
 ### Install Kubeapps in your cluster
 
-Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/kubeapps/README.md) to install Kubeapps in your cluster.
+Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/suomitek-appboard/README.md) to install Kubeapps in your cluster.
 
 ### Running the dashboard in development
 
@@ -50,7 +50,7 @@ yarn install
 Next, create a `telepresence` shell to swap the `suomitek-appboard-internal-dashboard` deployment in the `kubeapps` namespace, forwarding local port `3000` to port `8080` of the `suomitek-appboard-internal-dashboard` pod.
 
 ```bash
-telepresence --namespace kubeapps --method inject-tcp --swap-deployment suomitek-appboard-internal-dashboard --expose 3000:8080 --run-shell
+telepresence --namespace suomitek-appboard --method inject-tcp --swap-deployment suomitek-appboard-internal-dashboard --expose 3000:8080 --run-shell
 ```
 
 > **NOTE**: If you encounter issues getting this setup working correctly, please try switching the telepresence proxying method in the above command to `vpn-tcp`. Refer to [the telepresence docs](https://www.telepresence.io/reference/methods) to learn more about the available proxying methods and their limitations. If this doesn't work you can use the [Telepresence alternative](#telepresence-alternative).

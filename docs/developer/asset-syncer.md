@@ -30,7 +30,7 @@ The `asset-syncer` sources are located under the `cmd/asset-syncer/` directory.
 
 ### Install Kubeapps in your cluster
 
-Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/kubeapps/README.md) to install Kubeapps in your cluster.
+Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/suomitek-appboard/README.md) to install Kubeapps in your cluster.
 
 ### Building the `asset-syncer` image
 
@@ -46,15 +46,15 @@ This builds the `asset-syncer` Docker image.
 When using MongoDB:
 
 ```bash
-export DB_PASSWORD=$(kubectl get secret --namespace kubeapps kubeapps-mongodb -o go-template='{{index .data "mongodb-root-password" | base64decode}}')
-telepresence --namespace kubeapps --docker-run -e DB_PASSWORD=$DB_PASSWORD --rm -ti kubeapps/asset-syncer /asset-syncer sync --database-user=root --database-url=kubeapps-mongodb --database-type=mongodb --database-name=charts stable https://kubernetes-charts.storage.googleapis.com
+export DB_PASSWORD=$(kubectl get secret --namespace suomitek-appboard kubeapps-mongodb -o go-template='{{index .data "mongodb-root-password" | base64decode}}')
+telepresence --namespace suomitek-appboard --docker-run -e DB_PASSWORD=$DB_PASSWORD --rm -ti kubeapps/asset-syncer /asset-syncer sync --database-user=root --database-url=kubeapps-mongodb --database-type=mongodb --database-name=charts stable https://kubernetes-charts.storage.googleapis.com
 ```
 
 When using PostgreSQL:
 
 ```bash
-export DB_PASSWORD=$(kubectl get secret --namespace kubeapps kubeapps-db -o go-template='{{index .data "postgresql-password" | base64decode}}')
-telepresence --namespace kubeapps --docker-run -e DB_PASSWORD=$DB_PASSWORD --rm -ti kubeapps/asset-syncer /asset-syncer sync --database-user=postgres --database-url=kubeapps-postgresql:5432 --database-type=postgresql --database-name=assets stable https://kubernetes-charts.storage.googleapis.com
+export DB_PASSWORD=$(kubectl get secret --namespace suomitek-appboard kubeapps-db -o go-template='{{index .data "postgresql-password" | base64decode}}')
+telepresence --namespace suomitek-appboard --docker-run -e DB_PASSWORD=$DB_PASSWORD --rm -ti kubeapps/asset-syncer /asset-syncer sync --database-user=postgres --database-url=kubeapps-postgresql:5432 --database-type=postgresql --database-name=assets stable https://kubernetes-charts.storage.googleapis.com
 ```
 
 Note that the asset-syncer should be rebuilt for new changes to take effect.

@@ -100,13 +100,13 @@ Updating the value of the `clusters` chart option is just like updating any othe
 So if you had originally installed Kubeapps with a command like:
 
 ```bash
-helm install kubeapps bitnami/kubeapps --namespace kubeapps --values ./path/to/my/values.yaml
+helm install kubeapps bitnami/kubeapps --namespace suomitek-appboard --values ./path/to/my/values.yaml
 ```
 
 then to modify the clusters configured for Kubeapps at some later point you will need to
 
 * edit the `./path/to/my/values.yaml`
-* find the exact chart version that you have installed with `helm list --namespace kubeapps`
+* find the exact chart version that you have installed with `helm list --namespace suomitek-appboard`
 * "upgrade" to the new values with `helm upgrade kubeapps bitnami/kubeapps --version X.Y.Z --values ./path/to/my/values`, where the version `X.Y.Z` is the chart version found in the previous step.
 
 Once the pods have cycled, Kubeapps will be ready with your new configured clusters.

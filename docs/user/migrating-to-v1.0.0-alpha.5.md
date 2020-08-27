@@ -16,7 +16,7 @@ Please follow the steps in [this guide](./securing-suomitek-appboard.md) to inst
 ```console
 $ kubeapps migrate-configmaps-to-secrets --target-tiller-namespace kube-system
 2018/08/06 12:24:23 Migrated foo.v1 as a secret
-2018/08/06 12:24:23 Done. ConfigMaps are left in the namespace kubeapps to debug possible errors. Please delete them manually
+2018/08/06 12:24:23 Done. ConfigMaps are left in the namespace suomitek-appboard to debug possible errors. Please delete them manually
 ```
 
 **NOTE**: The tool asumes that you have deployed Helm storing releases as secrets. If that is not the case you can still migrate the releases executing:
@@ -49,7 +49,7 @@ kubectl get helmreleases -o=name --all-namespaces | xargs kubectl patch $1 --typ
 Wait until everything in the namespace of Kubeapps has been deleted:
 
 ```console
-$ kubectl get all --namespace kubeapps
+$ kubectl get all --namespace suomitek-appboard
 No resources found.
 ```
 
@@ -72,7 +72,7 @@ helm install \
   --set tillerProxy.tls.ca="$(cat ca.cert.pem)" \
   --set tillerProxy.tls.key="$(cat helm.key.pem)" \
   --set tillerProxy.tls.cert="$(cat helm.cert.pem)" \
-  --namespace kubeapps \
+  --namespace suomitek-appboard \
   bitnami/kubeapps
 ```
 

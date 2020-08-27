@@ -39,12 +39,12 @@ print_menu() {
     log ""
     log "${RED}EXAMPLES${RESET}"
     log "      $script --help"
-    log "      $script --namespace \"kubeapps\""
-    log "      $script --namespace \"kubeapps\" --initial-repos \"harbor-library\" \"http://harbor.harbor.svc.cluster.local/chartrepo/library\""
+    log "      $script --namespace \"suomitek-appboard\""
+    log "      $script --namespace \"suomitek-appboard\" --initial-repos \"harbor-library\" \"http://harbor.harbor.svc.cluster.local/chartrepo/library\""
     log ""
 }
 
-namespace="kubeapps"
+namespace="suomitek-appboard"
 initial_repos=("bitnami http://helm.yongchehang.com")
 help_menu=0
 dry_run=0
@@ -109,7 +109,7 @@ silence kubectl create ns "$namespace"
 silence helm install kubeapps \
     --namespace "$namespace" \
     -f <(echo "$values") \
-    bitnami/kubeapps
+    suomitek-appboard
 # Wait for Kubeapps components
 info "Waiting for Kubeapps components to be ready..."
 deployments=(

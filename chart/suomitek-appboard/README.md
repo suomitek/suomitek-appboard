@@ -193,7 +193,7 @@ The first command removes most of the Kubernetes components associated with the 
 If you have dedicated a namespace only for Kubeapps you can completely clean remaining completed/failed jobs or any stale resources by deleting the namespace
 
 ```bash
-kubectl delete namespace kubeapps
+kubectl delete namespace suomitek-appboard
 ```
 
 ## Troubleshooting
@@ -253,7 +253,7 @@ It is possible that when upgrading Kubeapps an error appears. That can be caused
 1.  (Optional) Backup your personal repositories (if you have any):
 
 ```bash
-kubectl get apprepository --namespace kubeapps -o yaml <repo name> > <repo name>.yaml
+kubectl get apprepository --namespace suomitek-appboard -o yaml <repo name> > <repo name>.yaml
 ```
 
 2.  Delete Kubeapps:
@@ -275,7 +275,7 @@ kubectl delete crd apprepositories.suomitek.com
 > **Warning**: Don't execute this step if you have workloads other than Kubeapps in the `kubeapps` namespace.
 
 ```bash
-kubectl delete namespace kubeapps
+kubectl delete namespace suomitek-appboard
 ```
 
 5.  Install the latest version of Kubeapps (using any custom modifications you need):

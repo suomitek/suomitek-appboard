@@ -19,7 +19,7 @@ If all of the above succeeded, the control is returned to the CI with the proper
 
 Chart tests in the project are defined using the testing functionality [provided by Helm](https://helm.sh/docs/developing_charts/#chart-tests). The goal of these tests is that the chart has been successfully deployed and that the basic functionality for each of the microservices deployed work as expected. Specific functionality tests should be covered by either unit tests or browser tests if needed.
 
-You can find the current chart tests in the [chart folder](../../chart/kubeapps/templates/tests).
+You can find the current chart tests in the [chart folder](../../chart/suomitek-appboard/templates/tests).
 
 ## Web Browser tests
 

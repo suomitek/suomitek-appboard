@@ -34,7 +34,7 @@ helm install \
   --set tillerProxy.tls.ca="$(cat ca.cert.pem)" \
   --set tillerProxy.tls.key="$(cat helm.key.pem)" \
   --set tillerProxy.tls.cert="$(cat helm.cert.pem)" \
-  --namespace kubeapps \
+  --namespace suomitek-appboard \
   bitnami/kubeapps
 ```
 

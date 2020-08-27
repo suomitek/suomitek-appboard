@@ -81,7 +81,7 @@ This example uses `oauth2-proxy`'s generic OIDC provider with Google, but is app
 
 ```bash
 helm install bitnami/kubeapps \
-  --namespace kubeapps --name kubeapps \
+  --namespace suomitek-appboard --name kubeapps \
   --set authProxy.enabled=true \
   --set authProxy.provider=oidc \
   --set authProxy.clientID=my-client-id.apps.googleusercontent.com \
@@ -98,7 +98,7 @@ Here we no longer need to provide the issuer -url as an additional flag:
 
 ```bash
 helm install bitnami/kubeapps \
-  --namespace kubeapps --name kubeapps \
+  --namespace suomitek-appboard --name kubeapps \
   --set authProxy.enabled=true \
   --set authProxy.provider=google \
   --set authProxy.clientID=my-client-id.apps.googleusercontent.com \
@@ -119,7 +119,7 @@ Note that using the custom `google` provider here enables google to prompt the u
 
 ```bash
 helm install bitnami/kubeapps \
-  --namespace kubeapps --name kubeapps \
+  --namespace suomitek-appboard --name kubeapps \
   --set authProxy.enabled=true \
   --set authProxy.provider=google \
   --set authProxy.clientID=my-client-id.apps.googleusercontent.com \

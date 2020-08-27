@@ -30,7 +30,7 @@ The `assetsvc` sources are located under the `cmd/assetsvc/` directory.
 
 ### Install Kubeapps in your cluster
 
-Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/kubeapps/README.md) to install Kubeapps in your cluster.
+Kubeapps is a Kubernetes-native application. To develop and test Kubeapps components we need a Kubernetes cluster with Kubeapps already installed. Follow the [Kubeapps installation guide](../../chart/suomitek-appboard/README.md) to install Kubeapps in your cluster.
 
 ### Building the `assetsvc` image
 
@@ -48,13 +48,13 @@ This builds the `assetsvc` Docker image.
 When using MongoDB:
 
 ```bash
-telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace kubeapps --expose 8080:8080 --docker-run --rm -ti kubeapps/assetsvc /assetsvc --database-user=root --database-url=kubeapps-mongodb --database-type=mongodb --database-name=charts
+telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti kubeapps/assetsvc /assetsvc --database-user=root --database-url=kubeapps-mongodb --database-type=mongodb --database-name=charts
 ```
 
 When using PostgreSQL:
 
 ```bash
-telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace kubeapps --expose 8080:8080 --docker-run --rm -ti kubeapps/assetsvc /assetsvc --database-user=postgres --database-url=kubeapps-postgresql:5432 --database-type=postgresql --database-name=assets
+telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti kubeapps/assetsvc /assetsvc --database-user=postgres --database-url=kubeapps-postgresql:5432 --database-type=postgresql --database-name=assets
 ```
 
 Note that the assetsvc should be rebuilt for new changes to take effect.
