@@ -12,7 +12,7 @@ const defaultProps = {
   getOperator: jest.fn(),
   isFetching: false,
   cluster: "default",
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   push: jest.fn(),
   getCSV: jest.fn(),
 };
@@ -20,7 +20,7 @@ const defaultProps = {
 const defaultOperator = {
   metadata: {
     name: "foo",
-    namespace: "kubeapps",
+    namespace: "suomitek-appboard",
   },
   status: {
     provider: {

@@ -14,7 +14,7 @@ const testProps: any = {
       app_version: "1.2.3",
     },
   },
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   cluster: "default",
 };
 

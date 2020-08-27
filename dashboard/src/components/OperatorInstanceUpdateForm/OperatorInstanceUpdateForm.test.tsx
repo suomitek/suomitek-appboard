@@ -10,7 +10,7 @@ const defaultProps: IOperatorInstanceUpgradeFormProps = {
   crdName: "foo-cluster",
   isFetching: false,
   cluster: "default",
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   resourceName: "my-foo",
   getResource: jest.fn(),
   updateResource: jest.fn(),

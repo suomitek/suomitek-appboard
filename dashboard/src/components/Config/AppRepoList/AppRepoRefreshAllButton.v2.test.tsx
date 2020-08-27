@@ -25,7 +25,7 @@ afterEach(() => {
 it("refreshes all repos", () => {
   const repos = [
     { metadata: { name: "foo", namespace: "default" } },
-    { metadata: { name: "bar", namespace: "kubeapps" } },
+    { metadata: { name: "bar", namespace: "suomitek-appboard" } },
   ];
   const wrapper = mountWrapper(getStore({ repos: { repos } }), <AppRepoRefreshAllButton />);
   act(() => {
@@ -34,6 +34,6 @@ it("refreshes all repos", () => {
   wrapper.update();
   expect(actions.repos.resyncAllRepos).toHaveBeenCalledWith([
     { name: "foo", namespace: "default" },
-    { name: "bar", namespace: "kubeapps" },
+    { name: "bar", namespace: "suomitek-appboard" },
   ]);
 });

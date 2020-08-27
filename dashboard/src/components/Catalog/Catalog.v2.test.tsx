@@ -25,7 +25,7 @@ const defaultProps = {
   fetchCharts: jest.fn(),
   pushSearchFilter: jest.fn(),
   cluster: "default",
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   kubeappsNamespace: "kubeapps",
   csvs: [],
   getCSVs: jest.fn(),

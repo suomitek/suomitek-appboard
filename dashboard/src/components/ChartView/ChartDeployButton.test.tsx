@@ -14,7 +14,7 @@ const testChartVersion: IChartVersion = {
         name: "test",
         repo: {
           name: "testrepo",
-          namespace: "kubeapps",
+          namespace: "suomitek-appboard",
         },
       },
     },
@@ -24,7 +24,7 @@ const testChartVersion: IChartVersion = {
 it("renders a button to deploy the chart version", () => {
   const props = {
     version: testChartVersion,
-    namespace: "kubeapps",
+    namespace: "suomitek-appboard",
   } as IChartDeployButtonProps;
   const wrapper = mountWrapper(getStore({}), <ChartDeployButton {...props} />);
   const button = wrapper.find("button");
@@ -36,7 +36,7 @@ it("dispatches a URL change with the correct URL when the button is clicked", ()
   const testCases = [
     {
       clustersState: { currentCluster: "default", clusters: {} },
-      namespace: "kubeapps",
+      namespace: "suomitek-appboard",
       version: "1.2.3",
       url: url.app.apps.new("default", "kubeapps", testChartVersion, "1.2.3"),
     },

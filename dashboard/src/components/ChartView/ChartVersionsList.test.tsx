@@ -11,7 +11,7 @@ const testChart: IChartVersion["relationships"]["chart"] = {
     name: "test",
     repo: {
       name: "testrepo",
-      namespace: "kubeapps",
+      namespace: "suomitek-appboard",
     },
   },
 } as IChartVersion["relationships"]["chart"];

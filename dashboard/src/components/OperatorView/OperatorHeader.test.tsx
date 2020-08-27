@@ -7,7 +7,7 @@ const defaultProps = {
   icon: "/path/to/icon.png",
   description: "this is a description",
   cluster: "default",
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   version: "1.0.0",
   provider: "Kubeapps",
   namespaced: false,

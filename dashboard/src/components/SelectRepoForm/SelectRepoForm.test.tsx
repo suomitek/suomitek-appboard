@@ -7,7 +7,7 @@ import SelectRepoForm from "./SelectRepoForm.v2";
 const defaultProps = {
   isFetching: false,
   cluster: "default",
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   repo: {} as IAppRepository,
   repos: [] as IAppRepository[],
   chartName: "test",

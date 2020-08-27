@@ -11,7 +11,7 @@ const defaultProps: IOperatorInstanceFormProps = {
   crdName: "foo-cluster",
   isFetching: false,
   cluster: "default",
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   getCSV: jest.fn(),
   createResource: jest.fn(),
   push: jest.fn(),

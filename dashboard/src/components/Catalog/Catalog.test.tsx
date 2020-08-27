@@ -25,7 +25,7 @@ const defaultProps = {
   fetchCharts: jest.fn(),
   pushSearchFilter: jest.fn(),
   cluster: "default",
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   kubeappsNamespace: "kubeapps",
   csvs: [],
   getCSVs: jest.fn(),
@@ -200,7 +200,7 @@ describe("renderization", () => {
         description: "",
         id: "bar",
         name: "bar",
-        namespace: "kubeapps",
+        namespace: "suomitek-appboard",
         cluster: "default",
         repo: {
           name: "bar",
@@ -212,7 +212,7 @@ describe("renderization", () => {
         description: "",
         id: "foo",
         name: "foo",
-        namespace: "kubeapps",
+        namespace: "suomitek-appboard",
         cluster: "default",
         repo: {
           name: "foo",
@@ -248,7 +248,7 @@ describe("renderization", () => {
         description: "",
         id: "foo",
         name: "foo",
-        namespace: "kubeapps",
+        namespace: "suomitek-appboard",
         cluster: "default",
         repo: {
           name: "foo",
@@ -298,7 +298,7 @@ describe("renderization", () => {
           icon: "data:img/png;base64,data",
           id: "foo-cluster",
           name: "foo-cluster",
-          namespace: "kubeapps",
+          namespace: "suomitek-appboard",
           version: "v1.0.0",
         };
         const csvCard = cardGrid

@@ -12,7 +12,7 @@ import { IOperatorInstanceFormProps } from "./OperatorInstanceFormBody";
 const defaultProps: IOperatorInstanceFormProps = {
   csvName: "foo",
   isFetching: false,
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   handleDeploy: jest.fn(),
   defaultValues: "",
   errors: {},

@@ -10,7 +10,7 @@ import DeleteButton from "./DeleteButton.v2";
 
 const defaultProps = {
   cluster: "default",
-  namespace: "kubeapps",
+  namespace: "suomitek-appboard",
   releaseName: "foo",
 };
 

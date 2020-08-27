@@ -107,7 +107,7 @@ context("when an error exists", () => {
   it("renders a forbidden message", () => {
     const role = {
       apiGroup: "suomitek.com",
-      namespace: "kubeapps",
+      namespace: "suomitek-appboard",
       resource: "apprepositories",
       verbs: ["get"],
     };

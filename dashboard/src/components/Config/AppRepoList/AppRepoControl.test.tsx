@@ -33,7 +33,7 @@ const defaultProps = {
   repo: {
     metadata: {
       name: "bitnami",
-      namespace: "kubeapps",
+      namespace: "suomitek-appboard",
     },
   } as IAppRepository,
 };

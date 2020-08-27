@@ -50,7 +50,7 @@ it("should render a global chart item in a namespace", () => {
       ...defaultItem,
       repo: {
         name: "repo-name",
-        namespace: "kubeapps",
+        namespace: "suomitek-appboard",
       } as IRepo,
     },
   };

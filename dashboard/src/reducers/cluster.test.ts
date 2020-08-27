@@ -309,7 +309,7 @@ describe("clusterReducer", () => {
 
   context("when RECEIVE_CONFIG", () => {
     const config = {
-      namespace: "kubeapps",
+      namespace: "suomitek-appboard",
       appVersion: "dev",
       authProxyEnabled: false,
       oauthLoginURI: "",
