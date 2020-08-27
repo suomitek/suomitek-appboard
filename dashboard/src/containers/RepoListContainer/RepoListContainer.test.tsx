@@ -7,7 +7,7 @@ import { definedNamespaces } from "../../shared/Namespace";
 
 const mockStore = configureMockStore([thunk]);
 const currentNamespace = "current-namespace";
-const kubeappsNamespace = "kubeapps-namespace";
+const kubeappsNamespace = "suomitek-appboard-namespace";
 
 const defaultState = {
   config: {

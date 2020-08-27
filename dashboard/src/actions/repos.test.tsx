@@ -13,7 +13,7 @@ const mockStore = configureMockStore([thunk]);
 
 let store: any;
 const appRepo = { spec: { resyncRequests: 10000 } };
-const kubeappsNamespace = "kubeapps-namespace";
+const kubeappsNamespace = "suomitek-appboard-namespace";
 
 const safeYAMLTemplate = `
 spec:
@@ -512,7 +512,7 @@ describe("installRepo", () => {
 
     expect(AppRepository.create).toHaveBeenCalledWith(
       "my-repo",
-      "kubeapps-namespace",
+      "suomitek-appboard-namespace",
       "http://foo.bar",
       "",
       "",
@@ -528,7 +528,7 @@ describe("installRepo", () => {
 
     expect(AppRepository.create).toHaveBeenCalledWith(
       "my-repo",
-      "kubeapps-namespace",
+      "suomitek-appboard-namespace",
       "http://foo.bar",
       "",
       "",

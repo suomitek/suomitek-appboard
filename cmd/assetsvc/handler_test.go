@@ -51,7 +51,7 @@ const (
 	testChartReadme = "# Quickstart\n\n```bash\nhelm install my-repo/my-chart\n```"
 	testChartValues = "image:\n  registry: docker.io\n  repository: my-repo/my-chart\n  tag: 0.1.0"
 	testChartSchema = `{"properties": {"type": "object"}}`
-	namespace       = "kubeapps-namespace"
+	namespace       = "suomitek-appboard-namespace"
 	testRepoName    = "my-repo"
 )
 

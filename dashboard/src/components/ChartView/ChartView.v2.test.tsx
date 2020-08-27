@@ -10,7 +10,7 @@ import ChartView, { IChartViewProps } from "./ChartView.v2";
 
 const props: IChartViewProps = {
   chartID: "testrepo/test",
-  chartNamespace: "kubeapps-namespace",
+  chartNamespace: "suomitek-appboard-namespace",
   isFetching: false,
   namespace: "test",
   cluster: "default",
@@ -62,7 +62,7 @@ it("triggers the fetchChartVersionsAndSelectVersion when mounting", () => {
   const spy = jest.fn();
   actions.charts.fetchChartVersionsAndSelectVersion = spy;
   mountWrapper(defaultStore, <ChartView {...props} />);
-  expect(spy).toHaveBeenCalledWith("kubeapps-namespace", "testrepo/test", undefined);
+  expect(spy).toHaveBeenCalledWith("suomitek-appboard-namespace", "testrepo/test", undefined);
 });
 
 describe("when receiving new props", () => {
