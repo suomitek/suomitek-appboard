@@ -32,7 +32,7 @@ const Footer: React.SFC<IFooterProps> = props => {
           </div>
           <div className="col-6 text-r">
             <a
-              href="https://twitter.com/search?q=(kubeapps%20OR%20%23kubeapps)"
+              href="https://twitter.com/search?q=(suomitek-appboard%20OR%20%23suomitek-appboard)"
               className="socialIcon margin-small"
             >
               <svg

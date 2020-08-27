@@ -23,7 +23,7 @@ build_on_tag: &build_on_tag
 
 workflows:
   version: 2
-  kubeapps:
+  suomitek-appboard:
     jobs:
       - test_go:
           <<: *build_always
@@ -162,12 +162,12 @@ build_images: &build_images
           makeArgs="VERSION=${CIRCLE_TAG}"
         fi
         for IMAGE in "${IMG_ARRAY[@]}"; do
-          make IMG_MODIFIER="$IMG_MODIFIER" IMAGE_TAG="${DEV_TAG}" $makeArgs kubeapps/${IMAGE}
+          make IMG_MODIFIER="$IMG_MODIFIER" IMAGE_TAG="${DEV_TAG}" $makeArgs suomitek-appboard/${IMAGE}
           if [[ -n "${DOCKER_USERNAME}" && -n "${DOCKER_PASSWORD}" ]]; then
             docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
-            docker push kubeapps/${IMAGE}${IMG_MODIFIER}:${DEV_TAG}
+            docker push suomitek-appboard/${IMAGE}${IMG_MODIFIER}:${DEV_TAG}
           fi
-          docker save kubeapps/${IMAGE}${IMG_MODIFIER}:${DEV_TAG} > images/${IMAGE}${IMG_MODIFIER}:${DEV_TAG}
+          docker save suomitek-appboard/${IMAGE}${IMG_MODIFIER}:${DEV_TAG} > images/${IMAGE}${IMG_MODIFIER}:${DEV_TAG}
         done
     - persist_to_workspace:
         root: images
@@ -203,7 +203,7 @@ gke_test: &gke_test
         source ./script/chart_sync_utils.sh
 
         # In case of GKE we will only want to build if it is
-        # a build of a branch in the kubeapps repository
+        # a build of a branch in the suomitek-appboard repository
         if [[ -z "$GKE_ADMIN" ]]; then
           echo "Step aborted, we are not in the Kubeapps repository"
           circleci step halt
@@ -317,7 +317,7 @@ jobs:
       - image: circleci/golang:1.13
     steps:
       - checkout
-      - run: REPO_DOMAIN=kubeapps REPO_NAME=kubeapps ./script/create_release.sh ${CIRCLE_TAG}
+      - run: REPO_DOMAIN=suomitek-appboard REPO_NAME=suomitek-appboard ./script/create_release.sh ${CIRCLE_TAG}
   local_e2e_tests_mongodb_helm2:
     machine: true
     environment:
@@ -393,7 +393,7 @@ jobs:
       - run: |
           if [[ -z "$CIRCLE_PULL_REQUEST" && -n "$DOCKER_USERNAME" && -n "$DOCKER_PASSWORD" ]]; then
             docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
-            for IMAGE in kubeapps/apprepository-controller kubeapps/dashboard kubeapps/tiller-proxy kubeapps/asset-syncer kubeapps/assetsvc kubeapps/kubeops; do
+            for IMAGE in suomitek-appboard/apprepository-controller suomitek-appboard/dashboard suomitek-appboard/tiller-proxy suomitek-appboard/asset-syncer suomitek-appboard/assetsvc suomitek-appboard/kubeops; do
               docker pull ${IMAGE}${IMG_MODIFIER}:${DEV_TAG}
               docker tag ${IMAGE}${IMG_MODIFIER}:${DEV_TAG} ${IMAGE}:${PROD_TAG}
               docker push ${IMAGE}:${PROD_TAG}
