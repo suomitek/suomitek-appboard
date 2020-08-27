@@ -114,7 +114,7 @@ describe("Auth", () => {
   });
 
   describe("defaultNamespaceFromToken", () => {
-    const customNamespace = "kubeapps-user";
+    const customNamespace = "suomitek-appboard-user";
 
     it("should return the k8s namespace from the jwt token", () => {
       const token = jwt.sign(

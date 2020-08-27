@@ -18,7 +18,7 @@ customLdifFiles:
     objectClass: inetOrgPerson
     sn: doe
     cn: john
-    mail: kubeapps-user-ldap@example.org
+    mail: suomitek-appboard-user-ldap@example.org
     userpassword: password
     
     # Group definitions.

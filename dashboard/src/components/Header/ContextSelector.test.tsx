@@ -23,7 +23,7 @@ const defaultProps = {
       },
     },
   } as IClustersState,
-  defaultNamespace: "kubeapps-user",
+  defaultNamespace: "suomitek-appboard-user",
   setNamespace: jest.fn(),
   createNamespace: jest.fn(),
   getNamespace: jest.fn(),

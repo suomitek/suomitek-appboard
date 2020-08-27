@@ -144,12 +144,12 @@ Once the kubeapps pods are all ready (check the pods in the `kubeapps` namespace
 When logging in, you will be redirected to dex (with a self-signed cert) and can login with email as either of
 
 * kubeapps-operator@example.com:password
-* kubeapps-user@example.com:password
+* suomitek-appboard-user@example.com:password
 
 or with LDAP as either of
 
 * kubeapps-operator-ldap@example.org:password
-* kubeapps-user-ldap@example.org:password
+* suomitek-appboard-user-ldap@example.org:password
 
 to authenticate with the corresponding permissions.
 

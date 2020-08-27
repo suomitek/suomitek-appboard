@@ -17,18 +17,18 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
   name: oidc:kubeapps-operators
-# kubeapps-user has access only to the kubeapps-user-namespace namespace
+# suomitek-appboard-user has access only to the suomitek-appboard-user-namespace namespace
 ---
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: kubeapps-user-namespace
+  name: suomitek-appboard-user-namespace
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: kubeapps-user
-  namespace: kubeapps-user-namespace
+  name: suomitek-appboard-user
+  namespace: suomitek-appboard-user-namespace
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -36,7 +36,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: oidc:kubeapps-user@example.com
+  name: oidc:suomitek-appboard-user@example.com
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
   name: oidc:suomitek-appboard-users
@@ -44,8 +44,8 @@ subjects:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: kubeapps-user-apprepositories-read
-  namespace: kubeapps-user-namespace
+  name: suomitek-appboard-user-apprepositories-read
+  namespace: suomitek-appboard-user-namespace
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -53,7 +53,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: oidc:kubeapps-user@example.com
+  name: oidc:suomitek-appboard-user@example.com
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
   name: oidc:suomitek-appboard-users
@@ -65,7 +65,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: kubeapps-operator-apprepositories-write
-  namespace: kubeapps-user-namespace
+  namespace: suomitek-appboard-user-namespace
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

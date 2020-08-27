@@ -22,7 +22,7 @@ const defaultProps = {
       },
     },
   } as IClustersState,
-  defaultNamespace: "kubeapps-user",
+  defaultNamespace: "suomitek-appboard-user",
   appVersion: "v2.0.0",
   logout: jest.fn(),
 };

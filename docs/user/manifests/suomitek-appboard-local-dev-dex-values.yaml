@@ -48,9 +48,9 @@ config:
     hash: "$2a$10$2b2cU8CPhOTaGrs1HRQuAueS7JTT5ZHsHSzYiFPm1leZck7Mc8T4W"
     username: "admin"
     userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
-  - email: "kubeapps-user@example.com"
+  - email: "suomitek-appboard-user@example.com"
     hash: "$2a$10$2b2cU8CPhOTaGrs1HRQuAueS7JTT5ZHsHSzYiFPm1leZck7Mc8T4W"
-    username: "kubeapps-user"
+    username: "suomitek-appboard-user"
     userID: "08a8684b-db88-4b73-90a9-3cd1661f5467"
   connectors:
   - type: ldap

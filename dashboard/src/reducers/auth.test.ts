@@ -45,7 +45,7 @@ describe("authReducer", () => {
     });
 
     it(`sets defaultNamespace in ${actionTypes.setAuthenticated}`, () => {
-      const defaultNamespace = "kubeapps-user";
+      const defaultNamespace = "suomitek-appboard-user";
       expect(
         authReducer(initialState, {
           payload: { authenticated: true, oidc: false, defaultNamespace },
