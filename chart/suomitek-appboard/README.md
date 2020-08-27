@@ -154,7 +154,7 @@ You can provide your own certificates using the `ingress.secrets` object. If you
 
 ## Upgrading Kubeapps
 
-You can upgrade Kubeapps from the Kubeapps web interface. Select the namespace in which Kubeapps is installed (`kubeapps` if you followed the instructions in this guide) and click on the "Upgrade" button. Select the new version and confirm.
+You can upgrade Kubeapps from the Kubeapps web interface. Select the namespace in which Kubeapps is installed (`suomitek-appboard` if you followed the instructions in this guide) and click on the "Upgrade" button. Select the new version and confirm.
 
 You can also use the Helm CLI to upgrade Kubeapps, first ensure you have updated your local chart repository cache:
 
@@ -173,14 +173,14 @@ If you find issues upgrading Kubeapps, check the [troubleshooting](#error-while-
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `kubeapps` deployment:
+To uninstall/delete the `suomitek-appboard` deployment:
 
 ```bash
 # For Helm 2
-helm delete --purge kubeapps
+helm delete --purge suomitek-appboard
 
 # For Helm 3
-helm uninstall kubeapps
+helm uninstall suomitek-appboard
 
 # Optional: Only if there are no more instances of Kubeapps
 kubectl delete crd apprepositories.suomitek.com
@@ -188,7 +188,7 @@ kubectl delete crd apprepositories.suomitek.com
 
 The first command removes most of the Kubernetes components associated with the chart and deletes the release. After that, if there are no more instances of Kubeapps in the cluster you can manually delete the `apprepositories.suomitek.com` CRD used by Kubeapps that is shared for the entire cluster.
 
-> **NOTE**: If you delete the CRD for `apprepositories.suomitek.com` it will delete the repositories for **all** the installed instances of `kubeapps`. This will break existing installations of `kubeapps` if they exist.
+> **NOTE**: If you delete the CRD for `apprepositories.suomitek.com` it will delete the repositories for **all** the installed instances of `suomitek-appboard`. This will break existing installations of `suomitek-appboard` if they exist.
 
 If you have dedicated a namespace only for Kubeapps you can completely clean remaining completed/failed jobs or any stale resources by deleting the namespace
 
@@ -200,29 +200,29 @@ kubectl delete namespace suomitek-appboard
 
 ### Nginx Ipv6 error
 
-When starting the application with the `--set enableIPv6=true` option, the Nginx server present in the services `kubeapps` and `suomitek-appboard-internal-dashboard` may fail with the following:
+When starting the application with the `--set enableIPv6=true` option, the Nginx server present in the services `suomitek-appboard` and `suomitek-appboard-internal-dashboard` may fail with the following:
 
 ```
 nginx: [emerg] socket() [::]:8080 failed (97: Address family not supported by protocol)
 ```
 
-This usually means that your cluster is not compatible with IPv6. To disable it, install kubeapps with the flag: `--set enableIPv6=false`.
+This usually means that your cluster is not compatible with IPv6. To disable it, install suomitek-appboard with the flag: `--set enableIPv6=false`.
 
 ### Forbidden error while installing the Chart
 
 If during installation you run into an error similar to:
 
 ```
-Error: release kubeapps failed: clusterroles.rbac.authorization.k8s.io "kubeapps-apprepository-controller" is forbidden: attempt to grant extra privileges: [{[get] [batch] [cronjobs] [] []...
+Error: release suomitek-appboard failed: clusterroles.rbac.authorization.k8s.io "suomitek-appboard-apprepository-controller" is forbidden: attempt to grant extra privileges: [{[get] [batch] [cronjobs] [] []...
 ```
 
 Or:
 
 ```
-Error: namespaces "kubeapps" is forbidden: User "system:serviceaccount:kube-system:default" cannot get namespaces in the namespace "kubeapps"
+Error: namespaces "suomitek-appboard" is forbidden: User "system:serviceaccount:kube-system:default" cannot get namespaces in the namespace "suomitek-appboard"
 ```
 
-This usually is an indication that Tiller was not installed with enough permissions to create the resources required by Kubeapps. In order to install Kubeapps, tiller will need to be able to install Custom Resource Definitions cluster-wide, as well as manage app repositories in your kubeapps namespace. The easiest way to enable this in a development environment is install Tiller with elevated permissions (e.g. as a cluster-admin). For example:
+This usually is an indication that Tiller was not installed with enough permissions to create the resources required by Kubeapps. In order to install Kubeapps, tiller will need to be able to install Custom Resource Definitions cluster-wide, as well as manage app repositories in your suomitek-appboard namespace. The easiest way to enable this in a development environment is install Tiller with elevated permissions (e.g. as a cluster-admin). For example:
 
 ```bash
 kubectl -n kube-system create sa tiller
@@ -248,7 +248,7 @@ helm install --name suomitek-appboard --namespace suomitek-appboard chartmuseum/
 
 It is possible that when upgrading Kubeapps an error appears. That can be caused by a breaking change in the new chart or because the current chart installation is in an inconsistent state. If you find issues upgrading Kubeapps you can follow these steps:
 
-> Note: This steps assume that you have installed Kubeapps in the namespace `kubeapps` using the name `kubeapps`. If that is not the case replace the command with your namespace and/or name.
+> Note: This steps assume that you have installed Kubeapps in the namespace `suomitek-appboard` using the name `suomitek-appboard`. If that is not the case replace the command with your namespace and/or name.
 
 1.  (Optional) Backup your personal repositories (if you have any):
 
@@ -259,7 +259,7 @@ kubectl get apprepository --namespace suomitek-appboard -o yaml <repo name> > <r
 2.  Delete Kubeapps:
 
 ```bash
-helm del --purge kubeapps
+helm del --purge suomitek-appboard
 ```
 
 3.  (Optional) Delete the App Repositories CRD:
@@ -272,7 +272,7 @@ kubectl delete crd apprepositories.suomitek.com
 
 4.  (Optional) Clean the Kubeapps namespace:
 
-> **Warning**: Don't execute this step if you have workloads other than Kubeapps in the `kubeapps` namespace.
+> **Warning**: Don't execute this step if you have workloads other than Kubeapps in the `suomitek-appboard` namespace.
 
 ```bash
 kubectl delete namespace suomitek-appboard
