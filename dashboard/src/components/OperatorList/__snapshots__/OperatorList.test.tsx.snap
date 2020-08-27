@@ -22,7 +22,7 @@ exports[`loading spinner matches the snapshot 1`] = `
         Operators integration is under heavy development and currently in alpha state. If you find an issue please report it
          
         <a
-          href="https://github.com/kubeapps/kubeapps/issues"
+          href="https://github.com/suomitek/suomitek-appborad/issues"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -62,7 +62,7 @@ exports[`render the operator list with installed operators 1`] = `
         Operators integration is under heavy development and currently in alpha state. If you find an issue please report it
          
         <a
-          href="https://github.com/kubeapps/kubeapps/issues"
+          href="https://github.com/suomitek/suomitek-appborad/issues"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -229,7 +229,7 @@ exports[`render the operator list without installed operators 1`] = `
         Operators integration is under heavy development and currently in alpha state. If you find an issue please report it
          
         <a
-          href="https://github.com/kubeapps/kubeapps/issues"
+          href="https://github.com/suomitek/suomitek-appborad/issues"
           rel="noopener noreferrer"
           target="_blank"
         >

@@ -29,8 +29,8 @@ import (
 	"github.com/disintegration/imaging"
 	"github.com/suomitek/kubeapps-common/datastore"
 	"github.com/suomitek/kubeapps-common/datastore/mockstore"
-	"github.com/kubeapps/kubeapps/pkg/chart/models"
-	"github.com/kubeapps/kubeapps/pkg/dbutils"
+	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
+	"github.com/suomitek/suomitek-appborad/pkg/dbutils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

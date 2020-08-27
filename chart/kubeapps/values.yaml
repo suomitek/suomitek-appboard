@@ -25,7 +25,7 @@ enableIPv6: false
 ## When populated, Kubeapps will currently present the listed clusters in addition to the default
 ## cluster on which Kubeapps is installed. In the future a populated list here will be definitive, so that
 ## it is possible to configure Kubeapps to target other clusters only (ie. not target the cluster on which
-## Kubeapps is installed), as per https://github.com/kubeapps/kubeapps/issues/1942 .
+## Kubeapps is installed), as per https://github.com/suomitek/suomitek-appborad/issues/1942 .
 ## The base64-encoded certificateAuthorityData can be obtained from the additional cluster's kube config
 ## file, for example:
 ## kubectl --kubeconfig ~/.kube/kind-config-kubeapps-additional config view --raw -o jsonpath='{.clusters[0].cluster.certificate-authority-data}'
@@ -176,7 +176,7 @@ frontend:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/kubeapps/kubeapps/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -260,13 +260,13 @@ apprepository:
   #   caCert:
   #   # Create this apprepository in a custom namespace
   #   namespace:
-  # https://github.com/kubeapps/kubeapps/issues/478#issuecomment-422979262
+  # https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
   ## AppRepository Controller containers' resource requests and limits
   ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/kubeapps/kubeapps/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -401,7 +401,7 @@ tillerProxy:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/kubeapps/kubeapps/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -465,7 +465,7 @@ assetsvc:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/kubeapps/kubeapps/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -545,7 +545,7 @@ dashboard:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/kubeapps/kubeapps/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m
@@ -591,7 +591,7 @@ mongodb:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/kubeapps/kubeapps/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 500m
@@ -655,7 +655,7 @@ testImage:
   tag: 1.19.2-debian-10-r1
 
 # Auth Proxy configuration for OIDC support
-# ref: https://github.com/kubeapps/kubeapps/blob/master/docs/user/using-an-OIDC-provider.md
+# ref: https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/using-an-OIDC-provider.md
 authProxy:
   ## Set to true if Kubeapps should configure the OAuth login/logout URIs defined below.
   #
@@ -710,7 +710,7 @@ authProxy:
   ##
   resources:
     ## Default values set based on usage data from running Kubeapps instances
-    ## ref: https://github.com/kubeapps/kubeapps/issues/478#issuecomment-422979262
+    ## ref: https://github.com/suomitek/suomitek-appborad/issues/478#issuecomment-422979262
     ##
     limits:
       cpu: 250m

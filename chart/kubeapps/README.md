@@ -1,6 +1,6 @@
 # Kubeapps
 
-[![CircleCI](https://circleci.com/gh/kubeapps/kubeapps/tree/master.svg?style=svg)](https://circleci.com/gh/kubeapps/kubeapps/tree/master)
+[![CircleCI](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master.svg?style=svg)](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master)
 
 [Kubeapps](https://kubeapps.com) is a web-based UI for deploying and managing applications in Kubernetes clusters. Kubeapps allows you to:
 
@@ -9,8 +9,8 @@
 - Add custom and private chart repositories (supports [ChartMuseum](https://github.com/helm/chartmuseum) and [JFrog Artifactory](https://www.jfrog.com/confluence/display/RTF/Helm+Chart+Repositories))
 - Browse and provision external services from the [Service Catalog](https://github.com/kubernetes-incubator/service-catalog) and available Service Brokers
 - Connect Helm-based applications to external services with Service Catalog Bindings
-- Secure authentication to Kubeapps using an [OAuth2/OIDC provider](https://github.com/kubeapps/kubeapps/blob/master/docs/user/using-an-OIDC-provider.md)
-- Secure authorization based on Kubernetes [Role-Based Access Control](https://github.com/kubeapps/kubeapps/blob/master/docs/user/access-control.md)
+- Secure authentication to Kubeapps using an [OAuth2/OIDC provider](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/using-an-OIDC-provider.md)
+- Secure authorization based on Kubernetes [Role-Based Access Control](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/access-control.md)
 
 ## TL;DR
 
@@ -52,7 +52,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install --name kubeapps --namespace kubeapps bitnami/kubeapps
 ```
 
-> **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/kubeapps/kubeapps/blob/master/docs/user/securing-kubeapps.md).
+> **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/securing-kubeapps.md).
 
 For Helm 3:
 
@@ -66,7 +66,7 @@ The command deploys Kubeapps on the Kubernetes cluster in the `kubeapps` namespa
 
 > **Caveat**: Only one Kubeapps installation is supported per namespace
 
-Once you have installed Kubeapps follow the [Getting Started Guide](https://github.com/kubeapps/kubeapps/blob/master/docs/user/getting-started.md) for additional information on how to access and use Kubeapps.
+Once you have installed Kubeapps follow the [Getting Started Guide](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/getting-started.md) for additional information on how to access and use Kubeapps.
 
 ## Parameters
 
@@ -102,7 +102,7 @@ Kubeapps supports two database types: MongoDB or PostgreSQL. By default MongoDB 
 
 ### Enabling Operators
 
-Since v1.9.0, Kubeapps supports to deploy and manage Operators within its dashboard. To enable this feature, set the flag `featureFlags.operators=true`. More information about how to enable and use this feature can be found in [this guide](https://github.com/kubeapps/kubeapps/blob/master/docs/user/operators.md).
+Since v1.9.0, Kubeapps supports to deploy and manage Operators within its dashboard. To enable this feature, set the flag `featureFlags.operators=true`. More information about how to enable and use this feature can be found in [this guide](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/operators.md).
 
 ### [Only for Helm 2] Configuring connection to a custom namespace Tiller instance
 
@@ -114,11 +114,11 @@ If your instance of Tiller is running in a different namespace or you want to ha
 
 In production, we strongly recommend setting up a [secure installation of Tiller](https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller), the Helm server side component.
 
-Learn more about how to secure your Kubeapps installation [here](https://github.com/kubeapps/kubeapps/blob/master/docs/user/securing-kubeapps.md).
+Learn more about how to secure your Kubeapps installation [here](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/securing-kubeapps.md).
 
 ### Exposing Externally
 
-> **Note**: The Kubeapps frontend sets up a proxy to the Kubernetes API service which means that when exposing the Kubeapps service to a network external to the Kubernetes cluster (perhaps on an internal or public network), the Kubernetes API will also be exposed for authenticated requests from that network. If you explicitly [use an OAuth2/OIDC provider with Kubeapps](https://github.com/kubeapps/kubeapps/blob/master/docs/user/using-an-OIDC-provider.md) (recommended), then only the configured users trusted by your Identity Provider will be able to reach the Kubernetes API. See [#1111](https://github.com/kubeapps/kubeapps/issues/1111) for more details.
+> **Note**: The Kubeapps frontend sets up a proxy to the Kubernetes API service which means that when exposing the Kubeapps service to a network external to the Kubernetes cluster (perhaps on an internal or public network), the Kubernetes API will also be exposed for authenticated requests from that network. If you explicitly [use an OAuth2/OIDC provider with Kubeapps](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/using-an-OIDC-provider.md) (recommended), then only the configured users trusted by your Identity Provider will be able to reach the Kubernetes API. See [#1111](https://github.com/suomitek/suomitek-appborad/issues/1111) for more details.
 
 #### LoadBalancer Service
 
@@ -230,7 +230,7 @@ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceac
 helm init --service-account tiller
 ```
 
-but for a production environment you can assign the specific permissions so that tiller can [manage CRDs on the cluster](https://github.com/kubeapps/kubeapps/blob/master/docs/user/manifests/openshift-tiller-with-crd-rbac.yaml) as well as [create app repositories in your Kubeapps namespace](https://github.com/kubeapps/kubeapps/blob/master/docs/user/manifests/openshift-tiller-with-apprepository-rbac.yaml) (examples are from our in development support for OpenShift).
+but for a production environment you can assign the specific permissions so that tiller can [manage CRDs on the cluster](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/manifests/openshift-tiller-with-crd-rbac.yaml) as well as [create app repositories in your Kubeapps namespace](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/manifests/openshift-tiller-with-apprepository-rbac.yaml) (examples are from our in development support for OpenShift).
 
 It is also possible, though less common, that your cluster does not have Role Based Access Control (RBAC) enabled. To check if your cluster has RBAC you can execute:
 
@@ -291,4 +291,4 @@ helm install --name kubeapps --namespace kubeapps bitnami/kubeapps
 kubectl apply -f <repo name>.yaml
 ```
 
-After that you should be able to access the new version of Kubeapps. If the above doesn't work for you or you run into any other issues please open an [issue](https://github.com/kubeapps/kubeapps/issues/new).
+After that you should be able to access the new version of Kubeapps. If the above doesn't work for you or you run into any other issues please open an [issue](https://github.com/suomitek/suomitek-appborad/issues/new).

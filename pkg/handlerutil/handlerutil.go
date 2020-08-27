@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/gorilla/mux"
-	"github.com/kubeapps/kubeapps/pkg/auth"
-	chartUtils "github.com/kubeapps/kubeapps/pkg/chart"
+	"github.com/suomitek/suomitek-appborad/pkg/auth"
+	chartUtils "github.com/suomitek/suomitek-appborad/pkg/chart"
 )
 
 // Params a key-value map of path params

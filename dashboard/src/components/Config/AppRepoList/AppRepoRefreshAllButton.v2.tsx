@@ -13,7 +13,7 @@ export function AppRepoRefreshAllButton() {
   const handleResyncAllClick = async () => {
     // Fake timeout to show progress
     // TODO(andresmgot): Ideally, we should show the progress of the sync but we don't
-    // have that info yet: https://github.com/kubeapps/kubeapps/issues/153
+    // have that info yet: https://github.com/suomitek/suomitek-appborad/issues/153
     setRefreshing(true);
     setTimeout(() => setRefreshing(false), 500);
     if (repos) {

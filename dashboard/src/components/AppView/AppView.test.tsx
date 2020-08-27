@@ -160,7 +160,7 @@ describe("AppViewComponent", () => {
       expect(wrapper.state("secretRefs")).toEqual([]);
     });
 
-    // See https://github.com/kubeapps/kubeapps/issues/632
+    // See https://github.com/suomitek/suomitek-appborad/issues/632
     it("supports manifests with duplicated keys", () => {
       const wrapper = shallow(<AppViewComponent {...validProps} />);
       const manifest = `

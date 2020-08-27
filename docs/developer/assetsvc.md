@@ -17,13 +17,13 @@ The `assetsvc` component is a micro-service that creates an API endpoint for acc
 ```bash
 export GOPATH=~/gopath
 export PATH=$GOPATH/bin:$PATH
-export KUBEAPPS_DIR=$GOPATH/src/github.com/kubeapps/kubeapps
+export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appborad
 ```
 
 ## Download the Kubeapps source code
 
 ```bash
-git clone https://github.com/kubeapps/kubeapps $KUBEAPPS_DIR
+git clone https://github.com/suomitek/suomitek-appborad $KUBEAPPS_DIR
 ```
 
 The `assetsvc` sources are located under the `cmd/assetsvc/` directory.

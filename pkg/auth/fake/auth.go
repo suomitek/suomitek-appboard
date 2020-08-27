@@ -17,7 +17,7 @@ limitations under the License.
 package fake
 
 import (
-	authUtils "github.com/kubeapps/kubeapps/pkg/auth"
+	authUtils "github.com/suomitek/suomitek-appborad/pkg/auth"
 )
 
 type FakeAuth struct {

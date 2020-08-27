@@ -164,7 +164,7 @@ class ServiceInstanceList extends React.PureComponent<
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://github.com/kubeapps/kubeapps/issues"
+              href="https://github.com/suomitek/suomitek-appborad/issues"
             >
               {" "}
               here.

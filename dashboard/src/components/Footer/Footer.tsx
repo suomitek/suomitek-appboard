@@ -20,7 +20,7 @@ const Footer: React.SFC<IFooterProps> = props => {
             <p className="type-small margin-reset">
               Made with <Heart className="icon icon-small" /> by Bitnami and{" "}
               <a
-                href="https://github.com/kubeapps/kubeapps/graphs/contributors"
+                href="https://github.com/suomitek/suomitek-appborad/graphs/contributors"
                 className="type-color-white"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -49,7 +49,7 @@ const Footer: React.SFC<IFooterProps> = props => {
                 />
               </svg>
             </a>
-            <a href="https://github.com/kubeapps/kubeapps" className="socialIcon margin-small">
+            <a href="https://github.com/suomitek/suomitek-appborad" className="socialIcon margin-small">
               <svg
                 role="img"
                 aria-label="Kubeapps on GitHub"
@@ -66,7 +66,7 @@ const Footer: React.SFC<IFooterProps> = props => {
             </a>
             <p className="type-small margin-small version-link">
               <a
-                href={`https://github.com/kubeapps/kubeapps/releases/tag/${props.appVersion}`}
+                href={`https://github.com/suomitek/suomitek-appborad/releases/tag/${props.appVersion}`}
                 className="type-color-white"
                 target="_blank"
                 rel="noopener noreferrer"

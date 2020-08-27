@@ -57,7 +57,7 @@ Once the release job is finished, you will have a GitHub release draft pre-popul
 
 At this point, you will have a new set of published docker images as well as some release notes waiting to be published.
 
-But before, we need to create and merge a PR with a chart version bump in `chart/kubeapps/Chart.yaml` ([example](https://github.com/kubeapps/kubeapps/pull/663/files)). This will trigger another CI job that will publish a new version of the chart pointing to the new Docker images built in the step 1.
+But before, we need to create and merge a PR with a chart version bump in `chart/kubeapps/Chart.yaml` ([example](https://github.com/suomitek/suomitek-appborad/pull/663/files)). This will trigger another CI job that will publish a new version of the chart pointing to the new Docker images built in the step 1.
 
 ## 4 - Publish the GitHub release
 

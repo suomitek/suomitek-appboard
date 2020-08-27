@@ -27,10 +27,10 @@ import (
 	"k8s.io/helm/pkg/proto/hapi/chart"
 	"k8s.io/helm/pkg/proto/hapi/release"
 
-	"github.com/kubeapps/kubeapps/pkg/auth"
-	authFake "github.com/kubeapps/kubeapps/pkg/auth/fake"
-	chartFake "github.com/kubeapps/kubeapps/pkg/chart/fake"
-	proxyFake "github.com/kubeapps/kubeapps/pkg/proxy/fake"
+	"github.com/suomitek/suomitek-appborad/pkg/auth"
+	authFake "github.com/suomitek/suomitek-appborad/pkg/auth/fake"
+	chartFake "github.com/suomitek/suomitek-appborad/pkg/chart/fake"
+	proxyFake "github.com/suomitek/suomitek-appborad/pkg/proxy/fake"
 )
 
 func TestActions(t *testing.T) {

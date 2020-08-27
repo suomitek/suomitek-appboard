@@ -132,4 +132,4 @@ Learn more about Kubeapps with the links below:
 - [Deploying Operators](./operators.md)
 - [Kubeapps Dashboard documentation](dashboard.md)
 - [Kubeapps components](../architecture/overview.md)
-- [Roadmap](https://github.com/kubeapps/kubeapps/wiki/Roadmap)
+- [Roadmap](https://github.com/suomitek/suomitek-appborad/wiki/Roadmap)

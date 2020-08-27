@@ -1,6 +1,6 @@
 # <img src="./docs/img/logo.png" width="40" align="left"> Kubeapps
 
-[![CircleCI](https://circleci.com/gh/kubeapps/kubeapps/tree/master.svg?style=svg)](https://circleci.com/gh/kubeapps/kubeapps/tree/master)
+[![CircleCI](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master.svg?style=svg)](https://circleci.com/gh/suomitek/suomitek-appborad/tree/master)
 
 Kubeapps is a web-based UI for deploying and managing applications in Kubernetes clusters. Kubeapps allows you to:
 
@@ -43,7 +43,7 @@ If you have followed the instructions for [installing Kubeapps](docs/user/gettin
 - [Detailed installation instructions](chart/kubeapps/README.md)
 - [Kubeapps Dashboard documentation](docs/user/dashboard.md)
 - [Kubeapps components](docs/architecture/overview.md)
-- [Roadmap](https://github.com/kubeapps/kubeapps/wiki/Roadmap)
+- [Roadmap](https://github.com/suomitek/suomitek-appborad/wiki/Roadmap)
 
 ## Differences from Monocular
 

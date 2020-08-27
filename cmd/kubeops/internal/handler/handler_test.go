@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	chartFake "github.com/kubeapps/kubeapps/pkg/chart/fake"
+	chartFake "github.com/suomitek/suomitek-appborad/pkg/chart/fake"
 	"helm.sh/helm/v3/pkg/action"
 	"helm.sh/helm/v3/pkg/chart"
 	"helm.sh/helm/v3/pkg/chartutil"
@@ -54,7 +54,7 @@ func newConfigFixture(t *testing.T, k *kubefake.FailingKubeClient) *Config {
 	}
 }
 
-// See https://github.com/kubeapps/kubeapps/pull/1439/files#r365678777
+// See https://github.com/suomitek/suomitek-appborad/pull/1439/files#r365678777
 // for discussion about cleaner long booleans.
 func and(exps ...bool) bool {
 	for _, exp := range exps {

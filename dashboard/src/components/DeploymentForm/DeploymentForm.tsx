@@ -102,7 +102,7 @@ class DeploymentForm extends React.Component<IDeploymentFormProps, IDeploymentFo
               If you are unable to install the application, contact the chart maintainers or if you
               think the issue is related to Kubeapps, please open an{" "}
               <a
-                href="https://github.com/kubeapps/kubeapps/issues/new"
+                href="https://github.com/suomitek/suomitek-appborad/issues/new"
                 target="_blank"
                 rel="noopener noreferrer"
               >

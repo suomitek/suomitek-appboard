@@ -230,7 +230,7 @@ class ServiceInstanceView extends React.Component<IServiceInstanceViewProps> {
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
-                          href="https://github.com/kubeapps/kubeapps/issues"
+                          href="https://github.com/suomitek/suomitek-appborad/issues"
                         >
                           {" "}
                           here

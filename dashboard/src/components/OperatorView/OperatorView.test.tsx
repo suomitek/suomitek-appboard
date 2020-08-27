@@ -37,8 +37,8 @@ const defaultOperator = {
           description: "this is a testing operator",
           annotations: {
             capabilities: "Basic Install",
-            repository: "github.com/kubeapps/kubeapps",
-            containerImage: "kubeapps/kubeapps",
+            repository: "github.com/suomitek/suomitek-appborad",
+            containerImage: "suomitek/suomitek-appborad",
             createdAt: "one day",
           },
           installModes: [],

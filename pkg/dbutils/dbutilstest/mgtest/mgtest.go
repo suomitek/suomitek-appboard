@@ -20,8 +20,8 @@ import (
 	"testing"
 
 	"github.com/suomitek/kubeapps-common/datastore"
-	"github.com/kubeapps/kubeapps/pkg/dbutils"
-	"github.com/kubeapps/kubeapps/pkg/dbutils/dbutilstest"
+	"github.com/suomitek/suomitek-appborad/pkg/dbutils"
+	"github.com/suomitek/suomitek-appborad/pkg/dbutils/dbutilstest"
 )
 
 const (

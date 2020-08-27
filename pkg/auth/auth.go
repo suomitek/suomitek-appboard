@@ -22,7 +22,7 @@ import (
 	"regexp"
 	"strings"
 
-	yamlUtils "github.com/kubeapps/kubeapps/pkg/yaml"
+	yamlUtils "github.com/suomitek/suomitek-appborad/pkg/yaml"
 	authorizationapi "k8s.io/api/authorization/v1"
 	k8sErrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -98,7 +98,7 @@ func NewAuth(token string) (*UserAuth, error) {
 	}
 	// Overwrite default token
 	config.BearerToken = token
-	config.BearerTokenFile = "" // https://github.com/kubeapps/kubeapps/pull/1359#issuecomment-564077326
+	config.BearerTokenFile = "" // https://github.com/suomitek/suomitek-appborad/pull/1359#issuecomment-564077326
 	kubeClient, err := kubernetes.NewForConfig(config)
 	if err != nil {
 		return nil, err

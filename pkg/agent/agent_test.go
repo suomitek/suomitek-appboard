@@ -5,8 +5,8 @@ import (
 	"sort"
 	"testing"
 
-	kubechart "github.com/kubeapps/kubeapps/pkg/chart"
-	chartFake "github.com/kubeapps/kubeapps/pkg/chart/fake"
+	kubechart "github.com/suomitek/suomitek-appborad/pkg/chart"
+	chartFake "github.com/suomitek/suomitek-appborad/pkg/chart/fake"
 	"helm.sh/helm/v3/pkg/action"
 	"helm.sh/helm/v3/pkg/chart"
 	"helm.sh/helm/v3/pkg/chartutil"
@@ -18,7 +18,7 @@ import (
 	chartv1 "k8s.io/helm/pkg/proto/hapi/chart"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/kubeapps/kubeapps/pkg/proxy"
+	"github.com/suomitek/suomitek-appborad/pkg/proxy"
 )
 
 const defaultListLimit = 256

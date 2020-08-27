@@ -27,9 +27,9 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"github.com/kubeapps/kubeapps/pkg/chart/models"
-	"github.com/kubeapps/kubeapps/pkg/dbutils"
-	"github.com/kubeapps/kubeapps/pkg/dbutils/dbutilstest/mgtest"
+	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
+	"github.com/suomitek/suomitek-appborad/pkg/dbutils"
+	"github.com/suomitek/suomitek-appborad/pkg/dbutils/dbutilstest/mgtest"
 )
 
 func getInitializedMongoManager(t *testing.T) (*mongodbAssetManager, func()) {

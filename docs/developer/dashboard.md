@@ -19,12 +19,12 @@ The dashboard is the main UI component of the Kubeapps project. Written in Javas
 ```bash
 export GOPATH=~/gopath
 export PATH=$GOPATH/bin:$PATH
-export KUBEAPPS_DIR=$GOPATH/src/github.com/kubeapps/kubeapps
+export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appborad
 ```
 ## Download the kubeapps source code
 
 ```bash
-git clone --recurse-submodules https://github.com/kubeapps/kubeapps $KUBEAPPS_DIR
+git clone --recurse-submodules https://github.com/suomitek/suomitek-appborad $KUBEAPPS_DIR
 ```
 
 The dashboard application source is located under the `dashboard/` directory of the repository.

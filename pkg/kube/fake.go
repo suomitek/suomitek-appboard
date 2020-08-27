@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"io"
 
-	v1alpha1 "github.com/kubeapps/kubeapps/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
+	v1alpha1 "github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 )
 

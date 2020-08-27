@@ -16,13 +16,13 @@ The `kubeops` component is a micro-service that creates an API endpoint for acce
 ```bash
 export GOPATH=~/gopath
 export PATH=$GOPATH/bin:$PATH
-export KUBEAPPS_DIR=$GOPATH/src/github.com/kubeapps/kubeapps
+export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appborad
 ```
 
 ## Download the Kubeapps source code
 
 ```bash
-git clone --recurse-submodules https://github.com/kubeapps/kubeapps $KUBEAPPS_DIR
+git clone --recurse-submodules https://github.com/suomitek/suomitek-appborad $KUBEAPPS_DIR
 ```
 
 The `kubeops` sources are located under `cmd/kubeops/` and use packages from the `pkg` directory.

@@ -264,7 +264,7 @@ local_e2e_steps: &local_e2e_steps
 
 jobs:
   test_go:
-    working_directory: /go/src/github.com/kubeapps/kubeapps
+    working_directory: /go/src/github.com/suomitek/suomitek-appborad
     environment:
       CGO_ENABLED: "0"
     docker:
@@ -279,7 +279,7 @@ jobs:
           docker run -d --name postgresql --rm --publish 5432:5432 -e ALLOW_EMPTY_PASSWORD=yes bitnami/postgresql:11.6.0-debian-9-r0
           docker run --network container:postgresql -d --name tests circleci/golang:1.13 tail -f /dev/null
           docker cp /go tests:/
-          docker exec -it tests /bin/sh -c "cd /go/src/github.com/kubeapps/kubeapps/ && make test-db"
+          docker exec -it tests /bin/sh -c "cd /go/src/github.com/suomitek/suomitek-appborad/ && make test-db"
   test_dashboard:
     docker:
       - image: circleci/node:12
@@ -301,7 +301,7 @@ jobs:
   build_go_images:
     docker:
       - image: circleci/golang:1.13
-    working_directory: /go/src/github.com/kubeapps/kubeapps
+    working_directory: /go/src/github.com/suomitek/suomitek-appborad
     environment:
       GOPATH: /home/circleci/.go_workspace
       IMAGES: "kubeops apprepository-controller tiller-proxy asset-syncer assetsvc"

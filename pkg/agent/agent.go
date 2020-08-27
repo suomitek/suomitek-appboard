@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/kubeapps/kubeapps/pkg/chart/helm3to2"
-	"github.com/kubeapps/kubeapps/pkg/proxy"
+	"github.com/suomitek/suomitek-appborad/pkg/chart/helm3to2"
+	"github.com/suomitek/suomitek-appborad/pkg/proxy"
 	log "github.com/sirupsen/logrus"
 	"helm.sh/helm/v3/pkg/action"
 	"helm.sh/helm/v3/pkg/chart"

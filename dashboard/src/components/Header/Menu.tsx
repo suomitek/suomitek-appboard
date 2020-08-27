@@ -76,7 +76,7 @@ function Menu({ clusters, defaultNamespace, appVersion, logout }: IContextSelect
                 Made with <CdsIcon size="sm" shape="heart" inverse={true} solid={true} /> by Bitnami
                 and{" "}
                 <a
-                  href="https://github.com/kubeapps/kubeapps/graphs/contributors"
+                  href="https://github.com/suomitek/suomitek-appborad/graphs/contributors"
                   className="type-color-white"
                   target="_blank"
                   rel="noopener noreferrer"

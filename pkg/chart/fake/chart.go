@@ -20,8 +20,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	chartUtils "github.com/kubeapps/kubeapps/pkg/chart"
-	"github.com/kubeapps/kubeapps/pkg/kube"
+	chartUtils "github.com/suomitek/suomitek-appborad/pkg/chart"
+	"github.com/suomitek/suomitek-appborad/pkg/kube"
 	chart3 "helm.sh/helm/v3/pkg/chart"
 	chart2 "k8s.io/helm/pkg/proto/hapi/chart"
 	"sigs.k8s.io/yaml"

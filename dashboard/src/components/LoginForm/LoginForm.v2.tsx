@@ -64,7 +64,7 @@ function LoginForm(props: ILoginFormProps) {
         )}
         <div className="login-moreinfo">
           <a
-            href={`https://github.com/kubeapps/kubeapps/blob/${props.appVersion}/docs/user/access-control.md`}
+            href={`https://github.com/suomitek/suomitek-appborad/blob/${props.appVersion}/docs/user/access-control.md`}
             target="_blank"
             rel="noopener noreferrer"
           >

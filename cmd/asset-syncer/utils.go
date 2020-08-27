@@ -39,7 +39,7 @@ import (
 	"github.com/ghodss/yaml"
 	"github.com/jinzhu/copier"
 	"github.com/suomitek/kubeapps-common/datastore"
-	"github.com/kubeapps/kubeapps/pkg/chart/models"
+	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
 	log "github.com/sirupsen/logrus"
 	helmrepo "k8s.io/helm/pkg/repo"
 )

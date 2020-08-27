@@ -65,11 +65,11 @@ exports[`renders a full OperatorView 1`] = `
               >
                 <span>
                   <a
-                    href="github.com/kubeapps/kubeapps"
+                    href="github.com/suomitek/suomitek-appborad"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    github.com/kubeapps/kubeapps
+                    github.com/suomitek/suomitek-appborad
                   </a>
                 </span>
               </div>
@@ -98,7 +98,7 @@ exports[`renders a full OperatorView 1`] = `
                 className="margin-l-big"
               >
                 <span>
-                  kubeapps/kubeapps
+                  suomitek/suomitek-appborad
                 </span>
               </div>
             </div>

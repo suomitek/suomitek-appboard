@@ -19,8 +19,8 @@ limitations under the License.
 package apprepository
 
 import (
-	v1alpha1 "github.com/kubeapps/kubeapps/cmd/apprepository-controller/pkg/client/informers/externalversions/apprepository/v1alpha1"
-	internalinterfaces "github.com/kubeapps/kubeapps/cmd/apprepository-controller/pkg/client/informers/externalversions/internalinterfaces"
+	v1alpha1 "github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/client/informers/externalversions/apprepository/v1alpha1"
+	internalinterfaces "github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/client/informers/externalversions/internalinterfaces"
 )
 
 // Interface provides access to each of this group's versions.

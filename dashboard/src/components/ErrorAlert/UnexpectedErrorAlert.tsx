@@ -24,7 +24,7 @@ export const genericMessage = (
       </li>
       <li>
         <a
-          href="https://github.com/kubeapps/kubeapps/issues/new"
+          href="https://github.com/suomitek/suomitek-appborad/issues/new"
           target="_blank"
           rel="noopener noreferrer"
         >

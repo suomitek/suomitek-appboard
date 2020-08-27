@@ -24,7 +24,7 @@ kubectl create namespace kubeapps
 helm install kubeapps --namespace kubeapps bitnami/kubeapps --set useHelm3=true
 ```
 
-To get started with Kubeapps, checkout this [walkthrough](https://github.com/kubeapps/kubeapps/blob/master/docs/user/getting-started.md).
+To get started with Kubeapps, checkout this [walkthrough](https://github.com/suomitek/suomitek-appborad/blob/master/docs/user/getting-started.md).
 
 ## Changelog
 

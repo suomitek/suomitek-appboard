@@ -26,9 +26,9 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/kubeapps/kubeapps/pkg/chart/models"
-	"github.com/kubeapps/kubeapps/pkg/dbutils/dbutilstest"
-	"github.com/kubeapps/kubeapps/pkg/dbutils/dbutilstest/pgtest"
+	"github.com/suomitek/suomitek-appborad/pkg/chart/models"
+	"github.com/suomitek/suomitek-appborad/pkg/dbutils/dbutilstest"
+	"github.com/suomitek/suomitek-appborad/pkg/dbutils/dbutilstest/pgtest"
 	_ "github.com/lib/pq"
 )
 

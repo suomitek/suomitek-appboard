@@ -23,9 +23,9 @@ import (
 	"strings"
 
 	"github.com/gorilla/mux"
-	"github.com/kubeapps/kubeapps/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
-	"github.com/kubeapps/kubeapps/pkg/auth"
-	"github.com/kubeapps/kubeapps/pkg/kube"
+	"github.com/suomitek/suomitek-appborad/cmd/apprepository-controller/pkg/apis/apprepository/v1alpha1"
+	"github.com/suomitek/suomitek-appborad/pkg/auth"
+	"github.com/suomitek/suomitek-appborad/pkg/kube"
 	log "github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
 	k8sErrors "k8s.io/apimachinery/pkg/api/errors"

@@ -163,7 +163,7 @@ export const fetchRepoSecrets = (
   return async (dispatch, getState) => {
     // TODO(andresmgot): Create an endpoint for returning credentials related to an AppRepository
     // to avoid listing secrets
-    // https://github.com/kubeapps/kubeapps/issues/1686
+    // https://github.com/suomitek/suomitek-appborad/issues/1686
     const secrets = await Secret.list("default", namespace);
     const repoSecrets = secrets.items?.filter(s =>
       s.metadata.ownerReferences?.some(ownerRef => ownerRef.kind === "AppRepository"),
@@ -363,7 +363,7 @@ export function fetchImagePullSecrets(
       dispatch(requestImagePullSecrets(namespace));
       // TODO(andresmgot): Create an endpoint for returning just the list of secret names
       // to avoid listing all the secrets with protected information
-      // https://github.com/kubeapps/kubeapps/issues/1686
+      // https://github.com/suomitek/suomitek-appborad/issues/1686
       const secrets = await Secret.list("default", namespace);
       const imgPullSecrets = secrets.items?.filter(
         s => s.type === "kubernetes.io/dockerconfigjson",
