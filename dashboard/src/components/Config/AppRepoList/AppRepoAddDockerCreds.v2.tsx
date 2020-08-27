@@ -96,13 +96,13 @@ export function AppRepoAddDockerCreds({
         <div className="secondary-input">
           <label className="clr-control-label">New Docker Registry Credentials</label>
           <div className="clr-form-separator-sm">
-            <label htmlFor="kubeapps-docker-cred-secret-name" className="clr-control-label">
+            <label htmlFor="suomitek-appboard-docker-cred-secret-name" className="clr-control-label">
               Secret Name
             </label>
             <div className="clr-control-container">
               <div className="clr-input-wrapper">
                 <input
-                  id="kubeapps-docker-cred-secret-name"
+                  id="suomitek-appboard-docker-cred-secret-name"
                   className="clr-input"
                   value={secretName}
                   onChange={handleSecretNameChange}
@@ -113,13 +113,13 @@ export function AppRepoAddDockerCreds({
             </div>
           </div>
           <div className="clr-form-control">
-            <label className="clr-control-label" htmlFor="kubeapps-docker-cred-server">
+            <label className="clr-control-label" htmlFor="suomitek-appboard-docker-cred-server">
               Server
             </label>
             <div className="clr-control-container">
               <div className="clr-input-wrapper">
                 <input
-                  id="kubeapps-docker-cred-server"
+                  id="suomitek-appboard-docker-cred-server"
                   value={server}
                   className="clr-input"
                   onChange={handleServerChange}
@@ -130,13 +130,13 @@ export function AppRepoAddDockerCreds({
             </div>
           </div>
           <div className="clr-form-control">
-            <label className="clr-control-label" htmlFor="kubeapps-docker-cred-username">
+            <label className="clr-control-label" htmlFor="suomitek-appboard-docker-cred-username">
               Username
             </label>
             <div className="clr-control-container">
               <div className="clr-input-wrapper">
                 <input
-                  id="kubeapps-docker-cred-username"
+                  id="suomitek-appboard-docker-cred-username"
                   className="clr-input"
                   value={user}
                   onChange={handleUserChange}
@@ -147,14 +147,14 @@ export function AppRepoAddDockerCreds({
             </div>
           </div>
           <div className="clr-form-control">
-            <label className="clr-control-label" htmlFor="kubeapps-docker-cred-password">
+            <label className="clr-control-label" htmlFor="suomitek-appboard-docker-cred-password">
               Password
             </label>
             <div className="clr-control-container">
               <div className="clr-input-wrapper">
                 <input
                   type="password"
-                  id="kubeapps-docker-cred-password"
+                  id="suomitek-appboard-docker-cred-password"
                   className="clr-input"
                   value={password}
                   onChange={handlePasswordChange}
@@ -165,13 +165,13 @@ export function AppRepoAddDockerCreds({
             </div>
           </div>
           <div className="clr-form-control">
-            <label className="clr-control-label" htmlFor="kubeapps-docker-cred-email">
+            <label className="clr-control-label" htmlFor="suomitek-appboard-docker-cred-email">
               Email
             </label>
             <div className="clr-control-container">
               <div className="clr-input-wrapper">
                 <input
-                  id="kubeapps-docker-cred-email"
+                  id="suomitek-appboard-docker-cred-email"
                   className="clr-input"
                   value={email}
                   onChange={handleEmailChange}

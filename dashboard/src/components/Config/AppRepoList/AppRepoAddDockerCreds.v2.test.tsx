@@ -103,14 +103,14 @@ it("submits the new secret", async () => {
   const server = "docker.io";
 
   wrapper
-    .find("#kubeapps-docker-cred-secret-name")
+    .find("#suomitek-appboard-docker-cred-secret-name")
     .simulate("change", { target: { value: secretName } });
-  wrapper.find("#kubeapps-docker-cred-server").simulate("change", { target: { value: server } });
-  wrapper.find("#kubeapps-docker-cred-username").simulate("change", { target: { value: user } });
+  wrapper.find("#suomitek-appboard-docker-cred-server").simulate("change", { target: { value: server } });
+  wrapper.find("#suomitek-appboard-docker-cred-username").simulate("change", { target: { value: user } });
   wrapper
-    .find("#kubeapps-docker-cred-password")
+    .find("#suomitek-appboard-docker-cred-password")
     .simulate("change", { target: { value: password } });
-  wrapper.find("#kubeapps-docker-cred-email").simulate("change", { target: { value: email } });
+  wrapper.find("#suomitek-appboard-docker-cred-email").simulate("change", { target: { value: email } });
   wrapper.update();
 
   const submit = wrapper.find(CdsButton).filterWhere(b => b.html().includes("Submit"));

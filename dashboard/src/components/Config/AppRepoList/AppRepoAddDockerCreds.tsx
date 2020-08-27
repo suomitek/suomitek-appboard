@@ -66,11 +66,11 @@ export class AppRepoAddDockerCreds extends React.Component<IAppRepoFormProps, IA
           <div className="secondary-input margin-t-big">
             <div className="row">
               <div className="col-1 margin-t-normal">
-                <label htmlFor="kubeapps-docker-cred-secret-name">Secret Name</label>
+                <label htmlFor="suomitek-appboard-docker-cred-secret-name">Secret Name</label>
               </div>
               <div className="col-11">
                 <input
-                  id="kubeapps-docker-cred-secret-name"
+                  id="suomitek-appboard-docker-cred-secret-name"
                   value={this.state.secretName}
                   onChange={this.handleSecretNameChange}
                   placeholder="Secret"
@@ -80,11 +80,11 @@ export class AppRepoAddDockerCreds extends React.Component<IAppRepoFormProps, IA
             </div>
             <div className="row">
               <div className="col-1 margin-t-normal">
-                <label htmlFor="kubeapps-docker-cred-server">Server</label>
+                <label htmlFor="suomitek-appboard-docker-cred-server">Server</label>
               </div>
               <div className="col-11">
                 <input
-                  id="kubeapps-docker-cred-server"
+                  id="suomitek-appboard-docker-cred-server"
                   value={this.state.server}
                   onChange={this.handleServerChange}
                   placeholder="https://index.docker.io/v1/"
@@ -94,11 +94,11 @@ export class AppRepoAddDockerCreds extends React.Component<IAppRepoFormProps, IA
             </div>
             <div className="row">
               <div className="col-1 margin-t-normal">
-                <label htmlFor="kubeapps-docker-cred-username">Username</label>
+                <label htmlFor="suomitek-appboard-docker-cred-username">Username</label>
               </div>
               <div className="col-11">
                 <input
-                  id="kubeapps-docker-cred-username"
+                  id="suomitek-appboard-docker-cred-username"
                   value={this.state.user}
                   onChange={this.handleUserChange}
                   placeholder="Username"
@@ -108,12 +108,12 @@ export class AppRepoAddDockerCreds extends React.Component<IAppRepoFormProps, IA
             </div>
             <div className="row">
               <div className="col-1 margin-t-normal">
-                <label htmlFor="kubeapps-docker-cred-password">Password</label>
+                <label htmlFor="suomitek-appboard-docker-cred-password">Password</label>
               </div>
               <div className="col-11">
                 <input
                   type="password"
-                  id="kubeapps-docker-cred-password"
+                  id="suomitek-appboard-docker-cred-password"
                   value={this.state.password}
                   onChange={this.handlePasswordChange}
                   placeholder="Password"
@@ -123,11 +123,11 @@ export class AppRepoAddDockerCreds extends React.Component<IAppRepoFormProps, IA
             </div>
             <div className="row">
               <div className="col-1 margin-t-normal">
-                <label htmlFor="kubeapps-docker-cred-email">Email</label>
+                <label htmlFor="suomitek-appboard-docker-cred-email">Email</label>
               </div>
               <div className="col-11">
                 <input
-                  id="kubeapps-docker-cred-email"
+                  id="suomitek-appboard-docker-cred-email"
                   value={this.state.email}
                   onChange={this.handleEmailChange}
                   placeholder="user@example.com"

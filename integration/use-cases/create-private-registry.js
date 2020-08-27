@@ -25,7 +25,7 @@ test("Creates a private registry", async () => {
 
   await page.type(
     "#suomitek-appboard-repo-url",
-    "http://chartmuseum-chartmuseum.kubeapps:8080"
+    "http://chartmuseum-chartmuseum.suomitek-appboard:8080"
   );
 
   await expect(page).toClick("label", { text: "Basic Auth" });
@@ -38,14 +38,14 @@ test("Creates a private registry", async () => {
   const randomNumber = Math.floor(Math.random() * Math.floor(100));
   const secret = "my-repo-secret" + randomNumber;
   await expect(page).toClick("button", { text: "Add new credentials" });
-  await page.type("#kubeapps-docker-cred-secret-name", secret);
+  await page.type("#suomitek-appboard-docker-cred-secret-name", secret);
   await page.type(
-    "#kubeapps-docker-cred-server",
+    "#suomitek-appboard-docker-cred-server",
     "https://index.docker.io/v1/"
   );
-  await page.type("#kubeapps-docker-cred-username", "user");
-  await page.type("#kubeapps-docker-cred-password", "password");
-  await page.type("#kubeapps-docker-cred-email", "user@example.com");
+  await page.type("#suomitek-appboard-docker-cred-username", "user");
+  await page.type("#suomitek-appboard-docker-cred-password", "password");
+  await page.type("#suomitek-appboard-docker-cred-email", "user@example.com");
   await expect(page).toClick("button", { text: "Submit" });
 
   // Select the new secret
