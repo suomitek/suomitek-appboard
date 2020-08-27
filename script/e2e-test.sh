@@ -279,13 +279,13 @@ deployments=(
   "suomitek-appboard-ci-internal-dashboard"
 )
 for dep in "${deployments[@]}"; do
-  k8s_wait_for_deployment kubeapps "$dep"
+  k8s_wait_for_deployment suomitek-appboard "$dep"
   info "Deployment ${dep} ready"
 done
 if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
-  k8s_wait_for_deployment kubeapps suomitek-appboard-ci-internal-tiller-proxy
+  k8s_wait_for_deployment suomitek-appboard suomitek-appboard-ci-internal-tiller-proxy
 else
-  k8s_wait_for_deployment kubeapps suomitek-appboard-ci-internal-kubeops
+  k8s_wait_for_deployment suomitek-appboard suomitek-appboard-ci-internal-kubeops
 fi
 
 # Wait for Kubeapps Jobs
@@ -293,7 +293,7 @@ fi
 kubectl delete jobs -n suomitek-appboard --all
 # Trigger update of the bitnami repository
 kubectl patch apprepositories.suomitek.com -n suomitek-appboard bitnami -p='[{"op": "replace", "path": "/spec/resyncRequests", "value":1}]' --type=json
-k8s_wait_for_job_completed kubeapps apprepositories.suomitek.com/repo-name=bitnami
+k8s_wait_for_job_completed suomitek-appboard apprepositories.suomitek.com/repo-name=bitnami
 info "Job apprepositories.suomitek.com/repo-name=bitnami ready"
 
 info "All deployments ready. PODs:"
@@ -307,7 +307,7 @@ svcs=(
   "suomitek-appboard-ci-internal-dashboard"
 )
 for svc in "${svcs[@]}"; do
-  k8s_wait_for_endpoints kubeapps "$svc" 2
+  k8s_wait_for_endpoints suomitek-appboard "$svc" 2
   info "Endpoints for ${svc} available"
 done
 
@@ -371,26 +371,26 @@ fi
 kubectl cp ./use-cases "${pod}:/app/"
 ## Create admin user
 kubectl create serviceaccount suomitek-appboard-operator -n suomitek-appboard
-kubectl create clusterrolebinding suomitek-appboard-operator-admin --clusterrole=admin --serviceaccount kubeapps:suomitek-appboard-operator
-kubectl create clusterrolebinding kubeapps-repositories-write --clusterrole kubeapps:kubeapps:apprepositories-write --serviceaccount kubeapps:suomitek-appboard-operator
+kubectl create clusterrolebinding suomitek-appboard-operator-admin --clusterrole=admin --serviceaccount suomitek-appboard:suomitek-appboard-operator
+kubectl create clusterrolebinding suomitek-appboard-repositories-write --clusterrole suomitek-appboard:suomitek-appboard:apprepositories-write --serviceaccount suomitek-appboard:suomitek-appboard-operator
 ## Create view user
-kubectl create serviceaccount kubeapps-view -n suomitek-appboard
-kubectl create clusterrolebinding kubeapps-view --clusterrole=view --serviceaccount kubeapps:kubeapps-view
+kubectl create serviceaccount suomitek-appboard-view -n suomitek-appboard
+kubectl create clusterrolebinding suomitek-appboard-view --clusterrole=view --serviceaccount suomitek-appboard:suomitek-appboard-view
 ## Create edit user
-kubectl create serviceaccount kubeapps-edit -n suomitek-appboard
-kubectl create rolebinding kubeapps-edit -n suomitek-appboard --clusterrole=edit --serviceaccount kubeapps:kubeapps-edit
+kubectl create serviceaccount suomitek-appboard-edit -n suomitek-appboard
+kubectl create rolebinding suomitek-appboard-edit -n suomitek-appboard --clusterrole=edit --serviceaccount suomitek-appboard:suomitek-appboard-edit
 ## Give the cluster some time to avoid issues like
 ## https://circleci.com/gh/suomitek/suomitek-appboard/16102
 retry_while "kubectl get -n suomitek-appboard serviceaccount suomitek-appboard-operator -o name" "5" "1"
-retry_while "kubectl get -n suomitek-appboard serviceaccount kubeapps-view -o name" "5" "1"
-retry_while "kubectl get -n suomitek-appboard serviceaccount kubeapps-edit -o name" "5" "1"
+retry_while "kubectl get -n suomitek-appboard serviceaccount suomitek-appboard-view -o name" "5" "1"
+retry_while "kubectl get -n suomitek-appboard serviceaccount suomitek-appboard-edit -o name" "5" "1"
 ## Retrieve tokens
 admin_token="$(kubectl get -n suomitek-appboard secret "$(kubectl get -n suomitek-appboard serviceaccount suomitek-appboard-operator -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
-view_token="$(kubectl get -n suomitek-appboard secret "$(kubectl get -n suomitek-appboard serviceaccount kubeapps-view -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
-edit_token="$(kubectl get -n suomitek-appboard secret "$(kubectl get -n suomitek-appboard serviceaccount kubeapps-edit -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
+view_token="$(kubectl get -n suomitek-appboard secret "$(kubectl get -n suomitek-appboard serviceaccount suomitek-appboard-view -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
+edit_token="$(kubectl get -n suomitek-appboard secret "$(kubectl get -n suomitek-appboard serviceaccount suomitek-appboard-edit -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
 ## Run tests
 info "Running Integration tests..."
-if ! kubectl exec -it "$pod" -- /bin/sh -c "INTEGRATION_ENTRYPOINT=http://suomitek-appboard-ci.kubeapps ADMIN_TOKEN=${admin_token} VIEW_TOKEN=${view_token} EDIT_TOKEN=${edit_token} yarn start ${ignoreFlag}"; then
+if ! kubectl exec -it "$pod" -- /bin/sh -c "INTEGRATION_ENTRYPOINT=http://suomitek-appboard-ci.suomitek-appboard ADMIN_TOKEN=${admin_token} VIEW_TOKEN=${view_token} EDIT_TOKEN=${edit_token} yarn start ${ignoreFlag}"; then
   ## Integration tests failed, get report screenshot
   warn "PODS status on failure"
   kubectl cp "${pod}:/app/reports" ./reports
