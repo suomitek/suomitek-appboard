@@ -115,7 +115,7 @@ In order to list the configured App Repositories in Kubeapps, [bind users/groups
 ```bash
 export KUBEAPPS_NAMESPACE=kubeapps
 kubectl create -n $KUBEAPPS_NAMESPACE rolebinding example-suomitek-appboard-repositories-read \
-  --clusterrole=kubeapps:$KUBEAPPS_NAMESPACE:apprepositories-read \
+  --clusterrole=suomitek-appboard:$KUBEAPPS_NAMESPACE:apprepositories-read \
   --serviceaccount default:example
 ```
 
@@ -128,7 +128,7 @@ for users to create and refresh App Repositories in Kubeapps
 ```bash
 export KUBEAPPS_NAMESPACE=kubeapps
 kubectl create -n $KUBEAPPS_NAMESPACE rolebinding example-suomitek-appboard-repositories-write \
-  --clusterrole=kubeapps:$KUBEAPPS_NAMESPACE:apprepositories-write \
+  --clusterrole=suomitek-appboard:$KUBEAPPS_NAMESPACE:apprepositories-write \
   --serviceaccount default:example
 ```
 

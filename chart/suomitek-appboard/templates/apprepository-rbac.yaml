@@ -117,7 +117,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: "kubeapps:{{ .Release.Namespace }}:apprepositories-read"
+  name: "suomitek-appboard:{{ .Release.Namespace }}:apprepositories-read"
 subjects:
   - kind: ServiceAccount
     name: {{ template "suomitek-appboard.apprepository.fullname" . }}
@@ -126,7 +126,7 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: "kubeapps:{{ .Release.Namespace }}:apprepositories-write"
+  name: "suomitek-appboard:{{ .Release.Namespace }}:apprepositories-write"
   labels:{{ include "suomitek-appboard.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appboard.apprepository.fullname" . }}
 rules:

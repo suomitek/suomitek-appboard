@@ -56,7 +56,7 @@ openshift-tiller-token:
 		$(shell kubectl get serviceaccount -n "${TILLER_NAMESPACE}" tiller -o jsonpath='{range .secrets[*]}{.name}{"\n"}{end}' | grep tiller-token) \
 		-o go-template='{{.data.token | base64decode}}' && echo
 
-openshift-kubeapps: devel/openshift-suomitek-appboard-installed
+openshift-suomitek-appboard: devel/openshift-suomitek-appboard-installed
 
 openshift-suomitek-appboard-reset:
 	oc delete project ${KUBEAPPS_NAMESPACE} || true
