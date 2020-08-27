@@ -35,7 +35,7 @@ Create chart name and version as used by the chart label.
 Common labels for additional kubeapps applications. Used on resources whose app name is different
 from kubeapps
 */}}
-{{- define "kubeapps.extraAppLabels" -}}
+{{- define "suomitek-appborad.extraAppLabels" -}}
 chart: {{ include "kubeapps.chart" . }}
 release: {{ .Release.Name }}
 heritage: {{ .Release.Service }}

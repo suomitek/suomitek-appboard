@@ -7,7 +7,7 @@ metadata:
   name: apprepositories.suomitek.com
   annotations:
     "helm.sh/hook": crd-install
-  labels:{{ include "kubeapps.extraAppLabels" $ | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" $ | nindent 4 }}
     app: {{ template "suomitek-appborad.apprepository.fullname" $ }}
 spec:
   group: suomitek.com

@@ -8,7 +8,7 @@ metadata:
     helm.sh/hook: post-upgrade
     helm.sh/hook-weight: "0"
     helm.sh/hook-delete-policy: hook-succeeded
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.apprepository-job-postupgrade.fullname" . }}
 spec:
   template:

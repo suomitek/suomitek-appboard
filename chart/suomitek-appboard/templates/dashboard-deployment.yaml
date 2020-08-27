@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "suomitek-appborad.dashboard.fullname" . }}
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.dashboard.fullname" . }}
 spec:
   replicas: {{ .Values.dashboard.replicaCount }}

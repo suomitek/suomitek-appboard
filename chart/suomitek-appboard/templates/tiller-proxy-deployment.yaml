@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 spec:
   replicas: {{ .Values.tillerProxy.replicaCount }}

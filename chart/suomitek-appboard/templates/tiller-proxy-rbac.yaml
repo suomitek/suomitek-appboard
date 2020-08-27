@@ -4,7 +4,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 rules:
   - apiGroups:
@@ -26,7 +26,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -42,7 +42,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 rules:
 - apiGroups:
@@ -56,7 +56,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:tiller-proxy-ns-discovery-{{ .Release.Namespace }}"
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -73,7 +73,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 rules:
 - apiGroups:
@@ -87,7 +87,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: "kubeapps:controller:tiller-proxy-operators-{{ .Release.Namespace }}"
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io

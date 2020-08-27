@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ template "suomitek-appborad.tiller-proxy.fullname" . }}
-  labels:{{ include "kubeapps.extraAppLabels" . | nindent 4 }}
+  labels:{{ include "suomitek-appborad.extraAppLabels" . | nindent 4 }}
     app: {{ template "suomitek-appborad.name" . }}
 spec:
   type: ClusterIP
