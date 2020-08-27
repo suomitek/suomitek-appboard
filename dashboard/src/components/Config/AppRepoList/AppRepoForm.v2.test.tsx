@@ -167,13 +167,13 @@ describe("when the repository info is already populated", () => {
   it("should parse the existing url", () => {
     const repo = { metadata: { name: "foo" }, spec: { url: "http://repo" } } as any;
     const wrapper = mountWrapper(defaultStore, <AppRepoForm {...defaultProps} repo={repo} />);
-    expect(wrapper.find("#kubeapps-repo-url").prop("value")).toBe("http://repo");
+    expect(wrapper.find("#suomitek-appboard-repo-url").prop("value")).toBe("http://repo");
   });
 
   it("should parse the existing syncJobPodTemplate", () => {
     const repo = { metadata: { name: "foo" }, spec: { syncJobPodTemplate: { foo: "bar" } } } as any;
     const wrapper = mountWrapper(defaultStore, <AppRepoForm {...defaultProps} repo={repo} />);
-    expect(wrapper.find("#kubeapps-repo-sync-job-tpl").prop("value")).toBe("foo: bar\n");
+    expect(wrapper.find("#suomitek-appboard-repo-sync-job-tpl").prop("value")).toBe("foo: bar\n");
   });
 
   describe("when there is a secret associated to the repo", () => {
@@ -184,7 +184,7 @@ describe("when the repository info is already populated", () => {
         defaultStore,
         <AppRepoForm {...defaultProps} repo={repo} secret={secret} />,
       );
-      expect(wrapper.find("#kubeapps-repo-custom-ca").prop("value")).toBe("foo");
+      expect(wrapper.find("#suomitek-appboard-repo-custom-ca").prop("value")).toBe("foo");
     });
 
     it("should parse the existing auth header", () => {
@@ -194,7 +194,7 @@ describe("when the repository info is already populated", () => {
         defaultStore,
         <AppRepoForm {...defaultProps} repo={repo} secret={secret} />,
       );
-      expect(wrapper.find("#kubeapps-repo-custom-header").prop("value")).toBe("foo");
+      expect(wrapper.find("#suomitek-appboard-repo-custom-header").prop("value")).toBe("foo");
     });
 
     it("should parse the existing basic auth", () => {
@@ -204,8 +204,8 @@ describe("when the repository info is already populated", () => {
         defaultStore,
         <AppRepoForm {...defaultProps} repo={repo} secret={secret} />,
       );
-      expect(wrapper.find("#kubeapps-repo-username").prop("value")).toBe("foo");
-      expect(wrapper.find("#kubeapps-repo-password").prop("value")).toBe("bar");
+      expect(wrapper.find("#suomitek-appboard-repo-username").prop("value")).toBe("foo");
+      expect(wrapper.find("#suomitek-appboard-repo-password").prop("value")).toBe("bar");
     });
 
     it("should parse a bearer token", () => {
@@ -215,7 +215,7 @@ describe("when the repository info is already populated", () => {
         defaultStore,
         <AppRepoForm {...defaultProps} repo={repo} secret={secret} />,
       );
-      expect(wrapper.find("#kubeapps-repo-token").prop("value")).toBe("foo");
+      expect(wrapper.find("#suomitek-appboard-repo-token").prop("value")).toBe("foo");
     });
 
     it("should pre-select the existing docker registry secret", () => {

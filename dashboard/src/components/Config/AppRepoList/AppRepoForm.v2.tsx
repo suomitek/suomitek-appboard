@@ -234,14 +234,14 @@ export function AppRepoForm({
         </div>
       </div>
       <div className="clr-form-control">
-        <label htmlFor="kubeapps-repo-url" className="clr-control-label">
+        <label htmlFor="suomitek-appboard-repo-url" className="clr-control-label">
           URL
         </label>
         <div className="clr-control-container">
           <div className="clr-input-wrapper">
             <input
               type="url"
-              id="kubeapps-repo-url"
+              id="suomitek-appboard-repo-url"
               placeholder="https://charts.example.com/stable"
               value={url}
               className="clr-input"
@@ -260,12 +260,12 @@ export function AppRepoForm({
           <Row>
             <Column span={3}>
               <label
-                htmlFor="kubeapps-repo-auth-method-none"
+                htmlFor="suomitek-appboard-repo-auth-method-none"
                 className="clr-control-label clr-control-label-radio"
               >
                 <input
                   type="radio"
-                  id="kubeapps-repo-auth-method-none"
+                  id="suomitek-appboard-repo-auth-method-none"
                   name="auth"
                   value={AUTH_METHOD_NONE}
                   checked={authMethod === AUTH_METHOD_NONE}
@@ -275,12 +275,12 @@ export function AppRepoForm({
                 <br />
               </label>
               <label
-                htmlFor="kubeapps-repo-auth-method-basic"
+                htmlFor="suomitek-appboard-repo-auth-method-basic"
                 className="clr-control-label clr-control-label-radio"
               >
                 <input
                   type="radio"
-                  id="kubeapps-repo-auth-method-basic"
+                  id="suomitek-appboard-repo-auth-method-basic"
                   name="auth"
                   checked={authMethod === AUTH_METHOD_BASIC}
                   value={AUTH_METHOD_BASIC}
@@ -290,12 +290,12 @@ export function AppRepoForm({
                 <br />
               </label>
               <label
-                htmlFor="kubeapps-repo-auth-method-bearer"
+                htmlFor="suomitek-appboard-repo-auth-method-bearer"
                 className="clr-control-label clr-control-label-radio"
               >
                 <input
                   type="radio"
-                  id="kubeapps-repo-auth-method-bearer"
+                  id="suomitek-appboard-repo-auth-method-bearer"
                   name="auth"
                   value={AUTH_METHOD_BEARER}
                   checked={authMethod === AUTH_METHOD_BEARER}
@@ -305,12 +305,12 @@ export function AppRepoForm({
                 <br />
               </label>
               <label
-                htmlFor="kubeapps-repo-auth-method-custom"
+                htmlFor="suomitek-appboard-repo-auth-method-custom"
                 className="clr-control-label clr-control-label-radio"
               >
                 <input
                   type="radio"
-                  id="kubeapps-repo-auth-method-custom"
+                  id="suomitek-appboard-repo-auth-method-custom"
                   name="auth"
                   value={AUTH_METHOD_CUSTOM}
                   checked={authMethod === AUTH_METHOD_CUSTOM}
@@ -323,23 +323,23 @@ export function AppRepoForm({
             <Column span={9}>
               <div className="column-valing-center clr-control-container">
                 <div hidden={authMethod !== AUTH_METHOD_BASIC}>
-                  <label className="clr-control-label" htmlFor="kubeapps-repo-username">
+                  <label className="clr-control-label" htmlFor="suomitek-appboard-repo-username">
                     Username
                   </label>
                   <input
                     type="text"
-                    id="kubeapps-repo-username"
+                    id="suomitek-appboard-repo-username"
                     className="clr-input"
                     value={user}
                     onChange={handleUserChange}
                     placeholder="Username"
                   />
-                  <label className="clr-control-label" htmlFor="kubeapps-repo-password">
+                  <label className="clr-control-label" htmlFor="suomitek-appboard-repo-password">
                     Password
                   </label>
                   <input
                     type="password"
-                    id="kubeapps-repo-password"
+                    id="suomitek-appboard-repo-password"
                     className="clr-input"
                     value={password}
                     onChange={handlePasswordChange}
@@ -347,11 +347,11 @@ export function AppRepoForm({
                   />
                 </div>
                 <div hidden={authMethod !== AUTH_METHOD_BEARER}>
-                  <label className="clr-control-label" htmlFor="kubeapps-repo-token">
+                  <label className="clr-control-label" htmlFor="suomitek-appboard-repo-token">
                     Token
                   </label>
                   <input
-                    id="kubeapps-repo-token"
+                    id="suomitek-appboard-repo-token"
                     className="clr-input"
                     type="text"
                     value={token}
@@ -359,13 +359,13 @@ export function AppRepoForm({
                   />
                 </div>
                 <div hidden={authMethod !== AUTH_METHOD_CUSTOM}>
-                  <label className="clr-control-label" htmlFor="kubeapps-repo-custom-header">
+                  <label className="clr-control-label" htmlFor="suomitek-appboard-repo-custom-header">
                     Complete Authorization Header
                   </label>
                   <input
                     type="text"
                     className="clr-input"
-                    id="kubeapps-repo-custom-header"
+                    id="suomitek-appboard-repo-custom-header"
                     placeholder="Bearer xrxNcWghpRLdcPHFgVRM73rr4N7qjvjm"
                     value={authHeader}
                     onChange={handleAuthHeaderChange}
@@ -407,13 +407,13 @@ export function AppRepoForm({
         </div>
       )}
       <div className="clr-form-control">
-        <label className="clr-control-label" htmlFor="kubeapps-repo-custom-ca">
+        <label className="clr-control-label" htmlFor="suomitek-appboard-repo-custom-ca">
           Custom CA Certificate (optional)
         </label>
         <div className="clr-control-container">
           <div className="clr-textarea-wrapper">
             <textarea
-              id="kubeapps-repo-custom-ca"
+              id="suomitek-appboard-repo-custom-ca"
               rows={4}
               className="clr-textarea"
               placeholder={"-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----"}
@@ -424,7 +424,7 @@ export function AppRepoForm({
         </div>
       </div>
       <div className="clr-form-control">
-        <label className="clr-control-label" htmlFor="kubeapps-repo-sync-job-tpl">
+        <label className="clr-control-label" htmlFor="suomitek-appboard-repo-sync-job-tpl">
           Custom Sync Job Template (optional)
         </label>
         <span className="clr-form-description">
@@ -441,7 +441,7 @@ export function AppRepoForm({
         <div className="clr-control-container">
           <div className="clr-textarea-wrapper">
             <textarea
-              id="kubeapps-repo-sync-job-tpl"
+              id="suomitek-appboard-repo-sync-job-tpl"
               rows={5}
               className="clr-textarea"
               placeholder={

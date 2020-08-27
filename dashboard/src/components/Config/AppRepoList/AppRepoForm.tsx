@@ -156,10 +156,10 @@ export class AppRepoForm extends React.Component<IAppRepoFormProps, IAppRepoForm
               />
             </div>
             <div>
-              <label htmlFor="kubeapps-repo-url">URL:</label>
+              <label htmlFor="suomitek-appboard-repo-url">URL:</label>
               <input
                 type="url"
-                id="kubeapps-repo-url"
+                id="suomitek-appboard-repo-url"
                 placeholder="https://charts.example.com/stable"
                 value={this.state.url}
                 onChange={this.handleURLChange}
@@ -174,10 +174,10 @@ export class AppRepoForm extends React.Component<IAppRepoFormProps, IAppRepoForm
               </span>
               <div className="row">
                 <div className="col-2">
-                  <label className="margin-l-big" htmlFor="kubeapps-repo-auth-method-none">
+                  <label className="margin-l-big" htmlFor="suomitek-appboard-repo-auth-method-none">
                     <input
                       type="radio"
-                      id="kubeapps-repo-auth-method-none"
+                      id="suomitek-appboard-repo-auth-method-none"
                       name="auth"
                       value={AUTH_METHOD_NONE}
                       checked={authMethod === AUTH_METHOD_NONE}
@@ -186,10 +186,10 @@ export class AppRepoForm extends React.Component<IAppRepoFormProps, IAppRepoForm
                     None
                     <br />
                   </label>
-                  <label htmlFor="kubeapps-repo-auth-method-basic">
+                  <label htmlFor="suomitek-appboard-repo-auth-method-basic">
                     <input
                       type="radio"
-                      id="kubeapps-repo-auth-method-basic"
+                      id="suomitek-appboard-repo-auth-method-basic"
                       name="auth"
                       checked={authMethod === AUTH_METHOD_BASIC}
                       value={AUTH_METHOD_BASIC}
@@ -198,10 +198,10 @@ export class AppRepoForm extends React.Component<IAppRepoFormProps, IAppRepoForm
                     Basic Auth
                     <br />
                   </label>
-                  <label htmlFor="kubeapps-repo-auth-method-bearer">
+                  <label htmlFor="suomitek-appboard-repo-auth-method-bearer">
                     <input
                       type="radio"
-                      id="kubeapps-repo-auth-method-bearer"
+                      id="suomitek-appboard-repo-auth-method-bearer"
                       name="auth"
                       value={AUTH_METHOD_BEARER}
                       checked={authMethod === AUTH_METHOD_BEARER}
@@ -210,10 +210,10 @@ export class AppRepoForm extends React.Component<IAppRepoFormProps, IAppRepoForm
                     Bearer Token
                     <br />
                   </label>
-                  <label htmlFor="kubeapps-repo-auth-method-custom">
+                  <label htmlFor="suomitek-appboard-repo-auth-method-custom">
                     <input
                       type="radio"
-                      id="kubeapps-repo-auth-method-custom"
+                      id="suomitek-appboard-repo-auth-method-custom"
                       name="auth"
                       value={AUTH_METHOD_CUSTOM}
                       checked={authMethod === AUTH_METHOD_CUSTOM}
@@ -228,18 +228,18 @@ export class AppRepoForm extends React.Component<IAppRepoFormProps, IAppRepoForm
                     hidden={this.state.authMethod !== AUTH_METHOD_BASIC}
                     className="secondary-input"
                   >
-                    <label htmlFor="kubeapps-repo-username">Username</label>
+                    <label htmlFor="suomitek-appboard-repo-username">Username</label>
                     <input
                       type="text"
-                      id="kubeapps-repo-username"
+                      id="suomitek-appboard-repo-username"
                       value={this.state.user}
                       onChange={this.handleUserChange}
                       placeholder="Username"
                     />
-                    <label htmlFor="kubeapps-repo-password">Password</label>
+                    <label htmlFor="suomitek-appboard-repo-password">Password</label>
                     <input
                       type="password"
-                      id="kubeapps-repo-password"
+                      id="suomitek-appboard-repo-password"
                       value={this.state.password}
                       onChange={this.handlePasswordChange}
                       placeholder="Password"
@@ -249,9 +249,9 @@ export class AppRepoForm extends React.Component<IAppRepoFormProps, IAppRepoForm
                     hidden={this.state.authMethod !== AUTH_METHOD_BEARER}
                     className="secondary-input"
                   >
-                    <label htmlFor="kubeapps-repo-token">Token</label>
+                    <label htmlFor="suomitek-appboard-repo-token">Token</label>
                     <input
-                      id="kubeapps-repo-token"
+                      id="suomitek-appboard-repo-token"
                       type="text"
                       value={this.state.token}
                       onChange={this.handleAuthTokenChange}
@@ -261,12 +261,12 @@ export class AppRepoForm extends React.Component<IAppRepoFormProps, IAppRepoForm
                     hidden={this.state.authMethod !== AUTH_METHOD_CUSTOM}
                     className="secondary-input"
                   >
-                    <label htmlFor="kubeapps-repo-custom-header">
+                    <label htmlFor="suomitek-appboard-repo-custom-header">
                       Complete Authorization Header
                     </label>
                     <input
                       type="text"
-                      id="kubeapps-repo-custom-header"
+                      id="suomitek-appboard-repo-custom-header"
                       placeholder="Bearer xrxNcWghpRLdcPHFgVRM73rr4N7qjvjm"
                       value={this.state.authHeader}
                       onChange={this.handleAuthHeaderChange}

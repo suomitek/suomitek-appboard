@@ -22,7 +22,7 @@ test("Creates a registry", async () => {
 
   await page.type("#suomitek-appboard-repo-name", "my-repo");
 
-  await page.type("#kubeapps-repo-url", "https://charts.gitlab.io/");
+  await page.type("#suomitek-appboard-repo-url", "https://charts.gitlab.io/");
 
   // Similar to the above click for an App Repository, the click on
   // the Install Repo doesn't always register (in fact, from the

@@ -24,15 +24,15 @@ test("Creates a private registry", async () => {
   await page.type("#suomitek-appboard-repo-name", "my-repo");
 
   await page.type(
-    "#kubeapps-repo-url",
+    "#suomitek-appboard-repo-url",
     "http://chartmuseum-chartmuseum.kubeapps:8080"
   );
 
   await expect(page).toClick("label", { text: "Basic Auth" });
 
   // Credentials from e2e-test.sh
-  await page.type("#kubeapps-repo-username", "admin");
-  await page.type("#kubeapps-repo-password", "password");
+  await page.type("#suomitek-appboard-repo-username", "admin");
+  await page.type("#suomitek-appboard-repo-password", "password");
 
   // Open form to create a new secret
   const randomNumber = Math.floor(Math.random() * Math.floor(100));

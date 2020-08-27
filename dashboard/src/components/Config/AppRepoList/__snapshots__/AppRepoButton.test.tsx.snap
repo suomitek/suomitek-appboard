@@ -81,12 +81,12 @@ exports[`should open a modal with the repository form 1`] = `
                     </div>
                     <div>
                       <label
-                        for="kubeapps-repo-url"
+                        for="suomitek-appboard-repo-url"
                       >
                         URL:
                       </label>
                       <input
-                        id="kubeapps-repo-url"
+                        id="suomitek-appboard-repo-url"
                         placeholder="https://charts.example.com/stable"
                         required=""
                         type="url"
@@ -112,11 +112,11 @@ exports[`should open a modal with the repository form 1`] = `
                         >
                           <label
                             class="margin-l-big"
-                            for="kubeapps-repo-auth-method-none"
+                            for="suomitek-appboard-repo-auth-method-none"
                           >
                             <input
                               checked=""
-                              id="kubeapps-repo-auth-method-none"
+                              id="suomitek-appboard-repo-auth-method-none"
                               name="auth"
                               type="radio"
                               value="none"
@@ -125,10 +125,10 @@ exports[`should open a modal with the repository form 1`] = `
                             <br />
                           </label>
                           <label
-                            for="kubeapps-repo-auth-method-basic"
+                            for="suomitek-appboard-repo-auth-method-basic"
                           >
                             <input
-                              id="kubeapps-repo-auth-method-basic"
+                              id="suomitek-appboard-repo-auth-method-basic"
                               name="auth"
                               type="radio"
                               value="basic"
@@ -137,10 +137,10 @@ exports[`should open a modal with the repository form 1`] = `
                             <br />
                           </label>
                           <label
-                            for="kubeapps-repo-auth-method-bearer"
+                            for="suomitek-appboard-repo-auth-method-bearer"
                           >
                             <input
-                              id="kubeapps-repo-auth-method-bearer"
+                              id="suomitek-appboard-repo-auth-method-bearer"
                               name="auth"
                               type="radio"
                               value="bearer"
@@ -149,10 +149,10 @@ exports[`should open a modal with the repository form 1`] = `
                             <br />
                           </label>
                           <label
-                            for="kubeapps-repo-auth-method-custom"
+                            for="suomitek-appboard-repo-auth-method-custom"
                           >
                             <input
-                              id="kubeapps-repo-auth-method-custom"
+                              id="suomitek-appboard-repo-auth-method-custom"
                               name="auth"
                               type="radio"
                               value="custom"
@@ -170,23 +170,23 @@ exports[`should open a modal with the repository form 1`] = `
                             hidden=""
                           >
                             <label
-                              for="kubeapps-repo-username"
+                              for="suomitek-appboard-repo-username"
                             >
                               Username
                             </label>
                             <input
-                              id="kubeapps-repo-username"
+                              id="suomitek-appboard-repo-username"
                               placeholder="Username"
                               type="text"
                               value=""
                             />
                             <label
-                              for="kubeapps-repo-password"
+                              for="suomitek-appboard-repo-password"
                             >
                               Password
                             </label>
                             <input
-                              id="kubeapps-repo-password"
+                              id="suomitek-appboard-repo-password"
                               placeholder="Password"
                               type="password"
                               value=""
@@ -197,12 +197,12 @@ exports[`should open a modal with the repository form 1`] = `
                             hidden=""
                           >
                             <label
-                              for="kubeapps-repo-token"
+                              for="suomitek-appboard-repo-token"
                             >
                               Token
                             </label>
                             <input
-                              id="kubeapps-repo-token"
+                              id="suomitek-appboard-repo-token"
                               type="text"
                               value=""
                             />
@@ -212,12 +212,12 @@ exports[`should open a modal with the repository form 1`] = `
                             hidden=""
                           >
                             <label
-                              for="kubeapps-repo-custom-header"
+                              for="suomitek-appboard-repo-custom-header"
                             >
                               Complete Authorization Header
                             </label>
                             <input
-                              id="kubeapps-repo-custom-header"
+                              id="suomitek-appboard-repo-custom-header"
                               placeholder="Bearer xrxNcWghpRLdcPHFgVRM73rr4N7qjvjm"
                               type="text"
                               value=""
