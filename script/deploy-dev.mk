@@ -21,7 +21,7 @@ devel/localhost-cert.pem:
 	mkcert -key-file ./devel/localhost-key.pem -cert-file ./devel/localhost-cert.pem localhost 172.18.0.2
 
 deploy-dependencies: deploy-dex deploy-openldap devel/localhost-cert.pem
-	kubectl create namespace kubeapps
+	kubectl create namespace suomitek-appborad
 	kubectl -n kubeapps create secret tls localhost-tls \
 		--key ./devel/localhost-key.pem \
 		--cert ./devel/localhost-cert.pem

@@ -25,7 +25,7 @@ For Helm 3:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-kubectl create namespace kubeapps
+kubectl create namespace suomitek-appborad
 helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
 ```
 
@@ -58,7 +58,7 @@ For Helm 3:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-kubectl create namespace kubeapps
+kubectl create namespace suomitek-appborad
 helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
 ```
 

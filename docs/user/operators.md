@@ -20,7 +20,7 @@ helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-app
 If you are using Helm 3:
 
 ```bash
-kubectl create namespace kubeapps
+kubectl create namespace suomitek-appborad
 helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-appborad --set featureFlags.operators=true
 ```
 

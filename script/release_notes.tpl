@@ -20,7 +20,7 @@ helm install --name suomitek-appborad --namespace suomitek-appborad suomitek-app
 For Helm 3:
 
 ```
-kubectl create namespace kubeapps
+kubectl create namespace suomitek-appborad
 helm install suomitek-appboard --namespace suomitek-appborad suomitek-appborad --set useHelm3=true
 ```
 
