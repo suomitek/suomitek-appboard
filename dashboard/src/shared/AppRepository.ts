@@ -47,7 +47,7 @@ export class AppRepository {
     return data;
   }
 
-  // create uses the kubeapps backend API
+  // create uses the suomitek-appboard backend API
   // TODO(mnelson) Update other endpoints to similarly use the backend API, removing the need
   // for direct k8s api access (for this resource, at least).
   public static async create(

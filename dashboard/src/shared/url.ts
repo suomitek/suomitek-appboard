@@ -76,7 +76,7 @@ export const backend = {
   apprepositories: {
     base: (namespace: string) => `api/v1/namespaces/${namespace}/apprepositories`,
     create: (namespace: string) => backend.apprepositories.base(namespace),
-    validate: () => `${backend.apprepositories.base("kubeapps")}/validate`,
+    validate: () => `${backend.apprepositories.base("suomitek-appboard")}/validate`,
     delete: (name: string, namespace: string) =>
       `${backend.apprepositories.base(namespace)}/${name}`,
     update: (namespace: string, name: string) =>

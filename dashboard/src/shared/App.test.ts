@@ -66,14 +66,14 @@ describe("App", () => {
     it("creates an app in a namespace", async () => {
       moxios.stubRequest(/.*/, { response: "ok", status: 200 });
       expect(
-        await App.create("defaultc", "defaultns", "absent-ant", "kubeapps", testChartVersion),
+        await App.create("defaultc", "defaultns", "absent-ant", "suomitek-appboard", testChartVersion),
       ).toBe("ok");
       const request = moxios.requests.mostRecent();
       expect(request.url).toBe(expectedURL);
       expect(request.config.data).toEqual(
         JSON.stringify({
           appRepositoryResourceName: testChartVersion.relationships.chart.data.repo.name,
-          appRepositoryResourceNamespace: "kubeapps",
+          appRepositoryResourceNamespace: "suomitek-appboard",
           chartName: testChartVersion.relationships.chart.data.name,
           releaseName: "absent-ant",
           version: testChartVersion.attributes.version,
@@ -103,14 +103,14 @@ describe("App", () => {
     it("upgrades an app in a namespace", async () => {
       moxios.stubRequest(/.*/, { response: "ok", status: 200 });
       expect(
-        await App.upgrade("default-c", "default-ns", "absent-ant", "kubeapps", testChartVersion),
+        await App.upgrade("default-c", "default-ns", "absent-ant", "suomitek-appboard", testChartVersion),
       ).toBe("ok");
       const request = moxios.requests.mostRecent();
       expect(request.url).toBe(expectedURL);
       expect(request.config.data).toEqual(
         JSON.stringify({
           appRepositoryResourceName: testChartVersion.relationships.chart.data.repo.name,
-          appRepositoryResourceNamespace: "kubeapps",
+          appRepositoryResourceNamespace: "suomitek-appboard",
           chartName: testChartVersion.relationships.chart.data.name,
           releaseName: "absent-ant",
           version: testChartVersion.attributes.version,

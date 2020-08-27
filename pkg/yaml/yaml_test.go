@@ -39,7 +39,7 @@ func TestParseObjectsSuccess(t *testing.T) {
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kubeapps`,
+  name: suomitek-appboard`,
 			1, []string{"v1"}, []string{"Namespace"},
 		},
 		{
@@ -48,12 +48,12 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kubeapps
+  name: suomitek-appboard
 ---
 apiVersion: extensions/v1beta1       
 kind: Deployment
 metadata:
-  name: kubeapps`,
+  name: suomitek-appboard`,
 			2, []string{"v1", "extensions/v1beta1"}, []string{"Namespace", "Deployment"},
 		},
 		{
@@ -62,7 +62,7 @@ metadata:
 apiVersion: v1
 kind: LonelyNamespace
 metadata:
-  name: kubeapps
+  name: suomitek-appboard
 ---
 # This is a comment in yaml`,
 			1, []string{"v1"}, []string{"LonelyNamespace"},
@@ -73,7 +73,7 @@ metadata:
 apiVersion: v1
 kind: LonelyNamespace
 metadata:
-  name: kubeapps
+  name: suomitek-appboard
 ---
 ---
 `,
