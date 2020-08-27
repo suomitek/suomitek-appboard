@@ -41,7 +41,7 @@ spec:
           command:
             - /apprepository-controller
           args:
-            - --user-agent-comment=kubeapps/{{ .Chart.AppVersion }}
+            - --user-agent-comment=suomitek-appboard/{{ .Chart.AppVersion }}
             - --repo-sync-image={{ template "suomitek-appboard.image" (list .Values.apprepository.syncImage .Values.global) }}
             - --repo-sync-cmd=/asset-syncer
             - --namespace={{ .Release.Namespace }}

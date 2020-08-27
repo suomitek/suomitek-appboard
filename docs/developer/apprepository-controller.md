@@ -72,11 +72,11 @@ To start the tests on the `apprepository-controller` execute the following comma
 go test
 ```
 
-## Building the kubeapps/apprepository-controller Docker image
+## Building the suomitek-appboard/apprepository-controller Docker image
 
-To build the `kubeapps/apprepository-controller` docker image with the docker image tag `myver`:
+To build the `suomitek-appboard/apprepository-controller` docker image with the docker image tag `myver`:
 
 ```bash
 cd $KUBEAPPS_DIR
-make IMAGE_TAG=myver kubeapps/apprepository-controller
+make IMAGE_TAG=myver suomitek-appboard/apprepository-controller
 ```

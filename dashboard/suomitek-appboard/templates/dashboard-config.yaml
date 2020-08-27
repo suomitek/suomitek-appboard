@@ -22,7 +22,7 @@ data:
 
         # Trailing / is required in the path for the React app to be loaded correctly
         # The rewrite rule adds a trailing "/" to any path that does not contain "." neither "/".
-        # i.e kubeapps => kubeapps/
+        # i.e kubeapps => suomitek-appboard/
         rewrite ^([^.]*[^/])$ $1/ permanent;
 
         # Support for ingress prefixes maintaining compatibility with the default /

@@ -42,7 +42,7 @@ customLdifFiles:
     cn: kubeapps-operators
     member: cn=jane,ou=People,dc=example,dc=org
 
-    dn: cn=kubeapps-users,ou=Groups,dc=example,dc=org
+    dn: cn=suomitek-appboard-users,ou=Groups,dc=example,dc=org
     objectClass: groupOfNames
-    cn: kubeapps-users
+    cn: suomitek-appboard-users
     member: cn=john,ou=People,dc=example,dc=org

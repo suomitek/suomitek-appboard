@@ -29,7 +29,7 @@ exports[`renders a header for the chart 1`] = `
              - 
           </span>
           <Link
-            to="/c/default/ns/kubeapps/catalog/testrepo"
+            to="/c/default/ns/suomitek-appboard/catalog/testrepo"
           >
             testrepo
           </Link>

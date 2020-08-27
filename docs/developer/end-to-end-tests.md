@@ -49,7 +49,7 @@ If anything goes wrong, apart from the logs of the test, you can find the screen
 
 ### Running browser tests in a pod
 
-Since the CI environment don't have the required dependencies and to provide a reproducible environment, it's possible to run the browser tests in a Kubernetes pod. To do so, you can spin up an instance running the image `kubeapps/integration-tests`. This image contains all the required dependencies and it waits forever so you can execute commands within it. The goal of this setup is that you can copy the latest tests to the image, run the tests and extract the screenshots in case of failure:
+Since the CI environment don't have the required dependencies and to provide a reproducible environment, it's possible to run the browser tests in a Kubernetes pod. To do so, you can spin up an instance running the image `suomitek-appboard/integration-tests`. This image contains all the required dependencies and it waits forever so you can execute commands within it. The goal of this setup is that you can copy the latest tests to the image, run the tests and extract the screenshots in case of failure:
 
 ```bash
 cd integration

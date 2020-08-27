@@ -58,13 +58,13 @@ kubectl patch deployment suomitek-appboard-internal-kubeops -n suomitek-appboard
 The easiest way to create the `kubeops` image is to execute the Makefile task to do so:
 
 ```bash
-IMAGE_TAG=dev make kubeapps/kubeops
+IMAGE_TAG=dev make suomitek-appboard/kubeops
 ```
 
-This will generate an image `kubeapps/kubeops:dev` that you can use in the current deployment:
+This will generate an image `suomitek-appboard/kubeops:dev` that you can use in the current deployment:
 
 ```bash
-kubectl set image -n suomitek-appboard deployment suomitek-appboard-internal-kubeops kubeops=kubeapps/kubeops:dev
+kubectl set image -n suomitek-appboard deployment suomitek-appboard-internal-kubeops kubeops=suomitek-appboard/kubeops:dev
 ```
 
 For further redeploys you can change the version to deploy a different tag or rebuild the same image and restart the pod executing:

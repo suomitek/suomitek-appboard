@@ -39,14 +39,14 @@ Or if you wish to build specific component(s):
 # to build the kubeapps binary
 make IMAGE_TAG=myver kubeapps
 
-# to build the kubeapps/dashboard docker image
-make IMAGE_TAG=myver kubeapps/dashboard
+# to build the suomitek-appboard/dashboard docker image
+make IMAGE_TAG=myver suomitek-appboard/dashboard
 
-# to build the kubeapps/apprepository-controller docker image
-make IMAGE_TAG=myver kubeapps/apprepository-controller
+# to build the suomitek-appboard/apprepository-controller docker image
+make IMAGE_TAG=myver suomitek-appboard/apprepository-controller
 
-# to build the kubeapps/tiller-proxy docker image
-make IMAGE_TAG=myver kubeapps/tiller-proxy
+# to build the suomitek-appboard/tiller-proxy docker image
+make IMAGE_TAG=myver suomitek-appboard/tiller-proxy
 ```
 
 ## Running tests
@@ -63,7 +63,7 @@ Or if you wish to test specific component(s):
 # to test the kubeapps binary
 make test-kubeapps
 
-# to test kubeapps/dashboard
+# to test suomitek-appboard/dashboard
 make test-dashboard
 
 # to test the cmd/apprepository-controller package

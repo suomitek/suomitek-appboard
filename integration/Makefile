@@ -1,4 +1,4 @@
 default: build
 
 build:
-	docker build -t kubeapps/integration-tests:latest .
+	docker build -t suomitek-appboard/integration-tests:latest .

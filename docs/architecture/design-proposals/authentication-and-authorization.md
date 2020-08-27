@@ -71,7 +71,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: johnsmith
-  namespace: kubeapps-users
+  namespace: suomitek-appboard-users
 ```
 
 The Service Account can be created in any namespace, the above example uses _kubeapps-users_ to isolate Service Accounts for Kubeapps users.
@@ -90,7 +90,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: johnsmith
-  namespace: kubeapps-users
+  namespace: suomitek-appboard-users
 ```
 
 Now to retrieve the token for this account, the Cluster Operator would need to run the following:
@@ -101,7 +101,7 @@ kubectl -n kube-system describe secret $(kubectl -n suomitek-appboard-users get 
 
 ```
 Name: johnsmith-token-6gl6l
-Namespace: kubeapps-users
+Namespace: suomitek-appboard-users
 Labels: <none>
 Annotations: kubernetes.io/service-account.name=johnsmith
               kubernetes.io/service-account.uid=b16afba9-dfec-11e7-bbb9-901b0e532516
@@ -208,7 +208,7 @@ In order for Cluster Operators to clearly and correctly assign RBAC roles to Kub
   <tr>
     <td></td>
     <td></td>
-    <td>kubeapps</td>
+    <td>suomitek-appboard</td>
     <td>configmaps</td>
     <td>list</td>
     <td>Helm (Tiller) stores release data in ConfigMaps</td>
@@ -224,7 +224,7 @@ In order for Cluster Operators to clearly and correctly assign RBAC roles to Kub
   <tr>
     <td></td>
     <td></td>
-    <td>kubeapps</td>
+    <td>suomitek-appboard</td>
     <td>configmaps</td>
     <td>get</td>
     <td>Helm (Tiller) stores release data in ConfigMaps</td>
@@ -371,7 +371,7 @@ create</td>
   <tr>
     <td>List App Repositories</td>
     <td>suomitek.com</td>
-    <td>kubeapps</td>
+    <td>suomitek-appboard</td>
     <td>apprepositories</td>
     <td>list</td>
     <td></td>
@@ -379,7 +379,7 @@ create</td>
   <tr>
     <td>View App Repository</td>
     <td>suomitek.com</td>
-    <td>kubeapps</td>
+    <td>suomitek-appboard</td>
     <td>apprepositories</td>
     <td>get</td>
     <td></td>
@@ -387,7 +387,7 @@ create</td>
   <tr>
     <td>Resync App Repository</td>
     <td>suomitek.com</td>
-    <td>kubeapps</td>
+    <td>suomitek-appboard</td>
     <td>apprepositories</td>
     <td>update</td>
     <td></td>
@@ -395,7 +395,7 @@ create</td>
   <tr>
     <td>Update App Repository</td>
     <td>suomitek.com</td>
-    <td>kubeapps</td>
+    <td>suomitek-appboard</td>
     <td>apprepositories</td>
     <td>update</td>
     <td></td>
@@ -403,7 +403,7 @@ create</td>
   <tr>
     <td>Delete App Repository</td>
     <td>suomitek.com</td>
-    <td>kubeapps</td>
+    <td>suomitek-appboard</td>
     <td>apprepositories</td>
     <td>delete</td>
     <td></td>

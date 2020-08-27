@@ -45,7 +45,7 @@ spec:
           command:
             - /kubeops
           args:
-            - --user-agent-comment=kubeapps/{{ .Chart.AppVersion }}
+            - --user-agent-comment=suomitek-appboard/{{ .Chart.AppVersion }}
             - --assetsvc-url=http://{{ template "suomitek-appboard.assetsvc.fullname" . }}:{{ .Values.assetsvc.service.port }}
           env:
             - name: POD_NAMESPACE

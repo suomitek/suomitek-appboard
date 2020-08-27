@@ -36,7 +36,7 @@ Kubeapps is a Kubernetes-native application. To develop and test Kubeapps compon
 
 ```bash
 cd $KUBEAPPS_DIR
-make kubeapps/assetsvc
+make suomitek-appboard/assetsvc
 ```
 
 This builds the `assetsvc` Docker image.
@@ -48,13 +48,13 @@ This builds the `assetsvc` Docker image.
 When using MongoDB:
 
 ```bash
-telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti kubeapps/assetsvc /assetsvc --database-user=root --database-url=kubeapps-mongodb --database-type=mongodb --database-name=charts
+telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti suomitek-appboard/assetsvc /assetsvc --database-user=root --database-url=kubeapps-mongodb --database-type=mongodb --database-name=charts
 ```
 
 When using PostgreSQL:
 
 ```bash
-telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti kubeapps/assetsvc /assetsvc --database-user=postgres --database-url=kubeapps-postgresql:5432 --database-type=postgresql --database-name=assets
+telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti suomitek-appboard/assetsvc /assetsvc --database-user=postgres --database-url=kubeapps-postgresql:5432 --database-type=postgresql --database-name=assets
 ```
 
 Note that the assetsvc should be rebuilt for new changes to take effect.
@@ -68,7 +68,7 @@ kubectl patch deployment suomitek-appboard-internal-assetsvc -n suomitek-appboar
 ```
 
 ```bash
-kubectl set image -n suomitek-appboard deployment suomitek-appboard-internal-assetsvc assetsvc=kubeapps/assetsvc:latest
+kubectl set image -n suomitek-appboard deployment suomitek-appboard-internal-assetsvc assetsvc=suomitek-appboard/assetsvc:latest
 ```
 
 For further redeploys you can change the version to deploy a different tag or rebuild the same image and restart the pod executing:

@@ -83,7 +83,7 @@ func Test_GetCharts(t *testing.T) {
 				*args.Get(0).(*[]*models.Chart) = tt.charts
 			})
 
-			res, err := http.Get(ts.URL + pathPrefix + "/ns/kubeapps/charts")
+			res, err := http.Get(ts.URL + pathPrefix + "/ns/suomitek-appboard/charts")
 			assert.NoError(t, err)
 			defer res.Body.Close()
 
@@ -125,7 +125,7 @@ func Test_GetChartsInRepo(t *testing.T) {
 				*args.Get(0).(*[]*models.Chart) = tt.charts
 			})
 
-			res, err := http.Get(ts.URL + pathPrefix + "/ns/kubeapps/charts/" + tt.repo)
+			res, err := http.Get(ts.URL + pathPrefix + "/ns/suomitek-appboard/charts/" + tt.repo)
 			assert.NoError(t, err)
 			defer res.Body.Close()
 
@@ -182,7 +182,7 @@ func Test_GetChartInRepo(t *testing.T) {
 				})
 			}
 
-			res, err := http.Get(ts.URL + pathPrefix + "/ns/kubeapps/charts/" + tt.chart.ID)
+			res, err := http.Get(ts.URL + pathPrefix + "/ns/suomitek-appboard/charts/" + tt.chart.ID)
 			assert.NoError(t, err)
 			defer res.Body.Close()
 
@@ -235,7 +235,7 @@ func Test_ListChartVersions(t *testing.T) {
 				})
 			}
 
-			res, err := http.Get(ts.URL + pathPrefix + "/ns/kubeapps/charts/" + tt.chart.ID + "/versions")
+			res, err := http.Get(ts.URL + pathPrefix + "/ns/suomitek-appboard/charts/" + tt.chart.ID + "/versions")
 			assert.NoError(t, err)
 			defer res.Body.Close()
 
@@ -288,7 +288,7 @@ func Test_GetChartVersion(t *testing.T) {
 				})
 			}
 
-			res, err := http.Get(ts.URL + pathPrefix + "/ns/kubeapps/charts/" + tt.chart.ID + "/versions/" + tt.chart.ChartVersions[0].Version)
+			res, err := http.Get(ts.URL + pathPrefix + "/ns/suomitek-appboard/charts/" + tt.chart.ID + "/versions/" + tt.chart.ChartVersions[0].Version)
 			assert.NoError(t, err)
 			defer res.Body.Close()
 
@@ -341,7 +341,7 @@ func Test_GetChartIcon(t *testing.T) {
 				})
 			}
 
-			res, err := http.Get(ts.URL + pathPrefix + "/ns/kubeapps/assets/" + tt.chart.ID + "/logo")
+			res, err := http.Get(ts.URL + pathPrefix + "/ns/suomitek-appboard/assets/" + tt.chart.ID + "/logo")
 			assert.NoError(t, err)
 			defer res.Body.Close()
 
@@ -398,7 +398,7 @@ func Test_GetChartReadme(t *testing.T) {
 				})
 			}
 
-			res, err := http.Get(ts.URL + pathPrefix + "/ns/kubeapps/assets/" + tt.files.ID + "/versions/" + tt.version + "/README.md")
+			res, err := http.Get(ts.URL + pathPrefix + "/ns/suomitek-appboard/assets/" + tt.files.ID + "/versions/" + tt.version + "/README.md")
 			assert.NoError(t, err)
 			defer res.Body.Close()
 
@@ -455,7 +455,7 @@ func Test_GetChartValues(t *testing.T) {
 				})
 			}
 
-			res, err := http.Get(ts.URL + pathPrefix + "/ns/kubeapps/assets/" + tt.files.ID + "/versions/" + tt.version + "/values.yaml")
+			res, err := http.Get(ts.URL + pathPrefix + "/ns/suomitek-appboard/assets/" + tt.files.ID + "/versions/" + tt.version + "/values.yaml")
 			assert.NoError(t, err)
 			defer res.Body.Close()
 
@@ -512,7 +512,7 @@ func Test_GetChartSchema(t *testing.T) {
 				})
 			}
 
-			res, err := http.Get(ts.URL + pathPrefix + "/ns/kubeapps/assets/" + tt.files.ID + "/versions/" + tt.version + "/values.schema.json")
+			res, err := http.Get(ts.URL + pathPrefix + "/ns/suomitek-appboard/assets/" + tt.files.ID + "/versions/" + tt.version + "/values.schema.json")
 			assert.NoError(t, err)
 			defer res.Body.Close()
 

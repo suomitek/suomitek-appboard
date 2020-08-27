@@ -47,7 +47,7 @@ git tag ${VERSION_NAME}
 git push origin ${VERSION_NAME}
 ```
 
-This will trigger a build, test and **release** [workflow in our CI](https://circleci.com/gh/kubeapps/workflows).
+This will trigger a build, test and **release** [workflow in our CI](https://circleci.com/gh/suomitek-appboard/workflows).
  
 ## 2 - Complete the GitHub release notes
 

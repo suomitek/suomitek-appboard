@@ -216,7 +216,7 @@ apprepository:
   ##
   image:
     registry: docker.io
-    repository: kubeapps/apprepository-controller
+    repository: suomitek-appboard/apprepository-controller
     tag: latest
     ## Specify a imagePullPolicy
     ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -228,7 +228,7 @@ apprepository:
   ##
   syncImage:
     registry: docker.io
-    repository: kubeapps/asset-syncer
+    repository: suomitek-appboard/asset-syncer
     tag: latest
     ## Specify a imagePullPolicy
     ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -322,7 +322,7 @@ kubeops:
   replicaCount: 2
   image:
     registry: docker.io
-    repository: kubeapps/kubeops
+    repository: suomitek-appboard/kubeops
     tag: latest
     ## Specify a imagePullPolicy
     ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -369,7 +369,7 @@ tillerProxy:
   ##
   image:
     registry: docker.io
-    repository: kubeapps/tiller-proxy
+    repository: suomitek-appboard/tiller-proxy
     tag: latest
     ## Specify a imagePullPolicy
     ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -447,7 +447,7 @@ assetsvc:
   ##
   image:
     registry: docker.io
-    repository: kubeapps/assetsvc
+    repository: suomitek-appboard/assetsvc
     tag: latest
     ## Specify a imagePullPolicy
     ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -512,7 +512,7 @@ dashboard:
   ##
   image:
     registry: docker.io
-    repository: kubeapps/dashboard
+    repository: suomitek-appboard/dashboard
     tag: latest
     ## Specify a imagePullPolicy
     ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images

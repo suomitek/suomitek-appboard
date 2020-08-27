@@ -22,7 +22,7 @@ $ kubeapps migrate-configmaps-to-secrets --target-tiller-namespace kube-system
 **NOTE**: The tool asumes that you have deployed Helm storing releases as secrets. If that is not the case you can still migrate the releases executing:
 
 ```bash
-kubectl get configmaps -n suomitek-appboard -o yaml -l OWNER=TILLER | sed 's/namespace: kubeapps/namespace: kube-system/g'  | kubectl create -f -
+kubectl get configmaps -n suomitek-appboard -o yaml -l OWNER=TILLER | sed 's/namespace: suomitek-appboard/namespace: kube-system/g'  | kubectl create -f -
 ```
 
 If you list the releases you should be able to see all of them:

@@ -57,13 +57,13 @@ kubectl patch deployment suomitek-appboard-internal-tiller-proxy -n suomitek-app
 The easiest way to create the `tiller-proxy` image is execute the Makefile task to do so:
 
 ```bash
-IMAGE_TAG=dev make kubeapps/tiller-proxy
+IMAGE_TAG=dev make suomitek-appboard/tiller-proxy
 ```
 
-This will generate an image `kubeapps/tiller-proxy:dev` that you can use in the current deployment:
+This will generate an image `suomitek-appboard/tiller-proxy:dev` that you can use in the current deployment:
 
 ```bash
-kubectl set image -n suomitek-appboard deployment suomitek-appboard-internal-tiller-proxy proxy=kubeapps/tiller-proxy:dev
+kubectl set image -n suomitek-appboard deployment suomitek-appboard-internal-tiller-proxy proxy=suomitek-appboard/tiller-proxy:dev
 ```
 
 For further redeploys you can change the version to deploy a different tag or rebuild the same image and restart the pod executing:
