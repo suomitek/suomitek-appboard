@@ -20,10 +20,10 @@ Use the Helm chart to install the latest version of Kubeapps:
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
 # Helm 2 command
-helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
+helm install --name suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard
 # Helm 3 command
 kubectl create namespace suomitek-appboard
-helm install suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set useHelm3=true
+helm install suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard --set useHelm3=true
 ``` 
 
 ## Developer Documentation

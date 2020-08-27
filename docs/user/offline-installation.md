@@ -55,5 +55,5 @@ Now that you have everything pre-loaded in your cluster, it's possible to instal
 **NOTE**: If during step 2), you were using a private docker registry, it's necessary to modify the global value used for the registry. This can be set by specifying `--set global.imageRegistry=REPO_URL`.
 
 ```bash
-helm install kubeapps ./kubeapps [OPTIONS]
+helm install suomitek-appboard ./suomitek-appboard [OPTIONS]
 ```

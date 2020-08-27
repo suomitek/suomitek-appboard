@@ -18,7 +18,7 @@ For Helm 2:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
+helm install --name suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard
 ```
 
 For Helm 3:
@@ -26,7 +26,7 @@ For Helm 3:
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
 kubectl create namespace suomitek-appboard
-helm install suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set useHelm3=true
+helm install suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard --set useHelm3=true
 ```
 
 ## Introduction
@@ -49,7 +49,7 @@ For Helm 2:
 
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
-helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
+helm install --name suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard
 ```
 
 > **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-suomitek-appboard.md).
@@ -59,7 +59,7 @@ For Helm 3:
 ```bash
 helm repo add chartmuseum http://helm.yongchehang.com
 kubectl create namespace suomitek-appboard
-helm install suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set useHelm3=true
+helm install suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard --set useHelm3=true
 ```
 
 The command deploys Kubeapps on the Kubernetes cluster in the `suomitek-appboard` namespace. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
@@ -77,7 +77,7 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 ```bash
 helm install suomitek-appboard --namespace suomitek-appboard \
   --set assetsvc.service.port=9090 \
-    suomitek-appboard
+    chartmuseum/suomitek-appboard
 ```
 
 The above command sets the port for the assetsvc Service to 9090.
@@ -85,7 +85,7 @@ The above command sets the port for the assetsvc Service to 9090.
 Alternatively, a YAML file that specifies the values for parameters can be provided while installing the chart. For example,
 
 ```bash
-helm install suomitek-appboard --namespace suomitek-appboard -f custom-values.yaml suomitek-appboard
+helm install suomitek-appboard --namespace suomitek-appboard -f custom-values.yaml chartmuseum/suomitek-appboard
 ```
 
 ## Configuration and installation details
@@ -165,8 +165,8 @@ helm repo update
 Now upgrade Kubeapps:
 
 ```bash
-export RELEASE_NAME=kubeapps
-helm upgrade $RELEASE_NAME bitnami/kubeapps
+export RELEASE_NAME=suomitek-appboard
+helm upgrade $RELEASE_NAME chartmuseum/suomitek-appboard
 ```
 
 If you find issues upgrading Kubeapps, check the [troubleshooting](#error-while-upgrading-the-chart) section.
@@ -241,7 +241,7 @@ kubectl api-versions
 If the above command does not include entries for `rbac.authorization.k8s.io` you should perform the chart installation by setting `rbac.create=false`:
 
 ```bash
-helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set rbac.create=false
+helm install --name suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard --set rbac.create=false
 ```
 
 ### Error while upgrading the Chart
@@ -282,7 +282,7 @@ kubectl delete namespace suomitek-appboard
 
 ```bash
 helm repo update
-helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
+helm install --name suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard
 ```
 
 6.  (Optional) Restore any repositories you backed up in the first step:

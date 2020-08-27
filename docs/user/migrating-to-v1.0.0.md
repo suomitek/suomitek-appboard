@@ -20,8 +20,8 @@ After backing up your custom repositories, run the following command to remove
 and reinstall Kubeapps:
 
 ```bash
-helm delete --purge kubeapps
-helm install bitnami/kubeapps --version 1.0.0
+helm delete --purge suomitek-appboard
+helm install chartmuseum/suomitek-appboard --version 1.0.0
 ```
 
 To recover your custom repository backups, run the following command for each

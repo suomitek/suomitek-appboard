@@ -106,14 +106,14 @@ info "Using the values.yaml below:"
 printf '#####\n\n%s\n\n#####\n' "$values"
 info "Installing Kubeapps in namespace '$namespace'..."
 silence kubectl create ns "$namespace"
-silence helm install kubeapps \
+silence helm install suomitek-appboard \
     --namespace "$namespace" \
     -f <(echo "$values") \
-    suomitek-appboard
+    chartmuseum/suomitek-appboard
 # Wait for Kubeapps components
 info "Waiting for Kubeapps components to be ready..."
 deployments=(
-    "kubeapps"
+    "suomitek-appboard"
     "suomitek-appboard-internal-apprepository-controller"
     "suomitek-appboard-internal-assetsvc"
     "suomitek-appboard-internal-dashboard"

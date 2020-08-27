@@ -14,14 +14,14 @@ Install the Kubeapps Helm chart:
 For Helm 2:
 
 ```
-helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
+helm install --name suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard
 ```
 
 For Helm 3:
 
 ```
 kubectl create namespace suomitek-appboard
-helm install suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set useHelm3=true
+helm install suomitek-appboard --namespace suomitek-appboard chartmuseum/suomitek-appboard --set useHelm3=true
 ```
 
 To get started with Kubeapps, checkout this [walkthrough](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/getting-started.md).

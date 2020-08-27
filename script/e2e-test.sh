@@ -247,12 +247,12 @@ if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
 fi
 helm repo add chartmuseum http://helm.yongchehang.com
 helm dep up "${ROOT_DIR}/chart/suomitek-appboard"
-kubectl create ns kubeapps
+kubectl create ns suomitek-appboard
 
 if [[ -n "${TEST_UPGRADE}" ]]; then
   # To test the upgrade, first install the latest version published
   info "Installing latest Kubeapps chart available"
-  installOrUpgradeKubeapps bitnami/kubeapps
+  installOrUpgradeKubeapps suomitek-appboard
 fi
 
 installOrUpgradeKubeapps "${ROOT_DIR}/chart/suomitek-appboard"

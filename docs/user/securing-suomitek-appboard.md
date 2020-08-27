@@ -35,7 +35,7 @@ helm install \
   --set tillerProxy.tls.key="$(cat helm.key.pem)" \
   --set tillerProxy.tls.cert="$(cat helm.cert.pem)" \
   --namespace suomitek-appboard \
-  bitnami/kubeapps
+  chartmuseum/suomitek-appboard
 ```
 
 > Note: To use the `tls-verify` flag (and validate Tiller hostname), the certificate should have configured the host of Tiller within the cluster: `tiller-deploy.kube-system` by default.

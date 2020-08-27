@@ -100,7 +100,7 @@ Updating the value of the `clusters` chart option is just like updating any othe
 So if you had originally installed Kubeapps with a command like:
 
 ```bash
-helm install kubeapps bitnami/kubeapps --namespace suomitek-appboard --values ./path/to/my/values.yaml
+helm install suomitek-appboard chartmuseum/suomitek-appboard --namespace suomitek-appboard --values ./path/to/my/values.yaml
 ```
 
 then to modify the clusters configured for Kubeapps at some later point you will need to

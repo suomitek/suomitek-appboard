@@ -73,7 +73,7 @@ helm install \
   --set tillerProxy.tls.key="$(cat helm.key.pem)" \
   --set tillerProxy.tls.cert="$(cat helm.cert.pem)" \
   --namespace suomitek-appboard \
-  bitnami/kubeapps
+  chartmuseum/suomitek-appboard
 ```
 
 **NOTE**: You can skip the TLS flags if you have not installed Helm with a TLS certificate.
