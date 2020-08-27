@@ -191,7 +191,7 @@ exports[`render the operator list with installed operators 1`] = `
                 key="foo"
                 link="/c/default/ns/default/operators/foo"
                 tag1Content="security"
-                tag2Content="kubeapps"
+                tag2Content="suomitek-appboard"
                 title="foo"
               />
             </CardGrid>
@@ -358,7 +358,7 @@ exports[`render the operator list without installed operators 1`] = `
                 key="foo"
                 link="/c/default/ns/default/operators/foo"
                 tag1Content="security"
-                tag2Content="kubeapps"
+                tag2Content="suomitek-appboard"
                 title="foo"
               />
             </CardGrid>

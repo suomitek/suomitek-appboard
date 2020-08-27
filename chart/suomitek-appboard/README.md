@@ -43,7 +43,7 @@ It also packages the [Bitnami MongoDB chart](https://github.com/bitnami/charts/t
 
 ## Installing the Chart
 
-To install the chart with the release name `kubeapps`:
+To install the chart with the release name `suomitek-appboard`:
 
 For Helm 2:
 
@@ -52,7 +52,7 @@ helm repo add chartmuseum http://helm.yongchehang.com
 helm install --name suomitek-appboard --namespace suomitek-appboard suomitek-appboard
 ```
 
-> **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-kubeapps.md).
+> **IMPORTANT** This assumes an insecure Helm 2 installation, which is not recommended in production. See [the documentation to learn how to secure Helm 2 and Kubeapps in production](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-suomitek-appboard.md).
 
 For Helm 3:
 
@@ -62,7 +62,7 @@ kubectl create namespace suomitek-appboard
 helm install suomitek-appboard --namespace suomitek-appboard suomitek-appboard --set useHelm3=true
 ```
 
-The command deploys Kubeapps on the Kubernetes cluster in the `kubeapps` namespace. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
+The command deploys Kubeapps on the Kubernetes cluster in the `suomitek-appboard` namespace. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
 
 > **Caveat**: Only one Kubeapps installation is supported per namespace
 
@@ -75,9 +75,9 @@ For a full list of configuration parameters of the Kubeapps chart, see the [valu
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```bash
-helm install kubeapps --namespace kubeapps \
+helm install suomitek-appboard --namespace suomitek-appboard \
   --set assetsvc.service.port=9090 \
-    bitnami/kubeapps
+    suomitek-appboard
 ```
 
 The above command sets the port for the assetsvc Service to 9090.
@@ -85,7 +85,7 @@ The above command sets the port for the assetsvc Service to 9090.
 Alternatively, a YAML file that specifies the values for parameters can be provided while installing the chart. For example,
 
 ```bash
-helm install kubeapps --namespace kubeapps -f custom-values.yaml bitnami/kubeapps
+helm install suomitek-appboard --namespace suomitek-appboard -f custom-values.yaml suomitek-appboard
 ```
 
 ## Configuration and installation details
@@ -114,7 +114,7 @@ If your instance of Tiller is running in a different namespace or you want to ha
 
 In production, we strongly recommend setting up a [secure installation of Tiller](https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller), the Helm server side component.
 
-Learn more about how to secure your Kubeapps installation [here](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-kubeapps.md).
+Learn more about how to secure your Kubeapps installation [here](https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/securing-suomitek-appboard.md).
 
 ### Exposing Externally
 
@@ -124,10 +124,10 @@ Learn more about how to secure your Kubeapps installation [here](https://github.
 
 The simplest way to expose the Kubeapps Dashboard is to assign a LoadBalancer type to the Kubeapps frontend Service. For example, you can use the following parameter: `frontend.service.type=LoadBalancer`
 
-Wait for your cluster to assign a LoadBalancer IP or Hostname to the `kubeapps` Service and access it on that address:
+Wait for your cluster to assign a LoadBalancer IP or Hostname to the `suomitek-appboard` Service and access it on that address:
 
 ```bash
-kubectl get services --namespace kubeapps --watch
+kubectl get services --namespace suomitek-appboard --watch
 ```
 
 #### Ingress
