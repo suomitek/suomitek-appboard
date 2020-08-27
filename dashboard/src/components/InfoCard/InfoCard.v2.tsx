@@ -57,9 +57,9 @@ function InfoCard(props: IInfoCardProps) {
           </CardBlock>
           <CardFooter>
             <Row>
-              <div className="kubeapps-card-footer">
-                <div className="kubeapps-card-footer-col1">{info}</div>
-                <div className="kubeapps-card-footer-col2">
+              <div className="suomitek-appboard-card-footer">
+                <div className="suomitek-appboard-card-footer-col1">{info}</div>
+                <div className="suomitek-appboard-card-footer-col2">
                   <div className="footer-tags">
                     {tag1Content && (
                       <span className={`label ${tag1Class || "label-info"}`}>{tag1Content}</span>

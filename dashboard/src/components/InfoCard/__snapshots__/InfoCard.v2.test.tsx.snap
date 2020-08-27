@@ -59,15 +59,15 @@ exports[`should render a Card 1`] = `
           list={false}
         >
           <div
-            className="kubeapps-card-footer"
+            className="suomitek-appboard-card-footer"
           >
             <div
-              className="kubeapps-card-footer-col1"
+              className="suomitek-appboard-card-footer-col1"
             >
               foobar
             </div>
             <div
-              className="kubeapps-card-footer-col2"
+              className="suomitek-appboard-card-footer-col2"
             >
               <div
                 className="footer-tags"
