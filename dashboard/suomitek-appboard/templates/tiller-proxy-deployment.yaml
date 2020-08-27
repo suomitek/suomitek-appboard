@@ -26,13 +26,13 @@ spec:
       terminationGracePeriodSeconds: 300
 {{- include "suomitek-appboard.imagePullSecrets" . | indent 6 }}
       {{- if .Values.tillerProxy.affinity }}
-      affinity: {{- include "kubeapps.tplValue" (dict "value" .Values.tillerProxy.affinity "context" $) | nindent 8 }}
+      affinity: {{- include "suomitek-appboard.tplValue" (dict "value" .Values.tillerProxy.affinity "context" $) | nindent 8 }}
       {{- end }}
       {{- if .Values.tillerProxy.nodeSelector }}
-      nodeSelector: {{- include "kubeapps.tplValue" (dict "value" .Values.tillerProxy.nodeSelector "context" $) | nindent 8 }}
+      nodeSelector: {{- include "suomitek-appboard.tplValue" (dict "value" .Values.tillerProxy.nodeSelector "context" $) | nindent 8 }}
       {{- end }}
       {{- if .Values.tillerProxy.tolerations }}
-      tolerations: {{- include "kubeapps.tplValue" (dict "value" .Values.tillerProxy.tolerations "context" $) | nindent 8 }}
+      tolerations: {{- include "suomitek-appboard.tplValue" (dict "value" .Values.tillerProxy.tolerations "context" $) | nindent 8 }}
       {{- end }}
       {{- if .Values.securityContext.enabled }}
       securityContext:

@@ -4,7 +4,7 @@ metadata:
   name: {{ template "suomitek-appboard.fullname" . }}
   labels:{{ include "kubeapps.labels" . | nindent 4 }}
   {{- if .Values.frontend.service.annotations }}
-  annotations: {{- include "kubeapps.tplValue" (dict "value" .Values.frontend.service.annotations "context" $) | nindent 4 }}
+  annotations: {{- include "suomitek-appboard.tplValue" (dict "value" .Values.frontend.service.annotations "context" $) | nindent 4 }}
   {{- end }}
 spec:
   type: {{ .Values.frontend.service.type }}

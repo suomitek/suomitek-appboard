@@ -24,13 +24,13 @@ spec:
     spec:
 {{- include "suomitek-appboard.imagePullSecrets" . | indent 6 }}
       {{- if .Values.dashboard.affinity }}
-      affinity: {{- include "kubeapps.tplValue" (dict "value" .Values.dashboard.affinity "context" $) | nindent 8 }}
+      affinity: {{- include "suomitek-appboard.tplValue" (dict "value" .Values.dashboard.affinity "context" $) | nindent 8 }}
       {{- end }}
       {{- if .Values.dashboard.nodeSelector }}
-      nodeSelector: {{- include "kubeapps.tplValue" (dict "value" .Values.dashboard.nodeSelector "context" $) | nindent 8 }}
+      nodeSelector: {{- include "suomitek-appboard.tplValue" (dict "value" .Values.dashboard.nodeSelector "context" $) | nindent 8 }}
       {{- end }}
       {{- if .Values.dashboard.tolerations }}
-      tolerations: {{- include "kubeapps.tplValue" (dict "value" .Values.dashboard.tolerations "context" $) | nindent 8 }}
+      tolerations: {{- include "suomitek-appboard.tplValue" (dict "value" .Values.dashboard.tolerations "context" $) | nindent 8 }}
       {{- end }}
       {{- if .Values.securityContext.enabled }}
       securityContext:

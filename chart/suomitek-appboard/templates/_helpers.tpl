@@ -238,9 +238,9 @@ imagePullSecrets:
 {{/*
 Renders a value that contains template.
 Usage:
-{{ include "kubeapps.tplValue" ( dict "value" .Values.path.to.the.Value "context" $) }}
+{{ include "suomitek-appboard.tplValue" ( dict "value" .Values.path.to.the.Value "context" $) }}
 */}}
-{{- define "kubeapps.tplValue" -}}
+{{- define "suomitek-appboard.tplValue" -}}
     {{- if typeIs "string" .value }}
         {{- tpl .value .context }}
     {{- else }}
