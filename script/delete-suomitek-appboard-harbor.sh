@@ -24,4 +24,4 @@ info "-----------------------"
 info "-- Suomitek-appboard deletion --"
 info "-----------------------"
 echo
-"$ROOT_DIR"/script/delete-suomitek-appboard.sh --namespace "kubeapps"
+"$ROOT_DIR"/script/delete-suomitek-appboard.sh --namespace "suomitek-appboard"

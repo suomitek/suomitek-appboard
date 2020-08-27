@@ -45,7 +45,7 @@ exports[`renders a header for the chart 1`] = `
       className="col-2 ChartHeader__button"
     >
       <ChartDeployButton
-        namespace="kubeapps"
+        namespace="suomitek-appboard"
         version={
           Object {
             "attributes": Object {

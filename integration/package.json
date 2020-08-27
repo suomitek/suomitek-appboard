@@ -1,5 +1,5 @@
 {
-  "name": "kubeapps-integration",
+  "name": "suomitek-appboard-integration",
   "version": "1.0.0",
   "description": "Suomitek-appboard integration tests",
   "main": "index.js",

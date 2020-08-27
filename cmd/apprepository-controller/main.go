@@ -87,7 +87,7 @@ func init() {
 	flag.StringVar(&masterURL, "master", "", "The address of the Kubernetes API server. Overrides any value in kubeconfig. Only required if out-of-cluster.")
 	flag.StringVar(&repoSyncImage, "repo-sync-image", "quay.io/helmpack/chart-repo:latest", "container repo/image to use in CronJobs")
 	flag.StringVar(&repoSyncCommand, "repo-sync-cmd", "/chart-repo", "command used to sync/delete repos for repo-sync-image")
-	flag.StringVar(&namespace, "namespace", "kubeapps", "Namespace to discover AppRepository resources")
+	flag.StringVar(&namespace, "namespace", "suomitek-appboard", "Namespace to discover AppRepository resources")
 	flag.BoolVar(&reposPerNamespace, "repos-per-namespace", true, "UNUSED: This flag will be removed in a future release.")
 	flag.StringVar(&dbType, "database-type", "mongodb", "Database type. Allowed values: mongodb, postgresql")
 	flag.StringVar(&dbURL, "database-url", "localhost", "Database URL")

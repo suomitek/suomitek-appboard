@@ -69,12 +69,12 @@ func (f *fakePGManager) GetDB() dbutils.PostgresDB {
 }
 
 func (f *fakePGManager) GetKubeappsNamespace() string {
-	return "kubeapps"
+	return "suomitek-appboard"
 }
 
 func Test_NewPGManager(t *testing.T) {
 	config := datastore.Config{URL: "10.11.12.13:5432"}
-	_, err := newPGManager(config, "kubeapps")
+	_, err := newPGManager(config, "suomitek-appboard")
 	if err != nil {
 		t.Errorf("Found error %v", err)
 	}
@@ -235,7 +235,7 @@ func Test_getPaginatedChartList(t *testing.T) {
 
 			chartsResponse = availableCharts
 			expectedQuery := "WHERE (repo_namespace = $1 OR repo_namespace = $2)"
-			expectedParams := []interface{}{"other-namespace", "kubeapps"}
+			expectedParams := []interface{}{"other-namespace", "suomitek-appboard"}
 			if tt.repo != "" {
 				expectedQuery = expectedQuery + " AND repo_name = $3"
 				expectedParams = append(expectedParams, "bitnami")

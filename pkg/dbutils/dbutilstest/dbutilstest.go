@@ -22,7 +22,7 @@ import (
 	"testing"
 )
 
-const KubeappsTestNamespace = "kubeapps"
+const KubeappsTestNamespace = "suomitek-appboard"
 
 func IsEnvVarTrue(t *testing.T, envvar string) bool {
 	enableEnvVar := os.Getenv(envvar)

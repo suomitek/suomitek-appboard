@@ -372,31 +372,31 @@ func TestActions(t *testing.T) {
 		{
 			// Scenario params
 			Description:      "Test a release successfully",
-			ExistingReleases: []release.Release{release.Release{Name: "kubeapps", Namespace: "kubeapps-ns"}},
+			ExistingReleases: []release.Release{release.Release{Name: "suomitek-appboard", Namespace: "suomitek-appboard-ns"}},
 			ForbiddenActions: []auth.Action{},
 			// Request params
 			RequestBody:  "",
 			RequestQuery: "",
 			Action:       "test",
-			Params:       map[string]string{"namespace": "kubeapps-ns", "releaseName": "kubeapps"},
+			Params:       map[string]string{"namespace": "suomitek-appboard-ns", "releaseName": "suomitek-appboard"},
 			// Expected result
 			StatusCode:        200,
-			RemainingReleases: []release.Release{release.Release{Name: "kubeapps", Namespace: "kubeapps-ns"}},
+			RemainingReleases: []release.Release{release.Release{Name: "suomitek-appboard", Namespace: "suomitek-appboard-ns"}},
 			ResponseBody:      `{"data":{"UNKNOWN":["No Tests Found"]}}`,
 		},
 		{
 			// Scenario params
 			Description:      "Fail to test a release",
-			ExistingReleases: []release.Release{release.Release{Name: "kubeapps", Namespace: "kubeapps-ns"}},
+			ExistingReleases: []release.Release{release.Release{Name: "suomitek-appboard", Namespace: "suomitek-appboard-ns"}},
 			ForbiddenActions: []auth.Action{},
 			// Request params
 			RequestBody:  "",
 			RequestQuery: "",
 			Action:       "test",
-			Params:       map[string]string{"namespace": "default", "releaseName": "kubeapps"},
+			Params:       map[string]string{"namespace": "default", "releaseName": "suomitek-appboard"},
 			// Expected result
 			StatusCode:        404,
-			RemainingReleases: []release.Release{release.Release{Name: "kubeapps", Namespace: "kubeapps-ns"}},
+			RemainingReleases: []release.Release{release.Release{Name: "suomitek-appboard", Namespace: "suomitek-appboard-ns"}},
 			ResponseBody:      `{"code":404,"message":"Unable to locate release: Release kubeapps not found"}`,
 		},
 	}

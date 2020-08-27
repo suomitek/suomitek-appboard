@@ -13,7 +13,7 @@ ROOT_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null && pwd)"
 # shellcheck disable=SC1090
 . "${ROOT_DIR}/script/liblog.sh"
 
-namespace="kubeapps"
+namespace="suomitek-appboard"
 while [[ "$#" -gt 0 ]]; do
     case "$1" in
         -n|--namespace)
