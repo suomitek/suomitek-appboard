@@ -21,7 +21,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/kubeapps/common/response"
+	"github.com/suomitek/kubeapps-common/response"
 	"github.com/kubeapps/kubeapps/pkg/auth"
 	chartUtils "github.com/kubeapps/kubeapps/pkg/chart"
 	"github.com/kubeapps/kubeapps/pkg/handlerutil"

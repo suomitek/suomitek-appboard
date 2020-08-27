@@ -20,7 +20,7 @@ import (
 	"fmt"
 
 	"github.com/globalsign/mgo"
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 )
 
 const (

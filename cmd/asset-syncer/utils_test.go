@@ -37,7 +37,7 @@ import (
 	"github.com/arschles/assert"
 	"github.com/disintegration/imaging"
 	"github.com/globalsign/mgo/bson"
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 	"github.com/kubeapps/kubeapps/pkg/chart/models"
 	log "github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/mock"

@@ -19,7 +19,7 @@ package mgtest
 import (
 	"testing"
 
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 	"github.com/kubeapps/kubeapps/pkg/dbutils"
 	"github.com/kubeapps/kubeapps/pkg/dbutils/dbutilstest"
 )

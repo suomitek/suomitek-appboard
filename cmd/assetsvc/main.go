@@ -23,7 +23,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/heptiolabs/healthcheck"
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/negroni"
 )

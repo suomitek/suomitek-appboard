@@ -22,7 +22,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/kubeapps/common/response"
+	"github.com/suomitek/kubeapps-common/response"
 	"github.com/kubeapps/kubeapps/pkg/chart/models"
 	log "github.com/sirupsen/logrus"
 )

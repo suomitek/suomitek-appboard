@@ -21,7 +21,7 @@ import (
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/google/go-cmp/cmp"
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 	"github.com/kubeapps/kubeapps/pkg/chart/models"
 )
 

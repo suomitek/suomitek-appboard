@@ -38,7 +38,7 @@ import (
 	"github.com/disintegration/imaging"
 	"github.com/ghodss/yaml"
 	"github.com/jinzhu/copier"
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 	"github.com/kubeapps/kubeapps/pkg/chart/models"
 	log "github.com/sirupsen/logrus"
 	helmrepo "k8s.io/helm/pkg/repo"

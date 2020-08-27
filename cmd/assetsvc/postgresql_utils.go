@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 	"github.com/kubeapps/kubeapps/pkg/chart/models"
 	"github.com/kubeapps/kubeapps/pkg/dbutils"
 	_ "github.com/lib/pq"

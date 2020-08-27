@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 	"github.com/kubeapps/kubeapps/pkg/chart/models"
 )
 

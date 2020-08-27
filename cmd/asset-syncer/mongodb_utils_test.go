@@ -22,8 +22,8 @@ import (
 
 	"github.com/arschles/assert"
 	"github.com/globalsign/mgo/bson"
-	"github.com/kubeapps/common/datastore"
-	"github.com/kubeapps/common/datastore/mockstore"
+	"github.com/suomitek/kubeapps-common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore/mockstore"
 	"github.com/kubeapps/kubeapps/pkg/chart/models"
 	"github.com/kubeapps/kubeapps/pkg/dbutils"
 	"github.com/kubeapps/kubeapps/pkg/dbutils/dbutilstest"

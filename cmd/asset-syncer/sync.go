@@ -20,7 +20,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 	"github.com/kubeapps/kubeapps/pkg/chart/models"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

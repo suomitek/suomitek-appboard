@@ -19,7 +19,7 @@ package main
 import (
 	"os"
 
-	"github.com/kubeapps/common/datastore"
+	"github.com/suomitek/kubeapps-common/datastore"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

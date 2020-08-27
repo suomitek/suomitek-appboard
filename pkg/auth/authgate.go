@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/gorilla/mux"
-	"github.com/kubeapps/common/response"
+	"github.com/suomitek/kubeapps-common/response"
 	"github.com/kubeapps/kubeapps/pkg/dbutils"
 	"github.com/urfave/negroni"
 )

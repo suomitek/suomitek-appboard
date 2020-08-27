@@ -6,7 +6,7 @@ import (
 
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/google/go-cmp/cmp"
-	"github.com/kubeapps/common/response"
+	"github.com/suomitek/kubeapps-common/response"
 	h3chart "helm.sh/helm/v3/pkg/chart"
 	h3 "helm.sh/helm/v3/pkg/release"
 	helmtime "helm.sh/helm/v3/pkg/time"

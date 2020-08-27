@@ -1,4 +1,4 @@
-module github.com/kubeapps/kubeapps
+module github.com/suomitek/suomitek-appborad
 
 go 1.13
 
@@ -37,7 +37,7 @@ require (
 	github.com/heptiolabs/healthcheck v0.0.0-20180807145615-6ff867650f40
 	github.com/jinzhu/copier v0.0.0-20190924061706-b57f9002281a
 	github.com/kardianos/osext v0.0.0-20170510131534-ae77be60afb1 // indirect
-	github.com/kubeapps/common v0.0.0-20200304064434-f6ba82e79f47
+	github.com/suomitek/kubeapps-common v0.0.0-20200304064434-f6ba82e79f47
 	github.com/lib/pq v1.3.0
 	github.com/miekg/dns v0.0.0-20181005163659-0d29b283ac0f // indirect
 	github.com/pkg/errors v0.9.1
