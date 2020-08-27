@@ -327,7 +327,7 @@ exports[`should open a modal with the repository form 1`] = `
                         NOTE:
                       </strong>
                        This App Repository will be created in the "
-                      kubeapps
+                      suomitek-appboard
                       " namespace and charts will be available in all namespaces for installation.
                     </div>
                     <div>

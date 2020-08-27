@@ -32,7 +32,7 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{/*
-Common labels for additional kubeapps applications. Used on resources whose app name is different
+Common labels for additional suomitek-appboard applications. Used on resources whose app name is different
 from kubeapps
 */}}
 {{- define "suomitek-appboard.extraAppLabels" -}}
