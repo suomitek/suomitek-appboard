@@ -23,7 +23,7 @@ spec:
       # Increase termination timeout to let remaining operations to finish before killing the pods
       # This is because new releases/upgrades/deletions are synchronous operations
       terminationGracePeriodSeconds: 300
-{{- include "kubeapps.imagePullSecrets" . | indent 6 }}
+{{- include "suomitek-appboard.imagePullSecrets" . | indent 6 }}
       {{- if .Values.tillerProxy.affinity }}
       affinity: {{- include "kubeapps.tplValue" (dict "value" .Values.tillerProxy.affinity "context" $) | nindent 8 }}
       {{- end }}

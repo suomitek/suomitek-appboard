@@ -19,7 +19,7 @@ spec:
         app.kubernetes.io/name: {{ template "suomitek-appboard.name" . }}
     spec:
       serviceAccountName: {{ template "suomitek-appboard.apprepository.fullname" . }}
-{{- include "kubeapps.imagePullSecrets" . | indent 6 }}
+{{- include "suomitek-appboard.imagePullSecrets" . | indent 6 }}
       {{- if .Values.apprepository.affinity }}
       affinity: {{- include "kubeapps.tplValue" (dict "value" .Values.apprepository.affinity "context" $) | nindent 8 }}
       {{- end }}

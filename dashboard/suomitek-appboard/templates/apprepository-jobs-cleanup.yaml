@@ -18,7 +18,7 @@ spec:
         app: {{ template "suomitek-appboard.apprepository-jobs-cleanup.fullname" . }}
         release: {{ .Release.Name }}
     spec:
-{{- include "kubeapps.imagePullSecrets" . | indent 6 }}
+{{- include "suomitek-appboard.imagePullSecrets" . | indent 6 }}
       {{- if .Values.hooks.affinity }}
       affinity: {{- include "kubeapps.tplValue" (dict "value" .Values.hooks.affinity "context" $) | nindent 8 }}
       {{- end }}

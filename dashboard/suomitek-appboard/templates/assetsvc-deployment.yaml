@@ -19,7 +19,7 @@ spec:
         app: {{ template "suomitek-appboard.assetsvc.fullname" . }}
         release: {{ .Release.Name }}
     spec:
-{{- include "kubeapps.imagePullSecrets" . | indent 6 }}
+{{- include "suomitek-appboard.imagePullSecrets" . | indent 6 }}
       {{- if .Values.assetsvc.affinity }}
       affinity: {{- include "kubeapps.tplValue" (dict "value" .Values.assetsvc.affinity "context" $) | nindent 8 }}
       {{- end }}

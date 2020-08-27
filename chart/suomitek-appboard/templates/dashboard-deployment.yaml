@@ -22,7 +22,7 @@ spec:
         chart: {{ template "suomitek-appboard.chart" . }}
         helm.sh/chart: {{ template "suomitek-appboard.chart" . }}
     spec:
-{{- include "kubeapps.imagePullSecrets" . | indent 6 }}
+{{- include "suomitek-appboard.imagePullSecrets" . | indent 6 }}
       {{- if .Values.dashboard.affinity }}
       affinity: {{- include "kubeapps.tplValue" (dict "value" .Values.dashboard.affinity "context" $) | nindent 8 }}
       {{- end }}

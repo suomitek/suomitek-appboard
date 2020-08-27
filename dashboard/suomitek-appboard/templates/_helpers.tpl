@@ -210,7 +210,7 @@ Frontend service port number
 {{/*
 Return the proper Docker Image Registry Secret Names
 */}}
-{{- define "kubeapps.imagePullSecrets" -}}
+{{- define "suomitek-appboard.imagePullSecrets" -}}
 {{/*
 We can not use a single if because lazy evaluation is not an option
 */}}

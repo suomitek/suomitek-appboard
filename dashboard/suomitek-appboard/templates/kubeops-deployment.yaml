@@ -20,7 +20,7 @@ spec:
         app: {{ template "suomitek-appboard.kubeops.fullname" . }}
         release: {{ .Release.Name }}
     spec:
-{{- include "kubeapps.imagePullSecrets" . | indent 6 }}
+{{- include "suomitek-appboard.imagePullSecrets" . | indent 6 }}
       serviceAccountName: {{ template "suomitek-appboard.kubeops.fullname" . }}
       # Increase termination timeout to let remaining operations to finish before killing the pods
       # This is because new releases/upgrades/deletions are synchronous operations
