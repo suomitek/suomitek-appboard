@@ -76,7 +76,7 @@ Open a command prompt and run the `GetDashToken.cmd` Your token can be found in 
 Once Kubeapps is installed, securely access the Kubeapps Dashboard from your system by running:
 
 ```bash
-kubectl port-forward -n kubeapps svc/kubeapps 8080:80
+kubectl port-forward -n suomitek-appboard svc/kubeapps 8080:80
 ```
 
 This will start an HTTP proxy for secure access to the Kubeapps Dashboard. Visit http://127.0.0.1:8080/ in your preferred web browser to open the Dashboard. Here's what you should see:

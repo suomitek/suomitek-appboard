@@ -64,17 +64,17 @@ Note that the assetsvc should be rebuilt for new changes to take effect.
 Note: By default, Kubeapps will try to fetch the latest version of the image so in order to make this workflow work in Minikube you will need to update the imagePullPolicy first:
 
 ```bash
-kubectl patch deployment suomitek-appboard-internal-assetsvc -n kubeapps --type=json -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/imagePullPolicy", "value": "IfNotPresent"}]'
+kubectl patch deployment suomitek-appboard-internal-assetsvc -n suomitek-appboard --type=json -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/imagePullPolicy", "value": "IfNotPresent"}]'
 ```
 
 ```bash
-kubectl set image -n kubeapps deployment suomitek-appboard-internal-assetsvc assetsvc=kubeapps/assetsvc:latest
+kubectl set image -n suomitek-appboard deployment suomitek-appboard-internal-assetsvc assetsvc=kubeapps/assetsvc:latest
 ```
 
 For further redeploys you can change the version to deploy a different tag or rebuild the same image and restart the pod executing:
 
 ```bash
-kubectl delete pod -n kubeapps -l app=suomitek-appboard-internal-assetsvc
+kubectl delete pod -n suomitek-appboard -l app=suomitek-appboard-internal-assetsvc
 ```
 
 Note: If you using a cloud provider to develop the service you will need to retag the image and push it to a public registry.

@@ -96,7 +96,7 @@ subjects:
 Now to retrieve the token for this account, the Cluster Operator would need to run the following:
 
 ```
-kubectl -n kube-system describe secret $(kubectl -n kubeapps-users get secret | grep johnsmith | awk '{print $1}')
+kubectl -n kube-system describe secret $(kubectl -n suomitek-appboard-users get secret | grep johnsmith | awk '{print $1}')
 ```
 
 ```

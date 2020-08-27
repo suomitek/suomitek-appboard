@@ -22,7 +22,7 @@ devel/localhost-cert.pem:
 
 deploy-dependencies: deploy-dex deploy-openldap devel/localhost-cert.pem
 	kubectl create namespace suomitek-appboard
-	kubectl -n kubeapps create secret tls localhost-tls \
+	kubectl -n suomitek-appboard create secret tls localhost-tls \
 		--key ./devel/localhost-key.pem \
 		--cert ./devel/localhost-cert.pem
 
@@ -42,7 +42,7 @@ deploy-dev: deploy-dependencies
 	@echo "to authenticate with the corresponding permissions."
 
 reset-dev:
-	helm -n kubeapps delete kubeapps || true
+	helm -n suomitek-appboard delete kubeapps || true
 	helm -n dex delete dex || true
 	helm -n ldap delete ldap || true
 	kubectl delete namespace --wait dex ldap kubeapps || true
