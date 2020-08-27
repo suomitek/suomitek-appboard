@@ -1,4 +1,4 @@
-IMPORT_PATH:= github.com/kubeapps/kubeapps
+IMPORT_PATH:= github.com/suomitek/suomitek-appborad
 GO = /usr/bin/env go
 GOFMT = /usr/bin/env gofmt
 IMAGE_TAG ?= dev-$(shell date +%FT%H-%M-%S-%Z)
@@ -15,14 +15,14 @@ IMG_MODIFIER ?=
 GO_PACKAGES = ./...
 # GO_FILES := $(shell find $(shell $(GO) list -f '{{.Dir}}' $(GO_PACKAGES)) -name \*.go)
 
-all: kubeapps/dashboard kubeapps/apprepository-controller kubeapps/tiller-proxy kubeapps/kubeops kubeapps/assetsvc kubeapps/asset-syncer
+all: suomitek-appboard/dashboard suomitek-appboard/apprepository-controller suomitek-appboard/tiller-proxy suomitek-appboard/kubeops suomitek-appboard/assetsvc suomitek-appboard/asset-syncer
 
 # TODO(miguel) Create Makefiles per component
-kubeapps/%:
-	DOCKER_BUILDKIT=1 docker build -t kubeapps/$*$(IMG_MODIFIER):$(IMAGE_TAG) --build-arg "VERSION=${VERSION}" -f cmd/$*/Dockerfile .
+suomitek-appboard/%:
+	DOCKER_BUILDKIT=1 docker build -t suomitek-appboard/$*$(IMG_MODIFIER):$(IMAGE_TAG) --build-arg "VERSION=${VERSION}" -f cmd/$*/Dockerfile .
 
-kubeapps/dashboard:
-	docker build -t kubeapps/dashboard$(IMG_MODIFIER):$(IMAGE_TAG) -f dashboard/Dockerfile dashboard/
+suomitek-appboard/dashboard:
+	docker build -t suomitek-appboard/dashboard$(IMG_MODIFIER):$(IMAGE_TAG) -f dashboard/Dockerfile dashboard/
 
 test:
 	$(GO) test $(GO_PACKAGES)
