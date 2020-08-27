@@ -183,7 +183,7 @@ apprepository:
   ## Schedule for syncing apprepositories. Every ten minutes by default
   # crontab: "*/10 * * * *"
   ## Bitnami Kubeapps AppRepository Controller image
-  ## ref: https://hub.docker.com/r/bitnami/kubeapps-apprepository-controller/tags/
+  ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-apprepository-controller/tags/
   ##
   image:
     registry: docker.io
@@ -191,7 +191,7 @@ apprepository:
     tag: 1.10.0-scratch-r0
   ## Kubeapps assets synchronization tool
   ## Image used to perform chart repository syncs
-  ## ref: https://hub.docker.com/r/bitnami/kubeapps-asset-syncer/tags/
+  ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-asset-syncer/tags/
   ##
   syncImage:
     registry: docker.io
@@ -321,7 +321,7 @@ tillerProxy:
   replicaCount: 2
 
   ## Bitnami Kubeapps Tiller Proxy image
-  ## ref: https://hub.docker.com/r/bitnami/kubeapps-tiller-proxy/tags/
+  ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-tiller-proxy/tags/
   ##
   image:
     registry: docker.io
@@ -395,7 +395,7 @@ tillerProxy:
 assetsvc:
   replicaCount: 2
   ## Bitnami Kubeapps Assetsvc image
-  ## ref: https://hub.docker.com/r/bitnami/kubeapps-assetsvc/tags/
+  ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-assetsvc/tags/
   ##
   image:
     registry: docker.io
@@ -455,7 +455,7 @@ assetsvc:
 dashboard:
   replicaCount: 2
   ## Bitnami Kubeapps Dashboard image
-  ## ref: https://hub.docker.com/r/bitnami/kubeapps-dashboard/tags/
+  ## ref: https://hub.docker.com/r/suomitek/suomitek-appboard-dashboard/tags/
   ##
   image:
     registry: docker.io
