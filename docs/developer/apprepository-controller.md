@@ -22,7 +22,7 @@ export PATH=$GOPATH/bin:$PATH
 export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appboard
 ```
 
-## Download the kubeapps source code
+## Download the suomitek-appboard source code
 
 ```bash
 git clone --recurse-submodules https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR

@@ -29,7 +29,7 @@ Currently supported integrations:
 
 You can setup environment to test Kubeapps integration with Harbor using the scripts below:
 
-- [setup-kubeapps](../../script/setup-suomitek-appboard.sh).
+- [setup-suomitek-appboard](../../script/setup-suomitek-appboard.sh).
 - [setup-harbor](../../script/setup-harbor.sh).
 
 These scripts will create the necessary namespaces, install the charts, wait for them to be available, and perform any extra action that might be needed. Find detailed information about how to use these scripts running the commands below:
@@ -42,11 +42,11 @@ These scripts will create the necessary namespaces, install the charts, wait for
 You can also use the [setup-suomitek-appboard-harbor](../../script/setup-suomitek-appboard-harbor.sh) script which is a wrapper that uses both the scripts mentioned above with some default values:
 
 - Install Harbor under the `harbor` namespace.
-- Install Kubeapps under the `kubeapps` namespace.
+- Install Kubeapps under the `suomitek-appboard` namespace.
 - Adds Harbor as an extra initial repository to Kubeapps, based on its service hostname.
 
 #### Cleaning up the environment
 
-You can use the scripts [delete-kubeapps](../../script/delete-suomitek-appboard.sh) and [delete-harbor](../../script/delete-harbor.sh) to uninstall Kubeapps and Harbor releases from the cluster, respectively. These scripts will also remove the associated namespaces and resources.
+You can use the scripts [delete-suomitek-appboard](../../script/delete-suomitek-appboard.sh) and [delete-harbor](../../script/delete-harbor.sh) to uninstall Kubeapps and Harbor releases from the cluster, respectively. These scripts will also remove the associated namespaces and resources.
 
 > Note: you can use the [delete-suomitek-appboard-harbor](../../script/delete-suomitek-appboard-harbor.sh) script to clean up the environment if you used the [setup-suomitek-appboard-harbor](../../script/setup-suomitek-appboard-harbor.sh) script to setup the environment.

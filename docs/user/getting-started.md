@@ -29,7 +29,7 @@ helm install suomitek-appboard --namespace suomitek-appboard chartmuseum/suomite
 
 For detailed information on installing, configuring and upgrading Kubeapps, checkout the [chart README](../../chart/suomitek-appboard/README.md).
 
-The above commands will deploy Kubeapps into the `kubeapps` namespace in your cluster. It may take a few minutes to execute. Once it has been deployed and the Kubeapps pods are running, continue to step 2.
+The above commands will deploy Kubeapps into the `suomitek-appboard` namespace in your cluster. It may take a few minutes to execute. Once it has been deployed and the Kubeapps pods are running, continue to step 2.
 
 ## Step 2: Create a Kubernetes API token
 
@@ -76,7 +76,7 @@ Open a command prompt and run the `GetDashToken.cmd` Your token can be found in 
 Once Kubeapps is installed, securely access the Kubeapps Dashboard from your system by running:
 
 ```bash
-kubectl port-forward -n suomitek-appboard svc/kubeapps 8080:80
+kubectl port-forward -n suomitek-appboard svc/suomitek-appboard 8080:80
 ```
 
 This will start an HTTP proxy for secure access to the Kubeapps Dashboard. Visit http://127.0.0.1:8080/ in your preferred web browser to open the Dashboard. Here's what you should see:

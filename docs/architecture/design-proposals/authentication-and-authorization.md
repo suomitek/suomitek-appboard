@@ -9,7 +9,7 @@ Take advantage of RBAC primitives from Kubernetes in Kubeapps to:
 
 ## Motivation
 
-Consider an enterprise, MyCompany Ltd., that wants to provide Kubeapps to its employees as a means to deploy and manage applications running in a Kubernetes cluster. Kubeapps is installed into the cluster by the Cluster Operator and access is given via Kubeconfig credentials. Employees run kubeapps dashboard on their local machines to access Kubeapps.
+Consider an enterprise, MyCompany Ltd., that wants to provide Kubeapps to its employees as a means to deploy and manage applications running in a Kubernetes cluster. Kubeapps is installed into the cluster by the Cluster Operator and access is given via Kubeconfig credentials. Employees run suomitek-appboard dashboard on their local machines to access Kubeapps.
 
 In order to make it easier to access Kubeapps, the Cluster Operator configures Kubeapps to be externally accessible via Ingress. Now everyone is able to visit _kubeapps.mycompany.com_ to access the Kubeapps Dashboard. In order to restrict access to this external domain, the company wants to enable employees to login using their Kubernetes credentials from the user interface.
 
@@ -36,7 +36,7 @@ As described above, this is a solved problem in Kubernetes through the use of Ku
 
 Cluster operators have the ability to implement various strategies to authenticate with a Kubernetes cluster. The most common methods are client certificate/key and token authentication. Additionally, an authentication proxy can be used to integrate with other authentication protocols, and an authentication webhook can be used to verify bearer tokens in token authentication.
 
-### Configuring an authentication provider on `kubeapps up`
+### Configuring an authentication provider on `suomitek-appboard up`
 
 Configuring an authentication provider is typically done by a cluster operator, and usually requires configuring the API server with flags to enable different strategies. As such, it is out of scope for Kubeapps to configure a cluster with an authentication provider.
 

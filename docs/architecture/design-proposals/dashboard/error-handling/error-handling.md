@@ -6,7 +6,7 @@ Date: 2018/10/02
 
 Type: Design Doc
 
-Issue: [kubeapps#657](https://github.com/suomitek/suomitek-appboard/issues/657)
+Issue: [suomitek-appboard#657](https://github.com/suomitek/suomitek-appboard/issues/657)
 
 ## Objective
 
@@ -87,10 +87,10 @@ There will be two ways to interact with errors, both of them implemented using p
 
 1 - To show an error
 
-Different components or Thunk Actions will be able to "raise" an error by dispatching it and some of its properties as a generic "kubeapps@ERROR/SHOW" Redux action. Some functional requirements:
+Different components or Thunk Actions will be able to "raise" an error by dispatching it and some of its properties as a generic "suomitek-appboard@ERROR/SHOW" Redux action. Some functional requirements:
 
 * This action should contain in its payload enough properties for the ErrorSelector to be able to identify which error is and how to handle it.
-* `kubeapps@ERROR/SHOW` will replace current `ERROR_APPS`, `ERROR_CATALOG`, `ERROR_CHART`, `ERROR_README`, `ERROR_REPOS` and `AUTHENTICATION_ERROR`
+* `suomitek-appboard@ERROR/SHOW` will replace current `ERROR_APPS`, `ERROR_CATALOG`, `ERROR_CHART`, `ERROR_README`, `ERROR_REPOS` and `AUTHENTICATION_ERROR`
 
 2 - To clear all or a single error
 

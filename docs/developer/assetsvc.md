@@ -48,13 +48,13 @@ This builds the `assetsvc` Docker image.
 When using MongoDB:
 
 ```bash
-telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti suomitek-appboard/assetsvc /assetsvc --database-user=root --database-url=kubeapps-mongodb --database-type=mongodb --database-name=charts
+telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti suomitek-appboard/assetsvc /assetsvc --database-user=root --database-url=suomitek-appboard-mongodb --database-type=mongodb --database-name=charts
 ```
 
 When using PostgreSQL:
 
 ```bash
-telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti suomitek-appboard/assetsvc /assetsvc --database-user=postgres --database-url=kubeapps-postgresql:5432 --database-type=postgresql --database-name=assets
+telepresence --swap-deployment suomitek-appboard-internal-assetsvc --namespace suomitek-appboard --expose 8080:8080 --docker-run --rm -ti suomitek-appboard/assetsvc /assetsvc --database-user=postgres --database-url=suomitek-appboard-postgresql:5432 --database-type=postgresql --database-name=assets
 ```
 
 Note that the assetsvc should be rebuilt for new changes to take effect.

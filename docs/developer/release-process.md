@@ -63,4 +63,4 @@ But before, we need to create and merge a PR with a chart version bump in `chart
 
 Once the chart has been published and the release notes reviewed by a peer, publish the release and we are done!
 
-Don't forget to promote the release in #kubeapps!
+Don't forget to promote the release in #suomitek-appboard!

@@ -53,7 +53,7 @@ For setting up an Azure Kubernetes cluster (aks) with Azure Active Directory you
 - Client-secret: A "Password" Key of the server Application.
 - OIDC Issuer URL: `https://sts.windows.net/<Tenant-ID>/`. The Tenant-ID can be found at `Home > Default Directory - Properties > Directory ID`.
 
-**Note**: If you are using an nginx reverse proxy to get to kubeapps you might need to increase the `proxy_buffer_size` as [Azure's session store is too large for nginx](https://oauth2-proxy.github.io/oauth2-proxy/auth-configuration#azure-auth-provider). Similar changes might also be required for other reverse proxies.
+**Note**: If you are using an nginx reverse proxy to get to suomitek-appboard you might need to increase the `proxy_buffer_size` as [Azure's session store is too large for nginx](https://oauth2-proxy.github.io/oauth2-proxy/auth-configuration#azure-auth-provider). Similar changes might also be required for other reverse proxies.
 
 ### Google OIDC
 
@@ -143,13 +143,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    name: kubeapps-auth-proxy
-  name: kubeapps-auth-proxy
+    name: suomitek-appboard-auth-proxy
+  name: suomitek-appboard-auth-proxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: kubeapps-auth-proxy
+      name: suomitek-appboard-auth-proxy
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -158,7 +158,7 @@ spec:
   template:
     metadata:
       labels:
-        name: kubeapps-auth-proxy
+        name: suomitek-appboard-auth-proxy
     spec:
       containers:
       - args:
@@ -175,14 +175,14 @@ spec:
         - -pass-authorization-header=true
         image: bitnami/oauth2-proxy
         imagePullPolicy: IfNotPresent
-        name: kubeapps-auth-proxy
+        name: suomitek-appboard-auth-proxy
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: kubeapps-auth-proxy
-  name: kubeapps-auth-proxy
+    name: suomitek-appboard-auth-proxy
+  name: suomitek-appboard-auth-proxy
 spec:
   ports:
   - name: http
@@ -190,7 +190,7 @@ spec:
     protocol: TCP
     targetPort: 3000
   selector:
-    name: kubeapps-auth-proxy
+    name: suomitek-appboard-auth-proxy
   sessionAffinity: None
   type: ClusterIP
 EOF
@@ -199,14 +199,14 @@ EOF
 The above is a sample deployment, depending on the configuration of the Identity Provider those flags may vary. For this example we use:
 
 - `-client-id`, `-client-secret` and `-oidc-issuer-url`: Client ID, Secret and IdP URL as stated in the section above.
-- `-upstream`: Internal URL for the `kubeapps` service.
+- `-upstream`: Internal URL for the `suomitek-appboard` service.
 - `-http-address=0.0.0.0:3000`: Listen in all the interfaces.
 
 **NOTE**: If the identity provider is deployed with a self-signed certificate (which may be the case for Keycloak or Dex) you will need to disable the TLS and cookie verification. For doing so you can add the flags `-ssl-insecure-skip-verify` and `--cookie-secure=false` to the deployment above. You can find more options for `oauth2-proxy` [here](https://pusher.github.io/oauth2_proxy/docs/configuration).
 
 #### Exposing the proxy
 
-Once the proxy is in place and it's able to connect to the IdP we will need to expose it to access it as the main endpoint for Kubeapps (instead of the `kubeapps` service). We can do that with an Ingress object. Note that for doing so an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) is needed. There are also other methods to expose the `kubeapps-auth-proxy` service, for example using `LoadBalancer` as type in a cloud environment. In case an Ingress is used, remember to modify the host `suomitek-appboard.local` for the value that you want to use as a hostname for Kubeapps:
+Once the proxy is in place and it's able to connect to the IdP we will need to expose it to access it as the main endpoint for Kubeapps (instead of the `suomitek-appboard` service). We can do that with an Ingress object. Note that for doing so an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) is needed. There are also other methods to expose the `suomitek-appboard-auth-proxy` service, for example using `LoadBalancer` as type in a cloud environment. In case an Ingress is used, remember to modify the host `suomitek-appboard.local` for the value that you want to use as a hostname for Kubeapps:
 
 ```bash
 kubectl create -n $KUBEAPPS_NAMESPACE -f - -o yaml << EOF
@@ -216,14 +216,14 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/connection-proxy-header: keep-alive
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
-  name: kubeapps
+  name: suomitek-appboard
 spec:
   rules:
   - host: suomitek-appboard.local
     http:
       paths:
       - backend:
-          serviceName: kubeapps-auth-proxy
+          serviceName: suomitek-appboard-auth-proxy
           servicePort: 3000
         path: /
 EOF

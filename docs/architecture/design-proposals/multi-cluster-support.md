@@ -4,7 +4,7 @@
 
 Enable Kubeapps users to be able to **install apps into other configured Kubernetes clusters** in addition to the cluster on which Kubeapps is installed.
 
-This design aims to utilize the fact that to install apps on additional clusters, all that is required are user credentials with the required RBAC and network access from Kubeapps' pods to the Kubernetes API of the additional cluster. With Helm 3, we no longer need to run any infrastructure (ie. tiller or kubeapps services) on the additional cluster(s) to be able to deploy applications, as we are just sending YAML to the api server using the users credentials.
+This design aims to utilize the fact that to install apps on additional clusters, all that is required are user credentials with the required RBAC and network access from Kubeapps' pods to the Kubernetes API of the additional cluster. With Helm 3, we no longer need to run any infrastructure (ie. tiller or suomitek-appboard services) on the additional cluster(s) to be able to deploy applications, as we are just sending YAML to the api server using the users credentials.
 
 ## User Stories
 

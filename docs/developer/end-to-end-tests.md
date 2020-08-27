@@ -59,7 +59,7 @@ pod=$(kubectl get po -l run=integration -o jsonpath="{.items[0].metadata.name}")
 # Copy latest tests
 kubectl cp ./use-cases ${pod}:/app/
 # Run tests
-kubectl exec -it ${pod} -- /bin/sh -c 'INTEGRATION_ENTRYPOINT=http://suomitek-appboard.kubeapps LOGIN_TOKEN=foo yarn start'
+kubectl exec -it ${pod} -- /bin/sh -c 'INTEGRATION_ENTRYPOINT=http://suomitek-appboard.suomitek-appboard LOGIN_TOKEN=foo yarn start'
 # If the tests fail, get report screenshot
 kubectl cp ${pod}:/app/reports ./reports
 ```

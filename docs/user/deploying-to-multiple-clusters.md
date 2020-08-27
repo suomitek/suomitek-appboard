@@ -135,11 +135,11 @@ make multi-cluster-kind
 to create two local clusters (two docker containers) with their API servers configured to trust Dex running on the first cluster. To create dex, open-ldap and Kubeapps itself, run:
 
 ```bash
-export KUBECONFIG=~/.kube/kind-config-kubeapps
+export KUBECONFIG=~/.kube/kind-config-suomitek-appboard
 make deploy-dev
 ```
 
-Once the kubeapps pods are all ready (check the pods in the `kubeapps` namespace) you can browse to `https://localhost` to access Kubeapps and login.
+Once the suomitek-appboard pods are all ready (check the pods in the `suomitek-appboard` namespace) you can browse to `https://localhost` to access Kubeapps and login.
 
 When logging in, you will be redirected to dex (with a self-signed cert) and can login with email as either of
 

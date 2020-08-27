@@ -53,6 +53,6 @@ Versions of Monocular 0.7 and older include a basic ability to install, view and
 
 ## Community
 
-- [#kubeapps on Kubernetes Slack](https://kubernetes.slack.com/messages/kubeapps)
+- [#suomitek-appboard on Kubernetes Slack](https://kubernetes.slack.com/messages/suomitek-appboard)
 
 Click [here](http://slack.k8s.io) to sign up to the Kubernetes Slack org.

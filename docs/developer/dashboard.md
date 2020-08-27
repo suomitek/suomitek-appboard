@@ -21,7 +21,7 @@ export GOPATH=~/gopath
 export PATH=$GOPATH/bin:$PATH
 export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appboard
 ```
-## Download the kubeapps source code
+## Download the suomitek-appboard source code
 
 ```bash
 git clone --recurse-submodules https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR
@@ -47,7 +47,7 @@ First install the dashboard dependency packages:
 yarn install
 ```
 
-Next, create a `telepresence` shell to swap the `suomitek-appboard-internal-dashboard` deployment in the `kubeapps` namespace, forwarding local port `3000` to port `8080` of the `suomitek-appboard-internal-dashboard` pod.
+Next, create a `telepresence` shell to swap the `suomitek-appboard-internal-dashboard` deployment in the `suomitek-appboard` namespace, forwarding local port `3000` to port `8080` of the `suomitek-appboard-internal-dashboard` pod.
 
 ```bash
 telepresence --namespace suomitek-appboard --method inject-tcp --swap-deployment suomitek-appboard-internal-dashboard --expose 3000:8080 --run-shell
@@ -58,11 +58,11 @@ telepresence --namespace suomitek-appboard --method inject-tcp --swap-deployment
 Finally, launch the dashboard within the telepresence shell:
 
 ```bash
-export TELEPRESENCE_CONTAINER_NAMESPACE=kubeapps
+export TELEPRESENCE_CONTAINER_NAMESPACE=suomitek-appboard
 yarn run start
 ```
 
-> **NOTE**: The commands above assume you install Kubeapps in the `kubeapps` namespace. Please update the environment variable `TELEPRESENCE_CONTAINER_NAMESPACE` if you are using a different namespace.
+> **NOTE**: The commands above assume you install Kubeapps in the `suomitek-appboard` namespace. Please update the environment variable `TELEPRESENCE_CONTAINER_NAMESPACE` if you are using a different namespace.
 
 #### Telepresence alternative
 

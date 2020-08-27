@@ -18,14 +18,14 @@ export PATH=$GOPATH/bin:$PATH
 export KUBEAPPS_DIR=$GOPATH/src/github.com/suomitek/suomitek-appboard
 ```
 
-## Download kubeapps source code
+## Download suomitek-appboard source code
 
 ```bash
 git clone --recurse-submodules https://github.com/suomitek/suomitek-appboard $KUBEAPPS_DIR
 cd $KUBEAPPS_DIR
 ```
 
-## Build kubeapps
+## Build suomitek-appboard
 
 Kubeapps consists of a number of in-cluster components. To build all these components in one go:
 
@@ -36,8 +36,8 @@ make IMAGE_TAG=myver all
 Or if you wish to build specific component(s):
 
 ```bash
-# to build the kubeapps binary
-make IMAGE_TAG=myver kubeapps
+# to build the suomitek-appboard binary
+make IMAGE_TAG=myver suomitek-appboard
 
 # to build the suomitek-appboard/dashboard docker image
 make IMAGE_TAG=myver suomitek-appboard/dashboard
@@ -60,8 +60,8 @@ make test
 Or if you wish to test specific component(s):
 
 ```bash
-# to test the kubeapps binary
-make test-kubeapps
+# to test the suomitek-appboard binary
+make test-suomitek-appboard
 
 # to test suomitek-appboard/dashboard
 make test-dashboard
