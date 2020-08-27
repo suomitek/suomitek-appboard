@@ -262,12 +262,12 @@ pushChart apache 7.3.16 admin password
 
 # Ensure that we are testing the correct image
 info ""
-k8s_ensure_image kubeapps suomitek-appboard-ci-internal-apprepository-controller "$DEV_TAG"
-k8s_ensure_image kubeapps suomitek-appboard-ci-internal-dashboard "$DEV_TAG"
+k8s_ensure_image suomitek-appboard suomitek-appboard-ci-internal-apprepository-controller "$DEV_TAG"
+k8s_ensure_image suomitek-appboard suomitek-appboard-ci-internal-dashboard "$DEV_TAG"
 if [[ "${HELM_VERSION:-}" =~ "v2" ]]; then
-  k8s_ensure_image kubeapps suomitek-appboard-ci-internal-tiller-proxy "$DEV_TAG"
+  k8s_ensure_image suomitek-appboard suomitek-appboard-ci-internal-tiller-proxy "$DEV_TAG"
 else
-  k8s_ensure_image kubeapps suomitek-appboard-ci-internal-kubeops "$DEV_TAG"
+  k8s_ensure_image suomitek-appboard suomitek-appboard-ci-internal-kubeops "$DEV_TAG"
 fi
 
 # Wait for Kubeapps Pods
