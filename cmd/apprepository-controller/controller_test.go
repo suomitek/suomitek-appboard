@@ -121,10 +121,10 @@ func Test_newCronJob(t *testing.T) {
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
-					Namespace: "kubeapps",
+					Namespace: "suomitek-appboard",
 					Labels: map[string]string{
 						"name":       "my-charts",
-						"created-by": "kubeapps",
+						"created-by": "suomitek-appboard",
 					},
 				},
 				Spec: apprepov1alpha1.AppRepositorySpec{
@@ -150,7 +150,7 @@ func Test_newCronJob(t *testing.T) {
 					},
 					Labels: map[string]string{
 						LabelRepoName:      "my-charts",
-						LabelRepoNamespace: "kubeapps",
+						LabelRepoNamespace: "suomitek-appboard",
 					},
 				},
 				Spec: batchv1beta1.CronJobSpec{
@@ -162,7 +162,7 @@ func Test_newCronJob(t *testing.T) {
 								ObjectMeta: metav1.ObjectMeta{
 									Labels: map[string]string{
 										LabelRepoName:      "my-charts",
-										LabelRepoNamespace: "kubeapps",
+										LabelRepoNamespace: "suomitek-appboard",
 									},
 								},
 								Spec: corev1.PodSpec{
@@ -176,7 +176,7 @@ func Test_newCronJob(t *testing.T) {
 											Args: []string{
 												"sync",
 												"--database-type=mongodb",
-												"--database-url=mongodb.kubeapps",
+												"--database-url=mongodb.suomitek-appboard",
 												"--database-user=admin",
 												"--database-name=assets",
 												"--user-agent-comment=suomitek-appboard/v2.3",
@@ -210,7 +210,7 @@ func Test_newCronJob(t *testing.T) {
 			"*/20 * * * *",
 		},
 		{
-			"a cronjob for an app repo in another namespace references the repo secret in kubeapps",
+			"a cronjob for an app repo in another namespace references the repo secret in suomitek-appboard",
 			&apprepov1alpha1.AppRepository{
 				TypeMeta: metav1.TypeMeta{
 					Kind:       "AppRepository",
@@ -221,7 +221,7 @@ func Test_newCronJob(t *testing.T) {
 					Namespace: "otherns",
 					Labels: map[string]string{
 						"name":       "my-charts",
-						"created-by": "kubeapps",
+						"created-by": "suomitek-appboard",
 					},
 				},
 				Spec: apprepov1alpha1.AppRepositorySpec{
@@ -264,7 +264,7 @@ func Test_newCronJob(t *testing.T) {
 											Args: []string{
 												"sync",
 												"--database-type=mongodb",
-												"--database-url=mongodb.kubeapps",
+												"--database-url=mongodb.suomitek-appboard",
 												"--database-user=admin",
 												"--database-name=assets",
 												"--user-agent-comment=suomitek-appboard/v2.3",
@@ -318,11 +318,11 @@ func Test_newCronJob(t *testing.T) {
 }
 
 func Test_newSyncJob(t *testing.T) {
-	dbURL = "mongodb.kubeapps"
+	dbURL = "mongodb.suomitek-appboard"
 	dbName = "assets"
 	dbUser = "admin"
 	dbSecretName = "mongodb"
-	const kubeappsNamespace = "kubeapps"
+	const kubeappsNamespace = "suomitek-appboard"
 	tests := []struct {
 		name             string
 		apprepo          *apprepov1alpha1.AppRepository
@@ -338,10 +338,10 @@ func Test_newSyncJob(t *testing.T) {
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
-					Namespace: "kubeapps",
+					Namespace: "suomitek-appboard",
 					Labels: map[string]string{
 						"name":       "my-charts",
-						"created-by": "kubeapps",
+						"created-by": "suomitek-appboard",
 					},
 				},
 				Spec: apprepov1alpha1.AppRepositorySpec{
@@ -368,7 +368,7 @@ func Test_newSyncJob(t *testing.T) {
 						ObjectMeta: metav1.ObjectMeta{
 							Labels: map[string]string{
 								LabelRepoName:      "my-charts",
-								LabelRepoNamespace: "kubeapps",
+								LabelRepoNamespace: "suomitek-appboard",
 							},
 						},
 						Spec: corev1.PodSpec{
@@ -382,7 +382,7 @@ func Test_newSyncJob(t *testing.T) {
 									Args: []string{
 										"sync",
 										"--database-type=mongodb",
-										"--database-url=mongodb.kubeapps",
+										"--database-url=mongodb.suomitek-appboard",
 										"--database-user=admin",
 										"--database-name=assets",
 										"--namespace=suomitek-appboard",
@@ -418,7 +418,7 @@ func Test_newSyncJob(t *testing.T) {
 					Namespace: "my-other-namespace",
 					Labels: map[string]string{
 						"name":       "my-charts",
-						"created-by": "kubeapps",
+						"created-by": "suomitek-appboard",
 					},
 				},
 				Spec: apprepov1alpha1.AppRepositorySpec{
@@ -449,7 +449,7 @@ func Test_newSyncJob(t *testing.T) {
 									Args: []string{
 										"sync",
 										"--database-type=mongodb",
-										"--database-url=mongodb.kubeapps",
+										"--database-url=mongodb.suomitek-appboard",
 										"--database-user=admin",
 										"--database-name=assets",
 										"--namespace=my-other-namespace",
@@ -482,10 +482,10 @@ func Test_newSyncJob(t *testing.T) {
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
-					Namespace: "kubeapps",
+					Namespace: "suomitek-appboard",
 					Labels: map[string]string{
 						"name":       "my-charts",
-						"created-by": "kubeapps",
+						"created-by": "suomitek-appboard",
 					},
 				},
 				Spec: apprepov1alpha1.AppRepositorySpec{
@@ -516,7 +516,7 @@ func Test_newSyncJob(t *testing.T) {
 						ObjectMeta: metav1.ObjectMeta{
 							Labels: map[string]string{
 								LabelRepoName:      "my-charts",
-								LabelRepoNamespace: "kubeapps",
+								LabelRepoNamespace: "suomitek-appboard",
 							},
 						},
 						Spec: corev1.PodSpec{
@@ -530,7 +530,7 @@ func Test_newSyncJob(t *testing.T) {
 									Args: []string{
 										"sync",
 										"--database-type=mongodb",
-										"--database-url=mongodb.kubeapps",
+										"--database-url=mongodb.suomitek-appboard",
 										"--database-user=admin",
 										"--database-name=assets",
 										"--user-agent-comment=suomitek-appboard/v2.3",
@@ -569,10 +569,10 @@ func Test_newSyncJob(t *testing.T) {
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
-					Namespace: "kubeapps",
+					Namespace: "suomitek-appboard",
 					Labels: map[string]string{
 						"name":       "my-charts",
-						"created-by": "kubeapps",
+						"created-by": "suomitek-appboard",
 					},
 				},
 				Spec: apprepov1alpha1.AppRepositorySpec{
@@ -604,7 +604,7 @@ func Test_newSyncJob(t *testing.T) {
 						ObjectMeta: metav1.ObjectMeta{
 							Labels: map[string]string{
 								LabelRepoName:      "my-charts",
-								LabelRepoNamespace: "kubeapps",
+								LabelRepoNamespace: "suomitek-appboard",
 							},
 						},
 						Spec: corev1.PodSpec{
@@ -618,7 +618,7 @@ func Test_newSyncJob(t *testing.T) {
 									Args: []string{
 										"sync",
 										"--database-type=mongodb",
-										"--database-url=mongodb.kubeapps",
+										"--database-url=mongodb.suomitek-appboard",
 										"--database-user=admin",
 										"--database-name=assets",
 										"--namespace=suomitek-appboard",
@@ -665,10 +665,10 @@ func Test_newSyncJob(t *testing.T) {
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
-					Namespace: "kubeapps",
+					Namespace: "suomitek-appboard",
 					Labels: map[string]string{
 						"name":       "my-charts",
-						"created-by": "kubeapps",
+						"created-by": "suomitek-appboard",
 					},
 				},
 				Spec: apprepov1alpha1.AppRepositorySpec{
@@ -703,7 +703,7 @@ func Test_newSyncJob(t *testing.T) {
 						ObjectMeta: metav1.ObjectMeta{
 							Labels: map[string]string{
 								LabelRepoName:      "my-charts",
-								LabelRepoNamespace: "kubeapps",
+								LabelRepoNamespace: "suomitek-appboard",
 							},
 						},
 						Spec: corev1.PodSpec{
@@ -717,7 +717,7 @@ func Test_newSyncJob(t *testing.T) {
 									Args: []string{
 										"sync",
 										"--database-type=mongodb",
-										"--database-url=mongodb.kubeapps",
+										"--database-url=mongodb.suomitek-appboard",
 										"--database-user=admin",
 										"--database-name=assets",
 										"--namespace=suomitek-appboard",
@@ -769,10 +769,10 @@ func Test_newSyncJob(t *testing.T) {
 				},
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "my-charts",
-					Namespace: "kubeapps",
+					Namespace: "suomitek-appboard",
 					Labels: map[string]string{
 						"name":       "my-charts",
-						"created-by": "kubeapps",
+						"created-by": "suomitek-appboard",
 					},
 				},
 				Spec: apprepov1alpha1.AppRepositorySpec{
@@ -818,7 +818,7 @@ func Test_newSyncJob(t *testing.T) {
 						ObjectMeta: metav1.ObjectMeta{
 							Labels: map[string]string{
 								LabelRepoName:      "my-charts",
-								LabelRepoNamespace: "kubeapps",
+								LabelRepoNamespace: "suomitek-appboard",
 								"foo":              "bar",
 							},
 						},
@@ -834,7 +834,7 @@ func Test_newSyncJob(t *testing.T) {
 									Args: []string{
 										"sync",
 										"--database-type=mongodb",
-										"--database-url=mongodb.kubeapps",
+										"--database-url=mongodb.suomitek-appboard",
 										"--database-user=admin",
 										"--database-name=assets",
 										"--namespace=suomitek-appboard",
@@ -877,11 +877,11 @@ func Test_newSyncJob(t *testing.T) {
 }
 
 func Test_newCleanupJob(t *testing.T) {
-	dbURL = "mongodb.kubeapps"
+	dbURL = "mongodb.suomitek-appboard"
 	dbName = "assets"
 	dbUser = "admin"
 	dbSecretName = "mongodb"
-	const kubeappsNamespace = "kubeapps"
+	const kubeappsNamespace = "suomitek-appboard"
 
 	tests := []struct {
 		name      string
@@ -892,11 +892,11 @@ func Test_newCleanupJob(t *testing.T) {
 		{
 			"my-charts",
 			"my-charts",
-			"kubeapps",
+			"suomitek-appboard",
 			batchv1.Job{
 				ObjectMeta: metav1.ObjectMeta{
 					GenerateName: "apprepo-suomitek-appboard-cleanup-my-charts-",
-					Namespace:    "kubeapps",
+					Namespace:    "suomitek-appboard",
 				},
 				Spec: batchv1.JobSpec{
 					Template: corev1.PodTemplateSpec{
@@ -913,7 +913,7 @@ func Test_newCleanupJob(t *testing.T) {
 										"my-charts",
 										"--namespace=suomitek-appboard",
 										"--database-type=mongodb",
-										"--database-url=mongodb.kubeapps",
+										"--database-url=mongodb.suomitek-appboard",
 										"--database-user=admin",
 										"--database-name=assets",
 									},
@@ -955,7 +955,7 @@ func TestObjectBelongsTo(t *testing.T) {
 			object: &batchv1beta1.CronJob{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "apprepo-suomitek-appboard-sync-my-charts",
-					Namespace: "kubeapps",
+					Namespace: "suomitek-appboard",
 					Labels: map[string]string{
 						LabelRepoName:      "my-charts",
 						LabelRepoNamespace: "my-namespace",
@@ -975,7 +975,7 @@ func TestObjectBelongsTo(t *testing.T) {
 			object: &batchv1beta1.CronJob{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      "apprepo-suomitek-appboard-sync-my-charts",
-					Namespace: "kubeapps",
+					Namespace: "suomitek-appboard",
 					Labels: map[string]string{
 						LabelRepoName:      "my-charts",
 						LabelRepoNamespace: "my-namespace",

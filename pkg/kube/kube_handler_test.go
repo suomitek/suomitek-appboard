@@ -62,7 +62,7 @@ func (f *fakeHTTPCli) Do(*http.Request) (*http.Response, error) {
 	return f.response, f.err
 }
 
-const kubeappsNamespace = "kubeapps"
+const kubeappsNamespace = "suomitek-appboard"
 
 func makeAppRepoObjects(reposPerNamespace map[string][]repoStub) []runtime.Object {
 	objects := []runtime.Object{}
@@ -117,7 +117,7 @@ func makeSecretsForRepos(reposPerNamespace map[string][]repoStub, kubeappsNamesp
 			}
 			objects = append(objects, appRepo)
 
-			// Only create a copy of the secret in the kubeapps namespace if the app repo
+			// Only create a copy of the secret in the suomitek-appboard namespace if the app repo
 			// is in a user namespace.
 			if namespace != kubeappsNamespace {
 				var appRepo runtime.Object = &corev1.Secret{
@@ -206,12 +206,12 @@ func checkSecrets(t *testing.T, requestNamespace string, appRepoRequest appRepos
 			t.Errorf("mismatch (-want +got):\n%s", cmp.Diff(want, got))
 		}
 
-		// Verify the copy of the repo secret in in kubeapps is
+		// Verify the copy of the repo secret in in suomitek-appboard is
 		// also stored if this is a per-namespace app repository.
 		kubeappsSecretName := KubeappsSecretNameForRepo(expectedAppRepo.ObjectMeta.Name, expectedAppRepo.ObjectMeta.Namespace)
 		expectedSecret.ObjectMeta.Name = kubeappsSecretName
 		expectedSecret.ObjectMeta.Namespace = kubeappsNamespace
-		// The owner ref cannot be present for the copy in the kubeapps namespace.
+		// The owner ref cannot be present for the copy in the suomitek-appboard namespace.
 		expectedSecret.ObjectMeta.OwnerReferences = nil
 
 		if requestNamespace != kubeappsNamespace {
@@ -272,11 +272,11 @@ func TestAppRepositoryCreate(t *testing.T) {
 			expectedError:    ErrGlobalRepositoryWithSecrets,
 		},
 		{
-			name:             "it errors if the repo exists in the kubeapps ns already",
+			name:             "it errors if the repo exists in the suomitek-appboard ns already",
 			requestNamespace: kubeappsNamespace,
 			requestData:      `{"appRepository": {"name": "bitnami"}}`,
 			existingRepos: map[string][]repoStub{
-				"kubeapps": {repoStub{name: "bitnami"}},
+				"suomitek-appboard": {repoStub{name: "bitnami"}},
 			},
 			expectedError: fmt.Errorf(`apprepositories.suomitek.com "bitnami" already exists`),
 		},
@@ -285,8 +285,8 @@ func TestAppRepositoryCreate(t *testing.T) {
 			requestNamespace: kubeappsNamespace,
 			requestData:      `{"appRepository": {"name": "bitnami"}}`,
 			existingRepos: map[string][]repoStub{
-				"kubeapps-other-ns-1": {repoStub{name: "bitnami"}},
-				"kubeapps-other-ns-2": {repoStub{name: "bitnami"}},
+				"suomitek-appboard-other-ns-1": {repoStub{name: "bitnami"}},
+				"suomitek-appboard-other-ns-2": {repoStub{name: "bitnami"}},
 			},
 		},
 		{
@@ -301,7 +301,7 @@ func TestAppRepositoryCreate(t *testing.T) {
 			requestData:      `{"appRepository": {"name": "test-repo", "url": "http://example.com/test-repo", "authHeader": "test-me"}}`,
 		},
 		{
-			name:             "it creates a copy of the namespaced repo secret in the kubeapps namespace",
+			name:             "it creates a copy of the namespaced repo secret in the suomitek-appboard namespace",
 			requestNamespace: "test-namespace",
 			requestData:      `{"appRepository": {"name": "test-repo", "url": "http://example.com/test-repo", "authHeader": "test-me"}}`,
 		},
@@ -341,7 +341,7 @@ func TestAppRepositoryList(t *testing.T) {
 			name:             "it gets repos from the global namespace",
 			requestNamespace: kubeappsNamespace,
 			existingRepos: map[string][]repoStub{
-				"kubeapps": {repoStub{name: "test-repo"}},
+				"suomitek-appboard": {repoStub{name: "test-repo"}},
 			},
 		},
 		{
@@ -386,7 +386,7 @@ func TestAppRepositoryList(t *testing.T) {
 }
 
 func TestAppRepositoryUpdate(t *testing.T) {
-	const kubeappsNamespace = "kubeapps"
+	const kubeappsNamespace = "suomitek-appboard"
 	testCases := []struct {
 		name             string
 		requestNamespace string
@@ -400,7 +400,7 @@ func TestAppRepositoryUpdate(t *testing.T) {
 			requestNamespace: kubeappsNamespace,
 			requestData:      `{"appRepository": {"name": "test-repo", "url": "http://example.com/test-repo"}}`,
 			existingRepos: map[string][]repoStub{
-				"kubeapps": {repoStub{name: "test-repo"}},
+				"suomitek-appboard": {repoStub{name: "test-repo"}},
 			},
 		},
 		{
@@ -421,7 +421,7 @@ func TestAppRepositoryUpdate(t *testing.T) {
 			name:             "it creates a secret if the auth header is set",
 			requestNamespace: kubeappsNamespace,
 			existingRepos: map[string][]repoStub{
-				"kubeapps": {repoStub{name: "test-repo"}},
+				"suomitek-appboard": {repoStub{name: "test-repo"}},
 			},
 			requestData: `{"appRepository": {"name": "test-repo", "url": "http://example.com/test-repo", "authHeader": "test-me"}}`,
 		},
@@ -429,7 +429,7 @@ func TestAppRepositoryUpdate(t *testing.T) {
 			name:             "it creates a secret if the auth header is set in different namespaces",
 			requestNamespace: "default",
 			existingRepos: map[string][]repoStub{
-				"kubeapps": {repoStub{name: "test-repo"}},
+				"suomitek-appboard": {repoStub{name: "test-repo"}},
 				"default":  {repoStub{name: "test-repo"}},
 			},
 			requestData: `{"appRepository": {"name": "test-repo", "url": "http://example.com/test-repo", "authHeader": "test-me"}}`,
@@ -438,21 +438,21 @@ func TestAppRepositoryUpdate(t *testing.T) {
 			name:             "it updates a secret if the auth header is set",
 			requestNamespace: kubeappsNamespace,
 			existingRepos: map[string][]repoStub{
-				"kubeapps": {repoStub{name: "test-repo"}},
+				"suomitek-appboard": {repoStub{name: "test-repo"}},
 			},
 			existingSecrets: map[string][]secretStub{
-				"kubeapps": {secretStub{name: "apprepo-test-repo"}},
+				"suomitek-appboard": {secretStub{name: "apprepo-test-repo"}},
 			},
 			requestData: `{"appRepository": {"name": "test-repo", "url": "http://example.com/test-repo", "authHeader": "test-me"}}`,
 		},
 		{
-			name:             "it updates a secret if the auth header is set in both default and kubeapps namespace",
+			name:             "it updates a secret if the auth header is set in both default and suomitek-appboard namespace",
 			requestNamespace: "default",
 			existingRepos: map[string][]repoStub{
 				"default": {repoStub{name: "test-repo"}},
 			},
 			existingSecrets: map[string][]secretStub{
-				"kubeapps": {secretStub{name: "default-apprepo-test-repo"}},
+				"suomitek-appboard": {secretStub{name: "default-apprepo-test-repo"}},
 				"default":  {secretStub{name: "apprepo-test-repo"}},
 			},
 			requestData: `{"appRepository": {"name": "test-repo", "url": "http://example.com/test-repo", "authHeader": "test-me"}}`,
@@ -484,7 +484,7 @@ func TestAppRepositoryUpdate(t *testing.T) {
 }
 
 func TestDeleteAppRepository(t *testing.T) {
-	const kubeappsNamespace = "kubeapps"
+	const kubeappsNamespace = "suomitek-appboard"
 	testCases := []struct {
 		name              string
 		repoName          string
@@ -512,7 +512,7 @@ func TestDeleteAppRepository(t *testing.T) {
 			expectedErrorCode: 404,
 		},
 		{
-			name:             "it deletes an existing repo from kubeapps' namespace",
+			name:             "it deletes an existing repo from suomitek-appboard' namespace",
 			repoName:         "my-repo",
 			requestNamespace: kubeappsNamespace,
 			existingRepos:    map[string][]repoStub{kubeappsNamespace: {repoStub{name: "my-repo"}}},
@@ -548,7 +548,7 @@ func TestDeleteAppRepository(t *testing.T) {
 				// We cannot ensure that the deletion of any owned secret was propagated
 				// because the fake client does not handle finalizers but verified in real life.
 
-				// Ensure any copy of the repo credentials has been deleted from the kubeapps namespace.
+				// Ensure any copy of the repo credentials has been deleted from the suomitek-appboard namespace.
 				_, err = cs.CoreV1().Secrets(kubeappsNamespace).Get(context.TODO(), KubeappsSecretNameForRepo(tc.repoName, tc.requestNamespace), metav1.GetOptions{})
 				if got, want := errorCodeForK8sError(t, err), 404; got != want {
 					t.Errorf("got: %d, want: %d", got, want)
@@ -866,7 +866,7 @@ func TestGetNamespaces(t *testing.T) {
 
 			handler := kubeHandler{
 				clientsetForConfig: func(*rest.Config) (combinedClientsetInterface, error) { return userClientSet, nil },
-				kubeappsNamespace:  "kubeapps",
+				kubeappsNamespace:  "suomitek-appboard",
 				svcClientset:       svcClientSet,
 			}
 
@@ -908,7 +908,7 @@ func setClientsetData(cs fakeCombinedClientset, namespaceNames []string, err err
 }
 
 func TestValidateAppRepository(t *testing.T) {
-	const kubeappsNamespace = "kubeapps"
+	const kubeappsNamespace = "suomitek-appboard"
 	getValidationCliAndReqTests := []struct {
 		name             string
 		requestData      string

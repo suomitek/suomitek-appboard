@@ -439,8 +439,8 @@ func (a *userHandler) DeleteAppRepository(repoName, repoNamespace string) error 
 		return err
 	}
 
-	// If the app repo was in a namespace other than the kubeapps one, we also delete the copy of
-	// the repository credentials kept in the kubeapps namespace (the repo credentials in the actual
+	// If the app repo was in a namespace other than the suomitek-appboard one, we also delete the copy of
+	// the repository credentials kept in the suomitek-appboard namespace (the repo credentials in the actual
 	// namespace should be deleted when the owning app repo is deleted).
 	if hasCredentials && repoNamespace != a.kubeappsNamespace {
 		err = a.clientset.CoreV1().Secrets(a.kubeappsNamespace).Delete(context.TODO(), KubeappsSecretNameForRepo(repoName, repoNamespace), metav1.DeleteOptions{})
@@ -586,7 +586,7 @@ func secretNameForRepo(repoName string) string {
 }
 
 // KubeappsSecretNameForRepo returns a name suitable for recording a copy of
-// a per-namespace repository secret in the kubeapps namespace.
+// a per-namespace repository secret in the suomitek-appboard namespace.
 func KubeappsSecretNameForRepo(repoName, namespace string) string {
 	return fmt.Sprintf("%s-%s", namespace, secretNameForRepo(repoName))
 }
