@@ -46,7 +46,7 @@ devel/openshift-kubeapps-installed: openshift-install-tiller chart/kubeapps/char
 	@oc project ${KUBEAPPS_NAMESPACE}
 	helm --tiller-namespace=${TILLER_NAMESPACE} install ./chart/kubeapps -n ${KUBEAPPS_NAMESPACE} \
 		--set tillerProxy.host=tiller-deploy.${TILLER_NAMESPACE}:44134 \
-		--values ./docs/user/manifests/kubeapps-local-dev-values.yaml
+		--values ./docs/user/manifests/suomitek-appboard-local-dev-values.yaml
 
 # Due to openshift having multiple secrets for the service account, the code is slightly different from
 # that at https://github.com/suomitek/suomitek-appboard/blob/master/docs/user/getting-started.md#on-linuxmacos
