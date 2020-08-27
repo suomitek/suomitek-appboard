@@ -52,7 +52,7 @@ eval $(minikube docker-env)
 Note: By default, Kubeapps will try to fetch the latest version of the image so in order to make this workflow work in Minikube you will need to update the imagePullPolicy first:
 
 ```bash
-kubectl patch deployment kubeapps-internal-kubeops -n kubeapps --type=json -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/imagePullPolicy", "value": "IfNotPresent"}]'
+kubectl patch deployment suomitek-appboard-internal-kubeops -n kubeapps --type=json -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/imagePullPolicy", "value": "IfNotPresent"}]'
 ```
 
 The easiest way to create the `kubeops` image is to execute the Makefile task to do so:
@@ -64,13 +64,13 @@ IMAGE_TAG=dev make kubeapps/kubeops
 This will generate an image `kubeapps/kubeops:dev` that you can use in the current deployment:
 
 ```bash
-kubectl set image -n kubeapps deployment kubeapps-internal-kubeops kubeops=kubeapps/kubeops:dev
+kubectl set image -n kubeapps deployment suomitek-appboard-internal-kubeops kubeops=kubeapps/kubeops:dev
 ```
 
 For further redeploys you can change the version to deploy a different tag or rebuild the same image and restart the pod executing:
 
 ```bash
-kubectl delete pod -n kubeapps -l app=kubeapps-internal-kubeops
+kubectl delete pod -n kubeapps -l app=suomitek-appboard-internal-kubeops
 ```
 
 Note: If you are using a cloud provider to develop the service you will need to retag the image and push it to a public registry.

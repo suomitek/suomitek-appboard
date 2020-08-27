@@ -114,9 +114,9 @@ silence helm install kubeapps \
 info "Waiting for Kubeapps components to be ready..."
 deployments=(
     "kubeapps"
-    "kubeapps-internal-apprepository-controller"
-    "kubeapps-internal-assetsvc"
-    "kubeapps-internal-dashboard"
+    "suomitek-appboard-internal-apprepository-controller"
+    "suomitek-appboard-internal-assetsvc"
+    "suomitek-appboard-internal-dashboard"
 )
 
 for dep in "${deployments[@]}"; do

@@ -198,7 +198,7 @@ describe("is403FromAuthProxy", () => {
       Auth.is403FromAuthProxy({
         status: 403,
         data:
-          'namespaces is forbidden: User "system:serviceaccount:kubeapps:kubeapps-internal-kubeops" cannot list resource "namespaces" in API group "" at the cluster scope',
+          'namespaces is forbidden: User "system:serviceaccount:kubeapps:suomitek-appboard-internal-kubeops" cannot list resource "namespaces" in API group "" at the cluster scope',
       } as AxiosResponse<any>),
     ).toBe(false);
   });
