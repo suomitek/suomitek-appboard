@@ -10,7 +10,7 @@ customLdifFiles:
     objectClass: inetOrgPerson
     sn: doe
     cn: jane
-    mail: kubeapps-operator-ldap@example.org
+    mail: suomitek-appboard-operator-ldap@example.org
     userpassword: password
     
     dn: cn=john,ou=People,dc=example,dc=org

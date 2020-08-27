@@ -34,10 +34,10 @@ deploy-dev: deploy-dependencies
 		--set useHelm3=true
 	@echo "\nYou can now simply open your browser at https://localhost/ to access Kubeapps!"
 	@echo "When logging in, you will be redirected to dex (with a self-signed cert) and can login with email as either of"
-	@echo "  kubeapps-operator@example.com:password"
+	@echo "  suomitek-appboard-operator@example.com:password"
 	@echo "  suomitek-appboard-user@example.com:password"
 	@echo "or with LDAP as either of"
-	@echo "  kubeapps-operator-ldap@example.org:password"
+	@echo "  suomitek-appboard-operator-ldap@example.org:password"
 	@echo "  suomitek-appboard-user-ldap@example.org:password"
 	@echo "to authenticate with the corresponding permissions."
 

@@ -37,7 +37,7 @@ const sampleOperator = {
     channels: [
       {
         name: "alpha",
-        currentCSV: "kubeapps-operator",
+        currentCSV: "suomitek-appboard-operator",
         currentCSVDesc: {
           version: "1.0.0",
           annotations: {
@@ -51,7 +51,7 @@ const sampleOperator = {
 } as IPackageManifest;
 
 const sampleCSV = {
-  metadata: { name: "kubeapps-operator" },
+  metadata: { name: "suomitek-appboard-operator" },
   spec: {
     icon: [{}],
     provider: {

@@ -36,8 +36,8 @@ The above commands will deploy Kubeapps into the `kubeapps` namespace in your cl
 For trying out Kubeapps, access to the Dashboard requires a Kubernetes API token to authenticate with the Kubernetes API server as shown below, but for any real installation of Kubeapps you should instead [configure an OAuth2/OIDC provider](using-an-OIDC-provider.md).
 
 ```bash
-kubectl create serviceaccount kubeapps-operator
-kubectl create clusterrolebinding kubeapps-operator --clusterrole=cluster-admin --serviceaccount=default:kubeapps-operator
+kubectl create serviceaccount suomitek-appboard-operator
+kubectl create clusterrolebinding suomitek-appboard-operator --clusterrole=cluster-admin --serviceaccount=default:suomitek-appboard-operator
 ```
 
 > **NOTE** It's not recommended to create `cluster-admin` users for Kubeapps production usage. Please refer to the [Access Control](/docs/user/access-control.md) documentation to configure fine-grained access control for users.
@@ -47,7 +47,7 @@ To retrieve the token,
 ### On Linux/macOS:
 
 ```bash
-kubectl get secret $(kubectl get serviceaccount kubeapps-operator -o jsonpath='{range .secrets[*]}{.name}{"\n"}{end}' | grep kubeapps-operator-token) -o jsonpath='{.data.token}' -o go-template='{{.data.token | base64decode}}' && echo
+kubectl get secret $(kubectl get serviceaccount suomitek-appboard-operator -o jsonpath='{range .secrets[*]}{.name}{"\n"}{end}' | grep suomitek-appboard-operator-token) -o jsonpath='{.data.token}' -o go-template='{{.data.token | base64decode}}' && echo
 ```
 
 ### On Windows:
@@ -57,7 +57,7 @@ Create a file called `GetDashToken.cmd` with the following lines in it:
 ```bat
 @ECHO OFF
 REM Get the Service Account
-kubectl get serviceaccount kubeapps-operator -o jsonpath={.secrets[].name} > s.txt
+kubectl get serviceaccount suomitek-appboard-operator -o jsonpath={.secrets[].name} > s.txt
 SET /p ks=<s.txt
 DEL s.txt
 

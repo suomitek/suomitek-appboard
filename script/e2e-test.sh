@@ -370,9 +370,9 @@ if [[ "${#testsToIgnore[@]}" > "0" ]]; then
 fi
 kubectl cp ./use-cases "${pod}:/app/"
 ## Create admin user
-kubectl create serviceaccount kubeapps-operator -n suomitek-appboard
-kubectl create clusterrolebinding kubeapps-operator-admin --clusterrole=admin --serviceaccount kubeapps:kubeapps-operator
-kubectl create clusterrolebinding kubeapps-repositories-write --clusterrole kubeapps:kubeapps:apprepositories-write --serviceaccount kubeapps:kubeapps-operator
+kubectl create serviceaccount suomitek-appboard-operator -n suomitek-appboard
+kubectl create clusterrolebinding suomitek-appboard-operator-admin --clusterrole=admin --serviceaccount kubeapps:suomitek-appboard-operator
+kubectl create clusterrolebinding kubeapps-repositories-write --clusterrole kubeapps:kubeapps:apprepositories-write --serviceaccount kubeapps:suomitek-appboard-operator
 ## Create view user
 kubectl create serviceaccount kubeapps-view -n suomitek-appboard
 kubectl create clusterrolebinding kubeapps-view --clusterrole=view --serviceaccount kubeapps:kubeapps-view
@@ -381,11 +381,11 @@ kubectl create serviceaccount kubeapps-edit -n suomitek-appboard
 kubectl create rolebinding kubeapps-edit -n suomitek-appboard --clusterrole=edit --serviceaccount kubeapps:kubeapps-edit
 ## Give the cluster some time to avoid issues like
 ## https://circleci.com/gh/suomitek/suomitek-appboard/16102
-retry_while "kubectl get -n suomitek-appboard serviceaccount kubeapps-operator -o name" "5" "1"
+retry_while "kubectl get -n suomitek-appboard serviceaccount suomitek-appboard-operator -o name" "5" "1"
 retry_while "kubectl get -n suomitek-appboard serviceaccount kubeapps-view -o name" "5" "1"
 retry_while "kubectl get -n suomitek-appboard serviceaccount kubeapps-edit -o name" "5" "1"
 ## Retrieve tokens
-admin_token="$(kubectl get -n suomitek-appboard secret "$(kubectl get -n suomitek-appboard serviceaccount kubeapps-operator -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
+admin_token="$(kubectl get -n suomitek-appboard secret "$(kubectl get -n suomitek-appboard serviceaccount suomitek-appboard-operator -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
 view_token="$(kubectl get -n suomitek-appboard secret "$(kubectl get -n suomitek-appboard serviceaccount kubeapps-view -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
 edit_token="$(kubectl get -n suomitek-appboard secret "$(kubectl get -n suomitek-appboard serviceaccount kubeapps-edit -o jsonpath='{.secrets[].name}')" -o go-template='{{.data.token | base64decode}}' && echo)"
 ## Run tests

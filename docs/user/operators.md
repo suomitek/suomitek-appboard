@@ -43,10 +43,10 @@ chmod +x install.sh
 Note that you will need special permissions to manage Operators. If you receive a Forbidden error, apply the following ClusterRole to your admin user:
 
 ```bash
-kubectl create clusterrolebinding kubeapps-operator-cluster-admin --clusterrole=cluster-admin --serviceaccount kubeapps:kubeapps-operator
+kubectl create clusterrolebinding suomitek-appboard-operator-cluster-admin --clusterrole=cluster-admin --serviceaccount kubeapps:suomitek-appboard-operator
 ```
 
-NOTE: replace the `kubeapps:kubeapps-operator` with the service account you are using or the cluster user.
+NOTE: replace the `kubeapps:suomitek-appboard-operator` with the service account you are using or the cluster user.
 
 ## Step 3: Install an Operator
 

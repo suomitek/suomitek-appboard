@@ -1,8 +1,8 @@
-# kubeapps-operator has cluster-admin
+# suomitek-appboard-operator has cluster-admin
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: kubeapps-operator
+  name: suomitek-appboard-operator
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -13,7 +13,7 @@ subjects:
 # So instead use the testing of groups with the ldap access only.
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: oidc:kubeapps-operator@example.com
+  name: oidc:suomitek-appboard-operator@example.com
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
   name: oidc:kubeapps-operators
@@ -64,7 +64,7 @@ subjects:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: kubeapps-operator-apprepositories-write
+  name: suomitek-appboard-operator-apprepositories-write
   namespace: suomitek-appboard-user-namespace
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -73,7 +73,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: oidc:kubeapps-operator@example.com
+  name: oidc:suomitek-appboard-operator@example.com
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
   name: oidc:kubeapps-operators

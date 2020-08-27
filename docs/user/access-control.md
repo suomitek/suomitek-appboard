@@ -161,6 +161,6 @@ cluster-admin access (effectively disabling RBAC). This is not recommended, but
 useful for quick demonstrations or evaluations.
 
 ```bash
-kubectl create serviceaccount kubeapps-operator
-kubectl create clusterrolebinding kubeapps-operator --clusterrole=cluster-admin --serviceaccount=default:kubeapps-operator
+kubectl create serviceaccount suomitek-appboard-operator
+kubectl create clusterrolebinding suomitek-appboard-operator --clusterrole=cluster-admin --serviceaccount=default:suomitek-appboard-operator
 ```
