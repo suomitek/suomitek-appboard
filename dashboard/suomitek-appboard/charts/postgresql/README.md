@@ -485,7 +485,7 @@ For major releases of PostgreSQL, the internal data storage format is subject to
 Welcome to the Bitnami postgresql container
 Subscribe to project updates by watching https://github.com/bitnami/bitnami-docker-postgresql
 Submit issues and feature requests at https://github.com/bitnami/bitnami-docker-postgresql/issues
-Send us your feedback at containers@bitnami.com
+Send us your feedback at containers@suomitek.com
 
 INFO  ==> ** Starting PostgreSQL setup **
 NFO  ==> Validating settings in POSTGRESQL_* env vars..

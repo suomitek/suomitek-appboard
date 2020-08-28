@@ -14,7 +14,7 @@ sources:
   - https://github.com/suomitek/suomitek-appboard
 maintainers:
   - name: Bitnami
-    email: containers@bitnami.com
+    email: containers@suomitek.com
 # 2.14+ required https://github.com/suomitek/suomitek-appboard/issues/1185
 tillerVersion: ">=2.14.0"
 annotations:

@@ -172,7 +172,7 @@ describe("ChartMaintainers githubIDAsNames prop value", () => {
     {
       expected: true,
       name: "incubator Helm repo",
-      maintainers: [{ name: "Bitnami", email: "email: containers@bitnami.com" }],
+      maintainers: [{ name: "Bitnami", email: "email: containers@suomitek.com" }],
       repoURL: "https://kubernetes-charts-incubator.storage.googleapis.com",
     },
     {

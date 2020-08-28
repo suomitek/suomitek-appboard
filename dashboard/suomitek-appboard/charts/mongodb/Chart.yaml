@@ -13,7 +13,7 @@ keywords:
 - replicaset
 - replication
 maintainers:
-- email: containers@bitnami.com
+- email: containers@suomitek.com
   name: Bitnami
 name: mongodb
 sources:

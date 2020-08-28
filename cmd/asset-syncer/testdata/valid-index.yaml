@@ -34,7 +34,7 @@ entries:
     - application
     - php
     maintainers:
-    - email: containers@bitnami.com
+    - email: containers@suomitek.com
       name: bitnami-bot
     name: wordpress
     sources:
@@ -59,7 +59,7 @@ entries:
     - application
     - php
     maintainers:
-    - email: containers@bitnami.com
+    - email: containers@suomitek.com
       name: bitnami-bot
     name: wordpress
     sources:
